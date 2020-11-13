@@ -1,1 +1,1 @@
-# azurciel.github.io
+[my blog](https://azurciel.github.io)
