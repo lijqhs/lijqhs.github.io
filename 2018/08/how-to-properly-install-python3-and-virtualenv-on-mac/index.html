@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="azurciel">
+<meta name="keywords" content="Python, Mac, Virtualenv">
+<meta name="description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
+
+
+<meta property="og:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How To Properly Install Python3 and Virtualenv on Mac">
+<meta name="twitter:title" content="How To Properly Install Python3 and Virtualenv on Mac">
+<meta property="og:url" content="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
+<meta property="twitter:url" content="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
+<meta property="og:site_name" content="azurciel&#39;s blog">
+<meta property="og:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
+<meta name="twitter:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-08-24T19:01:48">
+  
+  
+    <meta property="article:modified_time" content="2018-08-24T19:01:48">
+  
+  
+  
+    
+      <meta property="article:section" content="howto">
+    
+  
+  
+    
+      <meta property="article:tag" content="Python">
+    
+      <meta property="article:tag" content="Mac">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+
+
+    <title>How To Properly Install Python3 and Virtualenv on Mac</title>
+
+    <link rel="icon" href="https://azurciel.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://azurciel.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-182241114-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://azurciel.github.io/">azurciel&#39;s blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://azurciel.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://azurciel.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">azurciel</h4>
+        
+          <h5 class="sidebar-profile-bio">curious about learning</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://azurciel.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://azurciel.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://azurciel.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://azurciel.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://azurciel.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/azurciel" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/14633186/azurciel" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://azurciel.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      How To Properly Install Python3 and Virtualenv on Mac
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-08-24T19:01:48&#43;08:00">
+        
+  August 24, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://azurciel.github.io/categories/howto">howto</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of <a href="https://www.davidculley.com/installing-python-on-a-mac/">David Culley</a> where he gives several alternatives to set up a Python3 working environment. The post of <a href="https://stringpiggy.hpd.io/mac-osx-python3-dual-install/">Candy Tsai</a> also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. <a href="https://brew.sh/">Homebrew</a> is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.</p>
+<h1 id="install-python-via-homebrew">Install Python via Homebrew</h1>
+<p>The following steps shows the full path to install Python3 via Homebrew.</p>
+<h2 id="install-xcode">Install XCode</h2>
+<p>Before installing Homebrew you need first install XCode which is an integrated development environment for macOS containing a suite of software development tools by Apple for creating apps for iPhone, iPad, Mac and other Apple products. Open App Store and search <code>xcode</code> then the first result should be your choice.</p>
+<p><img src="https://azurciel.github.io/img/xcode-install.png" alt="xcode_install"></p>
+<p>After XCode installation, open the app and check <em>License Agreement</em> and then install XCode command line tool in the terminal.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">xcode-select --install
+</code></pre></div><p>The XCode installation is finished and move on the next step.</p>
+<h2 id="install-homebrew">Install Homebrew</h2>
+<p><img src="https://azurciel.github.io/img/homebrew.png" alt="homebrew"></p>
+<p>Homebrew is the missing package manager and simply follow the installation instruction from the Homebrew webpage. The script should be run on the macOS above 10.7 otherwise see documents <a href="https://docs.brew.sh/Installation">here</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/bin/ruby -e <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>After the script completes run a check command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew doctor
+</code></pre></div><p>You should see a message exactly like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Your system is ready to brew.
+</code></pre></div><p>Until now you could install python3 on your mac by Homebrew.</p>
+<h2 id="install-python3">Install Python3</h2>
+<p>In your terminal, execute the following command.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install python3
+</code></pre></div><p>Waiting a few seconds python3 will be in the directory <code>/usr/local/Cellar/</code>. Need not bother to care what it is. Directly use <code>python3</code> in the terminal to run your python code. Homebrew will automatically create a soft link to python3 in <code>/usr/local/bin</code> and append that directory to the beginning of <code>$PATH</code>. So now you have python3 installed. Since Homebrew always installs the newest version of Python in my case it is Python 3.7.0 before I write this post.</p>
+<h2 id="check-installation">Check installation</h2>
+<p><code>python</code> stands for the original python distribution of macOS system. <code>python3</code> is what you have just installed and what you should use in the developing.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">which python3
+</code></pre></div><p>It shows <code>/usr/local/bin/python3</code> whereas</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">which python
+</code></pre></div><p>shows <code>/usr/bin/python</code>.</p>
+<h1 id="virtualenv">Virtualenv</h1>
+<p>One more thing. To properly develop with python3 on Macbook Virtualenv is a good assistant for you. Virtualenv helps you keep every project with its own specific python package environment seperately. Virtualenv itself is installed within python3 environment and later on you should install packages for every project indepentently.</p>
+<h2 id="change-pip-mirror">Change pip mirror</h2>
+<p>First it&rsquo;s better to change the pip source mirror since the official pip source website may have a bandwidth limitation and it will always fail to download packages even though <code>--timeout</code> parameter is set.
+For temporary use install packages by append a parameter to <code>pip3</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+</code></pre></div><p>I suggest to make the setting as default by creating a configuration file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~ <span style="color:#f92672">&amp;&amp;</span> mkdir .pip<span style="color:#f92672">&amp;&amp;</span>cd .pip
+vi pip.conf
+</code></pre></div><p>Press <code>i</code> on keyboard to turn on vi edit mode and type the two lines in the file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>global<span style="color:#f92672">]</span>
+index-url <span style="color:#f92672">=</span> https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div><p>Then press <code>esc</code> to switch from edit mode to command mode and just input <code>:wq</code> and <code>Enter</code> to save and quit the file.</p>
+<h2 id="install-virtualenv">Install Virtualenv</h2>
+<p>You should always prefer installing softwares by pip to homebrew when available in both. Install virtualenv as a package in Python3. Do as follows.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip3 install --upgrade pip setuptools wheel
+pip3 install virtualenv virtualenvwrapper
+</code></pre></div><p>Here you see <code>virtualenv</code> and <code>virtualenvwrapper</code>. The later one is not mandatory but is worth a try. After installation the important part is configuration.</p>
+<h2 id="configurate-virtualenv">Configurate Virtualenv</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/Projects
+</code></pre></div><p>To create a directory for projects in your home directory. You can put it anywhere in your system.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vi ~/.profile
+</code></pre></div><p>Append</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># needed for virtualenvwrapper</span>
+export WORKON_HOME<span style="color:#f92672">=</span>$HOME/.virtualenvs
+export PROJECT_HOME<span style="color:#f92672">=</span>$HOME/Projects
+export VIRTUALENVWRAPPER_PYTHON<span style="color:#f92672">=</span>/usr/local/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV<span style="color:#f92672">=</span>/usr/local/bin/virtualenv
+export PIP_REQUIRE_VIRTUALENV<span style="color:#f92672">=</span>true
+source /usr/local/bin/virtualenvwrapper.sh
+
+<span style="color:#75715e"># create commands to override pip restriction.</span>
+<span style="color:#75715e"># use `gpip` or `gpip3` to force installation of</span>
+<span style="color:#75715e"># a package in the global python environment</span>
+gpip<span style="color:#f92672">(){</span>
+   PIP_REQUIRE_VIRTUALENV<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> pip <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
+gpip3<span style="color:#f92672">(){</span>
+   PIP_REQUIRE_VIRTUALENV<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> pip3 <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="virtualenv-usage">Virtualenv usage</h2>
+<p>Now you can use virtualenv. To create a new virtualenv like for deep learning say <code>dl-env</code>, run script in terminal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkvirtualenv dl-env
+</code></pre></div><p>To delete a virtualenv:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rmvirtualenv dl-env
+</code></pre></div><p>A more handy way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkproject dl-env
+</code></pre></div><p>This will create a new virtualenv in <code>$HOME/.virtualenvs</code> and a new directory in <code>Projects</code> and you can switch between virtualenvs by command <code>workon</code>. For example, there are two virtualenvs or projects <code>dl-env</code> and <code>game-env</code>. To activate <code>dl-env</code> simply run <code>workon dl-env</code>. To switch to <code>game-env</code> simply run <code>workon game-env</code>. This will deactivate <code>dl-env</code> and activate <code>game-env</code> meanwhile it changes current working directory from <code>~/Projects/dl-env</code> to <code>~/Projects/game-env</code>.</p>
+<h3 id="more-cool-commands">More cool commands</h3>
+<p>A list of commands that are helpful for virtualenv usage:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsvirtualenv <span style="color:#75715e"># list all virtualenv </span>
+cdvirtualenv <span style="color:#f92672">[</span>subdir<span style="color:#f92672">]</span> <span style="color:#75715e"># cd into activated virtualenv directory </span>
+showvirtualenv <span style="color:#f92672">[</span>env<span style="color:#f92672">]</span> <span style="color:#75715e"># show details of virtualenv env </span>
+cpvirtualenv <span style="color:#f92672">[</span>source<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>dest<span style="color:#f92672">]</span> <span style="color:#75715e"># copy virtualenv</span>
+workon <span style="color:#75715e"># no parametor to show all virtualenv</span>
+cdproject <span style="color:#75715e"># cd into projects directory of activated virtualenv</span>
+</code></pre></div><h1 id="install-python-as-framework">Install Python as framework</h1>
+<p>In case you would not want Python 3.7.0 just like I did, a direct way to install Python3 is via the official distribution. Choose the version from <a href="https://www.python.org/downloads/mac-osx/">Python website</a> where I chose Python 3.6.6 for macOS which is the newest version of Python 3.6 supporting tensorflow so far. Installation is much easier. Open the installation package and follow the wizard. Unlike brew way Python3 will be put in <code>/Library/Frameworks/Python.framework</code> with a soft link is already created in <code>/usr/local/bin/python3</code> so <code>which python3</code> returns <code>/usr/local/bin/python3</code>. In this way virtualenv installation is the same as above.</p>
+<h1 id="visual-studio-code">Visual Studio Code</h1>
+<p>There are always battles of which editor is the best on the Internet. Now these battles should be ended by <a href="https://code.visualstudio.com/">Visual Studio Code</a> the top No.1 editor in the world. I tried so many text editors before I got to know vscode. Either they are not flexible or cannot supports such many kinds of languages and file formats.</p>
+<p><img src="https://azurciel.github.io/img/vscode.png" alt="vscode"></p>
+<p>When do python programming with vscode a Python plugin is needed which supports linting, debugging, intellisense, code formatting and so on. Default Python path setting should be updated from system python to python3 we just installed. In the interface of VSCode, click <code>Code-&gt;Preferences-&gt;Settings</code> and <code>User Settings</code> page will show up. Search for python settings. Default user settings looks like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Path to Python, you can use a custom version of Python by modifying this setting to include the full path.</span>
+<span style="color:#e6db74">&#34;python.pythonPath&#34;</span>: <span style="color:#e6db74">&#34;python&#34;</span>
+</code></pre></div><p>Add one line in <code>User settings</code> in the right column:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;python.pythonPath&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;/Users/[your username]/.virtualenvs/dl-env/bin/python&#34;</span><span style="color:#960050;background-color:#1e0010">,</span>
+</code></pre></div><p><code>[your username]</code> should be replaced by your system username and <code>dl-env</code> is the virutal environment created above and should by replaced by yours. With this setting vscode will parse python code using the python interpreter in the virtual environment. And now you may install some python packages in your virtual environment like pylint, numpy, scipy, matplotlib and jupyter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">workon dl-env
+pip3 install pylint numpy scipy matplotlib jupyter
+</code></pre></div><h1 id="conclusion">Conclusion</h1>
+<p>This post introduced python3 installation methods via Homebrew or directly installing from official distribution and the most convenient python working environment deploy tool Virtualenv combined with Virtualenvwrapper. VSCode is strongly recommended and the python environment setting is also straightforward.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/python/">Python</a>
+
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/mac/">Mac</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/" data-tooltip="How To Create Virtual Environments by venv">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 azurciel. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/" data-tooltip="How To Create Virtual Environments by venv">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">azurciel</h4>
+    
+      <div id="about-card-bio">curious about learning</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        data analyst
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Nanjing
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://azurciel.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://azurciel.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+  
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
+
+
+
+    
+  </body>
+</html>
+

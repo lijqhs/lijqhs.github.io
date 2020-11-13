@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on azurciel&#39;s blog</title>
+    <link>https://azurciel.github.io/tags/</link>
+    <description>Recent content in Tags on azurciel&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Nov 2020 22:20:00 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bias-Variance</title>
+      <link>https://azurciel.github.io/tags/bias-variance/</link>
+      <pubDate>Thu, 12 Nov 2020 22:20:00 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/bias-variance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://azurciel.github.io/tags/machine-learning/</link>
+      <pubDate>Thu, 12 Nov 2020 22:20:00 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>https://azurciel.github.io/tags/blog/</link>
+      <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://azurciel.github.io/tags/git/</link>
+      <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>https://azurciel.github.io/tags/github/</link>
+      <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://azurciel.github.io/tags/hugo/</link>
+      <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://azurciel.github.io/tags/deep-learning/</link>
+      <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Embedding</title>
+      <link>https://azurciel.github.io/tags/embedding/</link>
+      <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/embedding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keras</title>
+      <link>https://azurciel.github.io/tags/keras/</link>
+      <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/keras/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>https://azurciel.github.io/tags/nlp/</link>
+      <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://azurciel.github.io/tags/python/</link>
+      <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Text Classification</title>
+      <link>https://azurciel.github.io/tags/text-classification/</link>
+      <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/text-classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TF-IDF</title>
+      <link>https://azurciel.github.io/tags/tf-idf/</link>
+      <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/tf-idf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scikit-learn</title>
+      <link>https://azurciel.github.io/tags/scikit-learn/</link>
+      <pubDate>Wed, 22 May 2019 20:35:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/scikit-learn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://azurciel.github.io/tags/elasticsearch/</link>
+      <pubDate>Wed, 29 Aug 2018 21:45:00 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kibana</title>
+      <link>https://azurciel.github.io/tags/kibana/</link>
+      <pubDate>Wed, 29 Aug 2018 21:45:00 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/kibana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>https://azurciel.github.io/tags/mac/</link>
+      <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matplotlib</title>
+      <link>https://azurciel.github.io/tags/matplotlib/</link>
+      <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
