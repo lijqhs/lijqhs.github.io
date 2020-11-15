@@ -4,16 +4,56 @@
   
   <url>
     <loc>https://azurciel.github.io/</loc>
-    <lastmod>2020-11-12T22:20:00+08:00</lastmod>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://azurciel.github.io/tags/bias-variance/</loc>
-    <lastmod>2020-11-12T22:20:00+08:00</lastmod>
+    <loc>https://azurciel.github.io/tags/blog/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://azurciel.github.io/categories/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://azurciel.github.io/tags/git/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://azurciel.github.io/tags/github/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://azurciel.github.io/categories/howto/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://azurciel.github.io/tags/hugo/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://azurciel.github.io/post/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://azurciel.github.io/tags/</loc>
+    <lastmod>2020-11-15T23:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://azurciel.github.io/tags/bias-variance/</loc>
     <lastmod>2020-11-12T22:20:00+08:00</lastmod>
   </url>
   
@@ -28,47 +68,12 @@
   </url>
   
   <url>
-    <loc>https://azurciel.github.io/post/</loc>
-    <lastmod>2020-11-12T22:20:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://azurciel.github.io/tags/</loc>
-    <lastmod>2020-11-12T22:20:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://azurciel.github.io/2020/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%81%8F%E5%B7%AEbias%E4%B8%8E%E6%96%B9%E5%B7%AEvariance/</loc>
     <lastmod>2020-11-12T22:20:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://azurciel.github.io/tags/blog/</loc>
-    <lastmod>2020-11-06T23:19:48+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://azurciel.github.io/tags/git/</loc>
-    <lastmod>2020-11-06T23:19:48+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://azurciel.github.io/tags/github/</loc>
-    <lastmod>2020-11-06T23:19:48+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://azurciel.github.io/2020/11/how-to-setup-a-blog-via-hugo-and-github-pages-on-mac/</loc>
-    <lastmod>2020-11-06T23:19:48+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://azurciel.github.io/categories/howto/</loc>
-    <lastmod>2020-11-06T23:19:48+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://azurciel.github.io/tags/hugo/</loc>
+    <loc>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</loc>
     <lastmod>2020-11-06T23:19:48+08:00</lastmod>
   </url>
   

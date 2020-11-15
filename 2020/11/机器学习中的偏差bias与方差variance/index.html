@@ -270,11 +270,16 @@ if (!doNotTrack) {
 
 <h1 id="biasvariance-tradeoff">Bias-Variance Tradeoff</h1>
 
+<blockquote>
+<p>One of the most reliable ways to get a high performance machine learning system is to take a low bias learning algorithm and to train it on a massive training set.
+<p align='right'>-- Andrew Ng</p></p>
+</blockquote>
+
 <p>在有监督学习中，泛化误差的来源主要包括偏差(bias)、方差(variance)和不可减少的误差(irreducible error，也叫噪声)。</p>
 
 <ul>
-<li>偏差度量了学习算法的期望预测真实结果的偏离程度，即刻画了学习算法本身的拟合能力。高偏差（high bias）对应了模型的欠拟合（underfitting）；为了减少模型的偏差，可以增加模型的复杂度，比如增加新的特征项，这样一来又容易造成模型的过拟合（overfitting），从而造成高方差（high variance）。</li>
-<li>方差度量了同样大小的训练集的变动所导致的学习性能的变化，即刻画了数据扰动所造成的影响。高方差对应了模型的过拟合，方差与偏差存在一定冲突，被称为偏差-方差窘境（bias-variance dilemma）。除了通过减少模型特征来降低模型的复杂度进而降低模型方差，还可以通过增加数据规模，或者正则化、交叉验证法等方法减少方差。</li>
+<li>偏差度量了学习算法的期望预测真实结果的偏离程度，即刻画了学习算法本身的拟合能力。高偏差（high bias）对应了学习算法的欠拟合（underfitting）；为了减少学习算法的偏差，可以增加模型的复杂度，比如增加新的特征项，这样一来又容易造成过拟合（overfitting），从而造成高方差（high variance）。</li>
+<li>方差度量了同样大小的训练集的变动所导致的学习性能的变化，即刻画了数据扰动所造成的影响。高方差对应了学习算法的过拟合，方差与偏差存在一定冲突，被称为偏差-方差窘境（bias-variance dilemma）。除了通过减少模型特征来降低模型的复杂度进而降低模型方差，还可以通过增加数据规模，或者正则化、交叉验证法等方法减少方差。</li>
 <li>噪声则表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度。</li>
 </ul>
 
@@ -323,7 +328,7 @@ avg_expected_loss, avg_bias, avg_var <span style="color:#f92672">=</span> bias_v
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Average variance: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_var)</code></pre></div><pre><code>Average expected loss: 31.917
 Average bias: 13.814
 Average variance: 18.102</code></pre>
-<p>作为对比，下面是Bagging方法的偏差-方差，可以看出采用Bagging方法可以有效降低variance。</p>
+<p>作为对比，下面是Bagging方法的偏差-方差，可以看出采用Bagging方法可以降低variance。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.ensemble <span style="color:#f92672">import</span> BaggingRegressor
 
 tree <span style="color:#f92672">=</span> DecisionTreeRegressor(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
@@ -375,7 +380,7 @@ Average variance: 3.239</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/" data-tooltip="How To Change The Theme of My Hugo Blog">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -383,7 +388,7 @@ Average variance: 3.239</code></pre>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-via-hugo-and-github-pages-on-mac/" data-tooltip="How To Setup a Blog via Hugo and Github Pages on Mac">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/" data-tooltip="How To Setup a Blog with Hugo and Github Pages on Mac">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -433,7 +438,7 @@ Average variance: 3.239</code></pre>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/" data-tooltip="How To Change The Theme of My Hugo Blog">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -441,7 +446,7 @@ Average variance: 3.239</code></pre>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-via-hugo-and-github-pages-on-mac/" data-tooltip="How To Setup a Blog via Hugo and Github Pages on Mac">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/" data-tooltip="How To Setup a Blog with Hugo and Github Pages on Mac">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>

@@ -6,13 +6,23 @@
     <description>Recent content in GitHub on azurciel&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Nov 2020 23:19:48 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Nov 2020 23:30:00 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How To Setup a Blog via Hugo and Github Pages on Mac</title>
-      <link>https://azurciel.github.io/2020/11/how-to-setup-a-blog-via-hugo-and-github-pages-on-mac/</link>
+      <title>How To Change The Theme of My Hugo Blog</title>
+      <link>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/</link>
+      <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/</guid>
+      <description>A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the hexo origin version.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.</description>
+    </item>
+    
+    <item>
+      <title>How To Setup a Blog with Hugo and Github Pages on Mac</title>
+      <link>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
       <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2020/11/how-to-setup-a-blog-via-hugo-and-github-pages-on-mac/</guid>
+      <guid>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
       <description>&lt;p&gt;GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas. &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages#about-github-pages&#34;&gt;GitHub Pages&lt;/a&gt; is such a fancy service where you can easily setup your own websites by just a few mouse clicks. Companies and project teams can easily create product homepages on it, and individuals who like to document things and share ideas can also easily build blogs on it.&lt;/p&gt;</description>
     </item>
     

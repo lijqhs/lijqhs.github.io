@@ -7,30 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="azurciel">
-<meta name="keywords" content="Python, Matplotlib, Mac, Virtualenv, venv">
-<meta name="description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
-The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
+<meta name="keywords" content="Hugo, Hexo, GitHub, Blog, Git">
+<meta name="description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the hexo origin version.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
 
 
-<meta property="og:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
-The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
+<meta property="og:description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the hexo origin version.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How To Create Virtual Environments by venv">
-<meta name="twitter:title" content="How To Create Virtual Environments by venv">
-<meta property="og:url" content="https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
-<meta property="twitter:url" content="https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+<meta property="og:title" content="How To Change The Theme of My Hugo Blog">
+<meta name="twitter:title" content="How To Change The Theme of My Hugo Blog">
+<meta property="og:url" content="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/">
+<meta property="twitter:url" content="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/">
 <meta property="og:site_name" content="azurciel&#39;s blog">
-<meta property="og:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
-The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
-<meta name="twitter:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
-The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
+<meta property="og:description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the hexo origin version.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
+<meta name="twitter:description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the hexo origin version.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2018-08-25T20:11:48">
+    <meta property="article:published_time" content="2020-11-15T23:30:00">
   
   
-    <meta property="article:modified_time" content="2018-08-25T20:11:48">
+    <meta property="article:modified_time" content="2020-11-15T23:30:00">
   
   
   
@@ -40,11 +40,13 @@ The page shows virtualenv is to blame as the virtualenv creates a non framework 
   
   
     
-      <meta property="article:tag" content="Python">
+      <meta property="article:tag" content="Hugo">
     
-      <meta property="article:tag" content="Matplotlib">
+      <meta property="article:tag" content="GitHub">
     
-      <meta property="article:tag" content="Mac">
+      <meta property="article:tag" content="Blog">
+    
+      <meta property="article:tag" content="Git">
     
   
 
@@ -65,14 +67,14 @@ The page shows virtualenv is to blame as the virtualenv creates a non framework 
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
 
 
-    <title>How To Create Virtual Environments by venv</title>
+    <title>How To Change The Theme of My Hugo Blog</title>
 
     <link rel="icon" href="https://azurciel.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+    <link rel="canonical" href="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -245,15 +247,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      How To Create Virtual Environments by venv
+      How To Change The Theme of My Hugo Blog
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-08-25T20:11:48&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-11-15T23:30:00&#43;08:00">
         
-  August 25, 2018
+  November 15, 2020
 
       </time>
     
@@ -272,52 +274,32 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>When I tested examples of the book <strong>Deep learning from scratch</strong>, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (<a href="https://matplotlib.org/faq/osx_framework.html">Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation</a>).</p>
-<p>The page shows <code>virtualenv</code> is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool <code>venv</code> provided since Python 3.4.</p>
-<h1 id="remove-virtualenv">Remove virtualenv</h1>
-<p>The previous <a href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">blog post</a> introduces how to depoly clean python working environments by <code>virtualenv</code>. Now because of the above problem I encountered with virtualenv I decided to abandon virtualenv in my MacBook. Instead <code>venv</code> might be a good replacement to create virtual environment. The shortage is there is no <code>workon</code> shortcut any more to switch between virtualenv seamlessly.
-The restore steps are clearly. Remove settings related to virtualenv and virtualenvwrapper in <code>~/.profile</code>. After that my <code>.profile</code> looks just like this.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export CLICOLOR<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-export LSCOLORS<span style="color:#f92672">=</span>GxFxCxDxBxegedabagaced
+              <p>A few days ago I <a href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/">migrated this blog</a> to Hugo from Jekyll and employed a beautiful theme called <a href="https://github.com/olOwOlo/hugo-theme-even">Even</a>, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called <a href="https://github.com/kakawait/hugo-tranquilpeak-theme">Tranquilpeak</a>, brought by <a href="https://github.com/kakawait">Thibaud Lepretre</a> from the <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">hexo origin version</a>.</p>
+<p>So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.</p>
+<h1 id="add-another-theme-as-a-submodule">Add another theme as a submodule</h1>
+<p>As previously mentioned in the <a href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/">blog setup post</a>, you can use command <code>git clone</code> or <code>git submodule</code> to add a blog theme from GitHub repository. It is highly recommended here that you always use <code>git submodule</code> to add a new theme, even though you want to customize the theme template by yourself, in which case you could first fork the theme repository and add submodule from your replica repo of the theme which should track all the modifications by you and can also keep updated with the original repo when necessary.</p>
+<p>So just in case I want to make some changes someday, or just don&rsquo;t want to get the latest theme from the original repo, of which some newest fancy features may not be what I want, whenever I re-download the blog repository by <code>git clone --recurse-submodules</code>.</p>
+<p>First I forked a copy of <code>https://github.com/kakawait/hugo-tranquilpeak-theme.git</code> theme to my repositories <code>https://github.com/azurciel/hugo-tranquilpeak-theme.git</code> (please heed the difference!) and then add submodule from the latter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule add https://github.com/azurciel/hugo-tranquilpeak-theme.git themes/tranquilpeak
+</code></pre></div><h1 id="change-the-blog-settings">Change the blog settings</h1>
+<p>Backup the <code>config.toml</code> in the root directory of your blog site to <code>config.toml_bak</code> and copy the <code>config.toml</code> from <code>themes/tranquilpeak/exampleSite</code> to the root directory and do some configuration as the <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">user docs</a> tells you, in which theme should be set to <code>tranquilpeak</code>:</p>
+<pre><code class="language-conf" data-lang="conf">theme = &quot;tranquilpeak&quot;
+</code></pre><p>After all settings are done, you can rebuild the blog now with the simple command <code>hugo</code> in the root directory or <code>hugo server -D</code> to preview your blog first. And then in the public directory you can commit all the changes and push up to the GitHub repo and a new blog is ready.</p>
+<h1 id="delete-the-submodule">Delete the submodule</h1>
+<p>Since you do not need the old theme anymore, you can delete it from you repository.</p>
+<p><em>How to remove the old submodule?</em></p>
+<p>In the blog root directory, run the following commands to remove the theme even from your blog site:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule deinit theme/even
+git rm theme/even 
+</code></pre></div><p><code>git submodule deinit theme/even</code> deletes theme/even&rsquo;s entry from .git/config. This excludes <code>theme/even</code> from <code>git submodule update</code>, <code>git submodule sync</code> and <code>git submodule foreach</code> calls and deletes its local content (source). Also, <strong>this will not be shown as change in your parent repository</strong>. <code>git submodule init</code> and <code>git submodule update</code> will <strong>restore</strong> the submodule, again without commitable changes in your parent repository.</p>
+<p><code>git rm theme/even</code> will remove theme/even from the work tree and the <code>theme/even</code> directory. The files of <code>theme/even</code> directory will be gone as well as the submodules' entry in the <code>.gitmodules</code> file, that is, the following lines will disappear.</p>
+<pre><code class="language-conf" data-lang="conf">[submodule &quot;themes/even&quot;]
+        path = themes/even
+        url = https://github.com/olOwOlo/hugo-theme-even.git
+</code></pre><h1 id="reference">Reference</h1>
+<p><a href="https://git-scm.com/docs/git-submodule">Git submodule</a>
+<a href="https://riptutorial.com/git/example/2652/removing-a-submodule">Removing a submodule</a></p>
 
-<span style="color:#75715e"># Setting PATH for Python 3.6</span>
-<span style="color:#75715e"># The original version is saved in .profile.pysave</span>
-PATH<span style="color:#f92672">=</span>“/Library/Frameworks/Python.framework/Versions/3.6/bin:<span style="color:#e6db74">${</span>PATH<span style="color:#e6db74">}</span>”
-export PATH
-
-<span style="color:#75715e"># set pip available only in virtual environment</span>
-export PIP_REQUIRE_VIRTUALENV<span style="color:#f92672">=</span>true
-
-<span style="color:#75715e"># create commands to override pip restriction.</span>
-<span style="color:#75715e"># use `gpip` or `gpip3` to force installation of</span>
-<span style="color:#75715e"># a package in the global python environment</span>
-gpip<span style="color:#f92672">(){</span>
-   PIP_REQUIRE_VIRTUALENV<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> pip <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
-<span style="color:#f92672">}</span>
-gpip3<span style="color:#f92672">(){</span>
-   PIP_REQUIRE_VIRTUALENV<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> pip3 <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#75715e"># set shortcut for activating venv</span>
-alias dl-env<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;source ~/Venv/dl-env/bin/activate&#39;</span>
-alias code<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cd ~/Documents/Code&#39;</span>
-</code></pre></div><p>Then I uninstalled virtualenv and virtualenvwrapper which I should never need. And then just remove <code>.virtualenvs</code> directories used by virtualenv.
-You can see <code>PIP_REQUIRE_VIRTUALENV</code> and gpip is still kept in the .profile file. That was meant to prevent myself mess up global python package list when using <code>pip install</code> or <code>pip3 install</code> which are now limited to take effect only in the virtual environment. To install packages in the global environment the command <code>gpip</code> or <code>gpip3</code> should be explicitly appointed. <em>Reference:</em><a href="https://docs.python-guide.org/dev/pip-virtualenv/">Further Configuration of Pip and Virtualenv — The Hitchhiker’s Guide to Python</a></p>
-<h1 id="create-virtual-environments-by-venv">Create virtual environments by venv</h1>
-<p>I created a new <code>dl-env</code> by venv in a different directory <code>Venv</code> where all virtual environments are settled down. Actually I could also use directory like <code>.virtualenvs</code> to make virtual environments folders containing installed packages invisible but I didn’t do that. Project files are now put in the <code>Code</code> sub-directory of <code>Documents</code> which I could navigate directly from Finder on my MacBook.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/Venv
-python3 -m venv dl-env
-</code></pre></div><p>In the settings in <code>.profile</code> I set two alias: <code>dl-env</code> for quick activation of virtual environment <em>dl-env</em> and <code>code</code> for frequently used command <code>cd ~/Documents/Code</code>. <em>Reference:</em><a href="https://superuser.com/questions/606308/how-do-i-create-a-terminal-shortcut-to-this-path">macos - How do I create a terminal shortcut to this path? - Super User</a></p>
-<h1 id="update-python-path-in-vscode">Update Python Path in VSCode</h1>
-<p>Python Path should be updated by new virtual environment python interpreter path.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;python.pythonPath&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;~/Venv/dl-env/bin/python&#34;</span><span style="color:#960050;background-color:#1e0010">,</span>
-</code></pre></div><h1 id="run-example-in-new-virtual-environment">Run example in new virtual environment</h1>
-<p>After all those settings above I could run example again in the new virtual environment. First of all some packages like <code>numpy</code> <code>scipy</code> <code>matplotlib</code> are required.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dl-env <span style="color:#75715e"># which activate venv dl-env</span>
-<span style="color:#f92672">(</span>dl-env<span style="color:#f92672">)</span> $ pip3 install numpy scipy matplotlib
-<span style="color:#f92672">(</span>dl-env<span style="color:#f92672">)</span> $ python example-code.py
-</code></pre></div><p>The RuntimeError never shows up and the result is exactly the same as the book says.
-<img src="https://azurciel.github.io/img/gradient-2d.png" alt="gradient-2d"></p>
               
             </div>
           </div>
@@ -329,11 +311,13 @@ python3 -m venv dl-env
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/python/">Python</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/hugo/">Hugo</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/matplotlib/">Matplotlib</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/github/">GitHub</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/mac/">Mac</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/blog/">Blog</a>
+
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/git/">Git</a>
 
                   </div>
                 
@@ -346,7 +330,7 @@ python3 -m venv dl-env
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/" data-tooltip="How to Install and Configure Elasticsearch Clusters">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -354,7 +338,7 @@ python3 -m venv dl-env
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/" data-tooltip="How To Properly Install Python3 and Virtualenv on Mac">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%81%8F%E5%B7%AEbias%E4%B8%8E%E6%96%B9%E5%B7%AEvariance/" data-tooltip="机器学习中的偏差(Bias)与方差(Variance)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -404,7 +388,7 @@ python3 -m venv dl-env
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/" data-tooltip="How to Install and Configure Elasticsearch Clusters">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -412,7 +396,7 @@ python3 -m venv dl-env
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/" data-tooltip="How To Properly Install Python3 and Virtualenv on Mac">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%81%8F%E5%B7%AEbias%E4%B8%8E%E6%96%B9%E5%B7%AEvariance/" data-tooltip="机器学习中的偏差(Bias)与方差(Variance)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
