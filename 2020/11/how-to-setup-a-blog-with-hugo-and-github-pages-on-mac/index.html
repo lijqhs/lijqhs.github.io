@@ -432,7 +432,8 @@ git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6
 
 <span style="color:#75715e"># Push source and build repos.</span>
 git push origin master
-</code></pre></div><p>Now whenever you want to put something new in your blog, follow the three steps:</p>
+</code></pre></div><p>Change <code>master</code> to <code>main</code> in the last line if you encounter &ldquo;<em>error: src refspec master does not match any</em>&rdquo;.</p>
+<p>Now whenever you want to put something new in your blog, follow the three steps:</p>
 <ol>
 <li>Create new post file (*.md in /content/post/)</li>
 <li>Run <code>zsh deploy.sh</code> or <code>./deploy.sh</code> in <code>my-blog</code> directory</li>
