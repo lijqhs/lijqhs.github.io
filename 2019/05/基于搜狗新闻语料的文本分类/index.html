@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="azurciel">
-<meta name="keywords" content="NLP, Text Classification, scikit-learn, Machine Learning, TF-IDF, Python">
+<meta name="keywords" content="nlp, text classification, scikit-learn, machine learning, tf-idf, python">
 <meta name="description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。">
 
 
@@ -36,23 +36,27 @@
   
   
     
-      <meta property="article:tag" content="NLP">
+      <meta property="article:tag" content="nlp">
     
-      <meta property="article:tag" content="Text Classification">
+      <meta property="article:tag" content="text classification">
     
       <meta property="article:tag" content="scikit-learn">
     
-      <meta property="article:tag" content="Machine Learning">
+      <meta property="article:tag" content="machine learning">
     
-      <meta property="article:tag" content="TF-IDF">
+      <meta property="article:tag" content="tf-idf">
     
-      <meta property="article:tag" content="Python">
+      <meta property="article:tag" content="python">
     
   
 
 
 <meta name="twitter:card" content="summary">
 
+  <meta name="twitter:site" content="@azurcieli">
+
+
+  <meta name="twitter:creator" content="@azurcieli">
 
 
 
@@ -63,8 +67,8 @@
 
 
 
-  <meta property="og:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG">
 
 
     <title>基于搜狗新闻语料的文本分类</title>
@@ -120,7 +124,7 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
       
     
     </a>
@@ -132,7 +136,7 @@ if (!doNotTrack) {
     
       <div class="sidebar-profile">
         <a href="https://azurciel.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">azurciel</h4>
         
@@ -208,6 +212,16 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
+      <a class="sidebar-button-link " href="https://twitter.com/azurcieli" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
       <a class="sidebar-button-link " href="https://stackoverflow.com/users/14633186/azurciel" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
@@ -216,10 +230,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
-
-    </ul>
-    <ul class="sidebar-buttons">
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="mailto:azurciel@outlook.com" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
+      <span class="sidebar-button-desc">Email Me</span>
+    </a>
+  </li>
+
   <li class="sidebar-button">
     
       <a class="sidebar-button-link " href="https://azurciel.github.io/index.xml">
@@ -230,6 +250,10 @@ if (!doNotTrack) {
     </a>
   </li>
 
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
 
     </ul>
   </div>
@@ -488,7 +512,7 @@ test corpus len: 4410
 
 plt<span style="color:#f92672">.</span>imshow(wordcloud, interpolation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bilinear&#39;</span>)
 plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;off&#39;</span>)
-</code></pre></div><p><img src="https://azurciel.github.io/img/wordcloud.png" alt="png"></p>
+</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/wordcloud.png" alt="png"></p>
 <h1 id="3-文本特征提取tf-idf">3. 文本特征提取:TF-IDF</h1>
 <p>这个步骤将文档信息，也即每篇新闻被分好词之后的词集合，转为为基于词频-你文档词频（TF-IDF）的向量，向量的每个元素都是对应于某个词在这个文档中的TF-IDF值，在不同文档中，同一词的TF-IDF是不一样的。所有文档的TF-IDF向量堆放在一起就组成了一个TF-IDF矩阵。注意到这里应该包含了除停用词之外的所有词的TF-IDF值，词的个数构成了向量的维度。</p>
 <p>用<code>TfidfVectorizer</code>将文档集合转为<code>TF-IDF</code>矩阵。注意到前面我们将文本做了分词并用空格隔开。如果是英文，本身就是空格隔开的，而英文的分词（Tokenizing）是包含在特征提取器中的，不需要分词这一步骤。下面我们在得到了分类器之后，使用新文本进行分类预测时，也是需要先做一下中文分词的。</p>
@@ -694,17 +718,17 @@ _20_Education       0.82      0.92      0.86       437
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/nlp/">NLP</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/nlp/">nlp</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/text-classification/">Text Classification</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/text-classification/">text classification</a>
 
   <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/scikit-learn/">scikit-learn</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/machine-learning/">Machine Learning</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/machine-learning/">machine learning</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/tf-idf/">TF-IDF</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/tf-idf/">tf-idf</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/python/">Python</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/python/">python</a>
 
                   </div>
                 
@@ -741,6 +765,18 @@ _20_Education       0.82      0.92      0.86       437
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2019/05/%E5%9F%BA%E4%BA%8E%E6%90%9C%E7%8B%97%E6%96%B0%E9%97%BB%E8%AF%AD%E6%96%99%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2019/05/%E5%9F%BA%E4%BA%8E%E6%90%9C%E7%8B%97%E6%96%B0%E9%97%BB%E8%AF%AD%E6%96%99%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
         
       
       
@@ -800,6 +836,18 @@ _20_Education       0.82      0.92      0.86       437
           </a>
         </li>
         
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2019/05/%E5%9F%BA%E4%BA%8E%E6%90%9C%E7%8B%97%E6%96%B0%E9%97%BB%E8%AF%AD%E6%96%99%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2019/05/%E5%9F%BA%E4%BA%8E%E6%90%9C%E7%8B%97%E6%96%B0%E9%97%BB%E8%AF%AD%E6%96%99%E7%9A%84%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
       
       
       <li class="post-action">
@@ -818,6 +866,18 @@ _20_Education       0.82      0.92      0.86       437
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazurciel.github.io%2F2019%2F05%2F%25E5%259F%25BA%25E4%25BA%258E%25E6%2590%259C%25E7%258B%2597%25E6%2596%25B0%25E9%2597%25BB%25E8%25AF%25AD%25E6%2596%2599%25E7%259A%2584%25E6%2596%2587%25E6%259C%25AC%25E5%2588%2586%25E7%25B1%25BB%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fazurciel.github.io%2F2019%2F05%2F%25E5%259F%25BA%25E4%25BA%258E%25E6%2590%259C%25E7%258B%2597%25E6%2596%25B0%25E9%2597%25BB%25E8%25AF%25AD%25E6%2596%2599%25E7%259A%2584%25E6%2596%2587%25E6%259C%25AC%25E5%2588%2586%25E7%25B1%25BB%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -829,7 +889,7 @@ _20_Education       0.82      0.92      0.86       437
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">azurciel</h4>
     
@@ -839,7 +899,7 @@ _20_Education       0.82      0.92      0.86       437
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        data analyst
+        data scientist
       </div>
     
     

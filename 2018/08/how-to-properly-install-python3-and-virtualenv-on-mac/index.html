@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="azurciel">
-<meta name="keywords" content="Python, Mac, Virtualenv">
+<meta name="keywords" content="python, mac, virtualenv">
 <meta name="description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
 
 
@@ -36,15 +36,19 @@
   
   
     
-      <meta property="article:tag" content="Python">
+      <meta property="article:tag" content="python">
     
-      <meta property="article:tag" content="Mac">
+      <meta property="article:tag" content="mac">
     
   
 
 
 <meta name="twitter:card" content="summary">
 
+  <meta name="twitter:site" content="@azurcieli">
+
+
+  <meta name="twitter:creator" content="@azurcieli">
 
 
 
@@ -55,8 +59,8 @@
 
 
 
-  <meta property="og:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG">
 
 
     <title>How To Properly Install Python3 and Virtualenv on Mac</title>
@@ -112,7 +116,7 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
       
     
     </a>
@@ -124,7 +128,7 @@ if (!doNotTrack) {
     
       <div class="sidebar-profile">
         <a href="https://azurciel.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">azurciel</h4>
         
@@ -200,6 +204,16 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
+      <a class="sidebar-button-link " href="https://twitter.com/azurcieli" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
       <a class="sidebar-button-link " href="https://stackoverflow.com/users/14633186/azurciel" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
@@ -208,10 +222,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
-
-    </ul>
-    <ul class="sidebar-buttons">
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="mailto:azurciel@outlook.com" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
+      <span class="sidebar-button-desc">Email Me</span>
+    </a>
+  </li>
+
   <li class="sidebar-button">
     
       <a class="sidebar-button-link " href="https://azurciel.github.io/index.xml">
@@ -222,6 +242,10 @@ if (!doNotTrack) {
     </a>
   </li>
 
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
 
     </ul>
   </div>
@@ -271,12 +295,12 @@ if (!doNotTrack) {
 <p>The following steps shows the full path to install Python3 via Homebrew.</p>
 <h2 id="install-xcode">Install XCode</h2>
 <p>Before installing Homebrew you need first install XCode which is an integrated development environment for macOS containing a suite of software development tools by Apple for creating apps for iPhone, iPad, Mac and other Apple products. Open App Store and search <code>xcode</code> then the first result should be your choice.</p>
-<p><img src="https://azurciel.github.io/img/xcode-install.png" alt="xcode_install"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/xcode-install.png" alt="xcode_install"></p>
 <p>After XCode installation, open the app and check <em>License Agreement</em> and then install XCode command line tool in the terminal.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">xcode-select --install
 </code></pre></div><p>The XCode installation is finished and move on the next step.</p>
 <h2 id="install-homebrew">Install Homebrew</h2>
-<p><img src="https://azurciel.github.io/img/homebrew.png" alt="homebrew"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/homebrew.png" alt="homebrew"></p>
 <p>Homebrew is the missing package manager and simply follow the installation instruction from the Homebrew webpage. The script should be run on the macOS above 10.7 otherwise see documents <a href="https://docs.brew.sh/Installation">here</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/bin/ruby -e <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
 </code></pre></div><p>After the script completes run a check command:</p>
@@ -354,7 +378,7 @@ cdproject <span style="color:#75715e"># cd into projects directory of activated 
 <p>In case you would not want Python 3.7.0 just like I did, a direct way to install Python3 is via the official distribution. Choose the version from <a href="https://www.python.org/downloads/mac-osx/">Python website</a> where I chose Python 3.6.6 for macOS which is the newest version of Python 3.6 supporting tensorflow so far. Installation is much easier. Open the installation package and follow the wizard. Unlike brew way Python3 will be put in <code>/Library/Frameworks/Python.framework</code> with a soft link is already created in <code>/usr/local/bin/python3</code> so <code>which python3</code> returns <code>/usr/local/bin/python3</code>. In this way virtualenv installation is the same as above.</p>
 <h1 id="visual-studio-code">Visual Studio Code</h1>
 <p>There are always battles of which editor is the best on the Internet. Now these battles should be ended by <a href="https://code.visualstudio.com/">Visual Studio Code</a> the top No.1 editor in the world. I tried so many text editors before I got to know vscode. Either they are not flexible or cannot supports such many kinds of languages and file formats.</p>
-<p><img src="https://azurciel.github.io/img/vscode.png" alt="vscode"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/vscode.png" alt="vscode"></p>
 <p>When do python programming with vscode a Python plugin is needed which supports linting, debugging, intellisense, code formatting and so on. Default Python path setting should be updated from system python to python3 we just installed. In the interface of VSCode, click <code>Code-&gt;Preferences-&gt;Settings</code> and <code>User Settings</code> page will show up. Search for python settings. Default user settings looks like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Path to Python, you can use a custom version of Python by modifying this setting to include the full path.</span>
 <span style="color:#e6db74">&#34;python.pythonPath&#34;</span>: <span style="color:#e6db74">&#34;python&#34;</span>
@@ -376,9 +400,9 @@ pip3 install pylint numpy scipy matplotlib jupyter
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/python/">Python</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/python/">python</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/mac/">Mac</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/mac/">mac</a>
 
                   </div>
                 
@@ -415,6 +439,18 @@ pip3 install pylint numpy scipy matplotlib jupyter
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
         
       
       
@@ -474,6 +510,18 @@ pip3 install pylint numpy scipy matplotlib jupyter
           </a>
         </li>
         
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
       
       
       <li class="post-action">
@@ -492,6 +540,18 @@ pip3 install pylint numpy scipy matplotlib jupyter
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazurciel.github.io%2F2018%2F08%2Fhow-to-properly-install-python3-and-virtualenv-on-mac%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fazurciel.github.io%2F2018%2F08%2Fhow-to-properly-install-python3-and-virtualenv-on-mac%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -503,7 +563,7 @@ pip3 install pylint numpy scipy matplotlib jupyter
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">azurciel</h4>
     
@@ -513,7 +573,7 @@ pip3 install pylint numpy scipy matplotlib jupyter
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        data analyst
+        data scientist
       </div>
     
     

@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 15 Nov 2020 23:30:00 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Blog</title>
+      <title>blog</title>
       <link>https://azurciel.github.io/tags/blog/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
@@ -17,7 +17,7 @@
     </item>
     
     <item>
-      <title>Git</title>
+      <title>git</title>
       <link>https://azurciel.github.io/tags/git/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
@@ -26,7 +26,7 @@
     </item>
     
     <item>
-      <title>GitHub</title>
+      <title>github</title>
       <link>https://azurciel.github.io/tags/github/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
@@ -35,7 +35,7 @@
     </item>
     
     <item>
-      <title>Hugo</title>
+      <title>hugo</title>
       <link>https://azurciel.github.io/tags/hugo/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
@@ -44,7 +44,7 @@
     </item>
     
     <item>
-      <title>Bias-Variance</title>
+      <title>bias-variance</title>
       <link>https://azurciel.github.io/tags/bias-variance/</link>
       <pubDate>Thu, 12 Nov 2020 22:20:00 +0800</pubDate>
       
@@ -53,7 +53,7 @@
     </item>
     
     <item>
-      <title>Machine Learning</title>
+      <title>machine learning</title>
       <link>https://azurciel.github.io/tags/machine-learning/</link>
       <pubDate>Thu, 12 Nov 2020 22:20:00 +0800</pubDate>
       
@@ -62,7 +62,7 @@
     </item>
     
     <item>
-      <title>Deep Learning</title>
+      <title>deep learning</title>
       <link>https://azurciel.github.io/tags/deep-learning/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
@@ -71,7 +71,7 @@
     </item>
     
     <item>
-      <title>Embedding</title>
+      <title>embedding</title>
       <link>https://azurciel.github.io/tags/embedding/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
@@ -80,7 +80,7 @@
     </item>
     
     <item>
-      <title>Keras</title>
+      <title>keras</title>
       <link>https://azurciel.github.io/tags/keras/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
@@ -89,7 +89,7 @@
     </item>
     
     <item>
-      <title>NLP</title>
+      <title>nlp</title>
       <link>https://azurciel.github.io/tags/nlp/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
@@ -98,7 +98,7 @@
     </item>
     
     <item>
-      <title>Python</title>
+      <title>python</title>
       <link>https://azurciel.github.io/tags/python/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
@@ -107,7 +107,7 @@
     </item>
     
     <item>
-      <title>Text Classification</title>
+      <title>text classification</title>
       <link>https://azurciel.github.io/tags/text-classification/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
@@ -116,7 +116,7 @@
     </item>
     
     <item>
-      <title>TF-IDF</title>
+      <title>tf-idf</title>
       <link>https://azurciel.github.io/tags/tf-idf/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
@@ -134,7 +134,7 @@
     </item>
     
     <item>
-      <title>Elasticsearch</title>
+      <title>elasticsearch</title>
       <link>https://azurciel.github.io/tags/elasticsearch/</link>
       <pubDate>Wed, 29 Aug 2018 21:45:00 +0800</pubDate>
       
@@ -143,7 +143,7 @@
     </item>
     
     <item>
-      <title>Kibana</title>
+      <title>kibana</title>
       <link>https://azurciel.github.io/tags/kibana/</link>
       <pubDate>Wed, 29 Aug 2018 21:45:00 +0800</pubDate>
       
@@ -152,7 +152,7 @@
     </item>
     
     <item>
-      <title>Mac</title>
+      <title>mac</title>
       <link>https://azurciel.github.io/tags/mac/</link>
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
       
@@ -161,7 +161,7 @@
     </item>
     
     <item>
-      <title>Matplotlib</title>
+      <title>matplotlib</title>
       <link>https://azurciel.github.io/tags/matplotlib/</link>
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
       

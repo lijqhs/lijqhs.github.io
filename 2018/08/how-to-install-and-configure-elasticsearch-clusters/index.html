@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="azurciel">
-<meta name="keywords" content="Elasticsearch, Kibana, Java">
+<meta name="keywords" content="elasticsearch, kibana, java">
 <meta name="description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
 
 
@@ -36,15 +36,19 @@
   
   
     
-      <meta property="article:tag" content="Elasticsearch">
+      <meta property="article:tag" content="elasticsearch">
     
-      <meta property="article:tag" content="Kibana">
+      <meta property="article:tag" content="kibana">
     
   
 
 
 <meta name="twitter:card" content="summary">
 
+  <meta name="twitter:site" content="@azurcieli">
+
+
+  <meta name="twitter:creator" content="@azurcieli">
 
 
 
@@ -55,8 +59,8 @@
 
 
 
-  <meta property="og:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG">
 
 
     <title>How to Install and Configure Elasticsearch Clusters</title>
@@ -112,7 +116,7 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
       
     
     </a>
@@ -124,7 +128,7 @@ if (!doNotTrack) {
     
       <div class="sidebar-profile">
         <a href="https://azurciel.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">azurciel</h4>
         
@@ -200,6 +204,16 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
+      <a class="sidebar-button-link " href="https://twitter.com/azurcieli" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
       <a class="sidebar-button-link " href="https://stackoverflow.com/users/14633186/azurciel" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
@@ -208,10 +222,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
-
-    </ul>
-    <ul class="sidebar-buttons">
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="mailto:azurciel@outlook.com" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
+      <span class="sidebar-button-desc">Email Me</span>
+    </a>
+  </li>
+
   <li class="sidebar-button">
     
       <a class="sidebar-button-link " href="https://azurciel.github.io/index.xml">
@@ -222,6 +242,10 @@ if (!doNotTrack) {
     </a>
   </li>
 
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
 
     </ul>
   </div>
@@ -468,9 +492,9 @@ vm.max_map_count<span style="color:#f92672">=</span><span style="color:#ae81ff">
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/elasticsearch/">Elasticsearch</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/elasticsearch/">elasticsearch</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/kibana/">Kibana</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/kibana/">kibana</a>
 
                   </div>
                 
@@ -507,6 +531,18 @@ vm.max_map_count<span style="color:#f92672">=</span><span style="color:#ae81ff">
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
         
       
       
@@ -566,6 +602,18 @@ vm.max_map_count<span style="color:#f92672">=</span><span style="color:#ae81ff">
           </a>
         </li>
         
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
       
       
       <li class="post-action">
@@ -584,6 +632,18 @@ vm.max_map_count<span style="color:#f92672">=</span><span style="color:#ae81ff">
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazurciel.github.io%2F2018%2F08%2Fhow-to-install-and-configure-elasticsearch-clusters%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fazurciel.github.io%2F2018%2F08%2Fhow-to-install-and-configure-elasticsearch-clusters%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -595,7 +655,7 @@ vm.max_map_count<span style="color:#f92672">=</span><span style="color:#ae81ff">
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">azurciel</h4>
     
@@ -605,7 +665,7 @@ vm.max_map_count<span style="color:#f92672">=</span><span style="color:#ae81ff">
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        data analyst
+        data scientist
       </div>
     
     

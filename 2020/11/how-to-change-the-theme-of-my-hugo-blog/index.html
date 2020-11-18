@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="azurciel">
-<meta name="keywords" content="Hugo, Hexo, GitHub, Blog, Git">
+<meta name="keywords" content="hugo, github, blog, git, hexo">
 <meta name="description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the hexo origin version.
 So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
 
@@ -40,31 +40,41 @@ So I decided to change the theme of this blog and I took the following steps to 
   
   
     
-      <meta property="article:tag" content="Hugo">
+      <meta property="article:tag" content="hugo">
     
-      <meta property="article:tag" content="GitHub">
+      <meta property="article:tag" content="github">
     
-      <meta property="article:tag" content="Blog">
+      <meta property="article:tag" content="blog">
     
-      <meta property="article:tag" content="Git">
+      <meta property="article:tag" content="git">
     
   
 
 
 <meta name="twitter:card" content="summary">
 
+  <meta name="twitter:site" content="@azurcieli">
+
+
+  <meta name="twitter:creator" content="@azurcieli">
 
 
 
 
 
 
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/gallery/wallpaper2019-04.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/gallery/wallpaper2019-04.jpg">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/gallery/wallpaper2019-04.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/gallery/wallpaper2019-04.jpg">
 
 
 
 
-  <meta property="og:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG">
 
 
     <title>How To Change The Theme of My Hugo Blog</title>
@@ -120,7 +130,7 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
       
     
     </a>
@@ -132,7 +142,7 @@ if (!doNotTrack) {
     
       <div class="sidebar-profile">
         <a href="https://azurciel.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">azurciel</h4>
         
@@ -208,6 +218,16 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
+      <a class="sidebar-button-link " href="https://twitter.com/azurcieli" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
       <a class="sidebar-button-link " href="https://stackoverflow.com/users/14633186/azurciel" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
@@ -216,10 +236,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
-
-    </ul>
-    <ul class="sidebar-buttons">
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="mailto:azurciel@outlook.com" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
+      <span class="sidebar-button-desc">Email Me</span>
+    </a>
+  </li>
+
   <li class="sidebar-button">
     
       <a class="sidebar-button-link " href="https://azurciel.github.io/index.xml">
@@ -232,19 +258,21 @@ if (!doNotTrack) {
 
 
     </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
   </div>
 </nav>
 
       
-
-      <div id="main" data-behavior="4"
-        class="
-               hasCoverMetaIn
-               ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-          
-            <div class="post-header main-content-wrap text-left">
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('//cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/gallery/wallpaper2019-04.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
       How To Change The Theme of My Hugo Blog
@@ -271,6 +299,16 @@ if (!doNotTrack) {
   </div>
 
 </div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
@@ -282,7 +320,7 @@ if (!doNotTrack) {
 <p>First I forked a copy of <code>https://github.com/kakawait/hugo-tranquilpeak-theme.git</code> theme to my repositories <code>https://github.com/azurciel/hugo-tranquilpeak-theme.git</code> (please heed the difference!) and then add submodule from the latter.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule add https://github.com/azurciel/hugo-tranquilpeak-theme.git themes/tranquilpeak
 </code></pre></div><h1 id="change-the-blog-settings">Change the blog settings</h1>
-<p>Backup the <code>config.toml</code> in the root directory of your blog site to <code>config.toml_bak</code> and copy the <code>config.toml</code> from <code>themes/tranquilpeak/exampleSite</code> to the root directory and do some configuration as the <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">user docs</a> tells you, in which theme should be set to <code>tranquilpeak</code>:</p>
+<p>Backup <code>config.toml</code> in the root directory of your blog site to <code>config.toml_bak</code> and copy <code>config.toml</code> from <code>themes/tranquilpeak/exampleSite</code> to the root directory and do some configuration as the <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">user docs</a> tells you, in which theme should be set to <code>tranquilpeak</code>:</p>
 <pre><code class="language-conf" data-lang="conf">theme = &quot;tranquilpeak&quot;
 </code></pre><p>After all settings are done, you can rebuild the blog now with the simple command <code>hugo</code> in the root directory or <code>hugo server -D</code> to preview your blog first. And then in the public directory you can commit all the changes and push up to the GitHub repo and a new blog is ready.</p>
 <h1 id="delete-the-submodule">Delete the submodule</h1>
@@ -301,7 +339,6 @@ git rm theme/even
 <li><a href="https://git-scm.com/docs/git-submodule">Git submodule</a></li>
 <li><a href="https://riptutorial.com/git/example/2652/removing-a-submodule">Removing a submodule</a></li>
 </ul>
-
               
             </div>
           </div>
@@ -313,13 +350,13 @@ git rm theme/even
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/hugo/">Hugo</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/hugo/">hugo</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/github/">GitHub</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/github/">github</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/blog/">Blog</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/blog/">blog</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/git/">Git</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/git/">git</a>
 
                   </div>
                 
@@ -356,6 +393,18 @@ git rm theme/even
             <i class="fa fa-share-alt"></i>
           </a>
         </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
         
       
       
@@ -415,6 +464,18 @@ git rm theme/even
           </a>
         </li>
         
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
       
       
       <li class="post-action">
@@ -433,6 +494,18 @@ git rm theme/even
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazurciel.github.io%2F2020%2F11%2Fhow-to-change-the-theme-of-my-hugo-blog%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fazurciel.github.io%2F2020%2F11%2Fhow-to-change-the-theme-of-my-hugo-blog%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
@@ -444,7 +517,7 @@ git rm theme/even
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/icons/IMG_2269.JPG" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">azurciel</h4>
     
@@ -454,7 +527,7 @@ git rm theme/even
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        data analyst
+        data scientist
       </div>
     
     
