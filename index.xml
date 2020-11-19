@@ -18,21 +18,21 @@
     </item>
     
     <item>
-      <title>机器学习中的偏差(Bias)与方差(Variance)</title>
-      <link>https://azurciel.github.io/2020/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%81%8F%E5%B7%AEbias%E4%B8%8E%E6%96%B9%E5%B7%AEvariance/</link>
-      <pubDate>Thu, 12 Nov 2020 22:20:00 +0800</pubDate>
-      
-      <guid>https://azurciel.github.io/2020/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%81%8F%E5%B7%AEbias%E4%B8%8E%E6%96%B9%E5%B7%AEvariance/</guid>
-      <description>&lt;p&gt;一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>How To Setup a Blog with Hugo and Github Pages on Mac</title>
       <link>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
       <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
       
       <guid>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
       <description>&lt;p&gt;GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas. &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages#about-github-pages&#34;&gt;GitHub Pages&lt;/a&gt; is such a fancy service where you can easily setup your own websites by just a few mouse clicks. Companies and project teams can easily create product homepages on it, and individuals who like to document things and share ideas can also easily build blogs on it.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>机器学习中的偏差(Bias)与方差(Variance)</title>
+      <link>https://azurciel.github.io/2020/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%81%8F%E5%B7%AEbias%E4%B8%8E%E6%96%B9%E5%B7%AEvariance/</link>
+      <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurciel.github.io/2020/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%81%8F%E5%B7%AEbias%E4%B8%8E%E6%96%B9%E5%B7%AEvariance/</guid>
+      <description>&lt;p&gt;一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。&lt;/p&gt;</description>
     </item>
     
     <item>
