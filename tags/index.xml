@@ -8,15 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 15 Nov 2020 23:30:00 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>blog</title>
-      <link>https://azurciel.github.io/tags/blog/</link>
-      <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
-      
-      <guid>https://azurciel.github.io/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>git</title>
       <link>https://azurciel.github.io/tags/git/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
@@ -40,6 +31,24 @@
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
       <guid>https://azurciel.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo theme</title>
+      <link>https://azurciel.github.io/tags/hugo-theme/</link>
+      <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/hugo-theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tranquilpeak</title>
+      <link>https://azurciel.github.io/tags/tranquilpeak/</link>
+      <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
+      
+      <guid>https://azurciel.github.io/tags/tranquilpeak/</guid>
       <description></description>
     </item>
     
