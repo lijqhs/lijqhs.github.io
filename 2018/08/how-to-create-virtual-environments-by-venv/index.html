@@ -144,7 +144,7 @@ if (!doNotTrack) {
         </a>
         <h4 class="sidebar-profile-name">azurciel</h4>
         
-          <h5 class="sidebar-profile-bio">curious about learning</h5>
+          <h5 class="sidebar-profile-bio">a humble learner</h5>
         
       </div>
     
@@ -312,6 +312,12 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <p>When I tested examples of the book <strong>Deep learning from scratch</strong>, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (<a href="https://matplotlib.org/faq/osx_framework.html">Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation</a>).</p>
 <p>The page shows <code>virtualenv</code> is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool <code>venv</code> provided since Python 3.4.</p>
+<ul>
+<li><a href="#remove-virtualenv">Remove virtualenv</a></li>
+<li><a href="#create-virtual-environments-by-venv">Create virtual environments by venv</a></li>
+<li><a href="#update-python-path-in-vscode">Update Python Path in VSCode</a></li>
+<li><a href="#run-example-in-new-virtual-environment">Run example in new virtual environment</a></li>
+</ul>
 <h1 id="remove-virtualenv">Remove virtualenv</h1>
 <p>The previous <a href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">blog post</a> introduces how to depoly clean python working environments by <code>virtualenv</code>. Now because of the above problem I encountered with virtualenv I decided to abandon virtualenv in my MacBook. Instead <code>venv</code> might be a good replacement to create virtual environment. The shortage is there is no <code>workon</code> shortcut any more to switch between virtualenv seamlessly.
 The restore steps are clearly. Remove settings related to virtualenv and virtualenvwrapper in <code>~/.profile</code>. After that my <code>.profile</code> looks just like this.</p>
@@ -536,7 +542,7 @@ python3 -m venv dl-env
     
     <h4 id="about-card-name">azurciel</h4>
     
-      <div id="about-card-bio">curious about learning</div>
+      <div id="about-card-bio">a humble learner</div>
     
     
       <div id="about-card-job">
@@ -549,7 +555,7 @@ python3 -m venv dl-env
       <div id="about-card-location">
         <i class="fa fa-map-marker"></i>
         <br/>
-        Nanjing
+        nanjing
       </div>
     
   </div>

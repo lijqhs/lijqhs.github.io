@@ -7,26 +7,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="azurciel">
-<meta name="keywords" content="git, github">
-<meta name="description" content="很多公司内部使用GitLab来做版本管理，假设你已经按照公司wiki设置好了Git账户。那么如何快速开始使用Git进行代码版本管理，下面是一些常用流程步骤。">
+<meta name="keywords" content="hugo, github, blog, git, hexo, tranquilpeak">
+<meta name="description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the original hexo theme.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
 
 
-<meta property="og:description" content="很多公司内部使用GitLab来做版本管理，假设你已经按照公司wiki设置好了Git账户。那么如何快速开始使用Git进行代码版本管理，下面是一些常用流程步骤。">
+<meta property="og:description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the original hexo theme.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git快速指南">
-<meta name="twitter:title" content="Git快速指南">
-<meta property="og:url" content="https://azurciel.github.io/2019/03/git-quickstart/">
-<meta property="twitter:url" content="https://azurciel.github.io/2019/03/git-quickstart/">
+<meta property="og:title" content="How To Change The Theme of A Hugo Blog">
+<meta name="twitter:title" content="How To Change The Theme of A Hugo Blog">
+<meta property="og:url" content="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/">
+<meta property="twitter:url" content="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/">
 <meta property="og:site_name" content="azurciel&#39;s blog">
-<meta property="og:description" content="很多公司内部使用GitLab来做版本管理，假设你已经按照公司wiki设置好了Git账户。那么如何快速开始使用Git进行代码版本管理，下面是一些常用流程步骤。">
-<meta name="twitter:description" content="很多公司内部使用GitLab来做版本管理，假设你已经按照公司wiki设置好了Git账户。那么如何快速开始使用Git进行代码版本管理，下面是一些常用流程步骤。">
+<meta property="og:description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the original hexo theme.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
+<meta name="twitter:description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the original hexo theme.
+So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2019-03-20T18:45:00">
+    <meta property="article:published_time" content="2020-11-15T23:30:00">
   
   
-    <meta property="article:modified_time" content="2019-03-20T18:45:00">
+    <meta property="article:modified_time" content="2020-11-15T23:30:00">
   
   
   
@@ -36,9 +40,15 @@
   
   
     
-      <meta property="article:tag" content="git">
+      <meta property="article:tag" content="hugo">
+    
+      <meta property="article:tag" content="hugo theme">
+    
+      <meta property="article:tag" content="tranquilpeak">
     
       <meta property="article:tag" content="github">
+    
+      <meta property="article:tag" content="git">
     
   
 
@@ -55,12 +65,12 @@
 
 
 
-  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-flower.jpg">
-  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-flower.jpg">
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/beach-1866992_1920.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/beach-1866992_1920.jpg">
 
 
-  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-flower.jpg">
-  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-flower.jpg">
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/beach-1866992_1920.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/beach-1866992_1920.jpg">
 
 
 
@@ -69,14 +79,14 @@
   <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png">
 
 
-    <title>Git快速指南</title>
+    <title>How To Change The Theme of A Hugo Blog</title>
 
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png">
     
 
     
 
-    <link rel="canonical" href="https://azurciel.github.io/2019/03/git-quickstart/">
+    <link rel="canonical" href="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -261,21 +271,21 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-flower.jpg')"
+       style="background-image:url('//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/beach-1866992_1920.jpg')"
        data-behavior="4">
     
       <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Git快速指南
+      How To Change The Theme of A Hugo Blog
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-03-20T18:45:00&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-11-15T23:30:00&#43;08:00">
         
-  March 20, 2019
+  November 15, 2020
 
       </time>
     
@@ -304,94 +314,39 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>很多公司内部使用GitLab来做版本管理，假设你已经按照公司wiki设置好了Git账户。那么如何快速开始使用Git进行代码版本管理，下面是一些常用流程步骤。</p>
+              <p>A few days ago I <a href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/">migrated this blog</a> to Hugo from Jekyll and employed a beautiful theme called <a href="https://github.com/olOwOlo/hugo-theme-even">Even</a>, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called <a href="https://github.com/kakawait/hugo-tranquilpeak-theme">Tranquilpeak</a>, brought by <a href="https://github.com/kakawait">Thibaud Lepretre</a> from the <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">original hexo theme</a>.</p>
+<p>So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.</p>
 <ul>
-<li><a href="#1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91">1. 快速开发</a>
+<li><a href="#add-another-theme-as-a-submodule">Add another theme as a submodule</a></li>
+<li><a href="#change-the-blog-settings">Change the blog settings</a></li>
+<li><a href="#delete-the-submodule">Delete the submodule</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<h1 id="add-another-theme-as-a-submodule">Add another theme as a submodule</h1>
+<p>As previously mentioned in the <a href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/">blog setup post</a>, you can use command <code>git clone</code> or <code>git submodule</code> to add a blog theme from GitHub repository. It is highly recommended here that you always use <code>git submodule</code> to add a new theme, even though you want to customize the theme template by yourself, in which case you could first fork the theme repository and add submodule from your replica repo of the theme which should track all the modifications by you and can also keep updated with the original repo when necessary.</p>
+<p>So just in case I want to make some changes someday, or just don&rsquo;t want to get the latest theme from the original repo, of which some newest fancy features may not be what I want, whenever I re-download the blog repository by <code>git clone --recurse-submodules</code>.</p>
+<p>First I forked a copy of <code>https://github.com/kakawait/hugo-tranquilpeak-theme.git</code> theme to my repositories <code>https://github.com/azurciel/hugo-tranquilpeak-theme.git</code> (please heed the difference!) and then add submodule from the latter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule add https://github.com/azurciel/hugo-tranquilpeak-theme.git themes/tranquilpeak
+</code></pre></div><h1 id="change-the-blog-settings">Change the blog settings</h1>
+<p>Backup <code>config.toml</code> in the root directory of your blog site to <code>config.toml_bak</code> and copy <code>config.toml</code> from <code>themes/tranquilpeak/exampleSite</code> to the root directory and do some configuration as the <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">user docs</a> tells you, in which theme should be set to <code>tranquilpeak</code>:</p>
+<pre><code class="language-conf" data-lang="conf">theme = &quot;tranquilpeak&quot;
+</code></pre><p>After all settings are done, you can rebuild the blog now with the simple command <code>hugo</code> in the root directory or <code>hugo server -D</code> to preview your blog first. And then in the public directory you can commit all the changes and push up to the GitHub repo and a new blog is ready.</p>
+<h1 id="delete-the-submodule">Delete the submodule</h1>
+<p>Since you do not need the old theme anymore, you can delete it from you repository.</p>
+<p><em>How to remove the old submodule?</em></p>
+<p>In the blog root directory, run the following commands to remove the theme even from your blog site:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule deinit theme/even
+git rm theme/even 
+</code></pre></div><p><code>git submodule deinit theme/even</code> deletes theme/even&rsquo;s entry from .git/config. This excludes <code>theme/even</code> from <code>git submodule update</code>, <code>git submodule sync</code> and <code>git submodule foreach</code> calls and deletes its local content (source). Also, <strong>this will not be shown as change in your parent repository</strong>. <code>git submodule init</code> and <code>git submodule update</code> will <strong>restore</strong> the submodule, again without commitable changes in your parent repository.</p>
+<p><code>git rm theme/even</code> will remove theme/even from the work tree and the <code>theme/even</code> directory. The files of <code>theme/even</code> directory will be gone as well as the submodules' entry in the <code>.gitmodules</code> file, that is, the following lines will disappear.</p>
+<pre><code class="language-conf" data-lang="conf">[submodule &quot;themes/even&quot;]
+        path = themes/even
+        url = https://github.com/olOwOlo/hugo-theme-even.git
+</code></pre><h1 id="reference">Reference</h1>
 <ul>
-<li><a href="#11-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9C%AC%E5%9C%B0%E7%89%88%E6%9C%AC%E5%BA%93">1.1 初始化本地版本库</a></li>
-<li><a href="#12-%E5%BB%BA%E7%AB%8B%E4%B8%8E%E8%BF%9C%E7%A8%8B%E7%89%88%E6%9C%AC%E5%BA%93%E7%9A%84%E8%BF%9E%E6%8E%A5">1.2 建立与远程版本库的连接</a></li>
-<li><a href="#13-%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E5%88%86%E6%94%AF%E5%88%B0%E6%9C%AC%E5%9C%B0">1.3 拉取远程开发分支到本地</a></li>
-<li><a href="#14-%E5%9C%A8%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF">1.4 在本地创建分支</a></li>
-<li><a href="#15-%E5%88%86%E6%94%AF%E7%AD%96%E7%95%A5">1.5 分支策略</a></li>
+<li><a href="https://git-scm.com/docs/git-submodule">Git submodule</a></li>
+<li><a href="https://riptutorial.com/git/example/2652/removing-a-submodule">Removing a submodule</a></li>
 </ul>
-</li>
-<li><a href="#2-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF">2. 合并分支</a></li>
-<li><a href="#3-%E6%9B%B4%E6%96%B0%E5%88%86%E6%94%AF">3. 更新分支</a></li>
-</ul>
-<h1 id="1-快速开发">1. 快速开发</h1>
-<p>接到<strong>Boss</strong>命令，XX项目必须明天完成上线，而此时你才配置好git账户。一脸懵逼的你得知小伙伴已经将项目基础代码上传至Git版本库，地址就在<code>https://xxx.xxx.xxx.xxx/xxxxx/xxxxx.git</code>中的<code>project-dev</code>开发分支下。小激动一下，已经等不急就开始开发，赶紧完成上线，可不能影响周末的休息skrskr。</p>
-<h2 id="11-初始化本地版本库">1.1 初始化本地版本库</h2>
-<p>在<code>Git Bash</code>中运行如下命令：</p>
-<pre><code>cd /project/gitlab
-</code></pre><p><code>/project/gitlab</code>你存放项目的本地目录。</p>
-<pre><code>git init
-</code></pre><p>上述命令主要用来初始化一个空的<code>git</code>本地仓库。执行完上面的命令，当前目录下会自动生成<code>.git</code>隐藏文件夹，该隐藏文件夹就是<code>git</code>版本库. 用<code>ls -ah</code>命令就可以看见。</p>
-<h2 id="12-建立与远程版本库的连接">1.2 建立与远程版本库的连接</h2>
-<pre><code>git remote add origin https://xxx.xxx.xxx.xxx/xxxxx/xxxxx.git
-</code></pre><h2 id="13-拉取远程开发分支到本地">1.3 拉取远程开发分支到本地</h2>
-<pre><code>git fetch origin project-dev
-</code></pre><h2 id="14-在本地创建分支">1.4 在本地创建分支</h2>
-<pre><code>git checkout -b project-dev-xxx origin/project-dev
-</code></pre><p>此时，远程版本库的project-dev分支内容已经被拉取到本地了。OK，还未平复刚才的小激动，而此时已经可以开动键盘和鼠标，代码<del>ctrl-c/ctrl-v</del>写起来了。</p>
-<p>不一会功夫，高效的你已经进行了上百次下面的代码提交操作：</p>
-<pre><code>git add xxxx(修改的文件或者目录)
-git commit -m '提交的简要说明'
-</code></pre><p>“可是在Git版本库的web页上没看到提交记录啊”，对项目进度盯地很紧的PM默默在你身后嘀咕了这么一句，一下子打断了你周末去哪high的头脑风暴。</p>
-<p>怎么可能，一定是你没刷新，在我电脑上明明…………，哦，不要急哈，我还没push，稍等哈。向来对代码质量要求苛刻的你，肯定会检查仔细才能把完全没有bug的代码上传嘛，明明离上线还有18个小时~~</p>
-<h2 id="15-分支策略">1.5 分支策略</h2>
-<p>你知道这些修改只是在本地分支<code>project-dev-xxx</code>中进行了提交，要推送到远程版本库，有两种方法：</p>
-<p>第一种方法：直接推到远程版本库的<code>project-dev</code>开发分支中：</p>
-<pre><code>git push origin HEAD:project-dev
-</code></pre><p>这个方法直接，但是多人协作的时候，容易产生冲突，到时解决冲突很花时间。<strong>你决定不这么做。</strong></p>
-<p>第二种方法：通过分支合并的方式。将<code>project-dev-xxx</code>合并到<code>project-dev</code></p>
-<p>对于<code>project-dev-xxx</code>这样一个<strong>临时</strong>开发分支，你决定将它push到远程版本库中（也可以不push到远程，看自己需要），因为有时需要换一台工作站继续站着开发(Just kidding :D)。</p>
-<pre><code>git push origin project-dev-xxx
-</code></pre><p>本地分支<code>project-dev-xxx</code>与已上传到远程版本库<code>project-dev-xxx</code>建立连接</p>
-<pre><code>git push --set-upstream origin project-dev-xxx
-</code></pre><p>下次只要</p>
-<pre><code>git push
-</code></pre><p>即可直接push到<code>project-dev-xxx</code></p>
-<h1 id="2-合并分支">2. 合并分支</h1>
-<p>开发完成了，在自己本地也测试OK了，这时你决定立刻将自己的修改合并到<code>project-dev</code>主开发分支中去，交差然后早点下班。</p>
-<p>你严格按照前面的步骤进行的Git操作，此时输入命令<code>git branch</code>时，你只能看到一个分支：</p>
-<pre><code>* project-dev-xxx
-</code></pre><p><code>*</code>号表示你当前所在分支。现在你打算将该分支下的修改合并到远程版本库<code>origin/project-dev</code>分支中去。首先将远程版本库的<code>project-dev</code>分支拉取下来，并在本地创建分支</p>
-<pre><code>git checkout -b project-dev origin/project-dev
-</code></pre><p>执行完这个命令，会自动切换至该分支，此时输入命令<code>git branch</code>，看到当前分支已经切换至<code>project-dev</code>，如下：</p>
-<pre><code>* project-dev
-  project-dev-xxx
-</code></pre><p>可以执行<code>merge</code>分支合并操作了，命令很简单，执行：</p>
-<pre><code>git merge project-dev-xxx
-</code></pre><p>大功告成，你之前分支中<code>project-dev-xxx</code>辛苦两小时开发的内容已经合并到<code>project-dev</code>，下面只需一步<code>push</code>到远程版本库，就完成了代码的提交。</p>
-<pre><code>git push
-</code></pre><p>周末的休息，稳了。</p>
-<h1 id="3-更新分支">3. 更新分支</h1>
-<p>这次上线工作好在是小菜一碟，一个人就轻松搞定了。后来业务做大了，团队也壮大了，<strong>开发力量翻了整整一倍</strong>。另一个人刚开始用<code>git</code>，经过你的悉心指教，已经熟练掌握上面的步骤，很快进入两人协作开发模式，也实现了你梦寐以求的<code>pair programming</code>。</p>
-<p>俗话说的好：</p>
-<blockquote>
-<p>有人的地方就有<del>浆糊</del>江湖，有江湖的地方就有冲突。</p>
-</blockquote>
-<p>两人开发难免遇到这样的问题，开始用git，不知道如何协作，都在闷头写代码，一个月之后一起提交了，我槽，上万个冲突。对于程序员来说，必须要坚决捍卫自己的代码。有冲突只能对方改，结对的小船说翻就翻。</p>
-<p>其实很简单，<code>git</code>的本质就是更方便的进行冲突管理，大型的同性交友网站<code>Github</code>就是得益于<code>git</code>的强大的管理机制。</p>
-<p>对于简单的多人协作，掌握一下<code>rebase</code>即可。</p>
-<p>别人提交了代码，自己本地主分支<code>project-dev</code>需要更新一下。按照下面几个步骤，可以保证尽量少冲突，即使有冲突也拿到本地来解决。</p>
-<ol>
-<li>先切换到本地主分支</li>
-</ol>
-<pre><code>git checkout project-dev
-</code></pre><ol start="2">
-<li>更新本地主分支</li>
-</ol>
-<pre><code>git pull
-</code></pre><ol start="3">
-<li>然后切换到自己的开发分支</li>
-</ol>
-<pre><code>git checkout project-dev-xxx
-</code></pre><ol start="4">
-<li>将自己的开发分支<code>rebase</code>到最新的主分支中</li>
-</ol>
-<pre><code>git rebase project-dev
-</code></pre><p>在<code>rebase</code>时，<code>git</code>会将<code>project-dev</code>分支<code>merge</code>到<code>project-dev-xxx</code>分支，并且保持<code>commit</code>历史记录清爽宜人。完全不用担心代码冲突带来的不快，遇到冲突自己在本地编辑一下，就当啥事没发生。代码千万行，友谊第一行。</p>
               
             </div>
           </div>
@@ -403,9 +358,15 @@ git commit -m '提交的简要说明'
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/git/">git</a>
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/hugo/">hugo</a>
+
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/hugo-theme/">hugo theme</a>
+
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/tranquilpeak/">tranquilpeak</a>
 
   <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/github/">github</a>
+
+  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/git/">git</a>
 
                   </div>
                 
@@ -418,7 +379,7 @@ git commit -m '提交的简要说明'
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2019/05/text-classification-scikit-learn/" data-tooltip="基于搜狗新闻语料的文本分类">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -426,7 +387,7 @@ git commit -m '提交的简要说明'
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/" data-tooltip="How to Install and Configure Elasticsearch Clusters">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/" data-tooltip="How To Setup a Blog with Hugo and Github Pages on Mac">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -444,13 +405,13 @@ git commit -m '提交的简要说明'
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2019/03/git-quickstart/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2019/03/git-quickstart/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -488,7 +449,7 @@ git commit -m '提交的简要说明'
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2019/05/text-classification-scikit-learn/" data-tooltip="基于搜狗新闻语料的文本分类">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -496,7 +457,7 @@ git commit -m '提交的简要说明'
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/" data-tooltip="How to Install and Configure Elasticsearch Clusters">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/" data-tooltip="How To Setup a Blog with Hugo and Github Pages on Mac">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -514,13 +475,13 @@ git commit -m '提交的简要说明'
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2019/03/git-quickstart/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2019/03/git-quickstart/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -544,13 +505,13 @@ git commit -m '提交的简要说明'
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazurciel.github.io%2F2019%2F03%2Fgit-quickstart%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazurciel.github.io%2F2020%2F11%2Fhow-to-change-the-theme-of-a-hugo-blog%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fazurciel.github.io%2F2019%2F03%2Fgit-quickstart%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fazurciel.github.io%2F2020%2F11%2Fhow-to-change-the-theme-of-a-hugo-blog%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>

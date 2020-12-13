@@ -8,11 +8,11 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 15 Nov 2020 23:30:00 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/tags/tranquilpeak/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How To Change The Theme of My Hugo Blog</title>
-      <link>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/</link>
+      <title>How To Change The Theme of A Hugo Blog</title>
+      <link>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/</guid>
+      <guid>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</guid>
       <description>&lt;p&gt;A few days ago I &lt;a href=&#34;https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/&#34;&gt;migrated this blog&lt;/a&gt; to Hugo from Jekyll and employed a beautiful theme called &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34;&gt;Even&lt;/a&gt;, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme&#34;&gt;Tranquilpeak&lt;/a&gt;, brought by &lt;a href=&#34;https://github.com/kakawait&#34;&gt;Thibaud Lepretre&lt;/a&gt; from the &lt;a href=&#34;https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak&#34;&gt;original hexo theme&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.&lt;/p&gt;</description>
     </item>

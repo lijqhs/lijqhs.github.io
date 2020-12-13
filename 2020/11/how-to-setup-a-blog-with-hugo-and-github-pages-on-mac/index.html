@@ -142,7 +142,7 @@ if (!doNotTrack) {
         </a>
         <h4 class="sidebar-profile-name">azurciel</h4>
         
-          <h5 class="sidebar-profile-bio">curious about learning</h5>
+          <h5 class="sidebar-profile-bio">a humble learner</h5>
         
       </div>
     
@@ -309,6 +309,35 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas. <a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages#about-github-pages">GitHub Pages</a> is such a fancy service where you can easily setup your own websites by just a few mouse clicks. Companies and project teams can easily create product homepages on it, and individuals who like to document things and share ideas can also easily build blogs on it.</p>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#install-hugo">Install Hugo</a></li>
+<li><a href="#install-blog-themes">Install blog themes</a>
+<ul>
+<li><a href="#install-themes-with-git">Install themes with Git</a></li>
+<li><a href="#modify-configtoml">Modify config.toml</a></li>
+</ul>
+</li>
+<li><a href="#write-your-first-blog-post">Write your first blog post</a>
+<ul>
+<li><a href="#images-for-posts">images for posts</a></li>
+</ul>
+</li>
+<li><a href="#deploy-hugo-as-a-github-pages">Deploy Hugo as a Github Pages</a>
+<ul>
+<li><a href="#prepare-two-repos">Prepare two repos</a></li>
+<li><a href="#upload-repos">Upload repos</a>
+<ul>
+<li><a href="#blog-repo">Blog repo</a></li>
+<li><a href="#hugo-site-repo">Hugo site repo</a></li>
+</ul>
+</li>
+<li><a href="#deploy-script">Deploy script</a></li>
+<li><a href="#switch-to-another-computer">Switch to another computer</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
 <p>There are tons of different ways to setup blogs on GitHub Pages. The most straightforward one is to create by Jekyll which is a static site generator with built-in support for GitHub Pages and a simplified build process. Various <a href="https://github.com/search?q=jekyll">Jekyll</a> blog frameworks have been provided for you to build a blog in just minutes.</p>
 <p><a href="https://hexo.io">Hexo</a> is another blog framework based on Node.js, which is much more faster and more powerful with hundreds of blog themes. But it&rsquo;s rather tricky to set up.</p>
 <p>I prefer <a href="https://gohugo.io">Hugo</a>, the world&rsquo;s fastest framework for building websites, which is written in Go (aka Golang). If you know how to create a blog repository on GitHub, you can build a Hugo blog in minutes! Here are the steps.</p>
@@ -520,7 +549,7 @@ git push origin master
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/" data-tooltip="How To Change The Theme of My Hugo Blog">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/" data-tooltip="How To Change The Theme of A Hugo Blog">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -590,7 +619,7 @@ git push origin master
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-my-hugo-blog/" data-tooltip="How To Change The Theme of My Hugo Blog">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/" data-tooltip="How To Change The Theme of A Hugo Blog">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -672,7 +701,7 @@ git push origin master
     
     <h4 id="about-card-name">azurciel</h4>
     
-      <div id="about-card-bio">curious about learning</div>
+      <div id="about-card-bio">a humble learner</div>
     
     
       <div id="about-card-job">
@@ -685,7 +714,7 @@ git push origin master
       <div id="about-card-location">
         <i class="fa fa-map-marker"></i>
         <br/>
-        Nanjing
+        nanjing
       </div>
     
   </div>
