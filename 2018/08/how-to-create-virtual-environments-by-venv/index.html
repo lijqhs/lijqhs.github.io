@@ -312,13 +312,14 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <p>When I tested examples of the book <strong>Deep learning from scratch</strong>, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (<a href="https://matplotlib.org/faq/osx_framework.html">Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation</a>).</p>
 <p>The page shows <code>virtualenv</code> is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool <code>venv</code> provided since Python 3.4.</p>
+<p>Table of contents:</p>
 <ul>
 <li><a href="#remove-virtualenv">Remove virtualenv</a></li>
 <li><a href="#create-virtual-environments-by-venv">Create virtual environments by venv</a></li>
 <li><a href="#update-python-path-in-vscode">Update Python Path in VSCode</a></li>
 <li><a href="#run-example-in-new-virtual-environment">Run example in new virtual environment</a></li>
 </ul>
-<h1 id="remove-virtualenv">Remove virtualenv</h1>
+<h2 id="remove-virtualenv">Remove virtualenv</h2>
 <p>The previous <a href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">blog post</a> introduces how to depoly clean python working environments by <code>virtualenv</code>. Now because of the above problem I encountered with virtualenv I decided to abandon virtualenv in my MacBook. Instead <code>venv</code> might be a good replacement to create virtual environment. The shortage is there is no <code>workon</code> shortcut any more to switch between virtualenv seamlessly.
 The restore steps are clearly. Remove settings related to virtualenv and virtualenvwrapper in <code>~/.profile</code>. After that my <code>.profile</code> looks just like this.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export CLICOLOR<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
@@ -347,15 +348,15 @@ alias dl-env<span style="color:#f92672">=</span><span style="color:#e6db74">&#39
 alias code<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cd ~/Documents/Code&#39;</span>
 </code></pre></div><p>Then I uninstalled virtualenv and virtualenvwrapper which I should never need. And then just remove <code>.virtualenvs</code> directories used by virtualenv.
 You can see <code>PIP_REQUIRE_VIRTUALENV</code> and gpip is still kept in the .profile file. That was meant to prevent myself mess up global python package list when using <code>pip install</code> or <code>pip3 install</code> which are now limited to take effect only in the virtual environment. To install packages in the global environment the command <code>gpip</code> or <code>gpip3</code> should be explicitly appointed. <em>Reference:</em><a href="https://docs.python-guide.org/dev/pip-virtualenv/">Further Configuration of Pip and Virtualenv — The Hitchhiker’s Guide to Python</a></p>
-<h1 id="create-virtual-environments-by-venv">Create virtual environments by venv</h1>
+<h2 id="create-virtual-environments-by-venv">Create virtual environments by venv</h2>
 <p>I created a new <code>dl-env</code> by venv in a different directory <code>Venv</code> where all virtual environments are settled down. Actually I could also use directory like <code>.virtualenvs</code> to make virtual environments folders containing installed packages invisible but I didn’t do that. Project files are now put in the <code>Code</code> sub-directory of <code>Documents</code> which I could navigate directly from Finder on my MacBook.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/Venv
 python3 -m venv dl-env
 </code></pre></div><p>In the settings in <code>.profile</code> I set two alias: <code>dl-env</code> for quick activation of virtual environment <em>dl-env</em> and <code>code</code> for frequently used command <code>cd ~/Documents/Code</code>. <em>Reference:</em><a href="https://superuser.com/questions/606308/how-do-i-create-a-terminal-shortcut-to-this-path">macos - How do I create a terminal shortcut to this path? - Super User</a></p>
-<h1 id="update-python-path-in-vscode">Update Python Path in VSCode</h1>
+<h2 id="update-python-path-in-vscode">Update Python Path in VSCode</h2>
 <p>Python Path should be updated by new virtual environment python interpreter path.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;python.pythonPath&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;~/Venv/dl-env/bin/python&#34;</span><span style="color:#960050;background-color:#1e0010">,</span>
-</code></pre></div><h1 id="run-example-in-new-virtual-environment">Run example in new virtual environment</h1>
+</code></pre></div><h2 id="run-example-in-new-virtual-environment">Run example in new virtual environment</h2>
 <p>After all those settings above I could run example again in the new virtual environment. First of all some packages like <code>numpy</code> <code>scipy</code> <code>matplotlib</code> are required.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dl-env <span style="color:#75715e"># which activate venv dl-env</span>
 <span style="color:#f92672">(</span>dl-env<span style="color:#f92672">)</span> $ pip3 install numpy scipy matplotlib

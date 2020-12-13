@@ -309,6 +309,7 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas. <a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages#about-github-pages">GitHub Pages</a> is such a fancy service where you can easily setup your own websites by just a few mouse clicks. Companies and project teams can easily create product homepages on it, and individuals who like to document things and share ideas can also easily build blogs on it.</p>
+<p>Table of contents:</p>
 <ul>
 <li><a href="#prerequisites">Prerequisites</a></li>
 <li><a href="#install-hugo">Install Hugo</a></li>
@@ -341,14 +342,14 @@ if (!doNotTrack) {
 <p>There are tons of different ways to setup blogs on GitHub Pages. The most straightforward one is to create by Jekyll which is a static site generator with built-in support for GitHub Pages and a simplified build process. Various <a href="https://github.com/search?q=jekyll">Jekyll</a> blog frameworks have been provided for you to build a blog in just minutes.</p>
 <p><a href="https://hexo.io">Hexo</a> is another blog framework based on Node.js, which is much more faster and more powerful with hundreds of blog themes. But it&rsquo;s rather tricky to set up.</p>
 <p>I prefer <a href="https://gohugo.io">Hugo</a>, the world&rsquo;s fastest framework for building websites, which is written in Go (aka Golang). If you know how to create a blog repository on GitHub, you can build a Hugo blog in minutes! Here are the steps.</p>
-<h1 id="prerequisites">Prerequisites</h1>
+<h2 id="prerequisites">Prerequisites</h2>
 <p>Please make sure that you have a <a href="https://github.com">GitHub</a> account, othervise you should sign up one. And then finish the following tasks:</p>
 <ul>
 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Install Git on Mac</a></li>
 <li><a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">Connecting Github with SSH</a></li>
 <li><a href="https://brew.sh">Install Homebrew on Mac</a></li>
 </ul>
-<h1 id="install-hugo">Install Hugo</h1>
+<h2 id="install-hugo">Install Hugo</h2>
 <p>Now you have all your need to setup a Hugo blog.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; brew install hugo
 <span style="color:#75715e"># check if done</span>
@@ -373,16 +374,16 @@ my-blog
 
 <span style="color:#ae81ff">6</span> directories, <span style="color:#ae81ff">2</span> files
 </code></pre></div><p><code>themes</code> is the directory for blog themes. You can browse <a href="https://themes.gohugo.io">Hugo Themes</a> to choose your favorite one.</p>
-<h1 id="install-blog-themes">Install blog themes</h1>
+<h2 id="install-blog-themes">Install blog themes</h2>
 <p>On <a href="https://themes.gohugo.io">Hugo Themes</a>, you can download the theme you like and then put it in the <code>themes</code> folder and edit <code>config.toml</code> to add <code>theme=&lt;theme_name&gt;</code>. However, there is an easier way to do this.</p>
-<h2 id="install-themes-with-git">Install themes with Git</h2>
+<h3 id="install-themes-with-git">Install themes with Git</h3>
 <p>Find the Github repo page of the theme you choose and just clone the repo into the <code>themes</code> folder. For example, I found <a href="https://github.com/olOwOlo/hugo-theme-even">hugo-theme-even</a> to be my type of theme and easy to use.</p>
 <p>So I just clone the repo to <code>themes</code> by</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone https://github.com/olOwOlo/hugo-theme-even.git themes/even
 </code></pre></div><p>One thing to note here, later when upload the <code>my-blog</code> site to Github repo (maybe private repo to backup this site files), you might encounter some warnings related to the theme repo since you clone another repo in an existing git repo. You should decide whether or not this theme repo (in my case, the <code>hugo-theme-even</code> in themes folder) should be tracked to the original repo on Github, which you should not since you just clone the repo from others. In that case you need to clear index for the theme repo and keep it just tracked in your <code>my-blog</code> private repo.</p>
 <p>Here&rsquo;s the question that arises, what should I do if I need to keep this theme updated with the original repo. The solution is to use <code>git submodule</code>, a powerful feature of Git, which can keep the parent repo and its summodule repos connected and isolated. Instead of <code>git clone</code> you install themes by <code>git submodule</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git submodule add https://github.com/olOwOlo/hugo-theme-even.git themes/even
-</code></pre></div><h2 id="modify-configtoml">Modify config.toml</h2>
+</code></pre></div><h3 id="modify-configtoml">Modify config.toml</h3>
 <p>Replace <code>config.toml</code> with the example config file provided by the theme <code>themes/even/exampleSite/config.toml</code> and modify necessary configs. Here are some examples.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://&lt;GITHUB_USERNAME&gt;.github.io&#34;</span>
 <span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;XXXXXX&#34;</span>
@@ -401,11 +402,11 @@ my-blog
   <span style="color:#a6e22e">siteUV</span> = <span style="color:#66d9ef">true</span>
   <span style="color:#a6e22e">sitePV</span> = <span style="color:#66d9ef">true</span>
   <span style="color:#a6e22e">pagePV</span> = <span style="color:#66d9ef">true</span>
-</code></pre></div><h1 id="write-your-first-blog-post">Write your first blog post</h1>
+</code></pre></div><h2 id="write-your-first-blog-post">Write your first blog post</h2>
 <p>Writing blog posts is much more easier.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; hugo new post/my-first-post.md
 </code></pre></div><p>This will add the file <code>my-first-post.md</code> under the folder <code>content/post</code>. You can also manually create new markdown file under that folder. In <code>my-first-post.md</code>, add:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
 title: &#34;My First Post&#34;
 date: 2020-11-06T23:19:48+08:00
 draft: false
@@ -420,20 +421,19 @@ This is content. XXXX
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; hugo server -D
 Web Server is available at http://localhost:1313/ <span style="color:#f92672">(</span>bind address 127.0.0.1<span style="color:#f92672">)</span>
 Press Ctrl+C to stop
-</code></pre></div><h2 id="images-for-posts">images for posts</h2>
+</code></pre></div><h3 id="images-for-posts">images for posts</h3>
 <p>You may have pictures for your blog posts. Just put them in <code>my-blog/static/img/</code> and refer to them via</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">![<span style="color:#f92672">IMG_NAME</span>](<span style="color:#a6e22e">/img/img_example.png</span>)
-</code></pre></div><h1 id="deploy-hugo-as-a-github-pages">Deploy Hugo as a Github Pages</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">![<span style="color:#f92672">IMG_NAME</span>](<span style="color:#a6e22e">/img/img_example.png</span>)
+</code></pre></div><h2 id="deploy-hugo-as-a-github-pages">Deploy Hugo as a Github Pages</h2>
 <p>Follow the instructions on <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#github-user-or-organization-pages">Hugo Docs</a> to deploy <code>my-blog</code> to a Github private repo and deploy the <code>public</code> folder which is automatically generated by <code>hugo</code> command onto a Github Pages repo. Here are the main steps.</p>
-<h2 id="prepare-two-repos">Prepare two repos</h2>
+<h3 id="prepare-two-repos">Prepare two repos</h3>
 <ul>
 <li>One private repo (e.g. blog) for <code>my-blog</code>, the local Hugo website content and other source files.</li>
 <li>Another public repo, should be named <code>&lt;GITHUB_USERNAME&gt;.github.io</code>, for the fully rendered version of your Hugo website, i.e., the published blog (in <code>my-blog/public</code>)</li>
 </ul>
-<h2 id="upload-repos">Upload repos</h2>
-<h3 id="blog-repo">Blog repo</h3>
-<p>Make sure your blog website works locally (via <code>hugo server -D</code> as above) and
-then press <code>Ctrl+C</code> to kill the server.</p>
+<h3 id="upload-repos">Upload repos</h3>
+<h4 id="blog-repo">Blog repo</h4>
+<p>Make sure your blog website works locally (via <code>hugo server -D</code> as above) and then press <code>Ctrl+C</code> to kill the server.</p>
 <p>Before we go any further, run</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rm -rf public
 </code></pre></div><p>to completely remove the public directory (if any).</p>
@@ -447,7 +447,7 @@ git add .
 git commit -m <span style="color:#e6db74">&#39;building blog site&#39;</span>
 git push origin master
 </code></pre></div><p>If you receive an error message, you might need change <code>master</code> to <code>main</code> because GitHub have been using <code>main</code> instead of <code>master</code> since October 1, 2020.</p>
-<h3 id="hugo-site-repo">Hugo site repo</h3>
+<h4 id="hugo-site-repo">Hugo site repo</h4>
 <p>Run the following commands:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .
 git commit -m <span style="color:#e6db74">&#39;upload blog site source files&#39;</span>
@@ -458,13 +458,13 @@ git push -u origin master
 </code></pre></div><p>to change your local branch name to <code>main</code> and then run <code>git remote</code> and <code>git push</code> commands.</p>
 <p>If all goes well, you have two submodules in your site repo. <code>.gitmodules</code> shows like this:</p>
 <pre><code class="language-conf" data-lang="conf">[submodule &quot;themes/even&quot;]
-	path = themes/even
-	url = https://github.com/olOwOlo/hugo-theme-even.git
+  path = themes/even
+  url = https://github.com/olOwOlo/hugo-theme-even.git
 [submodule &quot;public&quot;]
-	path = public
-	url = git@github.com:&lt;GITHUB_USERNAME&gt;/&lt;GITHUB_USERNAME&gt;.github.io.git
+  path = public
+  url = git@github.com:&lt;GITHUB_USERNAME&gt;/&lt;GITHUB_USERNAME&gt;.github.io.git
 </code></pre><p>Run <code>git push</code> command will not upload any file of these two submodules to your site upstream repo <code>blog</code> since submodules have their own upstream repo.</p>
-<h2 id="deploy-script">Deploy script</h2>
+<h3 id="deploy-script">Deploy script</h3>
 <p>By now you have accomplished the full steps to make a blog. You should access the blog in your browser with the url <code>https://&lt;GITHUB_USERNAME&gt;.github.io</code>.</p>
 <p>However, let&rsquo;s have a recap. To publish a new post and keep your github repo up-to-date, your should have four steps:</p>
 <ol>
@@ -506,7 +506,7 @@ git push origin master
 <li>Run <code>zsh deploy.sh</code> or <code>./deploy.sh</code> in <code>my-blog</code> directory</li>
 <li>Upload <code>my-blog</code> (site repo)</li>
 </ol>
-<h2 id="switch-to-another-computer">Switch to another computer</h2>
+<h3 id="switch-to-another-computer">Switch to another computer</h3>
 <p>You may ask: <em>what if I change computers?</em></p>
 <p>Not a big problem. All you have to do in your new computer is the first two parts of this post and to git clone your site repository <code>blog</code> from Github.</p>
 <ul>
@@ -517,7 +517,7 @@ git push origin master
 </ul>
 <p>You&rsquo;d better get all submodules repositories files. To do this, pass <code>--recurse-submodules</code> to the <code>git clone</code> command, it will automatically initialize and update each submodule in the repository, including nested submodules if any of the submodules in the repository have submodules themselves. (Ref: <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git - Submodules</a>)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone --recurse-submodules git@github.com:&lt;GITHUB_USERNAME&gt;/blog.git
-</code></pre></div><h1 id="conclusion">Conclusion</h1>
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>Setting up a blog with Hugo is easy and simple, and this post lays out the concise and complete steps, with just a few actions on Git that may take time to delve into the specifics.</p>
               
             </div>

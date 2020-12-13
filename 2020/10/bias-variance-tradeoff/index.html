@@ -306,6 +306,8 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <p>一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。</p>
 
+<p>目录:</p>
+
 <ul>
 <li><a href="#bias-variance-tradeoff">Bias-Variance Tradeoff</a></li>
 <li><a href="#bias-variance-decomposition">Bias-Variance Decomposition</a></li>
@@ -313,7 +315,7 @@ if (!doNotTrack) {
 <li><a href="#reference">Reference</a></li>
 </ul>
 
-<h1 id="biasvariance-tradeoff">Bias-Variance Tradeoff</h1>
+<h2 id="biasvariance-tradeoff">Bias-Variance Tradeoff</h2>
 
 <blockquote>
 <p>One of the most reliable ways to get a high performance machine learning system is to take a low bias learning algorithm and to train it on a massive training set.
@@ -328,7 +330,7 @@ if (!doNotTrack) {
 <li>噪声则表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度。</li>
 </ul>
 
-<h1 id="biasvariance-decomposition">Bias-Variance Decomposition</h1>
+<h2 id="biasvariance-decomposition">Bias-Variance Decomposition</h2>
 
 <p>对于观测数据$X$、预测变量$Y$，假设两者符合关系$Y=f(X)+\epsilon$，其中$\epsilon \sim \mathcal{N}(0,\sigma_\epsilon^2)$。我们无法得到真实模型$f(X)$，我们可以选择机器学习模型，比如线性回归、决策树或其他模型，通过算法学习$f(X)$一个近似模型$\hat{f}(X)$来对$X$的观测进行预测。给定$X$的一个观测点$x$，其真实观测（待预测变量）为$y=f(x)+\epsilon$。</p>
 
@@ -347,7 +349,7 @@ Err(x)&=E[(y-\hat{f})^2] \\
 &=Bias[\hat{f}]^2+Var[\hat{f}]+\sigma^2
 \end{align}\]</span></p>
 
-<h1 id="biasvariance-calculation-with-python">Bias-Variance Calculation with Python</h1>
+<h2 id="biasvariance-calculation-with-python">Bias-Variance Calculation with Python</h2>
 
 <p>采用<code>mlxtend</code>可以很方便的计算Bias-Variance误差分解，下面是回归决策树方法的偏差-方差分解。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> mlxtend.evaluate <span style="color:#f92672">import</span> bias_variance_decomp
@@ -391,7 +393,7 @@ avg_expected_loss, avg_bias, avg_var <span style="color:#f92672">=</span> bias_v
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Average variance: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_var)</code></pre></div><pre><code>Average expected loss: 18.593
 Average bias: 15.354
 Average variance: 3.239</code></pre>
-<h1 id="reference">Reference</h1>
+<h2 id="reference">Reference</h2>
 
 <ul>
 <li><a href="http://scott.fortmann-roe.com/docs/BiasVariance.html">Understanding the Bias-Variance Tradeoff</a></li>

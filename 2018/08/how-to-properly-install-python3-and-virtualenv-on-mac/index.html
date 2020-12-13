@@ -305,6 +305,7 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of <a href="https://www.davidculley.com/installing-python-on-a-mac/">David Culley</a> where he gives several alternatives to set up a Python3 working environment. The post of <a href="https://stringpiggy.hpd.io/mac-osx-python3-dual-install/">Candy Tsai</a> also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. <a href="https://brew.sh/">Homebrew</a> is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.</p>
+<p>Table of contents:</p>
 <ul>
 <li><a href="#install-python-via-homebrew">Install Python via Homebrew</a>
 <ul>
@@ -319,26 +320,23 @@ if (!doNotTrack) {
 <li><a href="#change-pip-mirror">Change pip mirror</a></li>
 <li><a href="#install-virtualenv">Install Virtualenv</a></li>
 <li><a href="#configurate-virtualenv">Configurate Virtualenv</a></li>
-<li><a href="#virtualenv-usage">Virtualenv usage</a>
-<ul>
-<li><a href="#more-cool-commands">More cool commands</a></li>
-</ul>
-</li>
+<li><a href="#virtualenv-usage">Virtualenv usage</a></li>
+<li><a href="#more-commands">More commands</a></li>
 </ul>
 </li>
 <li><a href="#install-python-as-framework">Install Python as framework</a></li>
 <li><a href="#visual-studio-code">Visual Studio Code</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
-<h1 id="install-python-via-homebrew">Install Python via Homebrew</h1>
+<h2 id="install-python-via-homebrew">Install Python via Homebrew</h2>
 <p>The following steps shows the full path to install Python3 via Homebrew.</p>
-<h2 id="install-xcode">Install XCode</h2>
+<h3 id="install-xcode">Install XCode</h3>
 <p>Before installing Homebrew you need first install XCode which is an integrated development environment for macOS containing a suite of software development tools by Apple for creating apps for iPhone, iPad, Mac and other Apple products. Open App Store and search <code>xcode</code> then the first result should be your choice.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/xcode-install.png" alt="xcode_install"></p>
 <p>After XCode installation, open the app and check <em>License Agreement</em> and then install XCode command line tool in the terminal.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">xcode-select --install
 </code></pre></div><p>The XCode installation is finished and move on the next step.</p>
-<h2 id="install-homebrew">Install Homebrew</h2>
+<h3 id="install-homebrew">Install Homebrew</h3>
 <p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/homebrew.png" alt="homebrew"></p>
 <p>Homebrew is the missing package manager and simply follow the installation instruction from the Homebrew webpage. The script should be run on the macOS above 10.7 otherwise see documents <a href="https://docs.brew.sh/Installation">here</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/bin/ruby -e <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
@@ -347,19 +345,19 @@ if (!doNotTrack) {
 </code></pre></div><p>You should see a message exactly like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Your system is ready to brew.
 </code></pre></div><p>Until now you could install python3 on your mac by Homebrew.</p>
-<h2 id="install-python3">Install Python3</h2>
+<h3 id="install-python3">Install Python3</h3>
 <p>In your terminal, execute the following command.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install python3
 </code></pre></div><p>Waiting a few seconds python3 will be in the directory <code>/usr/local/Cellar/</code>. Need not bother to care what it is. Directly use <code>python3</code> in the terminal to run your python code. Homebrew will automatically create a soft link to python3 in <code>/usr/local/bin</code> and append that directory to the beginning of <code>$PATH</code>. So now you have python3 installed. Since Homebrew always installs the newest version of Python in my case it is Python 3.7.0 before I write this post.</p>
-<h2 id="check-installation">Check installation</h2>
+<h3 id="check-installation">Check installation</h3>
 <p><code>python</code> stands for the original python distribution of macOS system. <code>python3</code> is what you have just installed and what you should use in the developing.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">which python3
 </code></pre></div><p>It shows <code>/usr/local/bin/python3</code> whereas</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">which python
 </code></pre></div><p>shows <code>/usr/bin/python</code>.</p>
-<h1 id="virtualenv">Virtualenv</h1>
+<h2 id="virtualenv">Virtualenv</h2>
 <p>One more thing. To properly develop with python3 on Macbook Virtualenv is a good assistant for you. Virtualenv helps you keep every project with its own specific python package environment seperately. Virtualenv itself is installed within python3 environment and later on you should install packages for every project indepentently.</p>
-<h2 id="change-pip-mirror">Change pip mirror</h2>
+<h3 id="change-pip-mirror">Change pip mirror</h3>
 <p>First it&rsquo;s better to change the pip source mirror since the official pip source website may have a bandwidth limitation and it will always fail to download packages even though <code>--timeout</code> parameter is set.
 For temporary use install packages by append a parameter to <code>pip3</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
@@ -370,12 +368,12 @@ vi pip.conf
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>global<span style="color:#f92672">]</span>
 index-url <span style="color:#f92672">=</span> https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre></div><p>Then press <code>esc</code> to switch from edit mode to command mode and just input <code>:wq</code> and <code>Enter</code> to save and quit the file.</p>
-<h2 id="install-virtualenv">Install Virtualenv</h2>
+<h3 id="install-virtualenv">Install Virtualenv</h3>
 <p>You should always prefer installing softwares by pip to homebrew when available in both. Install virtualenv as a package in Python3. Do as follows.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip3 install --upgrade pip setuptools wheel
 pip3 install virtualenv virtualenvwrapper
 </code></pre></div><p>Here you see <code>virtualenv</code> and <code>virtualenvwrapper</code>. The later one is not mandatory but is worth a try. After installation the important part is configuration.</p>
-<h2 id="configurate-virtualenv">Configurate Virtualenv</h2>
+<h3 id="configurate-virtualenv">Configurate Virtualenv</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/Projects
 </code></pre></div><p>To create a directory for projects in your home directory. You can put it anywhere in your system.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vi ~/.profile
@@ -397,7 +395,7 @@ gpip<span style="color:#f92672">(){</span>
 gpip3<span style="color:#f92672">(){</span>
    PIP_REQUIRE_VIRTUALENV<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> pip3 <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><h2 id="virtualenv-usage">Virtualenv usage</h2>
+</code></pre></div><h3 id="virtualenv-usage">Virtualenv usage</h3>
 <p>Now you can use virtualenv. To create a new virtualenv like for deep learning say <code>dl-env</code>, run script in terminal:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkvirtualenv dl-env
 </code></pre></div><p>To delete a virtualenv:</p>
@@ -405,7 +403,7 @@ gpip3<span style="color:#f92672">(){</span>
 </code></pre></div><p>A more handy way:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkproject dl-env
 </code></pre></div><p>This will create a new virtualenv in <code>$HOME/.virtualenvs</code> and a new directory in <code>Projects</code> and you can switch between virtualenvs by command <code>workon</code>. For example, there are two virtualenvs or projects <code>dl-env</code> and <code>game-env</code>. To activate <code>dl-env</code> simply run <code>workon dl-env</code>. To switch to <code>game-env</code> simply run <code>workon game-env</code>. This will deactivate <code>dl-env</code> and activate <code>game-env</code> meanwhile it changes current working directory from <code>~/Projects/dl-env</code> to <code>~/Projects/game-env</code>.</p>
-<h3 id="more-cool-commands">More cool commands</h3>
+<h3 id="more-commands">More commands</h3>
 <p>A list of commands that are helpful for virtualenv usage:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsvirtualenv <span style="color:#75715e"># list all virtualenv </span>
 cdvirtualenv <span style="color:#f92672">[</span>subdir<span style="color:#f92672">]</span> <span style="color:#75715e"># cd into activated virtualenv directory </span>
@@ -413,9 +411,9 @@ showvirtualenv <span style="color:#f92672">[</span>env<span style="color:#f92672
 cpvirtualenv <span style="color:#f92672">[</span>source<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>dest<span style="color:#f92672">]</span> <span style="color:#75715e"># copy virtualenv</span>
 workon <span style="color:#75715e"># no parametor to show all virtualenv</span>
 cdproject <span style="color:#75715e"># cd into projects directory of activated virtualenv</span>
-</code></pre></div><h1 id="install-python-as-framework">Install Python as framework</h1>
+</code></pre></div><h2 id="install-python-as-framework">Install Python as framework</h2>
 <p>In case you would not want Python 3.7.0 just like I did, a direct way to install Python3 is via the official distribution. Choose the version from <a href="https://www.python.org/downloads/mac-osx/">Python website</a> where I chose Python 3.6.6 for macOS which is the newest version of Python 3.6 supporting tensorflow so far. Installation is much easier. Open the installation package and follow the wizard. Unlike brew way Python3 will be put in <code>/Library/Frameworks/Python.framework</code> with a soft link is already created in <code>/usr/local/bin/python3</code> so <code>which python3</code> returns <code>/usr/local/bin/python3</code>. In this way virtualenv installation is the same as above.</p>
-<h1 id="visual-studio-code">Visual Studio Code</h1>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
 <p>There are always battles of which editor is the best on the Internet. Now these battles should be ended by <a href="https://code.visualstudio.com/">Visual Studio Code</a> the top No.1 editor in the world. I tried so many text editors before I got to know vscode. Either they are not flexible or cannot supports such many kinds of languages and file formats.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/vscode.png" alt="vscode"></p>
 <p>When do python programming with vscode a Python plugin is needed which supports linting, debugging, intellisense, code formatting and so on. Default Python path setting should be updated from system python to python3 we just installed. In the interface of VSCode, click <code>Code-&gt;Preferences-&gt;Settings</code> and <code>User Settings</code> page will show up. Search for python settings. Default user settings looks like this:</p>
@@ -426,7 +424,7 @@ cdproject <span style="color:#75715e"># cd into projects directory of activated 
 </code></pre></div><p><code>[your username]</code> should be replaced by your system username and <code>dl-env</code> is the virutal environment created above and should by replaced by yours. With this setting vscode will parse python code using the python interpreter in the virtual environment. And now you may install some python packages in your virtual environment like pylint, numpy, scipy, matplotlib and jupyter.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">workon dl-env
 pip3 install pylint numpy scipy matplotlib jupyter
-</code></pre></div><h1 id="conclusion">Conclusion</h1>
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>This post introduced python3 installation methods via Homebrew or directly installing from official distribution and the most convenient python working environment deploy tool Virtualenv combined with Virtualenvwrapper. VSCode is strongly recommended and the python environment setting is also straightforward.</p>
               
             </div>

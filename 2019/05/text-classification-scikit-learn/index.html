@@ -313,15 +313,13 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了<a href="https://github.com/azurciel/Sogou-News-Text-Classification">GitHub</a>上。</p>
+<p>目录:</p>
 <ul>
 <li><a href="#1-%E8%AF%AD%E6%96%99%E9%A2%84%E5%A4%84%E7%90%86">1. 语料预处理</a></li>
 <li><a href="#2-%E7%94%9F%E6%88%90%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86">2. 生成训练集和测试集</a>
 <ul>
-<li><a href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D">中文分词</a>
-<ul>
+<li><a href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D">中文分词</a></li>
 <li><a href="#%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E9%9B%86">生成数据集</a></li>
-</ul>
-</li>
 <li><a href="#%E8%AF%8D%E4%BA%91%E6%98%BE%E7%A4%BA">词云显示</a></li>
 </ul>
 </li>
@@ -341,7 +339,7 @@ if (!doNotTrack) {
 </li>
 <li><a href="#6-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">6. 参考资料</a></li>
 </ul>
-<h1 id="1-语料预处理">1. 语料预处理</h1>
+<h2 id="1-语料预处理">1. 语料预处理</h2>
 <p>首先加载所有需要用到的Python库</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
 <span style="color:#f92672">import</span> shutil
@@ -477,8 +475,8 @@ dst_dir: data/train/_24_Military, len: 1500
 dst_dir: data/test/_24_Military, len: 490
 Corpus split DONE.
 </code></pre>
-<h1 id="2-生成训练集和测试集">2. 生成训练集和测试集</h1>
-<h2 id="中文分词">中文分词</h2>
+<h2 id="2-生成训练集和测试集">2. 生成训练集和测试集</h2>
+<h3 id="中文分词">中文分词</h3>
 <p>定义一个分词预处理函数，采用<code>jieba</code>分词工具，主要去掉对文本分类无用的标点符号和数字，输入为新闻文本，输出为分词之后并用空格连接的文本。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">token <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[0-9\s+\.\!\/_,$%^*()?;；：【】+</span><span style="color:#ae81ff">\&#34;\&#39;</span><span style="color:#e6db74">\[\]</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">]+|[+——！，;:。？《》、~@#￥%……&amp;*（）“”.=-]+&#34;</span>
 
@@ -543,7 +541,7 @@ test corpus len: 4410
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y_train[<span style="color:#ae81ff">1000</span>]
 </code></pre></div><pre><code>'_08_Finance'
 </code></pre>
-<h2 id="词云显示">词云显示</h2>
+<h3 id="词云显示">词云显示</h3>
 <p>这里插一个与文本分类无关的步骤，用WordCloud展示文本的词频信息，直观看一下文本关键词信息，生成的词云图片可以让人一目了然。如果让人来进行分类，扫一眼词云就可以在很短时间内做出分类判断，比阅读原始文本要快的多，其原理就是利用了文本中的高频词信息，频率高的词（去除停用词之后）比较能代表文本的主旨信息，其实后面的分类过程大概就是这个思路。WordCloud默认不显示中文字体，会显示成方块，可以在网上下载字体文件simhei.ttf，放在当前目录下即可。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">wordcloud <span style="color:#f92672">=</span> WordCloud(scale<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>,
                       font_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;simhei.ttf&#39;</span>,
@@ -555,7 +553,7 @@ test corpus len: 4410
 plt<span style="color:#f92672">.</span>imshow(wordcloud, interpolation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bilinear&#39;</span>)
 plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;off&#39;</span>)
 </code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/wordcloud.png" alt="png"></p>
-<h1 id="3-文本特征提取tf-idf">3. 文本特征提取:TF-IDF</h1>
+<h2 id="3-文本特征提取tf-idf">3. 文本特征提取:TF-IDF</h2>
 <p>这个步骤将文档信息，也即每篇新闻被分好词之后的词集合，转为为基于词频-你文档词频（TF-IDF）的向量，向量的每个元素都是对应于某个词在这个文档中的TF-IDF值，在不同文档中，同一词的TF-IDF是不一样的。所有文档的TF-IDF向量堆放在一起就组成了一个TF-IDF矩阵。注意到这里应该包含了除停用词之外的所有词的TF-IDF值，词的个数构成了向量的维度。</p>
 <p>用<code>TfidfVectorizer</code>将文档集合转为<code>TF-IDF</code>矩阵。注意到前面我们将文本做了分词并用空格隔开。如果是英文，本身就是空格隔开的，而英文的分词（Tokenizing）是包含在特征提取器中的，不需要分词这一步骤。下面我们在得到了分类器之后，使用新文本进行分类预测时，也是需要先做一下中文分词的。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">stopwords <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;dict/stop_words.txt&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>)<span style="color:#f92672">.</span>read()<span style="color:#f92672">.</span>split()
@@ -570,14 +568,14 @@ words <span style="color:#f92672">=</span> tfidf_vectorizer<span style="color:#f
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">len(words)
 </code></pre></div><pre><code>223094
 </code></pre>
-<h1 id="4-构建分类器">4. 构建分类器</h1>
-<h2 id="benchmark-朴素贝叶斯分类器">Benchmark: 朴素贝叶斯分类器</h2>
+<h2 id="4-构建分类器">4. 构建分类器</h2>
+<h3 id="benchmark-朴素贝叶斯分类器">Benchmark: 朴素贝叶斯分类器</h3>
 <p>得到了训练样本的文本特征，现在可以训练出一个分类器，以用来对新的新闻文本进行分类。<code>scikit-learn</code>中提供了多种分类器，其中<a href="https://scikit-learn.org/stable/modules/naive_bayes.html#naive-bayes">朴素贝叶斯</a>是一个很好的基准，有多个版本的朴素贝叶斯分类器，其中<a href="https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes"><code>MultinomialNB</code></a>比较适合于文本分类。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">classifier <span style="color:#f92672">=</span> MultinomialNB()
 classifier<span style="color:#f92672">.</span>fit(X_train_tfidf, y_train)
 </code></pre></div><pre><code>MultinomialNB(alpha=1.0, class_prior=None, fit_prior=True)
 </code></pre>
-<h2 id="对新文本应用分类">对新文本应用分类</h2>
+<h3 id="对新文本应用分类">对新文本应用分类</h3>
 <p>对新的文本需要进行分类，那么只需将上面的<code>tfidf_vectorizer</code>应用在新的文本上，调用<code>transform</code>方法而不是<code>fit_transform</code>，将新的文本转换为<code>TF-IDF</code>特征，然后再调用分类器的<code>predict</code>，得到分类。</p>
 <p>下面新闻节选自腾讯新闻网，原文地址：</p>
 <ul>
@@ -600,7 +598,7 @@ predicted
 </code></pre></div><pre><code>array(['_08_Finance', '_20_Education', '_24_Military'], dtype='&lt;U13')
 </code></pre>
 <p>可以看到上面对新的文本的分类结果是正确的。</p>
-<h2 id="使用pipeline更方便">使用Pipeline更方便</h2>
+<h3 id="使用pipeline更方便">使用Pipeline更方便</h3>
 <p><code>scikit-learn</code>提供了一个<code>Pipeline</code>工具，可以将上面从特征提取到分类器的训练这些步骤串起来，以方便调用。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">text_clf <span style="color:#f92672">=</span> Pipeline([
     (<span style="color:#e6db74">&#39;vect&#39;</span>, TfidfVectorizer()),
@@ -619,7 +617,7 @@ predicted
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">text_clf<span style="color:#f92672">.</span>predict(X_new_data)
 </code></pre></div><pre><code>array(['_08_Finance', '_20_Education', '_24_Military'], dtype='&lt;U13')
 </code></pre>
-<h1 id="5-分类器的评估">5. 分类器的评估</h1>
+<h2 id="5-分类器的评估">5. 分类器的评估</h2>
 <p>有了分类器，以及知道了如何用分类器来对新的文本进行分类预测，那么我们可以用前面划分出来的测试集对这个分类器进行性能评估。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">predicted <span style="color:#f92672">=</span> text_clf<span style="color:#f92672">.</span>predict(X_test_data)
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>mean(predicted <span style="color:#f92672">==</span> y_test)
@@ -655,7 +653,7 @@ _20_Education       0.71      0.87      0.79       401
        [  3,  25,   4,   4,  34,  23,   5, 394,  21],
        [  4,  19,   0,   0,   5,   4,   1,  22, 461]])
 </code></pre>
-<h2 id="构建logistic-regression分类器">构建Logistic Regression分类器</h2>
+<h3 id="构建logistic-regression分类器">构建Logistic Regression分类器</h3>
 <p>让我们再试一下其他的分类器，比如<code>Logistic Regression</code>，训练新的分类器，代码也是非常简单：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">text_clf_lr <span style="color:#f92672">=</span> Pipeline([
     (<span style="color:#e6db74">&#39;vect&#39;</span>, TfidfVectorizer()),
@@ -704,7 +702,7 @@ _20_Education       0.79      0.91      0.85       429
        [ 11,  23,   8,   6,  24,  30,  15, 419,  20],
        [  5,  11,   0,   1,   3,   6,   1,  16, 465]])
 </code></pre>
-<h2 id="构建svm分类器">构建SVM分类器</h2>
+<h3 id="构建svm分类器">构建SVM分类器</h3>
 <p>据说在传统机器学习中，SVM是做文本分类最好的工具。同样做一下跟上面LR一样的对比：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">text_clf_svm <span style="color:#f92672">=</span> Pipeline([
     (<span style="color:#e6db74">&#39;vect&#39;</span>, TfidfVectorizer()),
@@ -745,7 +743,7 @@ _20_Education       0.82      0.92      0.86       437
        [  4,  13,   0,   0,   3,   6,   1,  17, 468]])
 </code></pre>
 <p>本文代码地址：<a href="https://github.com/azurciel/Sogou-News-Text-Classification">GitHub</a>.</p>
-<h1 id="6-参考资料">6. 参考资料</h1>
+<h2 id="6-参考资料">6. 参考资料</h2>
 <ul>
 <li><a href="https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html">Scikit-learn Working With Text Data</a></li>
 </ul>

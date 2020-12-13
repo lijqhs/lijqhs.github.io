@@ -317,6 +317,7 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。<a href="https://azurciel.github.io/2019/05/text-classification-scikit-learn/">上篇文章</a>将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在<a href="https://github.com/azurciel/Sogou-News-Text-Classification">GitHub</a>上。</p>
+<p>目录:</p>
 <ul>
 <li><a href="#1-%E8%AF%BB%E5%8F%96%E8%AF%AD%E6%96%99">1. 读取语料</a></li>
 <li><a href="#2-%E5%8A%A0%E8%BD%BD%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%8D%E5%90%91%E9%87%8F%E6%A8%A1%E5%9E%8B">2. 加载预训练词向量模型</a></li>
@@ -329,7 +330,7 @@ if (!doNotTrack) {
 <li><a href="#5-%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9E%8B">5. 构建模型</a></li>
 <li><a href="#6-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">6. 参考资料</a></li>
 </ul>
-<h1 id="1-读取语料">1. 读取语料</h1>
+<h2 id="1-读取语料">1. 读取语料</h2>
 <p>读取语料与上一篇略有区别，这里读取原始语料，划分训练集和测试集，放在了后面预处理部分。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">texts, labels <span style="color:#f92672">=</span> load_raw_datasets()
 </code></pre></div><pre><code>label: C000008, len: 1990
@@ -426,7 +427,7 @@ Done. 9 total categories, 17910 total docs. cost 224.0759744644165 seconds.
 </code></pre></div><p>如果想要将向量分类编码转回整数类别标签，可以用<code>numpy</code>中的<code>argmax</code>函数：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> numpy <span style="color:#f92672">import</span> argmax
 argmax(labels[<span style="color:#ae81ff">0</span>])
-</code></pre></div><h1 id="2-加载预训练词向量模型">2. 加载预训练词向量模型</h1>
+</code></pre></div><h2 id="2-加载预训练词向量模型">2. 加载预训练词向量模型</h2>
 <p>解压之后的中文预训练词向量模型的文件格式是文本文件，首行只有两个空格隔开的数字：词的个数和词向量的维度，从第二行开始格式为：词 数字1 数字2 …… 数字300，形式如下：</p>
 <blockquote>
 <p>364180 300
@@ -448,7 +449,7 @@ embeddings_index <span style="color:#f92672">=</span> {}
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Found </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> word vectors, dimension </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> (len(embeddings_index), embedding_dim))
 </code></pre></div><pre><code>Found 364180 word vectors, dimension 300
 </code></pre>
-<h1 id="3-使用keras对语料进行处理">3. 使用Keras对语料进行处理</h1>
+<h2 id="3-使用keras对语料进行处理">3. 使用Keras对语料进行处理</h2>
 <p>在<a href="https://azurciel.github.io/2019/05/text-classification-scikit-learn/">上篇文章</a>中，我们使用了TfidfVectorizer，将训练语料转换为TFIDF矩阵，每个向量的长度相同（等于总语料库词汇量的大小）。本文将使用Keras中的Tokenizer对文本进行处理，每个向量等于每个文本的长度，这个长度在处理的时候由变量<code>MAX_SEQUENCE_LEN</code>做了限制，其数值并不表示计数，而是对应于字典<code>tokenizer.word_index</code>中的单词索引值，这个字典是在调用<code>Tokenizer</code>时产生。</p>
 <p>长度超过<code>MAX_SEQUENCE_LEN</code>的文本序列会被截断，长度小于这个值的文本序列则需要补零来达到这个长度，<code>Keras</code>中的<code>pad_sequence()</code>就是用零来填充向量序列。形式如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pad_sequences([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>],[<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>]], maxlen<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
@@ -510,7 +511,7 @@ Shape of label tensor: (17910, 9)
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">category_labels[dict_swaped(labels_index)[argmax(labels_categorical[<span style="color:#ae81ff">0</span>])]]
 </code></pre></div><pre><code>'_20_Education'
 </code></pre>
-<h1 id="4-定义词嵌入矩阵">4. 定义词嵌入矩阵</h1>
+<h2 id="4-定义词嵌入矩阵">4. 定义词嵌入矩阵</h2>
 <p>下面创建一个词嵌入矩阵，用来作为上述文本集合词典（只取序号在前<code>MAX_WORDS_NUM</code>的词，对应了比较常见的词）的词嵌入矩阵，矩阵维度是<code>(MAX_WORDS_NUM, EMBEDDING_DIM)</code>。</p>
 <p>矩阵的每一行<code>i</code>代表词典<code>word_index</code>中第<code>i</code>个词的词向量。这个词嵌入矩阵是预训练词向量的一个子集。语料中很可能有的词不在预训练词向量中，这样的词在这个词向量矩阵中对应的向量元素都设为零。在本例中，20000个词有92.35%在预训练词向量中。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">EMBEDDING_DIM <span style="color:#f92672">=</span> <span style="color:#ae81ff">300</span> <span style="color:#75715e"># embedding dimension</span>
@@ -526,7 +527,7 @@ embedding_matrix <span style="color:#f92672">=</span> np<span style="color:#f926
 nonzero_elements <span style="color:#f92672">/</span> MAX_WORDS_NUM
 </code></pre></div><pre><code>0.9235
 </code></pre>
-<h2 id="embedding-layer">Embedding Layer</h2>
+<h3 id="embedding-layer">Embedding Layer</h3>
 <p>下面代码中用<code>keras</code>构建神经网络文本分类模型时，用到了嵌入层<code>Embedding</code>。关于嵌入层（<a href="https://keras.io/layers/embeddings/">Keras Embedding Layer API</a>），<a href="https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/">这篇文章</a>有比较详细的介绍。嵌入层的目的是将输入序列中的整数索引转换成一个稠密的向量，嵌入层的输入是一个2D张量，形状为<code>(batch_size, sequence_length)</code>，输出是3D张量，形状为<code>(batch_size, sequence_length, output_dim)</code>。</p>
 <p>嵌入层的输入数据<code>sequence</code>向量的整数元素对应词的编码，前面看到这个获取序列编码的步骤使用了Keras的<code>Tokenizer API</code>来实现，如果不使用预训练词向量模型，嵌入层是用随机权重进行初始化，在训练中将学习到训练集中的所有词的权重，也就是词向量。在定义<code>Embedding</code>层，需要至少3个输入数据：</p>
 <ul>
@@ -540,7 +541,7 @@ nonzero_elements <span style="color:#f92672">/</span> MAX_WORDS_NUM
 <li>嵌入层作为深度学习的第一个隐藏层，本身就是深度学习模型训练的一部分</li>
 <li>加载预训练词向量模型，这是一种迁移学习，本文就是这样的示例</li>
 </ul>
-<h1 id="5-构建模型">5. 构建模型</h1>
+<h2 id="5-构建模型">5. 构建模型</h2>
 <p>Keras支持两种类型的模型结构：</p>
 <ul>
 <li>Sequential类，顺序模型，这个仅用于层的线性堆叠，最常见的网络架构</li>
@@ -709,7 +710,7 @@ Epoch 6/6
 <p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/acc-loss-model3-cnn.png" alt="acc-loss-model3-cnn.png"></p>
 <p>通过加入池化层<code>MaxPooling1D</code>，降低了过拟合的情况。验证集上的准确度超过了前两个模型，也超过了<a href="https://azurciel.github.io/2019/05/text-classification-scikit-learn/">上篇文章</a>中介绍的传统机器学习方法。</p>
 <p>完整代码在<a href="https://github.com/azurciel/Sogou-News-Text-Classification">GitHub</a>.</p>
-<h1 id="6-参考资料">6. 参考资料</h1>
+<h2 id="6-参考资料">6. 参考资料</h2>
 <ul>
 <li><a href="http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">Deep Learning, NLP, and Representations</a></li>
 <li><a href="https://keras.io/layers/embeddings/">Keras Embedding Layers API</a></li>

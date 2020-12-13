@@ -316,22 +316,23 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <p>A few days ago I <a href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/">migrated this blog</a> to Hugo from Jekyll and employed a beautiful theme called <a href="https://github.com/olOwOlo/hugo-theme-even">Even</a>, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called <a href="https://github.com/kakawait/hugo-tranquilpeak-theme">Tranquilpeak</a>, brought by <a href="https://github.com/kakawait">Thibaud Lepretre</a> from the <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">original hexo theme</a>.</p>
 <p>So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.</p>
+<p>Table of contents:</p>
 <ul>
 <li><a href="#add-another-theme-as-a-submodule">Add another theme as a submodule</a></li>
 <li><a href="#change-the-blog-settings">Change the blog settings</a></li>
 <li><a href="#delete-the-submodule">Delete the submodule</a></li>
 <li><a href="#reference">Reference</a></li>
 </ul>
-<h1 id="add-another-theme-as-a-submodule">Add another theme as a submodule</h1>
+<h2 id="add-another-theme-as-a-submodule">Add another theme as a submodule</h2>
 <p>As previously mentioned in the <a href="https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/">blog setup post</a>, you can use command <code>git clone</code> or <code>git submodule</code> to add a blog theme from GitHub repository. It is highly recommended here that you always use <code>git submodule</code> to add a new theme, even though you want to customize the theme template by yourself, in which case you could first fork the theme repository and add submodule from your replica repo of the theme which should track all the modifications by you and can also keep updated with the original repo when necessary.</p>
 <p>So just in case I want to make some changes someday, or just don&rsquo;t want to get the latest theme from the original repo, of which some newest fancy features may not be what I want, whenever I re-download the blog repository by <code>git clone --recurse-submodules</code>.</p>
 <p>First I forked a copy of <code>https://github.com/kakawait/hugo-tranquilpeak-theme.git</code> theme to my repositories <code>https://github.com/azurciel/hugo-tranquilpeak-theme.git</code> (please heed the difference!) and then add submodule from the latter.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule add https://github.com/azurciel/hugo-tranquilpeak-theme.git themes/tranquilpeak
-</code></pre></div><h1 id="change-the-blog-settings">Change the blog settings</h1>
+</code></pre></div><h2 id="change-the-blog-settings">Change the blog settings</h2>
 <p>Backup <code>config.toml</code> in the root directory of your blog site to <code>config.toml_bak</code> and copy <code>config.toml</code> from <code>themes/tranquilpeak/exampleSite</code> to the root directory and do some configuration as the <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">user docs</a> tells you, in which theme should be set to <code>tranquilpeak</code>:</p>
 <pre><code class="language-conf" data-lang="conf">theme = &quot;tranquilpeak&quot;
 </code></pre><p>After all settings are done, you can rebuild the blog now with the simple command <code>hugo</code> in the root directory or <code>hugo server -D</code> to preview your blog first. And then in the public directory you can commit all the changes and push up to the GitHub repo and a new blog is ready.</p>
-<h1 id="delete-the-submodule">Delete the submodule</h1>
+<h2 id="delete-the-submodule">Delete the submodule</h2>
 <p>Since you do not need the old theme anymore, you can delete it from you repository.</p>
 <p><em>How to remove the old submodule?</em></p>
 <p>In the blog root directory, run the following commands to remove the theme even from your blog site:</p>
@@ -342,7 +343,7 @@ git rm theme/even
 <pre><code class="language-conf" data-lang="conf">[submodule &quot;themes/even&quot;]
         path = themes/even
         url = https://github.com/olOwOlo/hugo-theme-even.git
-</code></pre><h1 id="reference">Reference</h1>
+</code></pre><h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://git-scm.com/docs/git-submodule">Git submodule</a></li>
 <li><a href="https://riptutorial.com/git/example/2652/removing-a-submodule">Removing a submodule</a></li>
