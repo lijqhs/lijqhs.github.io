@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
-<meta name="author" content="azurciel">
+<meta name="author" content="lijqhs">
 <meta name="keywords" content="nlp, text classification, scikit-learn, machine learning, tf-idf, python">
 <meta name="description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。">
 
@@ -15,9 +15,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于搜狗新闻语料的文本分类">
 <meta name="twitter:title" content="基于搜狗新闻语料的文本分类">
-<meta property="og:url" content="https://azurciel.github.io/2019/05/text-classification-scikit-learn/">
-<meta property="twitter:url" content="https://azurciel.github.io/2019/05/text-classification-scikit-learn/">
-<meta property="og:site_name" content="azurciel&#39;s blog">
+<meta property="og:url" content="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
+<meta property="twitter:url" content="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
+<meta property="og:site_name" content="aaron&#39;s blog">
 <meta property="og:description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。">
 <meta name="twitter:description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。">
 <meta property="og:locale" content="en-us">
@@ -53,38 +53,38 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@azurcieli">
+  <meta name="twitter:site" content="@lijqhs">
 
 
-  <meta name="twitter:creator" content="@azurcieli">
-
-
-
-
-
-
-  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg">
-  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg">
-
-
-  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg">
-  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg">
+  <meta name="twitter:creator" content="@lijqhs">
 
 
 
 
-  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png">
-  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg">
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
 
 
     <title>基于搜狗新闻语料的文本分类</title>
 
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
     
 
     
 
-    <link rel="canonical" href="https://azurciel.github.io/2019/05/text-classification-scikit-learn/">
+    <link rel="canonical" href="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -92,7 +92,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://azurciel.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    <link rel="stylesheet" href="https://lijqhs.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -120,17 +120,17 @@ if (!doNotTrack) {
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://azurciel.github.io/">azurciel&#39;s blog</a>
+    <a class="header-title-link" href="https://lijqhs.github.io/">aaron&#39;s blog</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://azurciel.github.io/#about">
+         href="https://lijqhs.github.io/#about">
     
     
     
       
-        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
       
     
     </a>
@@ -141,10 +141,10 @@ if (!doNotTrack) {
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="https://azurciel.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+        <a href="https://lijqhs.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
         </a>
-        <h4 class="sidebar-profile-name">azurciel</h4>
+        <h4 class="sidebar-profile-name">lijqhs</h4>
         
           <h5 class="sidebar-profile-bio">a humble learner</h5>
         
@@ -154,7 +154,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -164,7 +164,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/categories">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -174,7 +174,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/tags">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -184,7 +184,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/archives">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -194,7 +194,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/#about">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/#about">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -208,7 +208,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/azurciel" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/lijqhs" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -218,7 +218,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://twitter.com/azurcieli" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://twitter.com/lijqhs" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
       
@@ -238,7 +238,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="mailto:azurciel@outlook.com" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="mailto:lijqhs@gmail.com" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
@@ -248,7 +248,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/index.xml">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/index.xml">
     
       <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
       
@@ -269,7 +269,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg')"
+       style="background-image:url('//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg')"
        data-behavior="4">
     
       <div class="post-header main-content-wrap text-left">
@@ -292,7 +292,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://azurciel.github.io/categories/data-science">data science</a>
+      <a class="category-link" href="https://lijqhs.github.io/categories/data-science">data science</a>
     
   
 
@@ -312,7 +312,7 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了<a href="https://github.com/azurciel/Sogou-News-Text-Classification">GitHub</a>上。</p>
+              <p>文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了<a href="https://github.com/lijqhs/text-classification-cn">GitHub</a>上。</p>
 <p>目录:</p>
 <ul>
 <li><a href="#1-%E8%AF%AD%E6%96%99%E9%A2%84%E5%A4%84%E7%90%86">1. 语料预处理</a></li>
@@ -552,7 +552,7 @@ test corpus len: 4410
 
 plt<span style="color:#f92672">.</span>imshow(wordcloud, interpolation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bilinear&#39;</span>)
 plt<span style="color:#f92672">.</span>axis(<span style="color:#e6db74">&#39;off&#39;</span>)
-</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/wordcloud.png" alt="png"></p>
+</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.0/img/post/wordcloud.png" alt="png"></p>
 <h2 id="3-文本特征提取tf-idf">3. 文本特征提取:TF-IDF</h2>
 <p>这个步骤将文档信息，也即每篇新闻被分好词之后的词集合，转为为基于词频-你文档词频（TF-IDF）的向量，向量的每个元素都是对应于某个词在这个文档中的TF-IDF值，在不同文档中，同一词的TF-IDF是不一样的。所有文档的TF-IDF向量堆放在一起就组成了一个TF-IDF矩阵。注意到这里应该包含了除停用词之外的所有词的TF-IDF值，词的个数构成了向量的维度。</p>
 <p>用<code>TfidfVectorizer</code>将文档集合转为<code>TF-IDF</code>矩阵。注意到前面我们将文本做了分词并用空格隔开。如果是英文，本身就是空格隔开的，而英文的分词（Tokenizing）是包含在特征提取器中的，不需要分词这一步骤。下面我们在得到了分类器之后，使用新文本进行分类预测时，也是需要先做一下中文分词的。</p>
@@ -742,7 +742,7 @@ _20_Education       0.82      0.92      0.86       437
        [  4,  15,   5,   3,  15,  17,   9, 411,  19],
        [  4,  13,   0,   0,   3,   6,   1,  17, 468]])
 </code></pre>
-<p>本文代码地址：<a href="https://github.com/azurciel/Sogou-News-Text-Classification">GitHub</a>.</p>
+<p>本文代码地址：<a href="https://github.com/lijqhs/text-classification-cn">GitHub</a>.</p>
 <h2 id="6-参考资料">6. 参考资料</h2>
 <ul>
 <li><a href="https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html">Scikit-learn Working With Text Data</a></li>
@@ -758,17 +758,17 @@ _20_Education       0.82      0.92      0.86       437
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/nlp/">nlp</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/nlp/">nlp</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/text-classification/">text classification</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/text-classification/">text classification</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/scikit-learn/">scikit-learn</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/scikit-learn/">scikit-learn</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/machine-learning/">machine learning</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/machine-learning/">machine learning</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/tf-idf/">tf-idf</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/tf-idf/">tf-idf</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/python/">python</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/python/">python</a>
 
                   </div>
                 
@@ -781,7 +781,7 @@ _20_Education       0.82      0.92      0.86       437
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2019/05/text-classification-pretrained-keras-cnn/" data-tooltip="基于预训练词向量模型的文本分类方法">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/" data-tooltip="基于预训练词向量模型的文本分类方法">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -789,7 +789,7 @@ _20_Education       0.82      0.92      0.86       437
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2019/03/git-quickstart/" data-tooltip="Git快速指南">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2019/03/git-quickstart/" data-tooltip="Git快速指南">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -807,13 +807,13 @@ _20_Education       0.82      0.92      0.86       437
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2019/05/text-classification-scikit-learn/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2019/05/text-classification-scikit-learn/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -838,7 +838,7 @@ _20_Education       0.82      0.92      0.86       437
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 azurciel. All Rights Reserved
+    &copy; 2020 lijqhs. All Rights Reserved
   </span>
 </footer>
 
@@ -851,7 +851,7 @@ _20_Education       0.82      0.92      0.86       437
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2019/05/text-classification-pretrained-keras-cnn/" data-tooltip="基于预训练词向量模型的文本分类方法">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/" data-tooltip="基于预训练词向量模型的文本分类方法">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -859,7 +859,7 @@ _20_Education       0.82      0.92      0.86       437
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2019/03/git-quickstart/" data-tooltip="Git快速指南">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2019/03/git-quickstart/" data-tooltip="Git快速指南">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -877,13 +877,13 @@ _20_Education       0.82      0.92      0.86       437
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2019/05/text-classification-scikit-learn/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2019/05/text-classification-scikit-learn/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -907,13 +907,13 @@ _20_Education       0.82      0.92      0.86       437
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazurciel.github.io%2F2019%2F05%2Ftext-classification-scikit-learn%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flijqhs.github.io%2F2019%2F05%2Ftext-classification-scikit-learn%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fazurciel.github.io%2F2019%2F05%2Ftext-classification-scikit-learn%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flijqhs.github.io%2F2019%2F05%2Ftext-classification-scikit-learn%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -929,9 +929,9 @@ _20_Education       0.82      0.92      0.86       437
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
     
-    <h4 id="about-card-name">azurciel</h4>
+    <h4 id="about-card-name">lijqhs</h4>
     
       <div id="about-card-bio">a humble learner</div>
     
@@ -957,7 +957,7 @@ _20_Education       0.82      0.92      0.86       437
     
   
     
-      <div id="cover" style="background-image:url('https://azurciel.github.io/images/cover.jpg');"></div>
+      <div id="cover" style="background-image:url('https://lijqhs.github.io/images/cover.jpg');"></div>
     
   
 
@@ -970,7 +970,7 @@ _20_Education       0.82      0.92      0.86       437
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://azurciel.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+<script src="https://lijqhs.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">

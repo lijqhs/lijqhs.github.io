@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hugo on azurciel&#39;s blog</title>
-    <link>https://azurciel.github.io/tags/hugo/</link>
-    <description>Recent content in hugo on azurciel&#39;s blog</description>
+    <title>hugo on aaron&#39;s blog</title>
+    <link>https://lijqhs.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on aaron&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Nov 2020 23:30:00 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Nov 2020 23:30:00 +0800</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Change The Theme of A Hugo Blog</title>
-      <link>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</link>
+      <link>https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</guid>
-      <description>&lt;p&gt;A few days ago I &lt;a href=&#34;https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/&#34;&gt;migrated this blog&lt;/a&gt; to Hugo from Jekyll and employed a beautiful theme called &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34;&gt;Even&lt;/a&gt;, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme&#34;&gt;Tranquilpeak&lt;/a&gt;, brought by &lt;a href=&#34;https://github.com/kakawait&#34;&gt;Thibaud Lepretre&lt;/a&gt; from the &lt;a href=&#34;https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak&#34;&gt;original hexo theme&lt;/a&gt;.&lt;/p&gt;
+      <guid>https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</guid>
+      <description>&lt;p&gt;A few days ago I &lt;a href=&#34;https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/&#34;&gt;migrated this blog&lt;/a&gt; to Hugo from Jekyll and employed a beautiful theme called &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34;&gt;Even&lt;/a&gt;, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme&#34;&gt;Tranquilpeak&lt;/a&gt;, brought by &lt;a href=&#34;https://github.com/kakawait&#34;&gt;Thibaud Lepretre&lt;/a&gt; from the &lt;a href=&#34;https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak&#34;&gt;original hexo theme&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Setup a Blog with Hugo and Github Pages on Mac</title>
-      <link>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
+      <link>https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
       <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
+      <guid>https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
       <description>&lt;p&gt;GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas. &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages#about-github-pages&#34;&gt;GitHub Pages&lt;/a&gt; is such a fancy service where you can easily setup your own websites by just a few mouse clicks. Companies and project teams can easily create product homepages on it, and individuals who like to document things and share ideas can also easily build blogs on it.&lt;/p&gt;</description>
     </item>
     

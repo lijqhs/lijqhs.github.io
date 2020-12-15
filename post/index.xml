@@ -1,92 +1,92 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on azurciel&#39;s blog</title>
-    <link>https://azurciel.github.io/post/</link>
-    <description>Recent content in Posts on azurciel&#39;s blog</description>
+    <title>Posts on aaron&#39;s blog</title>
+    <link>https://lijqhs.github.io/post/</link>
+    <description>Recent content in Posts on aaron&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Nov 2020 23:30:00 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Nov 2020 23:30:00 +0800</lastBuildDate><atom:link href="https://lijqhs.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Change The Theme of A Hugo Blog</title>
-      <link>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</link>
+      <link>https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</guid>
-      <description>&lt;p&gt;A few days ago I &lt;a href=&#34;https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/&#34;&gt;migrated this blog&lt;/a&gt; to Hugo from Jekyll and employed a beautiful theme called &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34;&gt;Even&lt;/a&gt;, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme&#34;&gt;Tranquilpeak&lt;/a&gt;, brought by &lt;a href=&#34;https://github.com/kakawait&#34;&gt;Thibaud Lepretre&lt;/a&gt; from the &lt;a href=&#34;https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak&#34;&gt;original hexo theme&lt;/a&gt;.&lt;/p&gt;
+      <guid>https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</guid>
+      <description>&lt;p&gt;A few days ago I &lt;a href=&#34;https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/&#34;&gt;migrated this blog&lt;/a&gt; to Hugo from Jekyll and employed a beautiful theme called &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34;&gt;Even&lt;/a&gt;, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme&#34;&gt;Tranquilpeak&lt;/a&gt;, brought by &lt;a href=&#34;https://github.com/kakawait&#34;&gt;Thibaud Lepretre&lt;/a&gt; from the &lt;a href=&#34;https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak&#34;&gt;original hexo theme&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;So I decided to change the theme of this blog and I took the following steps to accomplished that, which was very easy and worth a share here.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Setup a Blog with Hugo and Github Pages on Mac</title>
-      <link>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
+      <link>https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
       <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
+      <guid>https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
       <description>&lt;p&gt;GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas. &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages#about-github-pages&#34;&gt;GitHub Pages&lt;/a&gt; is such a fancy service where you can easily setup your own websites by just a few mouse clicks. Companies and project teams can easily create product homepages on it, and individuals who like to document things and share ideas can also easily build blogs on it.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>机器学习中的偏差(Bias)与方差(Variance)</title>
-      <link>https://azurciel.github.io/2020/10/bias-variance-tradeoff/</link>
+      <link>https://lijqhs.github.io/2020/10/bias-variance-tradeoff/</link>
       <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://azurciel.github.io/2020/10/bias-variance-tradeoff/</guid>
+      <guid>https://lijqhs.github.io/2020/10/bias-variance-tradeoff/</guid>
       <description>&lt;p&gt;一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>基于预训练词向量模型的文本分类方法</title>
-      <link>https://azurciel.github.io/2019/05/text-classification-pretrained-keras-cnn/</link>
+      <link>https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2019/05/text-classification-pretrained-keras-cnn/</guid>
-      <description>&lt;p&gt;本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。&lt;a href=&#34;https://azurciel.github.io/2019/05/text-classification-scikit-learn/&#34;&gt;上篇文章&lt;/a&gt;将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在&lt;a href=&#34;https://github.com/azurciel/Sogou-News-Text-Classification&#34;&gt;GitHub&lt;/a&gt;上。&lt;/p&gt;</description>
+      <guid>https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/</guid>
+      <description>&lt;p&gt;本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。&lt;a href=&#34;https://lijqhs.github.io/2019/05/text-classification-scikit-learn/&#34;&gt;上篇文章&lt;/a&gt;将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在&lt;a href=&#34;https://github.com/lijqhs/text-classification-cn&#34;&gt;GitHub&lt;/a&gt;上。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>基于搜狗新闻语料的文本分类</title>
-      <link>https://azurciel.github.io/2019/05/text-classification-scikit-learn/</link>
+      <link>https://lijqhs.github.io/2019/05/text-classification-scikit-learn/</link>
       <pubDate>Wed, 22 May 2019 20:35:48 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2019/05/text-classification-scikit-learn/</guid>
-      <description>&lt;p&gt;文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了&lt;a href=&#34;https://github.com/azurciel/Sogou-News-Text-Classification&#34;&gt;GitHub&lt;/a&gt;上。&lt;/p&gt;</description>
+      <guid>https://lijqhs.github.io/2019/05/text-classification-scikit-learn/</guid>
+      <description>&lt;p&gt;文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了&lt;a href=&#34;https://github.com/lijqhs/text-classification-cn&#34;&gt;GitHub&lt;/a&gt;上。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Git快速指南</title>
-      <link>https://azurciel.github.io/2019/03/git-quickstart/</link>
+      <link>https://lijqhs.github.io/2019/03/git-quickstart/</link>
       <pubDate>Wed, 20 Mar 2019 18:45:00 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2019/03/git-quickstart/</guid>
+      <guid>https://lijqhs.github.io/2019/03/git-quickstart/</guid>
       <description>&lt;p&gt;很多公司内部使用GitLab来做版本管理，假设你已经按照公司wiki设置好了Git账户。那么如何快速开始使用Git进行代码版本管理，下面是一些常用流程步骤。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How to Install and Configure Elasticsearch Clusters</title>
-      <link>https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</link>
+      <link>https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</link>
       <pubDate>Wed, 29 Aug 2018 21:45:00 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</guid>
+      <guid>https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</guid>
       <description>&lt;p&gt;Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html&#34;&gt;documentation&lt;/a&gt; on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Create Virtual Environments by venv</title>
-      <link>https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/</link>
+      <link>https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/</link>
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/</guid>
+      <guid>https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/</guid>
       <description>&lt;p&gt;When I tested examples of the book &lt;strong&gt;Deep learning from scratch&lt;/strong&gt;, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (&lt;a href=&#34;https://matplotlib.org/faq/osx_framework.html&#34;&gt;Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;The page shows &lt;code&gt;virtualenv&lt;/code&gt; is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool &lt;code&gt;venv&lt;/code&gt; provided since Python 3.4.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Properly Install Python3 and Virtualenv on Mac</title>
-      <link>https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</link>
+      <link>https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</link>
       <pubDate>Fri, 24 Aug 2018 19:01:48 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</guid>
+      <guid>https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</guid>
       <description>&lt;p&gt;When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of &lt;a href=&#34;https://www.davidculley.com/installing-python-on-a-mac/&#34;&gt;David Culley&lt;/a&gt; where he gives several alternatives to set up a Python3 working environment. The post of &lt;a href=&#34;https://stringpiggy.hpd.io/mac-osx-python3-dual-install/&#34;&gt;Candy Tsai&lt;/a&gt; also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. &lt;a href=&#34;https://brew.sh/&#34;&gt;Homebrew&lt;/a&gt; is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.&lt;/p&gt;</description>
     </item>
     

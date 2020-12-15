@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kibana on azurciel&#39;s blog</title>
-    <link>https://azurciel.github.io/tags/kibana/</link>
-    <description>Recent content in kibana on azurciel&#39;s blog</description>
+    <title>kibana on aaron&#39;s blog</title>
+    <link>https://lijqhs.github.io/tags/kibana/</link>
+    <description>Recent content in kibana on aaron&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Aug 2018 21:45:00 +0800</lastBuildDate><atom:link href="https://azurciel.github.io/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Aug 2018 21:45:00 +0800</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Install and Configure Elasticsearch Clusters</title>
-      <link>https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</link>
+      <link>https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</link>
       <pubDate>Wed, 29 Aug 2018 21:45:00 +0800</pubDate>
       
-      <guid>https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</guid>
+      <guid>https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</guid>
       <description>&lt;p&gt;Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html&#34;&gt;documentation&lt;/a&gt; on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.&lt;/p&gt;</description>
     </item>
     

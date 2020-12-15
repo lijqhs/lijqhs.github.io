@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
-<meta name="author" content="azurciel">
+<meta name="author" content="lijqhs">
 <meta name="keywords" content="python, matplotlib, mac, virtualenv, venv">
 <meta name="description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
 The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
@@ -17,9 +17,9 @@ The page shows virtualenv is to blame as the virtualenv creates a non framework 
 <meta property="og:type" content="article">
 <meta property="og:title" content="How To Create Virtual Environments by venv">
 <meta name="twitter:title" content="How To Create Virtual Environments by venv">
-<meta property="og:url" content="https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
-<meta property="twitter:url" content="https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
-<meta property="og:site_name" content="azurciel&#39;s blog">
+<meta property="og:url" content="https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+<meta property="twitter:url" content="https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+<meta property="og:site_name" content="aaron&#39;s blog">
 <meta property="og:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
 The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
 <meta name="twitter:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
@@ -51,38 +51,38 @@ The page shows virtualenv is to blame as the virtualenv creates a non framework 
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@azurcieli">
+  <meta name="twitter:site" content="@lijqhs">
 
 
-  <meta name="twitter:creator" content="@azurcieli">
-
-
-
-
-
-
-  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-worker.jpg">
-  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-worker.jpg">
-
-
-  <meta property="og:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-worker.jpg">
-  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-worker.jpg">
+  <meta name="twitter:creator" content="@lijqhs">
 
 
 
 
-  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png">
-  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-worker.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-worker.jpg">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-worker.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-worker.jpg">
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
 
 
     <title>How To Create Virtual Environments by venv</title>
 
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
     
 
     
 
-    <link rel="canonical" href="https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+    <link rel="canonical" href="https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -90,7 +90,7 @@ The page shows virtualenv is to blame as the virtualenv creates a non framework 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://azurciel.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    <link rel="stylesheet" href="https://lijqhs.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -118,17 +118,17 @@ if (!doNotTrack) {
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://azurciel.github.io/">azurciel&#39;s blog</a>
+    <a class="header-title-link" href="https://lijqhs.github.io/">aaron&#39;s blog</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://azurciel.github.io/#about">
+         href="https://lijqhs.github.io/#about">
     
     
     
       
-        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
       
     
     </a>
@@ -139,10 +139,10 @@ if (!doNotTrack) {
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="https://azurciel.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+        <a href="https://lijqhs.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
         </a>
-        <h4 class="sidebar-profile-name">azurciel</h4>
+        <h4 class="sidebar-profile-name">lijqhs</h4>
         
           <h5 class="sidebar-profile-bio">a humble learner</h5>
         
@@ -152,7 +152,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -162,7 +162,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/categories">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -172,7 +172,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/tags">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -182,7 +182,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/archives">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -192,7 +192,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/#about">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/#about">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -206,7 +206,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/azurciel" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/lijqhs" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -216,7 +216,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://twitter.com/azurcieli" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://twitter.com/lijqhs" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
       
@@ -236,7 +236,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="mailto:azurciel@outlook.com" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="mailto:lijqhs@gmail.com" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
@@ -246,7 +246,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://azurciel.github.io/index.xml">
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/index.xml">
     
       <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
       
@@ -267,7 +267,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('//cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/gallery/p/pixabay-worker.jpg')"
+       style="background-image:url('//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-worker.jpg')"
        data-behavior="4">
     
       <div class="post-header main-content-wrap text-left">
@@ -290,7 +290,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://azurciel.github.io/categories/howto">howto</a>
+      <a class="category-link" href="https://lijqhs.github.io/categories/howto">howto</a>
     
   
 
@@ -320,7 +320,7 @@ if (!doNotTrack) {
 <li><a href="#run-example-in-new-virtual-environment">Run example in new virtual environment</a></li>
 </ul>
 <h2 id="remove-virtualenv">Remove virtualenv</h2>
-<p>The previous <a href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">blog post</a> introduces how to depoly clean python working environments by <code>virtualenv</code>. Now because of the above problem I encountered with virtualenv I decided to abandon virtualenv in my MacBook. Instead <code>venv</code> might be a good replacement to create virtual environment. The shortage is there is no <code>workon</code> shortcut any more to switch between virtualenv seamlessly.
+<p>The previous <a href="https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">blog post</a> introduces how to depoly clean python working environments by <code>virtualenv</code>. Now because of the above problem I encountered with virtualenv I decided to abandon virtualenv in my MacBook. Instead <code>venv</code> might be a good replacement to create virtual environment. The shortage is there is no <code>workon</code> shortcut any more to switch between virtualenv seamlessly.
 The restore steps are clearly. Remove settings related to virtualenv and virtualenvwrapper in <code>~/.profile</code>. After that my <code>.profile</code> looks just like this.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export CLICOLOR<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 export LSCOLORS<span style="color:#f92672">=</span>GxFxCxDxBxegedabagaced
@@ -362,7 +362,7 @@ python3 -m venv dl-env
 <span style="color:#f92672">(</span>dl-env<span style="color:#f92672">)</span> $ pip3 install numpy scipy matplotlib
 <span style="color:#f92672">(</span>dl-env<span style="color:#f92672">)</span> $ python example-code.py
 </code></pre></div><p>The RuntimeError never shows up and the result is exactly the same as the book says.
-<img src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.0/img/post/gradient-2d.png" alt="gradient-2d"></p>
+<img src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.0/img/post/gradient-2d.png" alt="gradient-2d"></p>
               
             </div>
           </div>
@@ -374,11 +374,11 @@ python3 -m venv dl-env
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/python/">python</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/python/">python</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/matplotlib/">matplotlib</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/matplotlib/">matplotlib</a>
 
-  <a class="tag tag--primary tag--small" href="https://azurciel.github.io/tags/mac/">mac</a>
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/mac/">mac</a>
 
                   </div>
                 
@@ -391,7 +391,7 @@ python3 -m venv dl-env
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/" data-tooltip="How to Install and Configure Elasticsearch Clusters">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/" data-tooltip="How to Install and Configure Elasticsearch Clusters">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -399,7 +399,7 @@ python3 -m venv dl-env
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/" data-tooltip="How To Properly Install Python3 and Virtualenv on Mac">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/" data-tooltip="How To Properly Install Python3 and Virtualenv on Mac">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -417,13 +417,13 @@ python3 -m venv dl-env
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -448,7 +448,7 @@ python3 -m venv dl-env
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 azurciel. All Rights Reserved
+    &copy; 2020 lijqhs. All Rights Reserved
   </span>
 </footer>
 
@@ -461,7 +461,7 @@ python3 -m venv dl-env
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/" data-tooltip="How to Install and Configure Elasticsearch Clusters">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/" data-tooltip="How to Install and Configure Elasticsearch Clusters">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -469,7 +469,7 @@ python3 -m venv dl-env
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://azurciel.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/" data-tooltip="How To Properly Install Python3 and Virtualenv on Mac">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/" data-tooltip="How To Properly Install Python3 and Virtualenv on Mac">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -487,13 +487,13 @@ python3 -m venv dl-env
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://azurciel.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -517,13 +517,13 @@ python3 -m venv dl-env
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fazurciel.github.io%2F2018%2F08%2Fhow-to-create-virtual-environments-by-venv%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flijqhs.github.io%2F2018%2F08%2Fhow-to-create-virtual-environments-by-venv%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fazurciel.github.io%2F2018%2F08%2Fhow-to-create-virtual-environments-by-venv%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flijqhs.github.io%2F2018%2F08%2Fhow-to-create-virtual-environments-by-venv%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -539,9 +539,9 @@ python3 -m venv dl-env
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/azurciel/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
     
-    <h4 id="about-card-name">azurciel</h4>
+    <h4 id="about-card-name">lijqhs</h4>
     
       <div id="about-card-bio">a humble learner</div>
     
@@ -567,7 +567,7 @@ python3 -m venv dl-env
     
   
     
-      <div id="cover" style="background-image:url('https://azurciel.github.io/images/cover.jpg');"></div>
+      <div id="cover" style="background-image:url('https://lijqhs.github.io/images/cover.jpg');"></div>
     
   
 
@@ -580,7 +580,7 @@ python3 -m venv dl-env
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://azurciel.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+<script src="https://lijqhs.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">
