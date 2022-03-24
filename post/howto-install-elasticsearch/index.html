@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/lijqhs.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "lijqhs",
+    
+    "image": "https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png"
+    
+  },
+  "name":"lijqhs\u0027s blog",
+  "description":"\u003cp\u003eElasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is \u003ca href=\u0022https:\/\/www.elastic.co\/guide\/en\/elasticsearch\/reference\/current\/setup.html\u0022\u003edocumentation\u003c\/a\u003e on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.\u003c\/p\u003e",
+  "url":"https:\/\/lijqhs.github.io\/post\/howto-install-elasticsearch\/",
+  "keywords":"[elasticsearch, kibana, java]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.95.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="lijqhs">
+<meta name="keywords" content="elasticsearch, kibana, java">
+<meta name="description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
+
+
+<meta property="og:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Install and Configure Elasticsearch Clusters">
+<meta name="twitter:title" content="How to Install and Configure Elasticsearch Clusters">
+<meta property="og:url" content="https://lijqhs.github.io/post/howto-install-elasticsearch/">
+<meta property="twitter:url" content="https://lijqhs.github.io/post/howto-install-elasticsearch/">
+<meta property="og:site_name" content="lijqhs&#39;s blog">
+<meta property="og:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
+<meta name="twitter:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-08-29T21:45:00">
+  
+  
+    <meta property="article:modified_time" content="2018-08-29T21:45:00">
+  
+  
+  
+    
+      <meta property="article:section" content="howto">
+    
+  
+  
+    
+      <meta property="article:tag" content="elasticsearch">
+    
+      <meta property="article:tag" content="kibana">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@lijqhs">
+
+
+  <meta name="twitter:creator" content="@lijqhs">
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+
+
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-scotland.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-scotland.jpg">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-scotland.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-scotland.jpg">
+
+
+    <title>How to Install and Configure Elasticsearch Clusters</title>
+
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://lijqhs.github.io/post/howto-install-elasticsearch/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://lijqhs.github.io/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-182241114-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://lijqhs.github.io/" aria-label="Go to homepage">lijqhs&#39;s blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://lijqhs.github.io/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://lijqhs.github.io/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">lijqhs</h4>
+        
+          <h5 class="sidebar-profile-bio">a humble learner</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/lijqhs" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/18564163/lijqhs" target="_blank" rel="noopener" title="Stack Overflow">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-stack-overflow" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-scotland.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      How to Install and Configure Elasticsearch Clusters
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2018-08-29T21:45:00&#43;08:00">
+        
+  August 29, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://lijqhs.github.io/categories/howto">howto</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html">documentation</a> on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.</p>
+<p>Table of contents:</p>
+<ul>
+<li><a href="#install-java-and-elasticsearch">Install Java and Elasticsearch</a>
+<ul>
+<li><a href="#create-a-user-for-elasticsearch">Create a user for Elasticsearch</a></li>
+<li><a href="#update-the-installation-packages">Update the Installation packages</a></li>
+<li><a href="#install-java">Install Java</a></li>
+<li><a href="#modify-path">Modify PATH</a></li>
+<li><a href="#install-elasticsearch">Install Elasticsearch</a></li>
+</ul>
+</li>
+<li><a href="#configure-elasticsearch">Configure Elasticsearch</a>
+<ul>
+<li><a href="#elasticsearchyml">elasticsearch.yml</a></li>
+<li><a href="#jvmoptions">jvm.options</a></li>
+<li><a href="#important-system-configuration">Important system configuration</a></li>
+</ul>
+</li>
+<li><a href="#start-elasticsearch">Start Elasticsearch</a></li>
+<li><a href="#one-more-thing-kibana">One more thing: Kibana</a></li>
+</ul>
+<p>Elasticsearch here is based on version 6.2.4.</p>
+<h2 id="install-java-and-elasticsearch">Install Java and Elasticsearch</h2>
+<h3 id="create-a-user-for-elasticsearch">Create a user for Elasticsearch</h3>
+<p>Elasticsearch is not allowed to run by root user. Elasticsearch will execute scripts input by users so for the sake of system security starting Elasticsearch by root is banned. Create a user <code>elastic</code> for Elasticsearch within group <code>elastic</code>. A directory is also created in <code>/opt</code> where Elasticsearch will be installed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>groupadd elastic
+</span></span><span style="display:flex;"><span>useradd elastic -g elastic
+</span></span><span style="display:flex;"><span>mkdir /opt/elastic
+</span></span><span style="display:flex;"><span>chown -R elastic:elastic /opt/elastic
+</span></span></code></pre></div><h3 id="update-the-installation-packages">Update the Installation packages</h3>
+<p>It is required to install Java before Elasticsearch. A supported LTS version of Java version 1.8.0_131 or a later version in the Java 8 release series is preferred. Before continuing, download <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java</a> and <a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch</a> and <a href="https://www.elastic.co/downloads/kibana">Kibana</a>. Upload three file onto every server you want them installed. Suppose you have the following three file:</p>
+<ul>
+<li>elasticsearch-6.2.4.tar.gz</li>
+<li>jdk-8u171-linux-x64.tar.gz</li>
+<li>kibana-6.2.4-linux-x86_64.tar.gz</li>
+</ul>
+<p>I used to put files on the user home directory here for user elastic is <code>/home/elastic</code></p>
+<h3 id="install-java">Install Java</h3>
+<p>Check if Java is already installed in bash mode:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>which java
+</span></span></code></pre></div><p>If nothing replied go on the installation or you must examine the Java version can satisfy the requirement. If not, I suggest to reinstall Java. It is better to install Java in <code>/usr</code> and Elasticsearch in <code>/opt</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir /usr/java/
+</span></span><span style="display:flex;"><span>tar -zxvf /home/elastic/jdk-8u171-linux-x64.tar.gz -C /usr/java/
+</span></span></code></pre></div><h3 id="modify-path">Modify PATH</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vi /etc/profile
+</span></span></code></pre></div><p>Append the following four lines in the end of profile.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export JAVA_HOME<span style="color:#f92672">=</span>/usr/java/jdk1.8.0_171
+</span></span><span style="display:flex;"><span>export JRE_HOME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/jre
+</span></span><span style="display:flex;"><span>export CLASSPATH<span style="color:#f92672">=</span>.:<span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/lib:<span style="color:#e6db74">${</span>JRE_HOME<span style="color:#e6db74">}</span>/lib
+</span></span><span style="display:flex;"><span>export  PATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>JAVA_HOME<span style="color:#e6db74">}</span>/bin:$PATH
+</span></span></code></pre></div><p>Save the file and exit edit. Make the setting effective by command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source /etc/profile
+</span></span></code></pre></div><h3 id="install-elasticsearch">Install Elasticsearch</h3>
+<p>First give a password for elastic for the next login (optional since you can switch to elastic from root) and unpack the file in <code>/opt/elastic</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>passwd elastic
+</span></span><span style="display:flex;"><span>su elastic
+</span></span><span style="display:flex;"><span>cd /home/elastic
+</span></span><span style="display:flex;"><span>tar -zxvf elasticsearch-6.2.4.tar.gz -C /opt/elastic/
+</span></span></code></pre></div><h2 id="configure-elasticsearch">Configure Elasticsearch</h2>
+<h3 id="elasticsearchyml">elasticsearch.yml</h3>
+<p>The first part is trivial. To make a reliable cluster for Elasticsearch some parameters should be taken carefully. Come back to root user and create directories <code>data</code> and <code>logs</code> for Elasticsearch which are usually put on the directories away from the installation directory of Elasticsearch.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span>mkdir -p /var/elasticsearch/data
+</span></span><span style="display:flex;"><span>mkdir -p /var/elasticsearch/logs
+</span></span><span style="display:flex;"><span>chown -R elastic:elastic /var/elasticsearch
+</span></span><span style="display:flex;"><span>su elastic
+</span></span><span style="display:flex;"><span>cd /opt/elastic/elasticsearch-6.2.4/
+</span></span><span style="display:flex;"><span>vi config/elasticsearch.yml
+</span></span></code></pre></div><p>The most important part is Elasticsearch configuration file <code>config/elasticsearch.yml</code>.  Replace <code>192.168.0.1</code>, <code>192.168.0.2</code> and <code>192.168.0.3</code> by your three server IPs and each <code>node.name</code> set to be <code>ES1</code>, <code>ES2</code> and <code>ES3</code> or any strings you like.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#======================== Elasticsearch Configuration =========================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># NOTE: Elasticsearch comes with reasonable defaults for most settings.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#       Before you set out to tweak and tune the configuration, make sure you</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#       understand what are you trying to accomplish and the consequences.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The primary way of configuring a node is via this file. This template lists</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the most important settings you may want to configure for a production cluster.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Please consult the documentation for further information on configuration options:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://www.elastic.co/guide/en/elasticsearch/reference/index.html</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ————————————————— Cluster —————————————————</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use a descriptive name for your cluster:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cluster.name</span>: <span style="color:#ae81ff">ES_Cluster</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">node.master</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">node.data</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># —————————————————— Node ——————————————————</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use a descriptive name for the node:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">node.name</span>: <span style="color:#ae81ff">“ES1”</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add custom attributes to the node:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#node.attr.rack: r1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ————————————————— Paths ——————————————————</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Path to directory where to store the data (separate multiple locations by comma):</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">path.data</span>: <span style="color:#ae81ff">/var/elasticsearch/data</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Path to log files:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">path.logs</span>: <span style="color:#ae81ff">/var/elasticsearch/logs</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ————————————————— Memory —————————————————</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Lock the memory on startup:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">bootstrap.memory_lock</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">bootstrap.system_call_filter</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make sure that the heap size is set to about half the memory available</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># on the system and that the owner of the process is allowed to use this</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># limit.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Elasticsearch performs poorly when the system is swapping the memory.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ————————————————— Network —————————————————</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the bind address to a specific IP (IPv4 or IPv6):</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">network.host</span>: <span style="color:#ae81ff">192.168.0.1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set a custom port for HTTP:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">http.port</span>: <span style="color:#ae81ff">9200</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For more information, consult the network module documentation.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ———————————————— Discovery —————————————————</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Pass an initial list of hosts to perform discovery when new node is started:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The default list of hosts is [“127.0.0.1”, “[::1]”]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">discovery.zen.ping.unicast.hosts</span>: [<span style="color:#ae81ff">“192.168.0.1”, “192.168.0.2”, “192.168.0.3”]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Prevent the “split brain” by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">discovery.zen.minimum_master_nodes</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For more information, consult the zen discovery module documentation.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ————————————————— Gateway —————————————————</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Block initial recovery after a full cluster restart until N nodes are started:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#gateway.recover_after_nodes: 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For more information, consult the gateway module documentation.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ————————————————— Various —————————————————</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Require explicit names when deleting indices:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#action.destructive_requires_name: true</span>
+</span></span></code></pre></div><p><strong>Note:</strong> Prevent the “split brain” by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1). In this case it is 2.</p>
+<h3 id="jvmoptions">jvm.options</h3>
+<p>By default, Elasticsearch tells the JVM to use a heap with a minimum and maximum size of 1 GB. When moving to production, it is important to configure heap size to ensure that Elasticsearch has enough heap available. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/heap-size.html">See: setting heap size</a>. To make things easier, let’s skip this step.</p>
+<h3 id="important-system-configuration">Important system configuration</h3>
+<p>Switch to root.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vi /etc/security/limits.conf
+</span></span></code></pre></div><p>Add these lines:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>* soft nofile <span style="color:#ae81ff">65536</span>
+</span></span><span style="display:flex;"><span>* hard nofile <span style="color:#ae81ff">131072</span>
+</span></span><span style="display:flex;"><span>* soft nproc <span style="color:#ae81ff">4096</span>
+</span></span><span style="display:flex;"><span>* hard nproc <span style="color:#ae81ff">4096</span>
+</span></span><span style="display:flex;"><span>* soft memlock unlimited
+</span></span><span style="display:flex;"><span>* hard memlock unlimited
+</span></span></code></pre></div><p>Save and edit <code>/etc/security/limits.d/90-nproc.conf</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp /etc/security/limits.d/90-nproc.conf /etc/security/limits.d/90-nproc.conf_bak
+</span></span><span style="display:flex;"><span>vi /etc/security/limits.d/90-nproc.conf
+</span></span></code></pre></div><p>Add the same content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>* soft nofile <span style="color:#ae81ff">65536</span>
+</span></span><span style="display:flex;"><span>* hard nofile <span style="color:#ae81ff">131072</span>
+</span></span><span style="display:flex;"><span>* soft nproc <span style="color:#ae81ff">4096</span>
+</span></span><span style="display:flex;"><span>* hard nproc <span style="color:#ae81ff">4096</span>
+</span></span><span style="display:flex;"><span>* soft memlock unlimited
+</span></span><span style="display:flex;"><span>* hard memlock unlimited
+</span></span></code></pre></div><p>Logout and relogon as root. Edit <code>/etc/sysctl.conf</code> and append <code>vm.max_map_count=262144</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vi /etc/sysctl.conf
+</span></span><span style="display:flex;"><span>vm.max_map_count<span style="color:#f92672">=</span><span style="color:#ae81ff">262144</span>
+</span></span></code></pre></div><p>Make setting effective:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo sysctl -p /etc/sysctl.conf
+</span></span></code></pre></div><p>Do the above settings the same to the other servers except <code>network.host</code>. After all those done all you need is to start Elasticsearch one by one.</p>
+<h2 id="start-elasticsearch">Start Elasticsearch</h2>
+<p>Change user to elastic:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /opt/elastic/elasticsearch-6.2.4/bin
+</span></span><span style="display:flex;"><span>./elasticsearch -d
+</span></span></code></pre></div><p>Open browser on your desktop and refer to the address <code>http://192.168.0.1:9200</code> to check whether it works.</p>
+<h2 id="one-more-thing-kibana">One more thing: Kibana</h2>
+<blockquote>
+<p>Kibana is an open source analytics and visualization platform designed to work with Elasticsearch. You use Kibana to search, view, and interact with data stored in Elasticsearch indices.</p>
+</blockquote>
+<p>Logon as user elastic and change directory to <code>/home/elastic</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar –zxvf kibana-6.2.4-linux-x86_64.tar.gz -C /opt/elastic/
+</span></span></code></pre></div><p>In the kibana configuration file <code>/opt/elastic/kibana-6.2.4-linux-x86_64/config/kibana.yml</code> three parameters should be replaced:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">server.port:5601</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">server.host:192.168.0.1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">elasticsearch.url:192.168.0.1:9200</span>
+</span></span></code></pre></div><p>Now you can start kibana on the background.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nohup ./kibana &amp;
+</span></span></code></pre></div><p>Open kibana by input <code>http://192.168.0.1:5601</code> in the browser.
+<img src="https://www.elastic.co/cn/assets/bltd5ae161f013bea14/5.5-console-80pct-generic-rgb.jpg" alt="kibana"></p>
+<p>Read <a href="https://www.elastic.co/guide/index.html">Elastic documentation</a> for further reference or watch <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&amp;elektra=docs&amp;storm=top-video">Getting Started video</a>.</p>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/elasticsearch/">elasticsearch</a>
+
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/kibana/">kibana</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/post/git-quickstart/" data-tooltip="Git快速指南" aria-label="NEXT: Git快速指南">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/post/howto-create-virtual-environment-by-venv/" data-tooltip="How To Create Virtual Environments by venv" aria-label="PREVIOUS: How To Create Virtual Environments by venv">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lijqhs.github.io/post/howto-install-elasticsearch/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lijqhs.github.io/post/howto-install-elasticsearch/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lijqhs.github.io/post/howto-install-elasticsearch/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/lijqhs.github.io\/post\/howto-install-elasticsearch\/';
+        
+          this.page.identifier = '\/post\/howto-install-elasticsearch\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'lijqhs';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 lijqhs. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/post/git-quickstart/" data-tooltip="Git快速指南" aria-label="NEXT: Git快速指南">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/post/howto-create-virtual-environment-by-venv/" data-tooltip="How To Create Virtual Environments by venv" aria-label="PREVIOUS: How To Create Virtual Environments by venv">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lijqhs.github.io/post/howto-install-elasticsearch/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lijqhs.github.io/post/howto-install-elasticsearch/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lijqhs.github.io/post/howto-install-elasticsearch/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flijqhs.github.io%2Fpost%2Fhowto-install-elasticsearch%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flijqhs.github.io%2Fpost%2Fhowto-install-elasticsearch%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flijqhs.github.io%2Fpost%2Fhowto-install-elasticsearch%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">lijqhs</h4>
+    
+      <div id="about-card-bio">a humble learner</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        software engineer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        canada
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://lijqhs.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://lijqhs.github.io/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

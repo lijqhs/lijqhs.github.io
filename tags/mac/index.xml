@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on lijqhs&#39;s blog</title>
+    <link>https://lijqhs.github.io/tags/mac/</link>
+    <description>Recent content in mac on lijqhs&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Aug 2018 20:11:48 +0800</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Create Virtual Environments by venv</title>
+      <link>https://lijqhs.github.io/post/howto-create-virtual-environment-by-venv/</link>
+      <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
+      
+      <guid>https://lijqhs.github.io/post/howto-create-virtual-environment-by-venv/</guid>
+      <description>&lt;p&gt;When I tested examples of the book &lt;strong&gt;Deep learning from scratch&lt;/strong&gt;, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (&lt;a href=&#34;https://matplotlib.org/faq/osx_framework.html&#34;&gt;Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The page shows &lt;code&gt;virtualenv&lt;/code&gt; is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool &lt;code&gt;venv&lt;/code&gt; provided since Python 3.4.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How To Properly Install Python3 and Virtualenv on Mac</title>
+      <link>https://lijqhs.github.io/post/howto-install-python3-virtualenv-on-macbook/</link>
+      <pubDate>Fri, 24 Aug 2018 19:01:48 +0800</pubDate>
+      
+      <guid>https://lijqhs.github.io/post/howto-install-python3-virtualenv-on-macbook/</guid>
+      <description>&lt;p&gt;When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of &lt;a href=&#34;https://www.davidculley.com/installing-python-on-a-mac/&#34;&gt;David Culley&lt;/a&gt; where he gives several alternatives to set up a Python3 working environment. The post of &lt;a href=&#34;https://stringpiggy.hpd.io/mac-osx-python3-dual-install/&#34;&gt;Candy Tsai&lt;/a&gt; also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. &lt;a href=&#34;https://brew.sh/&#34;&gt;Homebrew&lt;/a&gt; is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
