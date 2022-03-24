@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.95.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="lijqhs">
 <meta name="keywords" content="hugo, github, blog, git, hexo, tranquilpeak">
 <meta name="description" content="A few days ago I migrated this blog to Hugo from Jekyll and employed a beautiful theme called Even, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called Tranquilpeak, brought by Thibaud Lepretre from the original hexo theme.
@@ -112,7 +112,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -230,7 +229,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://stackoverflow.com/users/14633186/azurciel" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/18564163/lijqhs" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
       
@@ -240,7 +239,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="mailto:azurciel@gmail.com" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="mailto:lijqhs@gmail.com" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
@@ -327,20 +326,20 @@ if (!doNotTrack) {
 <p>As previously mentioned in the <a href="https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/">blog setup post</a>, you can use command <code>git clone</code> or <code>git submodule</code> to add a blog theme from GitHub repository. It is highly recommended here that you always use <code>git submodule</code> to add a new theme, even though you want to customize the theme template by yourself, in which case you could first fork the theme repository and add submodule from your replica repo of the theme which should track all the modifications by you and can also keep updated with the original repo when necessary.</p>
 <p>So just in case you want to make some changes someday, or just don&rsquo;t want to get the latest version from the original repo of which some newest fancy features may not be what you want.</p>
 <p>You can fork a copy of <code>https://github.com/kakawait/hugo-tranquilpeak-theme.git</code> theme to your repository <code>https://github.com/&lt;GITHUB_USERNAME&gt;/hugo-tranquilpeak-theme.git</code> and then add submodule from the latter. Or you can simply add the orginal theme repo to a submodule by:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule add https://github.com/kakawait/hugo-tranquilpeak-theme.git themes/tranquilpeak
-</code></pre></div><h2 id="change-the-blog-settings">Change the blog settings</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add https://github.com/kakawait/hugo-tranquilpeak-theme.git themes/tranquilpeak
+</span></span></code></pre></div><h2 id="change-the-blog-settings">Change the blog settings</h2>
 <p>Backup <code>config.toml</code> in the root directory of your blog site to <code>config.toml_bak</code> and copy <code>config.toml</code> from <code>themes/tranquilpeak/exampleSite</code> to the root directory and do some configuration as the <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">user docs</a> tells you, in which theme should be set to <code>tranquilpeak</code>:</p>
-<pre><code class="language-conf" data-lang="conf">theme = &quot;tranquilpeak&quot;
+<pre tabindex="0"><code class="language-conf" data-lang="conf">theme = &#34;tranquilpeak&#34;
 </code></pre><p>After all settings are done, you can rebuild the blog now with the simple command <code>hugo</code> in the root directory or <code>hugo server -D</code> to preview your blog first. And then in the public directory you can commit all the changes and push up to the GitHub repo and a new blog is ready.</p>
 <h2 id="delete-the-submodule">Delete the submodule</h2>
 <p>Since you do not need the old theme anymore, you can delete it from you repository.</p>
 <p><em>How to remove the old submodule?</em></p>
 <p>In the blog root directory, run the following commands to remove the theme even from your blog site:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule deinit theme/even
-git rm theme/even 
-</code></pre></div><p><code>git submodule deinit theme/even</code> deletes theme/even&rsquo;s entry from .git/config. This excludes <code>theme/even</code> from <code>git submodule update</code>, <code>git submodule sync</code> and <code>git submodule foreach</code> calls and deletes its local content (source). Also, <strong>this will not be shown as change in your parent repository</strong>. <code>git submodule init</code> and <code>git submodule update</code> will <strong>restore</strong> the submodule, again without commitable changes in your parent repository.</p>
-<p><code>git rm theme/even</code> will remove theme/even from the work tree and the <code>theme/even</code> directory. The files of <code>theme/even</code> directory will be gone as well as the submodules' entry in the <code>.gitmodules</code> file, that is, the following lines will disappear.</p>
-<pre><code class="language-conf" data-lang="conf">[submodule &quot;themes/even&quot;]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule deinit theme/even
+</span></span><span style="display:flex;"><span>git rm theme/even 
+</span></span></code></pre></div><p><code>git submodule deinit theme/even</code> deletes theme/even&rsquo;s entry from .git/config. This excludes <code>theme/even</code> from <code>git submodule update</code>, <code>git submodule sync</code> and <code>git submodule foreach</code> calls and deletes its local content (source). Also, <strong>this will not be shown as change in your parent repository</strong>. <code>git submodule init</code> and <code>git submodule update</code> will <strong>restore</strong> the submodule, again without commitable changes in your parent repository.</p>
+<p><code>git rm theme/even</code> will remove theme/even from the work tree and the <code>theme/even</code> directory. The files of <code>theme/even</code> directory will be gone as well as the submodules&rsquo; entry in the <code>.gitmodules</code> file, that is, the following lines will disappear.</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">[submodule &#34;themes/even&#34;]
         path = themes/even
         url = https://github.com/olOwOlo/hugo-theme-even.git
 </code></pre><h2 id="reference">Reference</h2>
@@ -437,7 +436,7 @@ git rm theme/even
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 lijqhs. All Rights Reserved
+    &copy; 2022 lijqhs. All Rights Reserved
   </span>
 </footer>
 
@@ -538,14 +537,14 @@ git rm theme/even
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        data scientist
+        software engineer
       </div>
     
     
       <div id="about-card-location">
         <i class="fa fa-map-marker"></i>
         <br/>
-        nanjing
+        canada
       </div>
     
   </div>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.95.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="lijqhs">
 <meta name="keywords" content="hugo, github, blog, git, hexo">
 <meta name="description" content="GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas. GitHub Pages is such a fancy service where you can easily setup your own websites by just a few mouse clicks. Companies and project teams can easily create product homepages on it, and individuals who like to document things and share ideas can also easily build blogs on it.">
@@ -106,7 +106,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -224,7 +223,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://stackoverflow.com/users/14633186/azurciel" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/18564163/lijqhs" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
       
@@ -234,7 +233,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="mailto:azurciel@gmail.com" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="mailto:lijqhs@gmail.com" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
@@ -351,80 +350,80 @@ if (!doNotTrack) {
 </ul>
 <h2 id="install-hugo">Install Hugo</h2>
 <p>Now you have all your need to setup a Hugo blog.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; brew install hugo
-<span style="color:#75715e"># check if done</span>
-&gt; hugo version
-Hugo Static Site Generator v0.75.1/extended darwin/amd64 BuildDate: unknown
-</code></pre></div><p>Change directory to the one you intend to keep your site files, then run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; hugo new site my-blog
-&gt; cd my-blog
-&gt; git init
-
-<span style="color:#75715e"># show tree structure of my-blog, you may need &#39;brew install tree&#39;</span>
-&gt; tree my-blog
-my-blog
-├── archetypes
-│   └── default.md
-├── config.toml
-├── content
-├── data
-├── layouts
-├── static
-└── themes
-
-<span style="color:#ae81ff">6</span> directories, <span style="color:#ae81ff">2</span> files
-</code></pre></div><p><code>themes</code> is the directory for blog themes. You can browse <a href="https://themes.gohugo.io">Hugo Themes</a> to choose your favorite one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt; brew install hugo
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># check if done</span>
+</span></span><span style="display:flex;"><span>&gt; hugo version
+</span></span><span style="display:flex;"><span>Hugo Static Site Generator v0.75.1/extended darwin/amd64 BuildDate: unknown
+</span></span></code></pre></div><p>Change directory to the one you intend to keep your site files, then run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt; hugo new site my-blog
+</span></span><span style="display:flex;"><span>&gt; cd my-blog
+</span></span><span style="display:flex;"><span>&gt; git init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># show tree structure of my-blog, you may need &#39;brew install tree&#39;</span>
+</span></span><span style="display:flex;"><span>&gt; tree my-blog
+</span></span><span style="display:flex;"><span>my-blog
+</span></span><span style="display:flex;"><span>├── archetypes
+</span></span><span style="display:flex;"><span>│   └── default.md
+</span></span><span style="display:flex;"><span>├── config.toml
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>├── data
+</span></span><span style="display:flex;"><span>├── layouts
+</span></span><span style="display:flex;"><span>├── static
+</span></span><span style="display:flex;"><span>└── themes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> directories, <span style="color:#ae81ff">2</span> files
+</span></span></code></pre></div><p><code>themes</code> is the directory for blog themes. You can browse <a href="https://themes.gohugo.io">Hugo Themes</a> to choose your favorite one.</p>
 <h2 id="install-blog-themes">Install blog themes</h2>
 <p>On <a href="https://themes.gohugo.io">Hugo Themes</a>, you can download the theme you like and then put it in the <code>themes</code> folder and edit <code>config.toml</code> to add <code>theme=&lt;theme_name&gt;</code>. However, there is an easier way to do this.</p>
 <h3 id="install-themes-with-git">Install themes with Git</h3>
 <p>Find the Github repo page of the theme you choose and just clone the repo into the <code>themes</code> folder. For example, I found <a href="https://github.com/olOwOlo/hugo-theme-even">hugo-theme-even</a> to be my type of theme and easy to use.</p>
 <p>So I just clone the repo to <code>themes</code> by</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone https://github.com/olOwOlo/hugo-theme-even.git themes/even
-</code></pre></div><p>One thing to note here, later when upload the <code>my-blog</code> site to Github repo (maybe private repo to backup this site files), you might encounter some warnings related to the theme repo since you clone another repo in an existing git repo. You should decide whether or not this theme repo (in my case, the <code>hugo-theme-even</code> in themes folder) should be tracked to the original repo on Github, which you should not since you just clone the repo from others. In that case you need to clear index for the theme repo and keep it just tracked in your <code>my-blog</code> private repo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone https://github.com/olOwOlo/hugo-theme-even.git themes/even
+</span></span></code></pre></div><p>One thing to note here, later when upload the <code>my-blog</code> site to Github repo (maybe private repo to backup this site files), you might encounter some warnings related to the theme repo since you clone another repo in an existing git repo. You should decide whether or not this theme repo (in my case, the <code>hugo-theme-even</code> in themes folder) should be tracked to the original repo on Github, which you should not since you just clone the repo from others. In that case you need to clear index for the theme repo and keep it just tracked in your <code>my-blog</code> private repo.</p>
 <p>Here&rsquo;s the question that arises, what should I do if I need to keep this theme updated with the original repo. The solution is to use <code>git submodule</code>, a powerful feature of Git, which can keep the parent repo and its summodule repos connected and isolated. Instead of <code>git clone</code> you install themes by <code>git submodule</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git submodule add https://github.com/olOwOlo/hugo-theme-even.git themes/even
-</code></pre></div><h3 id="modify-configtoml">Modify config.toml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git submodule add https://github.com/olOwOlo/hugo-theme-even.git themes/even
+</span></span></code></pre></div><h3 id="modify-configtoml">Modify config.toml</h3>
 <p>Replace <code>config.toml</code> with the example config file provided by the theme <code>themes/even/exampleSite/config.toml</code> and modify necessary configs. Here are some examples.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://&lt;GITHUB_USERNAME&gt;.github.io&#34;</span>
-<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;XXXXXX&#34;</span>
-<span style="color:#a6e22e">googleAnalytics</span> = <span style="color:#e6db74">&#34;UA-XXXXXXXX-X&#34;</span> <span style="color:#75715e"># for Google Analytics</span>
-
-<span style="color:#75715e"># show &#39;xx Posts In Total&#39; in archive page?</span>
-<span style="color:#a6e22e">showArchiveCount</span> = <span style="color:#66d9ef">true</span>
-
-<span style="color:#75715e"># mathjax</span>
-<span style="color:#a6e22e">mathjax</span> = <span style="color:#66d9ef">true</span>  <span style="color:#75715e"># see https://www.mathjax.org/ </span>
-<span style="color:#a6e22e">mathjaxEnableSingleDollar</span> = <span style="color:#66d9ef">true</span>  <span style="color:#75715e"># use $...$ to render latex</span>
-<span style="color:#a6e22e">mathjaxEnableAutoNumber</span> = <span style="color:#66d9ef">false</span>   <span style="color:#75715e"># auto number for formula</span>
-
-[<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">busuanzi</span>] <span style="color:#75715e"># count web traffic by busuanzi </span>
-  <span style="color:#a6e22e">enable</span> = <span style="color:#66d9ef">true</span>
-  <span style="color:#a6e22e">siteUV</span> = <span style="color:#66d9ef">true</span>
-  <span style="color:#a6e22e">sitePV</span> = <span style="color:#66d9ef">true</span>
-  <span style="color:#a6e22e">pagePV</span> = <span style="color:#66d9ef">true</span>
-</code></pre></div><h2 id="write-your-first-blog-post">Write your first blog post</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://&lt;GITHUB_USERNAME&gt;.github.io&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;XXXXXX&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">googleAnalytics</span> = <span style="color:#e6db74">&#34;UA-XXXXXXXX-X&#34;</span> <span style="color:#75715e"># for Google Analytics</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># show &#39;xx Posts In Total&#39; in archive page?</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">showArchiveCount</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># mathjax</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mathjax</span> = <span style="color:#66d9ef">true</span>  <span style="color:#75715e"># see https://www.mathjax.org/ </span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mathjaxEnableSingleDollar</span> = <span style="color:#66d9ef">true</span>  <span style="color:#75715e"># use $...$ to render latex</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mathjaxEnableAutoNumber</span> = <span style="color:#66d9ef">false</span>   <span style="color:#75715e"># auto number for formula</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">busuanzi</span>] <span style="color:#75715e"># count web traffic by busuanzi </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">enable</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">siteUV</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">sitePV</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pagePV</span> = <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><h2 id="write-your-first-blog-post">Write your first blog post</h2>
 <p>Writing blog posts is much more easier.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; hugo new post/my-first-post.md
-</code></pre></div><p>This will add the file <code>my-first-post.md</code> under the folder <code>content/post</code>. You can also manually create new markdown file under that folder. In <code>my-first-post.md</code>, add:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
-title: &#34;My First Post&#34;
-date: 2020-11-06T23:19:48+08:00
-draft: false
-keywords: [&#34;Hugo&#34;]
-description: &#34;A 30 minutes guide&#34;
-tags: [&#34;hugo&#34;]
-categories: [&#34;howto&#34;]
----
-
-This is content. XXXX
-</code></pre></div><p>Next preview your blog site (make sure your site works):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; hugo server -D
-Web Server is available at http://localhost:1313/ <span style="color:#f92672">(</span>bind address 127.0.0.1<span style="color:#f92672">)</span>
-Press Ctrl+C to stop
-</code></pre></div><h3 id="images-for-posts">images for posts</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt; hugo new post/my-first-post.md
+</span></span></code></pre></div><p>This will add the file <code>my-first-post.md</code> under the folder <code>content/post</code>. You can also manually create new markdown file under that folder. In <code>my-first-post.md</code>, add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;My First Post&#34;
+</span></span><span style="display:flex;"><span>date: 2020-11-06T23:19:48+08:00
+</span></span><span style="display:flex;"><span>draft: false
+</span></span><span style="display:flex;"><span>keywords: [&#34;Hugo&#34;]
+</span></span><span style="display:flex;"><span>description: &#34;A 30 minutes guide&#34;
+</span></span><span style="display:flex;"><span>tags: [&#34;hugo&#34;]
+</span></span><span style="display:flex;"><span>categories: [&#34;howto&#34;]
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>This is content. XXXX
+</span></span></code></pre></div><p>Next preview your blog site (make sure your site works):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt; hugo server -D
+</span></span><span style="display:flex;"><span>Web Server is available at http://localhost:1313/ <span style="color:#f92672">(</span>bind address 127.0.0.1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Press Ctrl+C to stop
+</span></span></code></pre></div><h3 id="images-for-posts">images for posts</h3>
 <p>You may have pictures for your blog posts. Just put them in <code>my-blog/static/img/</code> and refer to them via</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">![<span style="color:#f92672">IMG_NAME</span>](<span style="color:#a6e22e">/img/img_example.png</span>)
-</code></pre></div><h2 id="deploy-hugo-as-a-github-pages">Deploy Hugo as a Github Pages</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>![<span style="color:#f92672">IMG_NAME</span>](<span style="color:#a6e22e">/img/img_example.png</span>)
+</span></span></code></pre></div><h2 id="deploy-hugo-as-a-github-pages">Deploy Hugo as a Github Pages</h2>
 <p>Follow the instructions on <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#github-user-or-organization-pages">Hugo Docs</a> to deploy <code>my-blog</code> to a Github private repo and deploy the <code>public</code> folder which is automatically generated by <code>hugo</code> command onto a Github Pages repo. Here are the main steps.</p>
 <h3 id="prepare-two-repos">Prepare two repos</h3>
 <ul>
@@ -435,32 +434,32 @@ Press Ctrl+C to stop
 <h4 id="blog-repo">Blog repo</h4>
 <p>Make sure your blog website works locally (via <code>hugo server -D</code> as above) and then press <code>Ctrl+C</code> to kill the server.</p>
 <p>Before we go any further, run</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rm -rf public
-</code></pre></div><p>to completely remove the public directory (if any).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rm -rf public
+</span></span></code></pre></div><p>to completely remove the public directory (if any).</p>
 <p>Make sure your <code>&lt;GITHUB_USERNAME&gt;.github.io</code> repo is not empty (better add a README or .gitignore first) and then add it as a submodule into a directory named as <code>public</code> in your current site repo.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git submodule add -b master https://github.com/&lt;GITHUB_USERNAME&gt;/&lt;GITHUB_USERNAME&gt;.github.io.git public
-</code></pre></div><p>Now run the command</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo
-</code></pre></div><p>to build your site to <code>public</code>. To push the <code>public</code> to your Github Pages repo, namely <code>&lt;GITHUB_USERNAME&gt;.github.io</code>, you should do these:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd public
-git add .
-git commit -m <span style="color:#e6db74">&#39;building blog site&#39;</span>
-git push origin master
-</code></pre></div><p>If you receive an error message, you might need change <code>master</code> to <code>main</code> because GitHub have been using <code>main</code> instead of <code>master</code> since October 1, 2020.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git submodule add -b master https://github.com/&lt;GITHUB_USERNAME&gt;/&lt;GITHUB_USERNAME&gt;.github.io.git public
+</span></span></code></pre></div><p>Now run the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><p>to build your site to <code>public</code>. To push the <code>public</code> to your Github Pages repo, namely <code>&lt;GITHUB_USERNAME&gt;.github.io</code>, you should do these:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd public
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;building blog site&#39;</span>
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div><p>If you receive an error message, you might need change <code>master</code> to <code>main</code> because GitHub have been using <code>main</code> instead of <code>master</code> since October 1, 2020.</p>
 <h4 id="hugo-site-repo">Hugo site repo</h4>
 <p>Run the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .
-git commit -m <span style="color:#e6db74">&#39;upload blog site source files&#39;</span>
-git remote add origin git@github.com:&lt;GITHUB_USERNAME&gt;/blog.git
-git push -u origin master
-</code></pre></div><p>Again <code>master</code> should be replaced by <code>main</code> if you just create a new repository on GitHub where the branch name have been set <code>main</code> as default. Now that you have <code>master</code> branch in the local, branch renaming is needed. Just after <code>git commit</code> in the above commands, run</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git branch -M main
-</code></pre></div><p>to change your local branch name to <code>main</code> and then run <code>git remote</code> and <code>git push</code> commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;upload blog site source files&#39;</span>
+</span></span><span style="display:flex;"><span>git remote add origin git@github.com:&lt;GITHUB_USERNAME&gt;/blog.git
+</span></span><span style="display:flex;"><span>git push -u origin master
+</span></span></code></pre></div><p>Again <code>master</code> should be replaced by <code>main</code> if you just create a new repository on GitHub where the branch name have been set <code>main</code> as default. Now that you have <code>master</code> branch in the local, branch renaming is needed. Just after <code>git commit</code> in the above commands, run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git branch -M main
+</span></span></code></pre></div><p>to change your local branch name to <code>main</code> and then run <code>git remote</code> and <code>git push</code> commands.</p>
 <p>If all goes well, you have two submodules in your site repo. <code>.gitmodules</code> shows like this:</p>
-<pre><code class="language-conf" data-lang="conf">[submodule &quot;themes/even&quot;]
+<pre tabindex="0"><code class="language-conf" data-lang="conf">[submodule &#34;themes/even&#34;]
   path = themes/even
   url = https://github.com/olOwOlo/hugo-theme-even.git
-[submodule &quot;public&quot;]
+[submodule &#34;public&#34;]
   path = public
   url = git@github.com:&lt;GITHUB_USERNAME&gt;/&lt;GITHUB_USERNAME&gt;.github.io.git
 </code></pre><p>Run <code>git push</code> command will not upload any file of these two submodules to your site upstream repo <code>blog</code> since submodules have their own upstream repo.</p>
@@ -474,32 +473,32 @@ git push -u origin master
 <li>Upload <code>my-blog</code> (site repo)</li>
 </ol>
 <p>Step 2 &amp; 3 can be automated by a script, <code>deploy.sh</code> in <code>my-blog</code> directory.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># If a command fails then the deploy stops</span>
-set -e
-
-printf <span style="color:#e6db74">&#34;\033[0;32mDeploying updates to GitHub...\033[0m\n&#34;</span>
-
-<span style="color:#75715e"># Build the project.</span>
-hugo <span style="color:#75715e"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
-
-<span style="color:#75715e"># Go To Public folder</span>
-cd public
-
-<span style="color:#75715e"># Add changes to git.</span>
-git add .
-
-<span style="color:#75715e"># Commit changes.</span>
-msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rebuilding site </span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-  msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">fi</span>
-git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># Push source and build repos.</span>
-git push origin master
-</code></pre></div><p>Change <code>master</code> to <code>main</code> in the last line if you encounter &ldquo;<em>error: src refspec master does not match any</em>&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If a command fails then the deploy stops</span>
+</span></span><span style="display:flex;"><span>set -e
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;\033[0;32mDeploying updates to GitHub...\033[0m\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build the project.</span>
+</span></span><span style="display:flex;"><span>hugo <span style="color:#75715e"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Go To Public folder</span>
+</span></span><span style="display:flex;"><span>cd public
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add changes to git.</span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Commit changes.</span>
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rebuilding site </span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Push source and build repos.</span>
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div><p>Change <code>master</code> to <code>main</code> in the last line if you encounter &ldquo;<em>error: src refspec master does not match any</em>&rdquo;.</p>
 <p>Now whenever you want to put something new in your blog, follow the three steps:</p>
 <ol>
 <li>Create new post file (*.md in /content/post/)</li>
@@ -516,8 +515,8 @@ git push origin master
 <li>Git clone repository</li>
 </ul>
 <p>You&rsquo;d better get all submodules repositories files. To do this, pass <code>--recurse-submodules</code> to the <code>git clone</code> command, it will automatically initialize and update each submodule in the repository, including nested submodules if any of the submodules in the repository have submodules themselves. (Ref: <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git - Submodules</a>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone --recurse-submodules git@github.com:&lt;GITHUB_USERNAME&gt;/blog.git
-</code></pre></div><h2 id="conclusion">Conclusion</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone --recurse-submodules git@github.com:&lt;GITHUB_USERNAME&gt;/blog.git
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>Setting up a blog with Hugo is easy and simple, and this post lays out the concise and complete steps, with just a few actions on Git that may take time to delve into the specifics.</p>
               
             </div>
@@ -606,7 +605,7 @@ git push origin master
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 lijqhs. All Rights Reserved
+    &copy; 2022 lijqhs. All Rights Reserved
   </span>
 </footer>
 
@@ -707,14 +706,14 @@ git push origin master
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        data scientist
+        software engineer
       </div>
     
     
       <div id="about-card-location">
         <i class="fa fa-map-marker"></i>
         <br/>
-        nanjing
+        canada
       </div>
     
   </div>

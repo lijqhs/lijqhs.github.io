@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.75.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.95.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="lijqhs">
 <meta name="keywords" content="machine learning, bias-variance">
 <meta name="description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。">
@@ -102,7 +102,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -220,7 +219,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://stackoverflow.com/users/14633186/azurciel" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/18564163/lijqhs" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
       
@@ -230,7 +229,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="mailto:azurciel@gmail.com" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="mailto:lijqhs@gmail.com" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-envelope"></i>
       
@@ -305,99 +304,90 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。</p>
-
 <p>目录:</p>
-
 <ul>
 <li><a href="#bias-variance-tradeoff">Bias-Variance Tradeoff</a></li>
 <li><a href="#bias-variance-decomposition">Bias-Variance Decomposition</a></li>
 <li><a href="#bias-variance-calculation-with-python">Bias-Variance Calculation with Python</a></li>
 <li><a href="#reference">Reference</a></li>
 </ul>
-
-<h2 id="biasvariance-tradeoff">Bias-Variance Tradeoff</h2>
-
+<h2 id="bias-variance-tradeoff">Bias-Variance Tradeoff</h2>
 <blockquote>
-<p>One of the most reliable ways to get a high performance machine learning system is to take a low bias learning algorithm and to train it on a massive training set.
-<p align='right'>-- Andrew Ng</p></p>
+<p>One of the most reliable ways to get a high performance machine learning system is to take a low bias learning algorithm and to train it on a massive training set.</p>
+<!-- raw HTML omitted -->
 </blockquote>
-
 <p>在有监督学习中，泛化误差的来源主要包括偏差(bias)、方差(variance)和不可减少的误差(irreducible error，也叫噪声)。</p>
-
 <ul>
 <li>偏差度量了学习算法的期望预测真实结果的偏离程度，即刻画了学习算法本身的拟合能力。高偏差（high bias）对应了学习算法的欠拟合（underfitting）；为了减少学习算法的偏差，可以增加模型的复杂度，比如增加新的特征项，这样一来又容易造成过拟合（overfitting），从而造成高方差（high variance）。</li>
 <li>方差度量了同样大小的训练集的变动所导致的学习性能的变化，即刻画了数据扰动所造成的影响。高方差对应了学习算法的过拟合，方差与偏差存在一定冲突，被称为偏差-方差窘境（bias-variance dilemma）。除了通过减少模型特征来降低模型的复杂度进而降低模型方差，还可以通过增加数据规模，或者正则化、交叉验证法等方法减少方差。</li>
 <li>噪声则表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度。</li>
 </ul>
-
-<h2 id="biasvariance-decomposition">Bias-Variance Decomposition</h2>
-
+<h2 id="bias-variance-decomposition">Bias-Variance Decomposition</h2>
 <p>对于观测数据$X$、预测变量$Y$，假设两者符合关系$Y=f(X)+\epsilon$，其中$\epsilon \sim \mathcal{N}(0,\sigma_\epsilon^2)$。我们无法得到真实模型$f(X)$，我们可以选择机器学习模型，比如线性回归、决策树或其他模型，通过算法学习$f(X)$一个近似模型$\hat{f}(X)$来对$X$的观测进行预测。给定$X$的一个观测点$x$，其真实观测（待预测变量）为$y=f(x)+\epsilon$。</p>
-
 <p>该模型$\hat{f}(X)$在点$x$的期望预测误差，以均方损失误差为例：</p>
-
-<p><span  class="math">\[\begin{align}
-Err(x)&=E[(y-\hat{f})^2] \\
-&=E[(f+\epsilon-\hat{f}+E[\hat{f}]-E[\hat{f}])^2] \\
-&=E[(f-E[\hat{f}])^2]+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]+2E[(f-E[\hat{f} ])\epsilon]\\
-&\quad+2E[\epsilon(E[\hat{f}]-\hat{f})]+2E[(E[\hat{f}]-\hat{f})(f-E[\hat{f}])]\\
-&=(f-E[\hat{f}])^2+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]\\
-&\quad+2(f-E[\hat{f}])E[\epsilon]+2E[\epsilon]E[E[\hat{f}]-\hat{f}]+2E[E[\hat{f}]-\hat{f}](f-E[\hat{f}])\\
-&=(f-E[\hat{f}])^2+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]\\
-&=(f-E[\hat{f}])^2+Var[\epsilon]+Var[\hat{f}]\\
-&=Bias[\hat{f}]^2+Var[\hat{f}]+Var[\epsilon]\\
-&=Bias[\hat{f}]^2+Var[\hat{f}]+\sigma^2
-\end{align}\]</span></p>
-
-<h2 id="biasvariance-calculation-with-python">Bias-Variance Calculation with Python</h2>
-
+<p>$$\begin{align}
+Err(x)&amp;=E[(y-\hat{f})^2] \
+&amp;=E[(f+\epsilon-\hat{f}+E[\hat{f}]-E[\hat{f}])^2] \
+&amp;=E[(f-E[\hat{f}])^2]+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]+2E[(f-E[\hat{f} ])\epsilon]\
+&amp;\quad+2E[\epsilon(E[\hat{f}]-\hat{f})]+2E[(E[\hat{f}]-\hat{f})(f-E[\hat{f}])]\
+&amp;=(f-E[\hat{f}])^2+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]\
+&amp;\quad+2(f-E[\hat{f}])E[\epsilon]+2E[\epsilon]E[E[\hat{f}]-\hat{f}]+2E<a href="f-E%5B%5Chat%7Bf%7D%5D">E[\hat{f}]-\hat{f}</a>\
+&amp;=(f-E[\hat{f}])^2+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]\
+&amp;=(f-E[\hat{f}])^2+Var[\epsilon]+Var[\hat{f}]\
+&amp;=Bias[\hat{f}]^2+Var[\hat{f}]+Var[\epsilon]\
+&amp;=Bias[\hat{f}]^2+Var[\hat{f}]+\sigma^2
+\end{align}$$</p>
+<h2 id="bias-variance-calculation-with-python">Bias-Variance Calculation with Python</h2>
 <p>采用<code>mlxtend</code>可以很方便的计算Bias-Variance误差分解，下面是回归决策树方法的偏差-方差分解。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> mlxtend.evaluate <span style="color:#f92672">import</span> bias_variance_decomp
-<span style="color:#f92672">from</span> sklearn.tree <span style="color:#f92672">import</span> DecisionTreeRegressor
-<span style="color:#f92672">from</span> mlxtend.data <span style="color:#f92672">import</span> boston_housing_data
-<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
-
-X, y <span style="color:#f92672">=</span> boston_housing_data()
-X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y,
-                                                    test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>,
-                                                    random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>,
-                                                    shuffle<span style="color:#f92672">=</span>True)
-
-tree <span style="color:#f92672">=</span> DecisionTreeRegressor(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
-
-avg_expected_loss, avg_bias, avg_var <span style="color:#f92672">=</span> bias_variance_decomp(
-        tree, X_train, y_train, X_test, y_test, 
-        loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mse&#39;</span>,
-        random_seed<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Average expected loss: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_expected_loss)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Average bias: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_bias)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Average variance: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_var)</code></pre></div><pre><code>Average expected loss: 31.917
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> mlxtend.evaluate <span style="color:#f92672">import</span> bias_variance_decomp
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.tree <span style="color:#f92672">import</span> DecisionTreeRegressor
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> mlxtend.data <span style="color:#f92672">import</span> boston_housing_data
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X, y <span style="color:#f92672">=</span> boston_housing_data()
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y,
+</span></span><span style="display:flex;"><span>                                                    test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>,
+</span></span><span style="display:flex;"><span>                                                    random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>,
+</span></span><span style="display:flex;"><span>                                                    shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tree <span style="color:#f92672">=</span> DecisionTreeRegressor(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>avg_expected_loss, avg_bias, avg_var <span style="color:#f92672">=</span> bias_variance_decomp(
+</span></span><span style="display:flex;"><span>        tree, X_train, y_train, X_test, y_test, 
+</span></span><span style="display:flex;"><span>        loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mse&#39;</span>,
+</span></span><span style="display:flex;"><span>        random_seed<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Average expected loss: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_expected_loss)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Average bias: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_bias)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Average variance: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_var)
+</span></span></code></pre></div><pre><code>Average expected loss: 31.917
 Average bias: 13.814
-Average variance: 18.102</code></pre>
+Average variance: 18.102
+</code></pre>
 <p>作为对比，下面是Bagging方法的偏差-方差，可以看出采用Bagging方法可以降低variance。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.ensemble <span style="color:#f92672">import</span> BaggingRegressor
-
-tree <span style="color:#f92672">=</span> DecisionTreeRegressor(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
-bag <span style="color:#f92672">=</span> BaggingRegressor(base_estimator<span style="color:#f92672">=</span>tree,
-                       n_estimators<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>,
-                       random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
-
-avg_expected_loss, avg_bias, avg_var <span style="color:#f92672">=</span> bias_variance_decomp(
-        bag, X_train, y_train, X_test, y_test, 
-        loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mse&#39;</span>,
-        random_seed<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Average expected loss: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_expected_loss)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Average bias: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_bias)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Average variance: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_var)</code></pre></div><pre><code>Average expected loss: 18.593
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.ensemble <span style="color:#f92672">import</span> BaggingRegressor
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tree <span style="color:#f92672">=</span> DecisionTreeRegressor(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
+</span></span><span style="display:flex;"><span>bag <span style="color:#f92672">=</span> BaggingRegressor(base_estimator<span style="color:#f92672">=</span>tree,
+</span></span><span style="display:flex;"><span>                       n_estimators<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>,
+</span></span><span style="display:flex;"><span>                       random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>avg_expected_loss, avg_bias, avg_var <span style="color:#f92672">=</span> bias_variance_decomp(
+</span></span><span style="display:flex;"><span>        bag, X_train, y_train, X_test, y_test, 
+</span></span><span style="display:flex;"><span>        loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mse&#39;</span>,
+</span></span><span style="display:flex;"><span>        random_seed<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Average expected loss: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_expected_loss)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Average bias: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_bias)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Average variance: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> avg_var)
+</span></span></code></pre></div><pre><code>Average expected loss: 18.593
 Average bias: 15.354
-Average variance: 3.239</code></pre>
+Average variance: 3.239
+</code></pre>
 <h2 id="reference">Reference</h2>
-
 <ul>
 <li><a href="http://scott.fortmann-roe.com/docs/BiasVariance.html">Understanding the Bias-Variance Tradeoff</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Bias–variance_tradeoff">Bias-Variance Tradeoff - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">Bias-Variance Tradeoff - Wikipedia</a></li>
 <li><a href="https://github.com/rasbt/mlxtend/blob/master/docs/sources/user_guide/evaluate/bias_variance_decomp.ipynb">Bias-Variance Decomposition</a></li>
 <li>机器学习西瓜书</li>
 </ul>
@@ -484,7 +474,7 @@ Average variance: 3.239</code></pre>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 lijqhs. All Rights Reserved
+    &copy; 2022 lijqhs. All Rights Reserved
   </span>
 </footer>
 
@@ -585,14 +575,14 @@ Average variance: 3.239</code></pre>
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        data scientist
+        software engineer
       </div>
     
     
       <div id="about-card-location">
         <i class="fa fa-map-marker"></i>
         <br/>
-        nanjing
+        canada
       </div>
     
   </div>
