@@ -1,1 +1,1 @@
-[my blog](https://azurciel.github.io)
+[my blog](https://lijqhs.github.io)
