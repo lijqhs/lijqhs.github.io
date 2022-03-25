@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Github Pages Hugo博客主题更新踩坑小记",
+  
+  "image": "//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-nature.jpg",
+  
+  "datePublished": "2022-03-24T00:00:00Z",
+  "dateModified": "2022-03-24T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "lijqhs",
+    
+    "image": "https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/lijqhs.github.io\/2022\/03\/pitfalls-in-updating-hugo-blog-theme\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "lijqhs's blog",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png"
+    }
+    
+  },
+  "description": "好久没用Github，这个博客也很长时间没有更新了，几乎已经被遗忘了。之前喜欢在工作之余利用Github来记一些笔记，后来一方面因为工作类型的转换，从做算法研究写代码转到做项目管理，一下子从跟电脑打交道转变为更多地与人打交道，节奏变化了记笔记的方式也因此变化了；另一方面也是因为懒，年龄越大越不喜欢折腾。以前喜欢用Markdown做笔记，甚至用VSCode把Github作为自己的笔记本，后来工作之外的时间越来越少，而且大部分时间花在与人沟通上面，自然就少了很多精力去折腾笔记的形式了。\n",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.95.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="lijqhs">
+<meta name="keywords" content="">
+<meta name="description" content="好久没用Github，这个博客也很长时间没有更新了，几乎已经被遗忘了。之前喜欢在工作之余利用Github来记一些笔记，后来一方面因为工作类型的转换，从做算法研究写代码转到做项目管理，一下子从跟电脑打交道转变为更多地与人打交道，节奏变化了记笔记的方式也因此变化了；另一方面也是因为懒，年龄越大越不喜欢折腾。以前喜欢用Markdown做笔记，甚至用VSCode把Github作为自己的笔记本，后来工作之外的时间越来越少，而且大部分时间花在与人沟通上面，自然就少了很多精力去折腾笔记的形式了。">
+
+
+<meta property="og:description" content="好久没用Github，这个博客也很长时间没有更新了，几乎已经被遗忘了。之前喜欢在工作之余利用Github来记一些笔记，后来一方面因为工作类型的转换，从做算法研究写代码转到做项目管理，一下子从跟电脑打交道转变为更多地与人打交道，节奏变化了记笔记的方式也因此变化了；另一方面也是因为懒，年龄越大越不喜欢折腾。以前喜欢用Markdown做笔记，甚至用VSCode把Github作为自己的笔记本，后来工作之外的时间越来越少，而且大部分时间花在与人沟通上面，自然就少了很多精力去折腾笔记的形式了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github Pages Hugo博客主题更新踩坑小记">
+<meta name="twitter:title" content="Github Pages Hugo博客主题更新踩坑小记">
+<meta property="og:url" content="https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/">
+<meta property="twitter:url" content="https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/">
+<meta property="og:site_name" content="lijqhs&#39;s blog">
+<meta property="og:description" content="好久没用Github，这个博客也很长时间没有更新了，几乎已经被遗忘了。之前喜欢在工作之余利用Github来记一些笔记，后来一方面因为工作类型的转换，从做算法研究写代码转到做项目管理，一下子从跟电脑打交道转变为更多地与人打交道，节奏变化了记笔记的方式也因此变化了；另一方面也是因为懒，年龄越大越不喜欢折腾。以前喜欢用Markdown做笔记，甚至用VSCode把Github作为自己的笔记本，后来工作之外的时间越来越少，而且大部分时间花在与人沟通上面，自然就少了很多精力去折腾笔记的形式了。">
+<meta name="twitter:description" content="好久没用Github，这个博客也很长时间没有更新了，几乎已经被遗忘了。之前喜欢在工作之余利用Github来记一些笔记，后来一方面因为工作类型的转换，从做算法研究写代码转到做项目管理，一下子从跟电脑打交道转变为更多地与人打交道，节奏变化了记笔记的方式也因此变化了；另一方面也是因为懒，年龄越大越不喜欢折腾。以前喜欢用Markdown做笔记，甚至用VSCode把Github作为自己的笔记本，后来工作之外的时间越来越少，而且大部分时间花在与人沟通上面，自然就少了很多精力去折腾笔记的形式了。">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2022-03-24T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2022-03-24T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="blog">
+    
+  
+  
+    
+      <meta property="article:tag" content="hugo">
+    
+      <meta property="article:tag" content="github">
+    
+      <meta property="article:tag" content="git">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@lijqhs">
+
+
+  <meta name="twitter:creator" content="@lijqhs">
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+
+
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-nature.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-nature.jpg">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-nature.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-nature.jpg">
+
+
+    <title>Github Pages Hugo博客主题更新踩坑小记</title>
+
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://lijqhs.github.io/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-182241114-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://lijqhs.github.io/" aria-label="Go to homepage">lijqhs&#39;s blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://lijqhs.github.io/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://lijqhs.github.io/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">lijqhs</h4>
+        
+          <h5 class="sidebar-profile-bio">a humble learner</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/lijqhs" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/18564163/lijqhs" target="_blank" rel="noopener" title="Stack Overflow">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-stack-overflow" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lijqhs.github.io/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-nature.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Github Pages Hugo博客主题更新踩坑小记
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-03-24T00:00:00Z">
+        
+  March 24, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://lijqhs.github.io/categories/blog">blog</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>好久没用Github，这个博客也很长时间没有更新了，几乎已经被遗忘了。之前喜欢在工作之余利用Github来记一些笔记，后来一方面因为工作类型的转换，从做算法研究写代码转到做项目管理，一下子从跟电脑打交道转变为更多地与人打交道，节奏变化了记笔记的方式也因此变化了；另一方面也是因为懒，年龄越大越不喜欢折腾。以前喜欢用Markdown做笔记，甚至用VSCode把Github作为自己的笔记本，后来工作之外的时间越来越少，而且大部分时间花在与人沟通上面，自然就少了很多精力去折腾笔记的形式了。</p>
+<p>这个时候简单易用最重要，试过很多笔记应用，最喜欢的还是Evernote，非常适合项目管理过程中做项目进度、项目会议、任务计划管理的相关笔记。不过有时间还是想通过markdown用博客的形式来记录一些经验心得，比如踩坑经历。</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#更新hugo">更新Hugo</a>
+      <ul>
+        <li><a href="#升级commandlinetools">升级CommandLineTools</a></li>
+        <li><a href="#更新homebrew">更新Homebrew</a></li>
+      </ul>
+    </li>
+    <li><a href="#更新hugo博客主题">更新Hugo博客主题</a>
+      <ul>
+        <li><a href="#github-personal-access-token">Github Personal Access Token</a></li>
+        <li><a href="#更新子模块submodule">更新子模块submodule</a></li>
+      </ul>
+    </li>
+    <li><a href="#重新部署博客">重新部署博客</a></li>
+  </ul>
+</nav>
+
+<p>当我准备在这个博客上重新更新的时候，发现之前很熟练的git命令和markdown tag忘得差不多了，果真是用进废退啊。在折腾更新博客主题时，踩了好些坑，在此记下来避免后续再遇到同类问题。</p>
+<h2 id="更新hugo">更新Hugo</h2>
+<h3 id="升级commandlinetools">升级CommandLineTools</h3>
+<p>因为这个博客是用Hugo搭建的，好久不用自然就想着先升级一下Hugo，运行</p>
+<pre tabindex="0"><code>brew upgrade hugo
+</code></pre><p>弹出如下错误信息：</p>
+<pre tabindex="0"><code>Error: Your CLT does not support macOS 12.2.
+It is either outdated or was modified.
+Please update your CLT or delete it if no updates are available.
+</code></pre><p>因为Homebrew是需要CommandLineTools的，这里提示CLT过时了，通过删除和重新安装xcode-select可以解决此问题：</p>
+<pre tabindex="0"><code>sudo rm -rf /Library/Developer/CommandLineTools
+sudo xcode-select --install
+</code></pre><h3 id="更新homebrew">更新Homebrew</h3>
+<p>更新软件包之前，最好还是先升级一下Homebrew，于是运行</p>
+<pre tabindex="0"><code>brew update
+</code></pre><p>又报错</p>
+<pre tabindex="0"><code>cannot open .git/FETCH_HEAD: Permission denied
+</code></pre><p>查了一下stackoverflow，这个错误是因为我在Mac上用了跟之前安装Homebrew不一样的用户，而涉及Homebrew的多用户使用需要做一些复杂的<a href="https://stackoverflow.com/questions/41840479/how-to-use-homebrew-on-a-multi-user-macos-sierra-setup">配置</a>，而我不想把时间花在这个上面，于是切回到之前的Mac用户来升级Homebrew，顺便升级所有软件包，依次执行：</p>
+<pre tabindex="0"><code>brew update
+brew upgrade
+</code></pre><p>这里需要提醒的是，要根据所在地考虑更换Homebrew镜像源，比如在国内可以更换为科大或者阿里的镜像源，运行上面命令时会快一点。</p>
+<p>配置成阿里镜像源，用</p>
+<ul>
+<li><a href="https://mirrors.aliyun.com/homebrew/brew.git">https://mirrors.aliyun.com/homebrew/brew.git</a></li>
+<li><a href="https://mirrors.aliyun.com/homebrew/homebrew-core.git">https://mirrors.aliyun.com/homebrew/homebrew-core.git</a></li>
+</ul>
+<p>如果需恢复镜像源配置，则将命令中的git URL换成</p>
+<ul>
+<li><a href="https://github.com/Homebrew/brew.git">https://github.com/Homebrew/brew.git</a></li>
+<li><a href="https://github.com/Homebrew/homebrew-core.git">https://github.com/Homebrew/homebrew-core.git</a>
+并且删除下面的<code>HOMEBREW_BOTTLE_DOMAIN</code>。</li>
+</ul>
+<p>配置镜像源依次执行以下命令：</p>
+<pre tabindex="0"><code>cd &#34;$(brew --repo)&#34;
+git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git
+
+cd &#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&#34;
+git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git
+
+brew update
+</code></pre><p>然后在<code>.zshrc</code>中增加<code>HOMEBREW_BOTTLE_DOMAIN</code>配置：</p>
+<pre tabindex="0"><code>echo &#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles&#39; &gt;&gt; ~/.zshrc
+source ~/.zshrc
+</code></pre><h2 id="更新hugo博客主题">更新Hugo博客主题</h2>
+<h3 id="github-personal-access-token">Github Personal Access Token</h3>
+<p>在<a href="https://themes.gohugo.io/">Hugo主题网站</a>上看到我用的主题<a href="https://github.com/kakawait/hugo-tranquilpeak-theme">hugo-tranquilpeak-theme</a>有更新，于是就决定最好更新一下博客主题，而且最新版可以支持评论模块，比如disqus.</p>
+<p>在命令行运行git pull先更新一下本地的博客管理blog repo（这个和博客发布的repo不一样，注意区别），结果发现Github的认证已经过期了（实在是太久没上Github了。。）</p>
+<pre tabindex="0"><code>blog on main 
+❯ git pull
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for &#39;https://github.com/lijqhs/blog.git/&#39;
+</code></pre><p>看了一下提示信息中的<a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">链接</a>，从2021年8月13日开始，Github不再支持账号密码方式的身份验证，而要使用基于<span class="highlight-text green">个人访问令牌</span>进行身份验证，也就是说在命令行中运行<code>git clone</code>输入账号密码时，不能简单输入用户名和密码，而要输入用户名和令牌的那一串码。</p>
+<p>在Github账号设置中的Developer settings下的Personal access tokens中<a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">创建新的token</a>，可以选择权限和时间长度。</p>
+<h3 id="更新子模块submodule">更新子模块submodule</h3>
+<p>由于主题是通过<code>git submodule</code>的方式放在博客管理repo下的，所以现在需要用submodule来更新。之前的<a href="https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/">文章</a>有详细的submodule讲解，幸好之前花了点时间记录下了配置的细节，为现在的troubleshooting省了很多时间。</p>
+<p>更新submodule的命令很简单：</p>
+<pre tabindex="0"><code>git submodule update --init
+</code></pre><h2 id="重新部署博客">重新部署博客</h2>
+<p>既然博客主题更新好了，那么采用Hugo博客主题下<code>exampleSite</code>的最新版配置文件<code>config.toml</code>进行重新配置也很有必要。然后基于新版Hugo和新版主题重新部署博客就是一句命令的事：</p>
+<pre tabindex="0"><code>zsh deploy.sh
+</code></pre><p>然而在这之前，我做了一件傻事，让我又绕了一个小弯，从而让这篇文章又增加了以下的文字。我想既然主题更新了，重新部署的时候可能会跟之前的<code>public</code>(指向博客发布repo:lijqhs.github.io的目录)不一样甚至不兼容，那么我最好先把旧版的lijqhs.github.io的repo先清空，然后再做rebuild，我当时还为自己的谨慎感到佩服。于是先<code>git clone</code> lijqhs.github.io.git到本地，delete掉几乎所有文件，只留了readme，<code>git commit</code>，<code>git push</code>，只用了不到一分钟。</p>
+<p>然后运行<code>zsh deploy.sh</code>，按理说只需几秒即可完成，毕竟快就是Hugo最大的优势。</p>
+<blockquote>
+<p>Hugo: The world’s fastest framework for building websites</p>
+</blockquote>
+<p>结果报了错：<span class="highlight-text danger">HEAD detached from 0b73022</span>。看到这个就意识到前面单独清空的操作很不合适，不过不算麻烦，切换到<code>public</code>目录下，进行以下操作即可解决：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git branch  temp
+</span></span><span style="display:flex;"><span>git checkout main
+</span></span><span style="display:flex;"><span>git merge temp
+</span></span></code></pre></div><p>至此，博客主题更新好了，也可以在本地写博客了，要记得常写哦。。。</p>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/hugo/">hugo</a>
+
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/github/">github</a>
+
+  <a class="tag tag--primary tag--small" href="https://lijqhs.github.io/tags/git/">git</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/" data-tooltip="How To Change The Theme of A Hugo Blog" aria-label="PREVIOUS: How To Change The Theme of A Hugo Blog">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/lijqhs.github.io\/2022\/03\/pitfalls-in-updating-hugo-blog-theme\/';
+        
+          this.page.identifier = '\/2022\/03\/pitfalls-in-updating-hugo-blog-theme\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'lijqhs';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 lijqhs. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/" data-tooltip="How To Change The Theme of A Hugo Blog" aria-label="PREVIOUS: How To Change The Theme of A Hugo Blog">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://lijqhs.github.io/2022/03/pitfalls-in-updating-hugo-blog-theme/" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flijqhs.github.io%2F2022%2F03%2Fpitfalls-in-updating-hugo-blog-theme%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flijqhs.github.io%2F2022%2F03%2Fpitfalls-in-updating-hugo-blog-theme%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.reddit.com/submit?url=https%3A%2F%2Flijqhs.github.io%2F2022%2F03%2Fpitfalls-in-updating-hugo-blog-theme%2F" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i><span>Share on Reddit</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">lijqhs</h4>
+    
+      <div id="about-card-bio">a humble learner</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        software engineer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        canada
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://lijqhs.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://lijqhs.github.io/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
