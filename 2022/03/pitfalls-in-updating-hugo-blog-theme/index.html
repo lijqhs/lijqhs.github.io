@@ -372,9 +372,9 @@ brew upgrade
 <p>如果需恢复镜像源配置，则将命令中的git URL换成</p>
 <ul>
 <li><a href="https://github.com/Homebrew/brew.git">https://github.com/Homebrew/brew.git</a></li>
-<li><a href="https://github.com/Homebrew/homebrew-core.git">https://github.com/Homebrew/homebrew-core.git</a>
-并且删除下面的<code>HOMEBREW_BOTTLE_DOMAIN</code>。</li>
+<li><a href="https://github.com/Homebrew/homebrew-core.git">https://github.com/Homebrew/homebrew-core.git</a></li>
 </ul>
+<p>并且删除下面的<code>HOMEBREW_BOTTLE_DOMAIN</code>即可。</p>
 <p>配置镜像源依次执行以下命令：</p>
 <pre tabindex="0"><code>cd &#34;$(brew --repo)&#34;
 git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git
@@ -404,12 +404,12 @@ fatal: Authentication failed for &#39;https://github.com/lijqhs/blog.git/&#39;
 </code></pre><h2 id="重新部署博客">重新部署博客</h2>
 <p>既然博客主题更新好了，那么采用Hugo博客主题下<code>exampleSite</code>的最新版配置文件<code>config.toml</code>进行重新配置也很有必要。然后基于新版Hugo和新版主题重新部署博客就是一句命令的事：</p>
 <pre tabindex="0"><code>zsh deploy.sh
-</code></pre><p>然而在这之前，我做了一件傻事，让我又绕了一个小弯，从而让这篇文章又增加了以下的文字。我想既然主题更新了，重新部署的时候可能会跟之前的<code>public</code>(指向博客发布repo:lijqhs.github.io的目录)不一样甚至不兼容，那么我最好先把旧版的lijqhs.github.io的repo先清空，然后再做rebuild，我当时还为自己的谨慎感到佩服。于是先<code>git clone</code> lijqhs.github.io.git到本地，delete掉几乎所有文件，只留了readme，<code>git commit</code>，<code>git push</code>，只用了不到一分钟。</p>
+</code></pre><p>然而在这之前，我做了一件傻事，让我又绕了一个小弯，从而让这篇文章又增加了以下的文字。我想既然主题更新了，重新部署的时候可能会跟之前的<code>public</code>(指向博客发布repo:lijqhs.github.io的目录)不一样可能让文件变得混乱，那么我最好先把旧版的lijqhs.github.io的repo先清空，然后再做rebuild，我当时还为自己的谨慎感到佩服。于是先<code>git clone</code> lijqhs.github.io.git到本地，delete掉几乎所有文件，只留了readme，<code>git commit</code>，<code>git push</code>，只用了不到一分钟。</p>
 <p>然后运行<code>zsh deploy.sh</code>，按理说只需几秒即可完成，毕竟快就是Hugo最大的优势。</p>
 <blockquote>
 <p>Hugo: The world’s fastest framework for building websites</p>
 </blockquote>
-<p>结果报了错：<span class="highlight-text danger">HEAD detached from 0b73022</span>。看到这个就意识到前面单独清空的操作很不合适，不过不算麻烦，切换到<code>public</code>目录下，进行以下操作即可解决：</p>
+<p>结果报了错：<span class="highlight-text danger">HEAD detached from 0b73022</span>。看到这个就意识到前面单独清空的操作很不合适很不专业，不过不算麻烦，切换到<code>public</code>目录下，进行以下操作即可解决：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git branch  temp
 </span></span><span style="display:flex;"><span>git checkout main
 </span></span><span style="display:flex;"><span>git merge temp
