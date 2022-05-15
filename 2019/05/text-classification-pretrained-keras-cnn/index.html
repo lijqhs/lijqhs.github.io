@@ -26,7 +26,7 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "lijqhs's blog",
+    "name": "aaron's notes",
     
     "logo": {
       "@type": "ImageObject",
@@ -42,7 +42,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.95.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="generator" content="Hugo 0.98.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="lijqhs">
 <meta name="keywords" content="">
 <meta name="description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。上篇文章将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在GitHub上。">
@@ -54,7 +54,7 @@
 <meta name="twitter:title" content="基于预训练词向量模型的文本分类方法">
 <meta property="og:url" content="https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/">
 <meta property="twitter:url" content="https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/">
-<meta property="og:site_name" content="lijqhs&#39;s blog">
+<meta property="og:site_name" content="aaron&#39;s notes">
 <meta property="og:description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。上篇文章将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在GitHub上。">
 <meta name="twitter:description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。上篇文章将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在GitHub上。">
 <meta property="og:locale" content="en-us">
@@ -139,18 +139,17 @@
 
     
       
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6F8KMZN49C"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-182241114-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6F8KMZN49C', { 'anonymize_ip': false });
 }
 </script>
+
     
     
   </head>
@@ -160,7 +159,7 @@ if (!doNotTrack) {
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://lijqhs.github.io/" aria-label="Go to homepage">lijqhs&#39;s blog</a>
+    <a class="header-title-link" href="https://lijqhs.github.io/" aria-label="Go to homepage">aaron&#39;s notes</a>
   </div>
   
     
@@ -273,6 +272,16 @@ if (!doNotTrack) {
       <i class="sidebar-button-icon fab fa-lg fa-reddit" aria-hidden="true"></i>
       
       <span class="sidebar-button-desc">Reddit</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/lijqhs" target="_blank" rel="noopener" title="Twitter">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-twitter" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
     </a>
   </li>
 
