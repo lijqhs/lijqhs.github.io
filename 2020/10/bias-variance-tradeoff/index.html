@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。\n",
+  "description": "一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要\n",
   "keywords": []
 }
 
@@ -45,18 +45,18 @@
 <meta name="generator" content="Hugo 0.98.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="aaron">
 <meta name="keywords" content="">
-<meta name="description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。">
+<meta name="description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要">
 
 
-<meta property="og:description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。">
+<meta property="og:description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习中的偏差(Bias)与方差(Variance)">
 <meta name="twitter:title" content="机器学习中的偏差(Bias)与方差(Variance)">
 <meta property="og:url" content="https://lijqhs.github.io/2020/10/bias-variance-tradeoff/">
 <meta property="twitter:url" content="https://lijqhs.github.io/2020/10/bias-variance-tradeoff/">
 <meta property="og:site_name" content="aaron&#39;s notes">
-<meta property="og:description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。">
-<meta name="twitter:description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。">
+<meta property="og:description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要">
+<meta name="twitter:description" content="一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要">
 <meta property="og:locale" content="en-us">
 
   
@@ -339,14 +339,18 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。</p>
-<p>目录:</p>
-<ul>
-<li><a href="#bias-variance-tradeoff">Bias-Variance Tradeoff</a></li>
-<li><a href="#bias-variance-decomposition">Bias-Variance Decomposition</a></li>
-<li><a href="#bias-variance-calculation-with-python">Bias-Variance Calculation with Python</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul>
+              <p>一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要</p>
+<p>，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#bias-variance-tradeoff">Bias-Variance Tradeoff</a></li>
+    <li><a href="#bias-variance-decomposition">Bias-Variance Decomposition</a></li>
+    <li><a href="#bias-variance-calculation-with-python">Bias-Variance Calculation with Python</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+
 <h2 id="bias-variance-tradeoff">Bias-Variance Tradeoff</h2>
 <blockquote>
 <p>One of the most reliable ways to get a high performance machine learning system is to take a low bias learning algorithm and to train it on a massive training set.</p>

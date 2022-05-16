@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。上篇文章将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在GitHub上。\n",
+  "description": "本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。\n",
   "keywords": []
 }
 
@@ -45,18 +45,18 @@
 <meta name="generator" content="Hugo 0.98.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="aaron">
 <meta name="keywords" content="">
-<meta name="description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。上篇文章将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在GitHub上。">
+<meta name="description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。">
 
 
-<meta property="og:description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。上篇文章将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在GitHub上。">
+<meta property="og:description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于预训练词向量模型的文本分类方法">
 <meta name="twitter:title" content="基于预训练词向量模型的文本分类方法">
 <meta property="og:url" content="https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/">
 <meta property="twitter:url" content="https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/">
 <meta property="og:site_name" content="aaron&#39;s notes">
-<meta property="og:description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。上篇文章将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在GitHub上。">
-<meta name="twitter:description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。上篇文章将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在GitHub上。">
+<meta property="og:description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。">
+<meta name="twitter:description" content="本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。">
 <meta property="og:locale" content="en-us">
 
   
@@ -351,20 +351,24 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。<a href="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">上篇文章</a>将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在<a href="https://github.com/lijqhs/text-classification-cn">GitHub</a>上。</p>
-<p>目录:</p>
-<ul>
-<li><a href="#1-%E8%AF%BB%E5%8F%96%E8%AF%AD%E6%96%99">1. 读取语料</a></li>
-<li><a href="#2-%E5%8A%A0%E8%BD%BD%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%8D%E5%90%91%E9%87%8F%E6%A8%A1%E5%9E%8B">2. 加载预训练词向量模型</a></li>
-<li><a href="#3-%E4%BD%BF%E7%94%A8keras%E5%AF%B9%E8%AF%AD%E6%96%99%E8%BF%9B%E8%A1%8C%E5%A4%84%E7%90%86">3. 使用Keras对语料进行处理</a></li>
-<li><a href="#4-%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%B5%8C%E5%85%A5%E7%9F%A9%E9%98%B5">4. 定义词嵌入矩阵</a>
-<ul>
-<li><a href="#embedding-layer">Embedding Layer</a></li>
-</ul>
-</li>
-<li><a href="#5-%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9E%8B">5. 构建模型</a></li>
-<li><a href="#6-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">6. 参考资料</a></li>
-</ul>
+              <p>本文语料仍然是上篇所用的搜狗新闻语料，采用中文预训练词向量模型对词进行向量表示。</p>
+<p><a href="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">上篇文章</a>将文本分词之后，采用了TF-IDF的特征提取方式对文本进行向量化表示，所产生的文本表示矩阵是一个稀疏矩阵，本篇采用的词向量是一个稠密向量，可以理解为将文本的语义抽象信息嵌入到了一个具体的多维空间中，词之间语义关系可以用向量空间中的范数计算来表示。本文代码在<a href="https://github.com/lijqhs/text-classification-cn">GitHub</a>上。</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-读取语料">1. 读取语料</a></li>
+    <li><a href="#2-加载预训练词向量模型">2. 加载预训练词向量模型</a></li>
+    <li><a href="#3-使用keras对语料进行处理">3. 使用Keras对语料进行处理</a></li>
+    <li><a href="#4-定义词嵌入矩阵">4. 定义词嵌入矩阵</a>
+      <ul>
+        <li><a href="#embedding-layer">Embedding Layer</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-构建模型">5. 构建模型</a></li>
+    <li><a href="#6-参考资料">6. 参考资料</a></li>
+  </ul>
+</nav>
+
 <h2 id="1-读取语料">1. 读取语料</h2>
 <p>读取语料与上一篇略有区别，这里读取原始语料，划分训练集和测试集，放在了后面预处理部分。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>texts, labels <span style="color:#f92672">=</span> load_raw_datasets()

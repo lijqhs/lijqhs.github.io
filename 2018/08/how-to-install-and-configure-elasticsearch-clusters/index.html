@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.\n",
+  "description": "Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster.\n",
   "keywords": []
 }
 
@@ -45,18 +45,18 @@
 <meta name="generator" content="Hugo 0.98.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="aaron">
 <meta name="keywords" content="">
-<meta name="description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
+<meta name="description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster.">
 
 
-<meta property="og:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
+<meta property="og:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to Install and Configure Elasticsearch Clusters">
 <meta name="twitter:title" content="How to Install and Configure Elasticsearch Clusters">
 <meta property="og:url" content="https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/">
 <meta property="twitter:url" content="https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/">
 <meta property="og:site_name" content="aaron&#39;s notes">
-<meta property="og:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
-<meta name="twitter:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is documentation on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.">
+<meta property="og:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster.">
+<meta name="twitter:description" content="Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster.">
 <meta property="og:locale" content="en-us">
 
   
@@ -339,28 +339,32 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster. I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html">documentation</a> on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.</p>
-<p>Table of contents:</p>
-<ul>
-<li><a href="#install-java-and-elasticsearch">Install Java and Elasticsearch</a>
-<ul>
-<li><a href="#create-a-user-for-elasticsearch">Create a user for Elasticsearch</a></li>
-<li><a href="#update-the-installation-packages">Update the Installation packages</a></li>
-<li><a href="#install-java">Install Java</a></li>
-<li><a href="#modify-path">Modify PATH</a></li>
-<li><a href="#install-elasticsearch">Install Elasticsearch</a></li>
-</ul>
-</li>
-<li><a href="#configure-elasticsearch">Configure Elasticsearch</a>
-<ul>
-<li><a href="#elasticsearchyml">elasticsearch.yml</a></li>
-<li><a href="#jvmoptions">jvm.options</a></li>
-<li><a href="#important-system-configuration">Important system configuration</a></li>
-</ul>
-</li>
-<li><a href="#start-elasticsearch">Start Elasticsearch</a></li>
-<li><a href="#one-more-thing-kibana">One more thing: Kibana</a></li>
-</ul>
+              <p>Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster.</p>
+<p>I have three Linux servers to build an Elasticsearch cluster. I referred to many materials on the web to get a clear configuration on how to setup an Elasticsearch cluster but many articles were too old with a lot of outdated parameters. The best reference is <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html">documentation</a> on official website of Elasticsearch. Here I will get you a concise and informative reference. Following these steps the cluster will be easily setup.</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-java-and-elasticsearch">Install Java and Elasticsearch</a>
+      <ul>
+        <li><a href="#create-a-user-for-elasticsearch">Create a user for Elasticsearch</a></li>
+        <li><a href="#update-the-installation-packages">Update the Installation packages</a></li>
+        <li><a href="#install-java">Install Java</a></li>
+        <li><a href="#modify-path">Modify PATH</a></li>
+        <li><a href="#install-elasticsearch">Install Elasticsearch</a></li>
+      </ul>
+    </li>
+    <li><a href="#configure-elasticsearch">Configure Elasticsearch</a>
+      <ul>
+        <li><a href="#elasticsearchyml">elasticsearch.yml</a></li>
+        <li><a href="#jvmoptions">jvm.options</a></li>
+        <li><a href="#important-system-configuration">Important system configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#start-elasticsearch">Start Elasticsearch</a></li>
+    <li><a href="#one-more-thing-kibana">One more thing: Kibana</a></li>
+  </ul>
+</nav>
+
 <p>Elasticsearch here is based on version 6.2.4.</p>
 <h2 id="install-java-and-elasticsearch">Install Java and Elasticsearch</h2>
 <h3 id="create-a-user-for-elasticsearch">Create a user for Elasticsearch</h3>

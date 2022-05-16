@@ -13,7 +13,7 @@
       <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://lijqhs.github.io/2020/10/bias-variance-tradeoff/</guid>
-      <description>&lt;p&gt;一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要，因为它可以指导学习方法或模式的选择，使我们对最终选择的模型的质量有一个衡量标准。如何权衡偏差和方差是机器学习中不得不面对的任务。&lt;/p&gt;</description>
+      <description>&lt;p&gt;一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要&lt;/p&gt;</description>
     </item>
     
   </channel>

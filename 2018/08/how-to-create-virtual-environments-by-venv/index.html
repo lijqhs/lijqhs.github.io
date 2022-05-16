@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).\nThe page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.\n",
+  "description": "When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.\n",
   "keywords": []
 }
 
@@ -45,22 +45,18 @@
 <meta name="generator" content="Hugo 0.98.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="aaron">
 <meta name="keywords" content="">
-<meta name="description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
-The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
+<meta name="description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.">
 
 
-<meta property="og:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
-The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
+<meta property="og:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How To Create Virtual Environments by venv">
 <meta name="twitter:title" content="How To Create Virtual Environments by venv">
 <meta property="og:url" content="https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
 <meta property="twitter:url" content="https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/">
 <meta property="og:site_name" content="aaron&#39;s notes">
-<meta property="og:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
-The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
-<meta name="twitter:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation).
-The page shows virtualenv is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool venv provided since Python 3.4.">
+<meta property="og:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.">
+<meta name="twitter:description" content="When I tested examples of the book Deep learning from scratch, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.">
 <meta property="og:locale" content="en-us">
 
   
@@ -345,15 +341,19 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>When I tested examples of the book <strong>Deep learning from scratch</strong>, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (<a href="https://matplotlib.org/faq/osx_framework.html">Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation</a>).</p>
+              <p>When I tested examples of the book <strong>Deep learning from scratch</strong>, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.</p>
+<p>The error message guided me to the Matplotlib FAQ (<a href="https://matplotlib.org/faq/osx_framework.html">Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation</a>).</p>
 <p>The page shows <code>virtualenv</code> is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool <code>venv</code> provided since Python 3.4.</p>
-<p>Table of contents:</p>
-<ul>
-<li><a href="#remove-virtualenv">Remove virtualenv</a></li>
-<li><a href="#create-virtual-environments-by-venv">Create virtual environments by venv</a></li>
-<li><a href="#update-python-path-in-vscode">Update Python Path in VSCode</a></li>
-<li><a href="#run-example-in-new-virtual-environment">Run example in new virtual environment</a></li>
-</ul>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#remove-virtualenv">Remove virtualenv</a></li>
+    <li><a href="#create-virtual-environments-by-venv">Create virtual environments by venv</a></li>
+    <li><a href="#update-python-path-in-vscode">Update Python Path in VSCode</a></li>
+    <li><a href="#run-example-in-new-virtual-environment">Run example in new virtual environment</a></li>
+  </ul>
+</nav>
+
 <h2 id="remove-virtualenv">Remove virtualenv</h2>
 <p>The previous <a href="https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">blog post</a> introduces how to depoly clean python working environments by <code>virtualenv</code>. Now because of the above problem I encountered with virtualenv I decided to abandon virtualenv in my MacBook. Instead <code>venv</code> might be a good replacement to create virtual environment. The shortage is there is no <code>workon</code> shortcut any more to switch between virtualenv seamlessly.
 The restore steps are clearly. Remove settings related to virtualenv and virtualenvwrapper in <code>~/.profile</code>. After that my <code>.profile</code> looks just like this.</p>

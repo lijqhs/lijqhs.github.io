@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.\n",
+  "description": "When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.\n",
   "keywords": []
 }
 
@@ -45,18 +45,18 @@
 <meta name="generator" content="Hugo 0.98.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="aaron">
 <meta name="keywords" content="">
-<meta name="description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
+<meta name="description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.">
 
 
-<meta property="og:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
+<meta property="og:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How To Properly Install Python3 and Virtualenv on Mac">
 <meta name="twitter:title" content="How To Properly Install Python3 and Virtualenv on Mac">
 <meta property="og:url" content="https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
 <meta property="twitter:url" content="https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/">
 <meta property="og:site_name" content="aaron&#39;s notes">
-<meta property="og:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
-<meta name="twitter:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of David Culley where he gives several alternatives to set up a Python3 working environment. The post of Candy Tsai also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. Homebrew is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.">
+<meta property="og:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.">
+<meta name="twitter:description" content="When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.">
 <meta property="og:locale" content="en-us">
 
   
@@ -339,30 +339,34 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of <a href="https://www.davidculley.com/installing-python-on-a-mac/">David Culley</a> where he gives several alternatives to set up a Python3 working environment. The post of <a href="https://stringpiggy.hpd.io/mac-osx-python3-dual-install/">Candy Tsai</a> also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. <a href="https://brew.sh/">Homebrew</a> is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.</p>
-<p>Table of contents:</p>
-<ul>
-<li><a href="#install-python-via-homebrew">Install Python via Homebrew</a>
-<ul>
-<li><a href="#install-xcode">Install XCode</a></li>
-<li><a href="#install-homebrew">Install Homebrew</a></li>
-<li><a href="#install-python3">Install Python3</a></li>
-<li><a href="#check-installation">Check installation</a></li>
-</ul>
-</li>
-<li><a href="#virtualenv">Virtualenv</a>
-<ul>
-<li><a href="#change-pip-mirror">Change pip mirror</a></li>
-<li><a href="#install-virtualenv">Install Virtualenv</a></li>
-<li><a href="#configurate-virtualenv">Configurate Virtualenv</a></li>
-<li><a href="#virtualenv-usage">Virtualenv usage</a></li>
-<li><a href="#more-commands">More commands</a></li>
-</ul>
-</li>
-<li><a href="#install-python-as-framework">Install Python as framework</a></li>
-<li><a href="#visual-studio-code">Visual Studio Code</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-</ul>
+              <p>When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.</p>
+<p>I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of <a href="https://www.davidculley.com/installing-python-on-a-mac/">David Culley</a> where he gives several alternatives to set up a Python3 working environment. The post of <a href="https://stringpiggy.hpd.io/mac-osx-python3-dual-install/">Candy Tsai</a> also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. <a href="https://brew.sh/">Homebrew</a> is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-python-via-homebrew">Install Python via Homebrew</a>
+      <ul>
+        <li><a href="#install-xcode">Install XCode</a></li>
+        <li><a href="#install-homebrew">Install Homebrew</a></li>
+        <li><a href="#install-python3">Install Python3</a></li>
+        <li><a href="#check-installation">Check installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#virtualenv">Virtualenv</a>
+      <ul>
+        <li><a href="#change-pip-mirror">Change pip mirror</a></li>
+        <li><a href="#install-virtualenv">Install Virtualenv</a></li>
+        <li><a href="#configurate-virtualenv">Configurate Virtualenv</a></li>
+        <li><a href="#virtualenv-usage">Virtualenv usage</a></li>
+        <li><a href="#more-commands">More commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#install-python-as-framework">Install Python as framework</a></li>
+    <li><a href="#visual-studio-code">Visual Studio Code</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
 <h2 id="install-python-via-homebrew">Install Python via Homebrew</h2>
 <p>The following steps shows the full path to install Python3 via Homebrew.</p>
 <h3 id="install-xcode">Install XCode</h3>

@@ -13,8 +13,7 @@
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
       
       <guid>https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/</guid>
-      <description>&lt;p&gt;When I tested examples of the book &lt;strong&gt;Deep learning from scratch&lt;/strong&gt;, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework. The error message guided me to the Matplotlib FAQ (&lt;a href=&#34;https://matplotlib.org/faq/osx_framework.html&#34;&gt;Working with Matplotlib on OSX — Matplotlib 2.2.3 documentation&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;The page shows &lt;code&gt;virtualenv&lt;/code&gt; is to blame as the virtualenv creates a non framework build even if created from a framework build of Python. To solve the problem the best and the simplest way is to use the build-in virtual environment tool &lt;code&gt;venv&lt;/code&gt; provided since Python 3.4.&lt;/p&gt;</description>
+      <description>&lt;p&gt;When I tested examples of the book &lt;strong&gt;Deep learning from scratch&lt;/strong&gt;, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -23,7 +22,7 @@
       <pubDate>Fri, 24 Aug 2018 19:01:48 +0800</pubDate>
       
       <guid>https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</guid>
-      <description>&lt;p&gt;When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS. I decided to install Python3 althought macOS comes out with a native python environment Python 2.7.10. The best way I found on the Internet is from the page of &lt;a href=&#34;https://www.davidculley.com/installing-python-on-a-mac/&#34;&gt;David Culley&lt;/a&gt; where he gives several alternatives to set up a Python3 working environment. The post of &lt;a href=&#34;https://stringpiggy.hpd.io/mac-osx-python3-dual-install/&#34;&gt;Candy Tsai&lt;/a&gt; also helps a lot. The easiest method is might to use Anaconda a integral distribution for python which is popular for scientific computing. I like to install necessary packages for myself so I choose the Homebrew way. &lt;a href=&#34;https://brew.sh/&#34;&gt;Homebrew&lt;/a&gt; is called the missing package manager for macOS and it is a hot word if you search on the Internet for softwares installation on macOS.&lt;/p&gt;</description>
+      <description>&lt;p&gt;When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.&lt;/p&gt;</description>
     </item>
     
   </channel>

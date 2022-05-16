@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。\n",
+  "description": "文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。\n",
   "keywords": []
 }
 
@@ -45,18 +45,18 @@
 <meta name="generator" content="Hugo 0.98.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="aaron">
 <meta name="keywords" content="">
-<meta name="description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。">
+<meta name="description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。">
 
 
-<meta property="og:description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。">
+<meta property="og:description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于搜狗新闻语料的文本分类">
 <meta name="twitter:title" content="基于搜狗新闻语料的文本分类">
 <meta property="og:url" content="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
 <meta property="twitter:url" content="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/">
 <meta property="og:site_name" content="aaron&#39;s notes">
-<meta property="og:description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。">
-<meta name="twitter:description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了GitHub上。">
+<meta property="og:description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。">
+<meta name="twitter:description" content="文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。">
 <meta property="og:locale" content="en-us">
 
   
@@ -347,33 +347,37 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了<a href="https://github.com/lijqhs/text-classification-cn">GitHub</a>上。</p>
-<p>目录:</p>
-<ul>
-<li><a href="#1-%E8%AF%AD%E6%96%99%E9%A2%84%E5%A4%84%E7%90%86">1. 语料预处理</a></li>
-<li><a href="#2-%E7%94%9F%E6%88%90%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86">2. 生成训练集和测试集</a>
-<ul>
-<li><a href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D">中文分词</a></li>
-<li><a href="#%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E9%9B%86">生成数据集</a></li>
-<li><a href="#%E8%AF%8D%E4%BA%91%E6%98%BE%E7%A4%BA">词云显示</a></li>
-</ul>
-</li>
-<li><a href="#3-%E6%96%87%E6%9C%AC%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96tf-idf">3. 文本特征提取:TF-IDF</a></li>
-<li><a href="#4-%E6%9E%84%E5%BB%BA%E5%88%86%E7%B1%BB%E5%99%A8">4. 构建分类器</a>
-<ul>
-<li><a href="#benchmark-%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8">Benchmark: 朴素贝叶斯分类器</a></li>
-<li><a href="#%E5%AF%B9%E6%96%B0%E6%96%87%E6%9C%AC%E5%BA%94%E7%94%A8%E5%88%86%E7%B1%BB">对新文本应用分类</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8pipeline%E6%9B%B4%E6%96%B9%E4%BE%BF">使用Pipeline更方便</a></li>
-</ul>
-</li>
-<li><a href="#5-%E5%88%86%E7%B1%BB%E5%99%A8%E7%9A%84%E8%AF%84%E4%BC%B0">5. 分类器的评估</a>
-<ul>
-<li><a href="#%E6%9E%84%E5%BB%BAlogistic-regression%E5%88%86%E7%B1%BB%E5%99%A8">构建Logistic Regression分类器</a></li>
-<li><a href="#%E6%9E%84%E5%BB%BAsvm%E5%88%86%E7%B1%BB%E5%99%A8">构建SVM分类器</a></li>
-</ul>
-</li>
-<li><a href="#6-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">6. 参考资料</a></li>
-</ul>
+              <p>文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。</p>
+<p>文本分类是很多应用场景的基础，比如垃圾邮件识别，舆情分析，情感识别，新闻自动分类，智能客服机器人的知识库分类等等。本文用标注好的搜狗新闻语料，基于scikit-learn机器学习Python库，将文本分类的完整过程实现一遍。本文代码放在了<a href="https://github.com/lijqhs/text-classification-cn">GitHub</a>上。</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-语料预处理">1. 语料预处理</a></li>
+    <li><a href="#2-生成训练集和测试集">2. 生成训练集和测试集</a>
+      <ul>
+        <li><a href="#中文分词">中文分词</a></li>
+        <li><a href="#生成数据集">生成数据集</a></li>
+        <li><a href="#词云显示">词云显示</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-文本特征提取tf-idf">3. 文本特征提取:TF-IDF</a></li>
+    <li><a href="#4-构建分类器">4. 构建分类器</a>
+      <ul>
+        <li><a href="#benchmark-朴素贝叶斯分类器">Benchmark: 朴素贝叶斯分类器</a></li>
+        <li><a href="#对新文本应用分类">对新文本应用分类</a></li>
+        <li><a href="#使用pipeline更方便">使用Pipeline更方便</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-分类器的评估">5. 分类器的评估</a>
+      <ul>
+        <li><a href="#构建logistic-regression分类器">构建Logistic Regression分类器</a></li>
+        <li><a href="#构建svm分类器">构建SVM分类器</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-参考资料">6. 参考资料</a></li>
+  </ul>
+</nav>
+
 <h2 id="1-语料预处理">1. 语料预处理</h2>
 <p>首先加载所有需要用到的Python库</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
