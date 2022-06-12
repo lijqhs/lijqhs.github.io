@@ -366,15 +366,15 @@ if (!doNotTrack) {
 <p>对于观测数据$X$、预测变量$Y$，假设两者符合关系$Y=f(X)+\epsilon$，其中$\epsilon \sim \mathcal{N}(0,\sigma_\epsilon^2)$。我们无法得到真实模型$f(X)$，我们可以选择机器学习模型，比如线性回归、决策树或其他模型，通过算法学习$f(X)$一个近似模型$\hat{f}(X)$来对$X$的观测进行预测。给定$X$的一个观测点$x$，其真实观测（待预测变量）为$y=f(x)+\epsilon$。</p>
 <p>该模型$\hat{f}(X)$在点$x$的期望预测误差，以均方损失误差为例：</p>
 <p>$$\begin{align}
-Err(x)&amp;=E[(y-\hat{f})^2] \
-&amp;=E[(f+\epsilon-\hat{f}+E[\hat{f}]-E[\hat{f}])^2] \
-&amp;=E[(f-E[\hat{f}])^2]+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]+2E[(f-E[\hat{f} ])\epsilon]\
-&amp;\quad+2E[\epsilon(E[\hat{f}]-\hat{f})]+2E[(E[\hat{f}]-\hat{f})(f-E[\hat{f}])]\
-&amp;=(f-E[\hat{f}])^2+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]\
-&amp;\quad+2(f-E[\hat{f}])E[\epsilon]+2E[\epsilon]E[E[\hat{f}]-\hat{f}]+2E<a href="f-E%5B%5Chat%7Bf%7D%5D">E[\hat{f}]-\hat{f}</a>\
-&amp;=(f-E[\hat{f}])^2+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]\
-&amp;=(f-E[\hat{f}])^2+Var[\epsilon]+Var[\hat{f}]\
-&amp;=Bias[\hat{f}]^2+Var[\hat{f}]+Var[\epsilon]\
+Err(x)&amp;=E[(y-\hat{f})^2]    \\
+&amp;=E[(f+\epsilon-\hat{f}+E[\hat{f}]-E[\hat{f}])^2]   \\
+&amp;=E[(f-E[\hat{f}])^2]+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]+2E[(f-E[\hat{f} ])\epsilon]   \\
+&amp;\quad+2E[\epsilon(E[\hat{f}]-\hat{f})]+2E[(E[\hat{f}]-\hat{f})(f-E[\hat{f}])]      \\
+&amp;=(f-E[\hat{f}])^2+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]+2(f-E[\hat{f}])E[\epsilon]   \\
+&amp;\quad+2E[\epsilon]E[E[\hat{f}]-\hat{f}]+2E[E[\hat{f}]-\hat{f}](f-E[\hat{f}])     \\
+&amp;=(f-E[\hat{f}])^2+E[\epsilon^2]+E[(E[\hat{f}]-\hat{f})^2]  \\
+&amp;=(f-E[\hat{f}])^2+Var[\epsilon]+Var[\hat{f}]       \\
+&amp;=Bias[\hat{f}]^2+Var[\hat{f}]+Var[\epsilon]    \\
 &amp;=Bias[\hat{f}]^2+Var[\hat{f}]+\sigma^2
 \end{align}$$</p>
 <h2 id="bias-variance-calculation-with-python">Bias-Variance Calculation with Python</h2>
@@ -780,6 +780,15 @@ $(document).ready(function() {
 });
 </script>
 
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
 
 
 
