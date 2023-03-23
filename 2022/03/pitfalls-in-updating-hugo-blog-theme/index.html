@@ -439,7 +439,7 @@ sudo xcode-select --install
 <p>Hugo: The world’s fastest framework for building websites</p>
 </blockquote>
 <p>结果报了错：<span class="highlight-text danger">HEAD detached from 0b73022</span>。看到这个就意识到前面单独清空的操作很不合适很不专业，不过不算麻烦，切换到<code>public</code>目录下，进行以下操作即可解决：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git branch  temp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git branch temp
 </span></span><span style="display:flex;"><span>git checkout main
 </span></span><span style="display:flex;"><span>git merge temp
 </span></span></code></pre></div><p>至此，博客主题更新好了，又可以继续在本地写博客了，要记得常写哦。。</p>
