@@ -328,10 +328,7 @@ if (!doNotTrack) {
     </div>
     <div class="postShorten-excerpt">
       
-        有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。
-安装 Docker Desktop 参考官方文档，下载安装即可 👉安装Docker Desktop，可能还需要注册一个Docker Hub帐号。
-创建docker-compose.yml配置文件 可以同时部署ElasticSearch和Kibana，在本地创建一个空目录D:/elastic，在该目录下创建一个docker-compose.yml配置文件，内容如下:
-version: &#34;3.0&#34; services: elastic: container_name: es-app image: docker.elastic.co/elasticsearch/elasticsearch:8.6.1 # build: . environment: - xpack.security.enabled=false - &#34;discovery.type=single-node&#34; - &#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34; - ELASTIC_USERNAME=elastic - ELASTIC_PASSWORD=test volumes: - &#34;D:/elastic/data:/usr/share/elasticsearch/data&#34; - &#34;D:/elastic/logs:/usr/share/elasticsearch/logs&#34; restart: always networks: - esnet ports: - 9200:9200 kibana: container_name: kibana-app image: docker.elastic.co/kibana/kibana:8.6.1 restart: always environment: - ELASTICSEARCH_HOSTS=http://es-app:9200 networks: - esnet depends_on: - elastic ports: - 5601:5601 networks: esnet: driver: bridge 为了避免报错，在Windows中需要修改vm.max_map_count，在Windows的WSL中，执行命令sudo sysctl -w vm.
+        <p>有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。</p>
       
       <p>
         
