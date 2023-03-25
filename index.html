@@ -284,6 +284,71 @@ if (!doNotTrack) {
     <div class="postShorten-header">
       <h1 class="postShorten-title">
       
+        <a class="link-unstyled" href="https://lijqhs.github.io/2023/03/docker-compose-quickstart/" aria-label="Open the post: 使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问">
+      
+          使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-03-24T00:00:00Z">
+        
+  March 24, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://lijqhs.github.io/categories/howto">howto</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。
+安装 Docker Desktop 参考官方文档，下载安装即可 👉安装Docker Desktop，可能还需要注册一个Docker Hub帐号。
+创建docker-compose.yml配置文件 可以同时部署ElasticSearch和Kibana，在本地创建一个空目录D:/elastic，在该目录下创建一个docker-compose.yml配置文件，内容如下:
+version: &#34;3.0&#34; services: elastic: container_name: es-app image: docker.elastic.co/elasticsearch/elasticsearch:8.6.1 # build: . environment: - xpack.security.enabled=false - &#34;discovery.type=single-node&#34; - &#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34; - ELASTIC_USERNAME=elastic - ELASTIC_PASSWORD=test volumes: - &#34;D:/elastic/data:/usr/share/elasticsearch/data&#34; - &#34;D:/elastic/logs:/usr/share/elasticsearch/logs&#34; restart: always networks: - esnet ports: - 9200:9200 kibana: container_name: kibana-app image: docker.elastic.co/kibana/kibana:8.6.1 restart: always environment: - ELASTICSEARCH_HOSTS=http://es-app:9200 networks: - esnet depends_on: - elastic ports: - 5601:5601 networks: esnet: driver: bridge 为了避免报错，在Windows中需要修改vm.max_map_count，在Windows的WSL中，执行命令sudo sysctl -w vm.
+      
+      <p>
+        
+          <a href="https://lijqhs.github.io/2023/03/docker-compose-quickstart/" class="postShorten-excerpt_link link" aria-label="Open the post: 使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问">Continue reading</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://lijqhs.github.io/2023/03/docker-compose-quickstart/" aria-label="Open the post: 使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" src="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-polynesia.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-right">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
         <a class="link-unstyled" href="https://lijqhs.github.io/2022/05/beautiful-riverside-park-in-canada/" aria-label="Open the post: Beautiful riverside park in Canada">
       
           Beautiful riverside park in Canada
@@ -340,7 +405,7 @@ if (!doNotTrack) {
 
   
 
-<article class="postShorten postShorten--thumbnailimg-left">
+<article class="postShorten postShorten--thumbnailimg-right">
   <div class="postShorten-wrap">
     
     <div class="postShorten-header">
@@ -526,7 +591,7 @@ if (!doNotTrack) {
 
   
 
-<article class="postShorten postShorten--thumbnailimg-left">
+<article class="postShorten postShorten--thumbnailimg-right">
   <div class="postShorten-wrap">
     
     <div class="postShorten-header">
@@ -588,7 +653,7 @@ if (!doNotTrack) {
 
   
 
-<article class="postShorten postShorten--thumbnailimg-left">
+<article class="postShorten postShorten--thumbnailimg-right">
   <div class="postShorten-wrap">
     
     <div class="postShorten-header">
@@ -636,68 +701,6 @@ if (!doNotTrack) {
     <a href="https://lijqhs.github.io/2019/05/text-classification-pretrained-keras-cnn/" aria-label="Open the post: 基于预训练词向量模型的文本分类方法">
       <div class="postShorten-thumbnailimg">
         <img alt="" src="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/u/oskars-sylwan-QhCp-bu1aw8-unsplash.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title">
-      
-        <a class="link-unstyled" href="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/" aria-label="Open the post: 基于搜狗新闻语料的文本分类">
-      
-          基于搜狗新闻语料的文本分类
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time datetime="2019-05-22T20:35:48&#43;08:00">
-        
-  May 22, 2019
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://lijqhs.github.io/categories/data-science">data science</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt">
-      
-        <p>文本分类（Text Classification）是自然语言处理中的一个重要应用技术，根据文档的内容或主题，自动识别文档所属的预先定义的类别标签。</p>
-      
-      <p>
-        
-          <a href="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/" class="postShorten-excerpt_link link" aria-label="Open the post: 基于搜狗新闻语料的文本分类">Continue reading</a>
-        
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://lijqhs.github.io/2019/05/text-classification-scikit-learn/" aria-label="Open the post: 基于搜狗新闻语料的文本分类">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" src="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/u/unsplash-mountain-alpine.jpg"/>
       </div>
     </a>
   

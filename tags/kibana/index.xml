@@ -6,7 +6,19 @@
     <description>Recent content in kibana on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Aug 2018 21:45:00 +0800</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/kibana/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问</title>
+      <link>https://lijqhs.github.io/2023/03/docker-compose-quickstart/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lijqhs.github.io/2023/03/docker-compose-quickstart/</guid>
+      <description>有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。
+安装 Docker Desktop 参考官方文档，下载安装即可 👉安装Docker Desktop，可能还需要注册一个Docker Hub帐号。
+创建docker-compose.yml配置文件 可以同时部署ElasticSearch和Kibana，在本地创建一个空目录D:/elastic，在该目录下创建一个docker-compose.yml配置文件，内容如下:
+version: &amp;#34;3.0&amp;#34; services: elastic: container_name: es-app image: docker.elastic.co/elasticsearch/elasticsearch:8.6.1 # build: . environment: - xpack.security.enabled=false - &amp;#34;discovery.type=single-node&amp;#34; - &amp;#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&amp;#34; - ELASTIC_USERNAME=elastic - ELASTIC_PASSWORD=test volumes: - &amp;#34;D:/elastic/data:/usr/share/elasticsearch/data&amp;#34; - &amp;#34;D:/elastic/logs:/usr/share/elasticsearch/logs&amp;#34; restart: always networks: - esnet ports: - 9200:9200 kibana: container_name: kibana-app image: docker.elastic.co/kibana/kibana:8.6.1 restart: always environment: - ELASTICSEARCH_HOSTS=http://es-app:9200 networks: - esnet depends_on: - elastic ports: - 5601:5601 networks: esnet: driver: bridge 为了避免报错，在Windows中需要修改vm.max_map_count，在Windows的WSL中，执行命令sudo sysctl -w vm.</description>
+    </item>
+    
     <item>
       <title>How to Install and Configure Elasticsearch Clusters</title>
       <link>https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</link>
