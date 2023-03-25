@@ -363,7 +363,8 @@ if (!doNotTrack) {
     <li><a href="#在elasticsearch中创建索引添加数据">在ElasticSearch中创建索引、添加数据</a></li>
     <li><a href="#外部容器访问elasticsearch">外部容器访问ElasticSearch</a>
       <ul>
-        <li><a href="#使用docker-compose创建另一个容器访问elasticsearch">使用<code>docker-compose</code>创建另一个容器访问Elasticsearch</a></li>
+        <li><a href="#创建python-flask应用程序">创建Python Flask应用程序</a></li>
+        <li><a href="#使用docker-compose创建应用容器并设置同一虚拟网络">使用<code>docker-compose</code>创建应用容器，并设置同一虚拟网络</a></li>
       </ul>
     </li>
   </ul>
@@ -449,12 +450,12 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>59aaa80c43fe   elastic_esnet                 bridge    local
 </span></span><span style="display:flex;"><span>bc18b55cdc3c   none                          null      local
 </span></span></code></pre></div><p>通过命令<code>docker network ls</code>可以看到上面我们在<code>docker-compose.yml</code>中为容器<code>es-app</code>设置的网络<code>esnet</code>名称变为<code>elastic_esnet</code>，其中<code>elastic</code>是project名称，对应上面的目录名称。当我们创建其他容器时，可以将容器网络设为该网络，设置方法下面详细解释。</p>
-<h3 id="使用docker-compose创建另一个容器访问elasticsearch">使用<code>docker-compose</code>创建另一个容器访问Elasticsearch</h3>
-<p>在其他地方创建另一个空目录<code>D:/hello-es</code>，我们要创建一个简单Flask应用来访问ElasticSearch，首先在该目录下放一个文件<code>requirements.txt</code>，内容如下：</p>
+<h3 id="创建python-flask应用程序">创建Python Flask应用程序</h3>
+<p>在其他地方创建另一个空目录<code>D:/hello-es</code>，我们要创建一个简单的Flask应用程序来访问ElasticSearch，首先在该目录下放一个文件<code>requirements.txt</code>，设置容器需要安装的Python软件包，内容如下：</p>
 <pre tabindex="0"><code>flask
 gunicorn
 elasticsearch
-</code></pre><p>创建一个Python文件<code>app.py</code>，这个应用很简单，就是通过Python的ElasticSearch模块来访问ElasticSearch服务，可以看到设置的host为<code>&quot;http://es-app:9200&quot;</code>，其中<code>es-app</code>就是上面部署的容器名，因为我们将配置启动该app的容器与<code>es-app</code>在同一虚拟网络中，所以app代码中可以用容器名作为host名。</p>
+</code></pre><p>创建一个Python文件<code>app.py</code>，这个应用很简单，就是通过Python的ElasticSearch模块来访问ElasticSearch服务，可以看到设置的host为<code>&quot;http://es-app:9200&quot;</code>，其中<code>es-app</code>就是上面部署的容器名，因为我们将配置启动该app的容器与<code>es-app</code>在同一虚拟网络中，所以应用程序中可以用容器名作为host名。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> elasticsearch <span style="color:#f92672">import</span> Elasticsearch
 </span></span><span style="display:flex;"><span>
@@ -466,7 +467,8 @@ elasticsearch
 </span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> es<span style="color:#f92672">.</span>search(index<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello&#34;</span>, query<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;match&#34;</span>:{<span style="color:#e6db74">&#34;greetings&#34;</span>: <span style="color:#e6db74">&#34;hello&#34;</span>}})
 </span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> res[<span style="color:#e6db74">&#39;hits&#39;</span>][<span style="color:#e6db74">&#39;hits&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;_source&#39;</span>][<span style="color:#e6db74">&#39;name&#39;</span>]
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Hello, </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">!&#39;</span>
-</span></span></code></pre></div><p>为了创建一个启动上述app的容器，我们还需要在目录下创建一个<code>Dockerfile</code>，内容如下：</p>
+</span></span></code></pre></div><h3 id="使用docker-compose创建应用容器并设置同一虚拟网络">使用<code>docker-compose</code>创建应用容器，并设置同一虚拟网络</h3>
+<p>为了创建一个启动上述app的容器，我们还需要在目录下创建一个<code>Dockerfile</code>，内容如下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> python:3.9-slim-buster</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . .<span style="color:#960050;background-color:#1e0010">
@@ -477,9 +479,9 @@ elasticsearch
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">app</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">gunicorn -w 4 -b 0.0.0.0:5001 app:app</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">gunicorn -w 4 -b 0.0.0.0:6000 app:app</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5001:5001&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;6000:6000&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./log:/code/log</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
@@ -490,7 +492,7 @@ elasticsearch
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">elastic_esnet</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
 </span></span></code></pre></div><p>通过<code>networks</code>设置app的网络为<code>appnet</code>，其<code>name</code>为上面容器中创建的虚拟网络<code>elastic_esnet</code>，并且设置<code>external: true</code>。这样该容器启动之后，就与<code>es-app</code>在同一网络<code>elastic_esnet</code>中。该容器的创建和启动方法还是在其目录下执行<code>docker-compose up</code>。</p>
-<p>启动成功后，如果一切正常，在浏览器中输入<code>http://localhost:5001</code>，应该得到<code>Hello, World!</code>。</p>
+<p>启动成功后，如果一切正常，在浏览器中输入<code>http://localhost:6000</code>，应该得到<code>Hello, World!</code>。</p>
               
 
 
