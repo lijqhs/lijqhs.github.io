@@ -490,7 +490,7 @@ elasticsearch
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">elastic_esnet</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
 </span></span></code></pre></div><p>通过<code>networks</code>设置app的网络为<code>appnet</code>，其<code>name</code>为上面容器中创建的虚拟网络<code>elastic_esnet</code>，并且设置<code>external: true</code>。这样该容器启动之后，就与<code>es-app</code>在同一网络<code>elastic_esnet</code>中。该容器的创建和启动方法还是在其目录下执行<code>docker-compose up</code>。</p>
-<p>启动成功后，如一切正常，在浏览器中输入<code>http://localhost:5001</code>，应该得到<code>Hello, World!</code>。</p>
+<p>启动成功后，如果一切正常，在浏览器中输入<code>http://localhost:5001</code>，应该得到<code>Hello, World!</code>。</p>
               
 
 
