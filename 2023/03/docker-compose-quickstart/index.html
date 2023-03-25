@@ -357,22 +357,21 @@ if (!doNotTrack) {
 <h1 id="table-of-contents">Table of Contents</h1>
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#安装-docker-desktop">安装 Docker Desktop</a></li>
+    <li><a href="#创建docker-composeyml配置文件">创建docker-compose.yml配置文件</a></li>
+    <li><a href="#安装elasticsearch中文分词器插件">安装ElasticSearch中文分词器插件</a></li>
+    <li><a href="#在elasticsearch中创建索引添加数据">在ElasticSearch中创建索引、添加数据</a></li>
+    <li><a href="#外部容器访问elasticsearch">外部容器访问ElasticSearch</a>
       <ul>
-        <li><a href="#安装-docker-desktop">安装 Docker Desktop</a></li>
-        <li><a href="#创建docker-composeyml配置文件">创建docker-compose.yml配置文件</a></li>
-        <li><a href="#安装elasticsearch中文分词器插件">安装ElasticSearch中文分词器插件</a></li>
-        <li><a href="#外部容器访问elasticsearch">外部容器访问ElasticSearch</a></li>
-        <li><a href="#在elasticsearch中创建索引添加数据">在ElasticSearch中创建索引、添加数据</a></li>
         <li><a href="#使用docker-compose创建另一个容器访问elasticsearch">使用<code>docker-compose</code>创建另一个容器访问Elasticsearch</a></li>
       </ul>
     </li>
   </ul>
 </nav>
 
-<h3 id="安装-docker-desktop">安装 Docker Desktop</h3>
+<h2 id="安装-docker-desktop">安装 Docker Desktop</h2>
 <p>参考官方文档，下载安装即可 👉<a href="https://docs.docker.com/desktop/install/windows-install/">安装Docker Desktop</a>，可能还需要注册一个Docker Hub帐号。</p>
-<h3 id="创建docker-composeyml配置文件">创建docker-compose.yml配置文件</h3>
+<h2 id="创建docker-composeyml配置文件">创建docker-compose.yml配置文件</h2>
 <p>可以同时部署ElasticSearch和Kibana，在本地创建一个空目录<code>D:/elastic</code>，在该目录下创建一个docker-compose.yml配置文件，内容如下:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.0&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
@@ -412,7 +411,7 @@ if (!doNotTrack) {
 </span></span></code></pre></div><p>为了避免报错，在Windows中需要修改<code>vm.max_map_count</code>，在Windows的WSL中，执行命令<code>sudo sysctl -w vm.max_map_count=262144</code>，参考<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_windows_with_docker_desktop_wsl_2_backend">这里</a>。</p>
 <p>在目录<code>D:/elastic</code>下，通过命令行执行<code>docker-compose up</code>，如果需要多次重新创建docker容器，可以使用命令<code>docker-compose up --build --force-recreate</code>来强制重建。</p>
 <p>执行完该命令将自动启动容器<code>es-app</code>和<code>kibana-app</code>。</p>
-<h3 id="安装elasticsearch中文分词器插件">安装ElasticSearch中文分词器插件</h3>
+<h2 id="安装elasticsearch中文分词器插件">安装ElasticSearch中文分词器插件</h2>
 <p>在上述命令行窗口依次执行以下命令，</p>
 <ol>
 <li>首先通过<code>docker exec -it es-app /bin/bash</code>进入容器<code>es-app</code>，并且使用<code>/bin/bash</code>shell脚本工具；</li>
@@ -422,15 +421,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it es-app /bin/bash
 </span></span><span style="display:flex;"><span>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v8.6.1/elasticsearch-analysis-ik-8.6.1.zip
 </span></span><span style="display:flex;"><span>docker restart es-app
-</span></span></code></pre></div><h3 id="外部容器访问elasticsearch">外部容器访问ElasticSearch</h3>
-<p>部署完ElasticSearch，如果需要在其他部署了应用的容器中访问这个ElasticSearch服务，那就需要用到<code>docker network</code>来配置容器的网络，外部容器如果需要访问上面创建的<code>es-app</code>容器，需要跟<code>es-app</code>在同一个容器网络中。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker network ls
-</span></span><span style="display:flex;"><span>NETWORK ID     NAME                          DRIVER    SCOPE
-</span></span><span style="display:flex;"><span>2a222daac67e   bridge                        bridge    local
-</span></span><span style="display:flex;"><span>59aaa80c43fe   elastic_esnet                 bridge    local
-</span></span><span style="display:flex;"><span>bc18b55cdc3c   none                          null      local
-</span></span></code></pre></div><p>通过命令<code>docker network ls</code>可以看到上面我们在<code>docker-compose.yml</code>中为容器<code>es-app</code>设置的网络<code>esnet</code>名称变为<code>elastic_esnet</code>，其中<code>elastic</code>是project名称，对应上面的目录名称。当我们创建其他容器时，可以将容器网络设为该网络，设置方法下面详细解释。</p>
-<h3 id="在elasticsearch中创建索引添加数据">在ElasticSearch中创建索引、添加数据</h3>
+</span></span></code></pre></div><h2 id="在elasticsearch中创建索引添加数据">在ElasticSearch中创建索引、添加数据</h2>
 <p>在Windows中的浏览器中打开<code>http://localhost:5601</code>打开Kibana，进而打开Dev Tools，在界面中执行以下脚本，创建名为<code>hello</code>的索引（包含两个field，<code>greetings</code>和<code>name</code>），及添加一条数据。</p>
 <pre tabindex="0"><code>PUT /hello
 {
@@ -450,7 +441,15 @@ if (!doNotTrack) {
   &#34;greetings&#34;: &#34;hello&#34;,
   &#34;name&#34;: &#34;World&#34;
 }
-</code></pre><h3 id="使用docker-compose创建另一个容器访问elasticsearch">使用<code>docker-compose</code>创建另一个容器访问Elasticsearch</h3>
+</code></pre><h2 id="外部容器访问elasticsearch">外部容器访问ElasticSearch</h2>
+<p>部署完ElasticSearch，如果需要在其他部署了应用的容器中访问这个ElasticSearch服务，那就需要用到<code>docker network</code>来配置容器的网络，外部容器如果需要访问上面创建的<code>es-app</code>容器，需要跟<code>es-app</code>在同一个容器网络中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker network ls
+</span></span><span style="display:flex;"><span>NETWORK ID     NAME                          DRIVER    SCOPE
+</span></span><span style="display:flex;"><span>2a222daac67e   bridge                        bridge    local
+</span></span><span style="display:flex;"><span>59aaa80c43fe   elastic_esnet                 bridge    local
+</span></span><span style="display:flex;"><span>bc18b55cdc3c   none                          null      local
+</span></span></code></pre></div><p>通过命令<code>docker network ls</code>可以看到上面我们在<code>docker-compose.yml</code>中为容器<code>es-app</code>设置的网络<code>esnet</code>名称变为<code>elastic_esnet</code>，其中<code>elastic</code>是project名称，对应上面的目录名称。当我们创建其他容器时，可以将容器网络设为该网络，设置方法下面详细解释。</p>
+<h3 id="使用docker-compose创建另一个容器访问elasticsearch">使用<code>docker-compose</code>创建另一个容器访问Elasticsearch</h3>
 <p>在其他地方创建另一个空目录<code>D:/hello-es</code>，我们要创建一个简单Flask应用来访问ElasticSearch，首先在该目录下放一个文件<code>requirements.txt</code>，内容如下：</p>
 <pre tabindex="0"><code>flask
 gunicorn
