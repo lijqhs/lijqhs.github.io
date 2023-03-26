@@ -419,12 +419,11 @@ if (!doNotTrack) {
 <li><code>/etc/nginx/nginx.conf</code>： 这是Nginx的主要配置文件，包括核心配置设置，如工作进程、事件模型和日志。</li>
 <li><code>/etc/nginx/conf.d/*</code>： 该目录包含Nginx的其他配置文件。这些文件可以用来为特定的应用程序或网站定义<code>server blocks</code>和<code>location blocks</code>。</li>
 <li><code>/etc/nginx/sites-available/*</code> 和 <code>/etc/nginx/sites-enabled/*</code>： 这些目录与主配置文件中的include指令一起使用，以启用或禁用特定的网站配置。</li>
-<li><code>/etc/nginx/mime.type</code>： 该文件定义了Nginx将提供的MIME类型。
-<blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types">媒体类型</a>（通常称为 Multipurpose Internet Mail Extensions 或 MIME 类型）是一种标准，用来表示文档、文件或字节流的性质和格式。它在IETF RFC 6838中进行了定义和标准化。MIME消息可以包含文本、图像、音频、视频和其他特定应用的数据。浏览器通常使用 MIME 类型（而不是文件扩展名）来确定如何处理 URL，因此 Web 服务器在响应头中添加正确的 MIME 类型非常重要。如果配置不正确，浏览器可能会曲解文件内容，网站将无法正常工作，并且下载的文件也会被错误处理。MIME 类型对大小写不敏感，但是传统写法都是小写。通用结构为<code>type/subtype</code>，如<code>text/css</code>。</p>
-</blockquote>
-</li>
+<li><code>/etc/nginx/mime.type</code>： 该文件定义了Nginx将提供的MIME类型。</li>
 </ul>
+<div class="alert info ">
+  <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types">媒体类型</a>（通常称为 Multipurpose Internet Mail Extensions 或 MIME 类型）是一种标准，用来表示文档、文件或字节流的性质和格式。它在IETF RFC 6838中进行了定义和标准化。MIME消息可以包含文本、图像、音频、视频和其他特定应用的数据。浏览器通常使用 MIME 类型（而不是文件扩展名）来确定如何处理 URL，因此 Web 服务器在响应头中添加正确的 MIME 类型非常重要。如果配置不正确，浏览器可能会曲解文件内容，网站将无法正常工作，并且下载的文件也会被错误处理。MIME 类型对大小写不敏感，但是传统写法都是小写。通用结构为<code>type/subtype</code>，如<code>text/css</code>。</p>
+</div>
 <h2 id="使用nginx配置负载均衡">使用Nginx配置负载均衡</h2>
 <p>负载均衡是将进入的网络流量分配到多个服务器上的过程，以避免任何单一服务器过载，并确保每个服务器被充分利用。负载平衡可用于提高网络应用程序、数据库和其他网络服务的性能、可用性和可扩展性。负载平衡通常涉及一个负载平衡器，它位于客户端和后端服务器之间，并根据一组规则或算法将传入的请求引导到可用的服务器之一。负载平衡器还可以执行其他功能，如SSL终止、会话持久性和健康检查，以确保后端服务器的可用性和可靠性。</p>
 <p>负载平衡可以使用硬件负载平衡器、软件负载平衡器或两者的组合来实现。硬件负载均衡器是专门为高性能和可扩展性而设计的设备，而软件负载均衡器可以部署在商品硬件或虚拟化环境中，提供更大的灵活性和易于管理。负载平衡是许多现代网络架构的一个重要组成部分，被大型网络应用程序、电子商务网站和基于云的服务用来处理每秒数百万的请求，并确保高可用性和性能。</p>
