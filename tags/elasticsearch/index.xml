@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问</title>
+      <title>使用Docker Compose快速部署ElasticSearch</title>
       <link>https://lijqhs.github.io/2023/03/docker-compose-quickstart/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       

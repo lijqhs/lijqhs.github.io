@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on aaron&#39;s notes</title>
-    <link>https://lijqhs.github.io/tags/docker/</link>
-    <description>Recent content in docker on aaron&#39;s notes</description>
+    <title>nginx on aaron&#39;s notes</title>
+    <link>https://lijqhs.github.io/tags/nginx/</link>
+    <description>Recent content in nginx on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用Docker配置启动Nginx</title>
       <link>https://lijqhs.github.io/2023/03/nginx-docker-guide/</link>
@@ -25,15 +25,6 @@ server { listen 80； server_name example.com； root /usr/share/nginx/html； i
 docker build -t my-nginx . 在这个例子中，-t选项指定了Docker镜像的名称和标签（my-nginx），而.则指定了构建环境（即包含Dockerfile的目录）。
 启动Docker容器： 使用docker run命令启动Docker容器，并将容器的80端口映射到主机的80端口。
 docker run -d -p 80:80 --name my-nginx-container my-nginx 在这个例子中，-d选项指定容器应该以分离模式运行，-p选项将容器中的80端口映射到主机上的80端口，而--name选项则指定了容器的名称（my-nginx-container）。</description>
-    </item>
-    
-    <item>
-      <title>使用Docker Compose快速部署ElasticSearch</title>
-      <link>https://lijqhs.github.io/2023/03/docker-compose-quickstart/</link>
-      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://lijqhs.github.io/2023/03/docker-compose-quickstart/</guid>
-      <description>&lt;p&gt;有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。&lt;/p&gt;</description>
     </item>
     
   </channel>

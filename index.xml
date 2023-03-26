@@ -6,9 +6,29 @@
     <description>Recent content on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问</title>
+      <title>使用Docker配置启动Nginx</title>
+      <link>https://lijqhs.github.io/2023/03/nginx-docker-guide/</link>
+      <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lijqhs.github.io/2023/03/nginx-docker-guide/</guid>
+      <description>Nginx是什么 Nginx（发音为 &amp;ldquo;engine x&amp;rdquo;）是一个高性能的Web服务器和反向代理服务器，也可以作为一个负载平衡器、HTTP缓存和邮件代理服务器。它被设计用来处理大量的并发连接，而内存使用量却很低，这使得它成为高流量网站的热门选择。
+Nginx可以执行各种任务，包括：
+提供静态和动态内容： Nginx可以提供静态文件，如HTML、CSS和图像，以及由Web应用程序生成的动态内容。 反向代理： Nginx可以作为一个反向代理，根据URL模式或其他标准将HTTP请求转发给后端服务器。 负载平衡： Nginx可以将传入的流量分配到多个后端服务器，以提高性能和可靠性。 缓存：Nginx可以将经常访问的内容缓存在内存或磁盘上，以减少后端服务器的负载，提高响应时间。 SSL终止： Nginx可以处理SSL加密和解密，使后端服务器专注于服务内容而不是加密。 URL重写： Nginx可以重写URL，改变传入请求的路径或查询字符串，这对于实现重定向或修改请求以符合后端服务器的要求非常有用。 总的来说，Nginx是一个多功能的、强大的网络服务器，可以处理与服务、缓存和代理网络内容有关的各种任务。对于需要快速、可靠和可扩展的基础设施的高流量网站，它是一个受欢迎的选择。
+使用Docker配置Nginx 静态文件服务器的例子 用Docker配置Nginx，为静态HTML文件提供服务，可以按照以下步骤进行：
+创建一个Dockerfile：
+FROM nginx:latest COPY nginx.conf /etc/nginx/conf.d/default.conf COPY website_files /usr/share/nginx/html 在这个例子中，Dockerfile从最新版本的官方Nginx镜像开始（FROM nginx:fresh），并复制Nginx配置文件（nginx.conf）和网站文件（website_files）到容器中的各自位置。
+创建一个Nginx配置文件：
+server { listen 80； server_name example.com； root /usr/share/nginx/html； index index.html； location / { try_files $uri $uri/ =404； } } 在这个例子中，server块指定Nginx应该在80端口监听对example.com域名的请求，从/usr/share/nginx/html目录提供内容，并使用index.html作为默认索引文件。位置块指定了应该如何处理请求。
+构建Docker镜像： 使用docker build命令建立Docker镜像。
+docker build -t my-nginx . 在这个例子中，-t选项指定了Docker镜像的名称和标签（my-nginx），而.则指定了构建环境（即包含Dockerfile的目录）。
+启动Docker容器： 使用docker run命令启动Docker容器，并将容器的80端口映射到主机的80端口。
+docker run -d -p 80:80 --name my-nginx-container my-nginx 在这个例子中，-d选项指定容器应该以分离模式运行，-p选项将容器中的80端口映射到主机上的80端口，而--name选项则指定了容器的名称（my-nginx-container）。</description>
+    </item>
+    
+    <item>
+      <title>使用Docker Compose快速部署ElasticSearch</title>
       <link>https://lijqhs.github.io/2023/03/docker-compose-quickstart/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       

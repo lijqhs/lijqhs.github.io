@@ -7,7 +7,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问",
+  "headline": "使用Docker Compose快速部署ElasticSearch",
   
   "image": "//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-polynesia.jpg",
   
@@ -50,8 +50,8 @@
 
 <meta property="og:description" content="有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问">
-<meta name="twitter:title" content="使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问">
+<meta property="og:title" content="使用Docker Compose快速部署ElasticSearch">
+<meta name="twitter:title" content="使用Docker Compose快速部署ElasticSearch">
 <meta property="og:url" content="https://lijqhs.github.io/2023/03/docker-compose-quickstart/">
 <meta property="twitter:url" content="https://lijqhs.github.io/2023/03/docker-compose-quickstart/">
 <meta property="og:site_name" content="aaron&#39;s notes">
@@ -110,7 +110,7 @@
   <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/gallery/p/pixabay-polynesia.jpg">
 
 
-    <title>使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问</title>
+    <title>使用Docker Compose快速部署ElasticSearch</title>
 
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
     
@@ -316,7 +316,7 @@ if (!doNotTrack) {
       <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      使用Docker Compose快速部署ElasticSearch，Docker容器网络配置，外部容器访问
+      使用Docker Compose快速部署ElasticSearch
     </h1>
   
   
@@ -361,7 +361,7 @@ if (!doNotTrack) {
     <li><a href="#创建docker-composeyml配置文件">创建docker-compose.yml配置文件</a></li>
     <li><a href="#安装elasticsearch中文分词器插件">安装ElasticSearch中文分词器插件</a></li>
     <li><a href="#在elasticsearch中创建索引添加数据">在ElasticSearch中创建索引、添加数据</a></li>
-    <li><a href="#外部容器访问elasticsearch">外部容器访问ElasticSearch</a>
+    <li><a href="#docker容器配置网络外部容器访问">Docker容器配置网络，外部容器访问</a>
       <ul>
         <li><a href="#创建python-flask应用程序">创建Python Flask应用程序</a></li>
         <li><a href="#使用docker-compose创建应用容器并设置同一虚拟网络">使用<code>docker-compose</code>创建应用容器，并设置同一虚拟网络</a></li>
@@ -442,7 +442,7 @@ if (!doNotTrack) {
   &#34;greetings&#34;: &#34;hello&#34;,
   &#34;name&#34;: &#34;World&#34;
 }
-</code></pre><h2 id="外部容器访问elasticsearch">外部容器访问ElasticSearch</h2>
+</code></pre><h2 id="docker容器配置网络外部容器访问">Docker容器配置网络，外部容器访问</h2>
 <p>部署完ElasticSearch，如果需要在其他部署了应用的容器中访问这个ElasticSearch服务，那就需要用到<code>docker network</code>来配置容器的网络，外部容器如果需要访问上面创建的<code>es-app</code>容器，需要跟<code>es-app</code>在同一个容器网络中。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker network ls
 </span></span><span style="display:flex;"><span>NETWORK ID     NAME                          DRIVER    SCOPE
@@ -526,7 +526,7 @@ elasticsearch
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2023/03/nginx-docker-guide/" data-tooltip="使用Docker配置启动Nginx" aria-label="NEXT: 使用Docker配置启动Nginx">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -639,7 +639,7 @@ elasticsearch
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://lijqhs.github.io/2023/03/nginx-docker-guide/" data-tooltip="使用Docker配置启动Nginx" aria-label="NEXT: 使用Docker配置启动Nginx">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
