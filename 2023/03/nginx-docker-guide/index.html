@@ -422,7 +422,9 @@ if (!doNotTrack) {
 <li><code>/etc/nginx/mime.type</code>： 该文件定义了Nginx将提供的MIME类型。</li>
 </ul>
 <div class="alert info ">
-  <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types">媒体类型</a>（通常称为 Multipurpose Internet Mail Extensions 或 MIME 类型）是一种标准，用来表示文档、文件或字节流的性质和格式。它在IETF RFC 6838中进行了定义和标准化。MIME消息可以包含文本、图像、音频、视频和其他特定应用的数据。浏览器通常使用 MIME 类型（而不是文件扩展名）来确定如何处理 URL，因此 Web 服务器在响应头中添加正确的 MIME 类型非常重要。如果配置不正确，浏览器可能会曲解文件内容，网站将无法正常工作，并且下载的文件也会被错误处理。MIME 类型对大小写不敏感，但是传统写法都是小写。通用结构为<code>type/subtype</code>，如<code>text/css</code>。</p>
+  <p><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types">媒体类型</a>（通常称为 Multipurpose Internet Mail Extensions 或 MIME 类型）是一种标准，用来表示文档、文件或字节流的性质和格式。它在<a href="https://www.rfc-editor.org/rfc/rfc6838">IETF RFC 6838</a>中进行了定义和标准化。</p>
+<p>MIME消息可以包含文本、图像、音频、视频和其他特定应用的数据。浏览器通常使用 MIME 类型（而不是文件扩展名）来确定如何处理 URL，因此 Web 服务器在响应头中添加正确的 MIME 类型非常重要。如果配置不正确，浏览器可能会曲解文件内容，网站将无法正常工作，并且下载的文件也会被错误处理。MIME 类型对大小写不敏感，但是传统写法都是小写。通用结构为<code>type/subtype</code>，如<code>text/css</code>。</p>
+</p>
 </div>
 <h2 id="使用nginx配置负载均衡">使用Nginx配置负载均衡</h2>
 <p>负载均衡是将进入的网络流量分配到多个服务器上的过程，以避免任何单一服务器过载，并确保每个服务器被充分利用。负载平衡可用于提高网络应用程序、数据库和其他网络服务的性能、可用性和可扩展性。负载平衡通常涉及一个负载平衡器，它位于客户端和后端服务器之间，并根据一组规则或算法将传入的请求引导到可用的服务器之一。负载平衡器还可以执行其他功能，如SSL终止、会话持久性和健康检查，以确保后端服务器的可用性和可靠性。</p>
@@ -434,15 +436,18 @@ if (!doNotTrack) {
 <li>Nginx收到一个来自客户端的传入请求。</li>
 <li>Nginx将该请求转发到上游模块中定义的一个后台服务器。</li>
 <li>Nginx接收来自后端服务器的响应，并将其返回给客户端。</li>
-<li>Nginx支持多种负载平衡算法，包括轮流、最少连接、IP散列和随机。这些算法可以在上游模块中配置，根据服务器可用性、服务器负载和客户端IP地址等因素，以不同的方式分配进入的请求。</li>
 </ul>
-<p>下面是Nginx最常用的一些负载平衡算法：</p>
+<p>Nginx支持多种负载平衡算法，包括轮流、最少连接、IP散列和随机。这些算法可以在上游模块中配置，根据服务器可用性、服务器负载和客户端IP地址等因素，以不同的方式分配进入的请求。</p>
+<div class="alert success no-icon ">
+  <p><p>Nginx最常用的一些负载平衡算法：</p>
 <ul>
 <li>轮流(Round-robin)：在轮流负载平衡中，Nginx将传入的请求以轮流的方式平均分配到所有后端服务器。</li>
 <li>最少连接(Least connections)： 在最少连接的负载平衡中，Nginx将传入的请求路由到活动连接最少的后端服务器。</li>
 <li>IP散列(IP hash)： 在IP哈希负载平衡中，Nginx根据客户的IP地址，将传入的请求路由到后端服务器。这确保来自同一个客户的后续请求总是被发送到同一个后端服务器。</li>
 <li>随机(Random)： 在随机负载平衡中，Nginx将传入的请求路由到一个随机选择的后端服务器。</li>
 </ul>
+</p>
+</div>
 <p>要配置Nginx使用特定的负载平衡算法，可以在nginx.conf文件中使用upstream指令。例如</p>
 <pre tabindex="0"><code class="language-conf" data-lang="conf">upstream backend {
   server backend1:8080；
