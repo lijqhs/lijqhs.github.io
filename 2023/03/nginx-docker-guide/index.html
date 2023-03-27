@@ -459,74 +459,168 @@ if (!doNotTrack) {
 </code></pre><h3 id="使用docker-compose配置nginx负载平衡实例">使用Docker Compose配置Nginx负载平衡实例</h3>
 <p>以下是Nginx实现负载平衡的简单实例，通过Flask启动多个应用在不同端口上，Nginx监听7000端口，实现对该应用不同端口的调用。</p>
 <p>Flask App代码（为了展示每次刷新页面Nginx调用了不同的Flask应用，特别设置了不同app{1-4}.py以示区别）：</p>
-<p>{% codeblock app1.py lang:python %}
-from flask import Flask</p>
-<p>app = Flask(<strong>name</strong>)</p>
-<p>@app.route(&rsquo;/&rsquo;)
+
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>hello_nginx</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">py</li>
+      
+        <li class="tab ">conf</li>
+      
+        <li class="tab ">yml</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-py py" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-py py"><code class="py">from flask import Flask
+
+app = Flask(__name__)
+
+@app.route(&#39;/&#39;)
 def hello_world():
-return &lsquo;Hello, Nginx! 1&rsquo;
-{% endcodeblock %}</p>
-<p>Nginx配置文件：</p>
-<p>{% codeblock app.nginx.conf lang:conf %}
-upstream backendserver {
-server 127.0.0.1:7001;
-server 127.0.0.1:7002;
-server 127.0.0.1:7003;
-server 127.0.0.1:7004;
-}</p>
-<p>server {
-listen 7000;</p>
-<pre><code>location / {
-    proxy_pass http://backendserver;
+    return &#39;Hello, Nginx! 1&#39;
+    </code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+      
+      <figure class="highlight language-conf conf" style="display: none;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-conf conf"><code class="conf">upstream backendserver {
+    server 127.0.0.1:7001;
+    server 127.0.0.1:7002;
+    server 127.0.0.1:7003;
+    server 127.0.0.1:7004;
 }
-</code></pre>
-<p>}
-{% endcodeblock %}</p>
-<p>Docker Compose配置文件：</p>
-<p>{% codeblock docker-compose.yml lang:yml %}
-version: &ldquo;3&rdquo;
-services:</p>
-<p>nginx:
-image: nginx:latest
-ports:
-- &ldquo;7000:7000&rdquo;
-- &ldquo;9000:9000&rdquo;
-volumes:
-- ./conf/app.nginx.conf:/etc/nginx/conf.d/default.conf
-- ./html:/usr/share/nginx/html
-depends_on:
-- web</p>
-<p>web:
-build:
-context: .
-dockerfile: ./conf/app.dockerfile
-image: hello_nginx_web
-command: gunicorn -w 4 -b 0.0.0.0:7001 &ndash;chdir ./web app1:app
-ports:
-- &ldquo;7001:7001&rdquo;</p>
-<p>web2:
-image: hello_nginx_web
-command: gunicorn -w 4 -b 0.0.0.0:7002 &ndash;chdir ./web app2:app
-ports:
-- &ldquo;7002:7002&rdquo;
-depends_on:
-- web</p>
-<p>web3:
-image: hello_nginx_web
-command: gunicorn -w 4 -b 0.0.0.0:7003 &ndash;chdir ./web app3:app
-ports:
-- &ldquo;7003:7003&rdquo;
-depends_on:
-- web</p>
-<p>web4:
-image: hello_nginx_web
-command: gunicorn -w 4 -b 0.0.0.0:7004 &ndash;chdir ./web app4:app
-ports:
-- &ldquo;7004:7004&rdquo;
-depends_on:
-- web
-{% endcodeblock %}</p>
-<p>完整的代码请访问<a href="https://github.com/lijqhs/hello-anything/tree/main/hello-nginx">GitHub</a>.</p>
+
+server {
+    listen 7000;
+
+    location / {
+        proxy_pass http://backendserver;
+    }
+}
+    </code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+      
+      <figure class="highlight language-yml yml" style="display: none;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-yml yml"><code class="yml">version: &#34;3&#34;
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - &#34;7000:7000&#34;
+      - &#34;9000:9000&#34;
+    volumes:
+      - ./conf/app.nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./html:/usr/share/nginx/html
+    depends_on:
+      - web
+      
+  web:
+    build:
+      context: .
+      dockerfile: ./conf/app.dockerfile
+    image: hello_nginx_web
+    command: gunicorn -w 4 -b 0.0.0.0:7001 --chdir ./web app1:app
+    ports:
+      - &#34;7001:7001&#34;
+      
+  web2:
+    image: hello_nginx_web
+    command: gunicorn -w 4 -b 0.0.0.0:7002 --chdir ./web app2:app
+    ports:
+      - &#34;7002:7002&#34;
+    depends_on:
+      - web
+
+  web3:
+    image: hello_nginx_web
+    command: gunicorn -w 4 -b 0.0.0.0:7003 --chdir ./web app3:app
+    ports:
+      - &#34;7003:7003&#34;
+    depends_on:
+      - web
+
+  web4:
+    image: hello_nginx_web
+    command: gunicorn -w 4 -b 0.0.0.0:7004 --chdir ./web app4:app
+    ports:
+      - &#34;7004:7004&#34;
+    depends_on:
+      - web
+    </code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
+<p>完整的代码请访问<a href="https://github.com/lijqhs/hello-anything/tree/main/hello-nginx">GitHub repo</a>.</p>
               
 
 
