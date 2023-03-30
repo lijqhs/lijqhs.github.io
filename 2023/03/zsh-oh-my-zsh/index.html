@@ -427,7 +427,10 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  prompt_end
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h2 id="在vs-code上配置字体">在VS Code上配置字体</h2>
-<p>经过上述步骤，使用VS Code的时候，也可以使用zsh，但是其Powerline字体需要一点额外设置（安装Powerline字体的补丁版本），否则终端的提示符无法正常显示。前面的 &ldquo;快速安装&rdquo;（<code>sudo apt-get install fonts-powerline</code>）在这种情况下不起作用。直接从<code>https://github.com/powerline/fonts</code>，安装你想要的字体的补丁版本。</p>
+<p>经过上述步骤，使用VS Code的时候，也可以使用zsh，如果已经按照之前的步骤安装了Hack字体，直接在VS Code中使用，安装完的字体名称可以在Terminal的Preference字体选择里面找到。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;editor.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;&#39;Hack NF&#39;, &#39;Noto Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;terminal.integrated.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;Hack NFM&#34;</span>
+</span></span></code></pre></div><p>如果VS Code终端提示显示有点问题，此时Powerline字体需要一点额外设置（安装Powerline字体的补丁版本）。前面的 &ldquo;快速安装&rdquo;（<code>sudo apt-get install fonts-powerline</code>）在这种情况下不起作用。需要直接从<code>https://github.com/powerline/fonts</code>，安装你想要的字体的补丁版本。</p>
 <p>可以手动下载<code>.ttf</code>文件进行安装，或者运行提供的安装脚本<code>./install.sh</code>。例如，可以按照以下步骤操作：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone <span style="color:#f92672">[</span>https://github.com/powerline/fonts<span style="color:#f92672">](</span>https://github.com/powerline/fonts<span style="color:#f92672">)</span> <span style="color:#f92672">&amp;&amp;</span> cd fonts
 </span></span></code></pre></div><p>运行<code>./install.sh</code>来安装所有的字体，或者进入某个字体目录打开<code>.ttf</code>文件来安装。</p>
@@ -435,10 +438,6 @@ if (!doNotTrack) {
 <p>在VSCode的用户设置<code>settings.json</code>中添加：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;terminal.integrated.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;Noto Mono for Powerline&#34;</span>
 </span></span></code></pre></div><p>重新启动VS Code即可。</p>
-<p>如果已经按照之前的步骤安装了Hack字体，直接在VS Code中使用：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;editor.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;&#39;Hack NF&#39;, &#39;Noto Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace&#34;</span>,
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;terminal.integrated.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;Hack NFM&#34;</span>
-</span></span></code></pre></div>
               
 
 
