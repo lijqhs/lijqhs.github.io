@@ -6,7 +6,16 @@
     <description>Recent content in howto on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/categories/howto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/categories/howto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zsh, Oh My Zsh</title>
+      <link>https://lijqhs.github.io/2023/03/zsh-oh-my-zsh/</link>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lijqhs.github.io/2023/03/zsh-oh-my-zsh/</guid>
+      <description>&lt;p&gt;Zsh（Z shell）是一个Unix shell，旨在成为流行的Bash shell的一个交互式和强大的替代品。它是一个开源的shell，可用于大多数基于Unix的操作系统，包括Linux和macOS，已成为macOS默认的shell。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>使用Docker配置启动Nginx</title>
       <link>https://lijqhs.github.io/2023/03/nginx-docker-guide/</link>

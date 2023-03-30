@@ -3,24 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://lijqhs.github.io/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lijqhs.github.io/categories/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lijqhs.github.io/categories/howto/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lijqhs.github.io/posts/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lijqhs.github.io/tags/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lijqhs.github.io/tags/zsh/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://lijqhs.github.io/2023/03/zsh-oh-my-zsh/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lijqhs.github.io/tags/docker/</loc>
     <lastmod>2023-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://lijqhs.github.io/categories/howto/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://lijqhs.github.io/tags/nginx/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lijqhs.github.io/posts/</loc>
-    <lastmod>2023-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lijqhs.github.io/tags/</loc>
     <lastmod>2023-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lijqhs.github.io/2023/03/nginx-docker-guide/</loc>
