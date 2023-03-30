@@ -354,7 +354,12 @@ if (!doNotTrack) {
     <li><a href="#安装zsh">安装Zsh</a></li>
     <li><a href="#安装oh-my-zsh">安装oh-my-zsh</a></li>
     <li><a href="#选择主题">选择主题</a></li>
-    <li><a href="#安装字体">安装字体</a></li>
+    <li><a href="#安装字体">安装字体</a>
+      <ul>
+        <li><a href="#安装powerline-font">安装Powerline Font</a></li>
+        <li><a href="#安装nerd-font">安装Nerd Font</a></li>
+      </ul>
+    </li>
     <li><a href="#在vs-code上配置字体">在VS Code上配置字体</a></li>
   </ul>
 </nav>
@@ -376,10 +381,9 @@ if (!doNotTrack) {
 <p>通过oh-my-zsh可以为终端配置漂亮的theme，编辑<code>~/.zshrc</code>文件，找到 <code>ZSH_THEME</code>，修改为想要的主题，<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/External-themes">预览主题样式</a>，如选择&quot;<code>agnoster&quot;</code>，修改配置并保存：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;agnoster&#34;</span>
 </span></span></code></pre></div><h2 id="安装字体">安装字体</h2>
-<p>许多主题需要安装<a href="https://github.com/powerline/powerline">Powerline Font</a>或Nerd Font，以便正确呈现。没有它们，这些主题会呈现出奇怪的提示符号。</p>
-<ul>
-<li>安装Powerline Font，ubuntu环境下：</li>
-</ul>
+<p>许多主题需要安装<a href="https://github.com/powerline/powerline">Powerline Font</a><strong>或</strong><a href="https://www.nerdfonts.com/">Nerd Font</a>，以便正确呈现。没有它们，这些主题会呈现出奇怪的提示符号。</p>
+<h3 id="安装powerline-font">安装Powerline Font</h3>
+<p>ubuntu环境下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install fonts-powerline
 </span></span></code></pre></div><p>Mac环境下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># clone</span>
@@ -390,17 +394,15 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># clean-up a bit</span>
 </span></span><span style="display:flex;"><span>cd ..
 </span></span><span style="display:flex;"><span>rm -rf fonts
-</span></span></code></pre></div><ul>
-<li>安装Nerd Font</li>
-</ul>
-<p>以下代码保存为<code>get_font.sh</code>，然后在终端运行<code>bash get_font.sh</code>，<a href="https://www.nerdfonts.com/font-downloads">Nerd Font字体下载网站</a>。</p>
+</span></span></code></pre></div><h3 id="安装nerd-font">安装Nerd Font</h3>
+<p>在Ubuntu中，以下代码保存为<code>get_font.sh</code>，然后在终端运行<code>bash get_font.sh</code>，<a href="https://www.nerdfonts.com/font-downloads">Nerd Font字体下载网站</a>。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[-] Download fonts [-]&#34;</span>
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip&#34;</span>
 </span></span><span style="display:flex;"><span>wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
 </span></span><span style="display:flex;"><span>unzip Hack.zip -d ~/.fonts
 </span></span><span style="display:flex;"><span>fc-cache -fv
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;done!&#34;</span>
-</span></span></code></pre></div><p>在macOS上安装Nerd Font：（完整的列表参考<a href="https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e">这里</a>）</p>
+</span></span></code></pre></div><p>在macOS上安装Nerd Font：（完整的安装列表参考<a href="https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e">这里</a>）</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Nerd Fonts for your IDE</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># https://www.nerdfonts.com/font-downloads</span>
 </span></span><span style="display:flex;"><span>
@@ -428,16 +430,20 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h2 id="在vs-code上配置字体">在VS Code上配置字体</h2>
 <p>经过上述步骤，使用VS Code的时候，也可以使用zsh，如果已经按照之前的步骤安装了Hack字体，直接在VS Code中使用，安装完的字体名称可以在Terminal的Preference字体选择里面找到。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;editor.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;&#39;Hack NF&#39;, &#39;Noto Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace&#34;</span>,
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;terminal.integrated.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;Hack NFM&#34;</span>
-</span></span></code></pre></div><p>如果VS Code终端提示显示有点问题，此时Powerline字体需要一点额外设置（安装Powerline字体的补丁版本）。前面的 &ldquo;快速安装&rdquo;（<code>sudo apt-get install fonts-powerline</code>）在这种情况下不起作用。需要直接从<code>https://github.com/powerline/fonts</code>，安装你想要的字体的补丁版本。</p>
-<p>可以手动下载<code>.ttf</code>文件进行安装，或者运行提供的安装脚本<code>./install.sh</code>。例如，可以按照以下步骤操作：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone <span style="color:#f92672">[</span>https://github.com/powerline/fonts<span style="color:#f92672">](</span>https://github.com/powerline/fonts<span style="color:#f92672">)</span> <span style="color:#f92672">&amp;&amp;</span> cd fonts
-</span></span></code></pre></div><p>运行<code>./install.sh</code>来安装所有的字体，或者进入某个字体目录打开<code>.ttf</code>文件来安装。</p>
-<p>例如，手动安装Powerline的Noto Mono，打开NotoMono目录，双击打开<code>NotoMono for Powerline.ttf</code>，安装该字体。</p>
-<p>在VSCode的用户设置<code>settings.json</code>中添加：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;terminal.integrated.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;Noto Mono for Powerline&#34;</span>
-</span></span></code></pre></div><p>重新启动VS Code即可。</p>
+<p>比如在Ubuntu中：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;editor.fontFamily&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&#39;Hack NF&#39;, &#39;Noto Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace&#34;</span><span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;terminal.integrated.fontFamily&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Hack NFM&#34;</span>
+</span></span></code></pre></div><p>在macOS中：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;editor.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;&#39;NotoMono Nerd Font Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;terminal.integrated.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;Hack Nerd Font Mono&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>或</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;editor.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;&#39;NotoMono Nerd Font Mono&#39;, &#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;terminal.integrated.fontFamily&#34;</span>: <span style="color:#e6db74">&#34;NotoMono Nerd Font Mono&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>如果安装了Powerline字体，VS Code终端提示显示却有点问题，此时Powerline字体需要一点额外设置（安装Powerline字体的补丁版本），前面的 &ldquo;快速安装&rdquo;（<code>sudo apt-get install fonts-powerline</code>）在这种情况下不起作用。需要直接从<code>https://github.com/powerline/fonts</code>，安装你想要的字体的补丁版本，参考<a href="https://stackoverflow.com/questions/62710890/font-issues-while-integrating-zsh-on-visual-studio-code">StackOverflow</a>。</p>
               
 
 
