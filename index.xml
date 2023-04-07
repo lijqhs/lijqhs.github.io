@@ -6,7 +6,16 @@
     <description>Recent content on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker启动Redis, Low Memory Warning处理方法</title>
+      <link>https://lijqhs.github.io/2023/04/redis-memory-overcommit/</link>
+      <pubDate>Wed, 05 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lijqhs.github.io/2023/04/redis-memory-overcommit/</guid>
+      <description>&lt;p&gt;Redis是一种高性能的开源内存数据结构存储系统，可以用作数据库、缓存和消息代理。它支持很多数据结构，包括字符串、哈希、列表、集合、有序集合等。Redis在内存中存储数据，并且支持数据持久化，可以将数据存储在磁盘上，以便在重启时恢复数据。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Zsh, Oh My Zsh</title>
       <link>https://lijqhs.github.io/2023/03/zsh-oh-my-zsh/</link>
