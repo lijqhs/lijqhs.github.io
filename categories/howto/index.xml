@@ -2,98 +2,98 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>howto on aaron&#39;s notes</title>
-    <link>https://lijqhs.github.io/categories/howto/</link>
+    <link>https://www.aaronnotes.com/categories/howto/</link>
     <description>Recent content in howto on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lijqhs.github.io/categories/howto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/categories/howto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker启动Redis, Low Memory Warning处理方法</title>
-      <link>https://lijqhs.github.io/2023/04/redis-memory-overcommit/</link>
+      <link>https://www.aaronnotes.com/2023/04/redis-memory-overcommit/</link>
       <pubDate>Wed, 05 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lijqhs.github.io/2023/04/redis-memory-overcommit/</guid>
+      <guid>https://www.aaronnotes.com/2023/04/redis-memory-overcommit/</guid>
       <description>&lt;p&gt;Redis是一种高性能的开源内存数据结构存储系统，可以用作数据库、缓存和消息代理。它支持很多数据结构，包括字符串、哈希、列表、集合、有序集合等。Redis在内存中存储数据，并且支持数据持久化，可以将数据存储在磁盘上，以便在重启时恢复数据。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Zsh, Oh My Zsh</title>
-      <link>https://lijqhs.github.io/2023/03/zsh-oh-my-zsh/</link>
+      <link>https://www.aaronnotes.com/2023/03/zsh-oh-my-zsh/</link>
       <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lijqhs.github.io/2023/03/zsh-oh-my-zsh/</guid>
+      <guid>https://www.aaronnotes.com/2023/03/zsh-oh-my-zsh/</guid>
       <description>&lt;p&gt;Zsh（Z shell）是一个Unix shell，旨在成为流行的Bash shell的一个交互式和强大的替代品。它是一个开源的shell，可用于大多数基于Unix的操作系统，包括Linux和macOS，已成为macOS默认的shell。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用Docker配置启动Nginx</title>
-      <link>https://lijqhs.github.io/2023/03/nginx-docker-guide/</link>
+      <link>https://www.aaronnotes.com/2023/03/nginx-docker-guide/</link>
       <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lijqhs.github.io/2023/03/nginx-docker-guide/</guid>
+      <guid>https://www.aaronnotes.com/2023/03/nginx-docker-guide/</guid>
       <description>&lt;p&gt;Nginx（发音为 &amp;ldquo;engine x&amp;rdquo;）是一个高性能的Web服务器和反向代理服务器，也可以作为一个负载平衡器、HTTP缓存和邮件代理服务器。它被设计用来处理大量的并发连接，而内存使用量却很低，这使得它成为高流量网站的热门选择。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用Docker Compose快速部署ElasticSearch</title>
-      <link>https://lijqhs.github.io/2023/03/docker-compose-quickstart/</link>
+      <link>https://www.aaronnotes.com/2023/03/docker-compose-quickstart/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lijqhs.github.io/2023/03/docker-compose-quickstart/</guid>
+      <guid>https://www.aaronnotes.com/2023/03/docker-compose-quickstart/</guid>
       <description>&lt;p&gt;有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Change The Theme of A Hugo Blog</title>
-      <link>https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</link>
+      <link>https://www.aaronnotes.com/2020/11/how-to-change-the-theme-of-a-hugo-blog/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
       
-      <guid>https://lijqhs.github.io/2020/11/how-to-change-the-theme-of-a-hugo-blog/</guid>
-      <description>&lt;p&gt;A few days ago I &lt;a href=&#34;https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/&#34;&gt;migrated this blog&lt;/a&gt; to Hugo from Jekyll and employed a beautiful theme called &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34;&gt;Even&lt;/a&gt;, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme&#34;&gt;Tranquilpeak&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://www.aaronnotes.com/2020/11/how-to-change-the-theme-of-a-hugo-blog/</guid>
+      <description>&lt;p&gt;A few days ago I &lt;a href=&#34;https://www.aaronnotes.com/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/&#34;&gt;migrated this blog&lt;/a&gt; to Hugo from Jekyll and employed a beautiful theme called &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34;&gt;Even&lt;/a&gt;, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme&#34;&gt;Tranquilpeak&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Setup a Blog with Hugo and Github Pages on Mac</title>
-      <link>https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
+      <link>https://www.aaronnotes.com/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
       <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
       
-      <guid>https://lijqhs.github.io/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
+      <guid>https://www.aaronnotes.com/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
       <description>&lt;p&gt;GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Git快速指南</title>
-      <link>https://lijqhs.github.io/2019/03/git-quickstart/</link>
+      <link>https://www.aaronnotes.com/2019/03/git-quickstart/</link>
       <pubDate>Wed, 20 Mar 2019 18:45:00 +0800</pubDate>
       
-      <guid>https://lijqhs.github.io/2019/03/git-quickstart/</guid>
+      <guid>https://www.aaronnotes.com/2019/03/git-quickstart/</guid>
       <description>&lt;p&gt;很多公司内部使用GitLab来做版本管理，假设你已经按照公司wiki设置好了Git账户。那么如何快速开始使用Git进行代码版本管理，下面是一些常用流程步骤。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How to Install and Configure Elasticsearch Clusters</title>
-      <link>https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</link>
+      <link>https://www.aaronnotes.com/2018/08/how-to-install-and-configure-elasticsearch-clusters/</link>
       <pubDate>Wed, 29 Aug 2018 21:45:00 +0800</pubDate>
       
-      <guid>https://lijqhs.github.io/2018/08/how-to-install-and-configure-elasticsearch-clusters/</guid>
+      <guid>https://www.aaronnotes.com/2018/08/how-to-install-and-configure-elasticsearch-clusters/</guid>
       <description>&lt;p&gt;Elasticsearch is a highly scalable open-source full-text search and analytics engine based on Lucene. This post focus on how to setup an Elasticsearch cluster.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Create Virtual Environments by venv</title>
-      <link>https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/</link>
+      <link>https://www.aaronnotes.com/2018/08/how-to-create-virtual-environments-by-venv/</link>
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
       
-      <guid>https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/</guid>
+      <guid>https://www.aaronnotes.com/2018/08/how-to-create-virtual-environments-by-venv/</guid>
       <description>&lt;p&gt;When I tested examples of the book &lt;strong&gt;Deep learning from scratch&lt;/strong&gt;, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Properly Install Python3 and Virtualenv on Mac</title>
-      <link>https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</link>
+      <link>https://www.aaronnotes.com/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</link>
       <pubDate>Fri, 24 Aug 2018 19:01:48 +0800</pubDate>
       
-      <guid>https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</guid>
+      <guid>https://www.aaronnotes.com/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</guid>
       <description>&lt;p&gt;When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.&lt;/p&gt;</description>
     </item>
     

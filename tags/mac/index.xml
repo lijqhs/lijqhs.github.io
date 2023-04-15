@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mac on aaron&#39;s notes</title>
-    <link>https://lijqhs.github.io/tags/mac/</link>
+    <link>https://www.aaronnotes.com/tags/mac/</link>
     <description>Recent content in mac on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Aug 2018 20:11:48 +0800</lastBuildDate><atom:link href="https://lijqhs.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Aug 2018 20:11:48 +0800</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Create Virtual Environments by venv</title>
-      <link>https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/</link>
+      <link>https://www.aaronnotes.com/2018/08/how-to-create-virtual-environments-by-venv/</link>
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
       
-      <guid>https://lijqhs.github.io/2018/08/how-to-create-virtual-environments-by-venv/</guid>
+      <guid>https://www.aaronnotes.com/2018/08/how-to-create-virtual-environments-by-venv/</guid>
       <description>&lt;p&gt;When I tested examples of the book &lt;strong&gt;Deep learning from scratch&lt;/strong&gt;, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How To Properly Install Python3 and Virtualenv on Mac</title>
-      <link>https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</link>
+      <link>https://www.aaronnotes.com/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</link>
       <pubDate>Fri, 24 Aug 2018 19:01:48 +0800</pubDate>
       
-      <guid>https://lijqhs.github.io/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</guid>
+      <guid>https://www.aaronnotes.com/2018/08/how-to-properly-install-python3-and-virtualenv-on-mac/</guid>
       <description>&lt;p&gt;When I got a Macbook Pro, the first thing I thought was how to deploy a developing environment for programming and data analysis on Mac OS.&lt;/p&gt;</description>
     </item>
     
