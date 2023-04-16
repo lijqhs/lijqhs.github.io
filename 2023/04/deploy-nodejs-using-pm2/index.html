@@ -7,7 +7,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "如何使用 PM2 部署 Node.js 应用",
+  "headline": "如何使用PM2部署Node.js应用",
   
   "image": "//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/giuseppe-murabito-DhtXQxSH2Jk-unsplash.jpg",
   
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。\n",
+  "description": "PM2是一个用于管理和保持Node.js应用状态的进程管理器。它可以用于部署和监控你的Node.js应用程序。本文将介绍如何使用PM2部署Node.js应用。\n",
   "keywords": []
 }
 
@@ -45,18 +45,18 @@
 <meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="aaron">
 <meta name="keywords" content="">
-<meta name="description" content="PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。">
+<meta name="description" content="PM2是一个用于管理和保持Node.js应用状态的进程管理器。它可以用于部署和监控你的Node.js应用程序。本文将介绍如何使用PM2部署Node.js应用。">
 
 
-<meta property="og:description" content="PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。">
+<meta property="og:description" content="PM2是一个用于管理和保持Node.js应用状态的进程管理器。它可以用于部署和监控你的Node.js应用程序。本文将介绍如何使用PM2部署Node.js应用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何使用 PM2 部署 Node.js 应用">
-<meta name="twitter:title" content="如何使用 PM2 部署 Node.js 应用">
+<meta property="og:title" content="如何使用PM2部署Node.js应用">
+<meta name="twitter:title" content="如何使用PM2部署Node.js应用">
 <meta property="og:url" content="https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/">
 <meta property="twitter:url" content="https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/">
 <meta property="og:site_name" content="aaron&#39;s notes">
-<meta property="og:description" content="PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。">
-<meta name="twitter:description" content="PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。">
+<meta property="og:description" content="PM2是一个用于管理和保持Node.js应用状态的进程管理器。它可以用于部署和监控你的Node.js应用程序。本文将介绍如何使用PM2部署Node.js应用。">
+<meta name="twitter:description" content="PM2是一个用于管理和保持Node.js应用状态的进程管理器。它可以用于部署和监控你的Node.js应用程序。本文将介绍如何使用PM2部署Node.js应用。">
 <meta property="og:locale" content="en-us">
 
   
@@ -106,7 +106,7 @@
   <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/giuseppe-murabito-DhtXQxSH2Jk-unsplash.jpg">
 
 
-    <title>如何使用 PM2 部署 Node.js 应用</title>
+    <title>如何使用PM2部署Node.js应用</title>
 
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/icons/light.jpg">
     
@@ -322,7 +322,7 @@ if (!doNotTrack) {
       <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      如何使用 PM2 部署 Node.js 应用
+      如何使用PM2部署Node.js应用
     </h1>
   
   
@@ -359,28 +359,28 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。</p>
+              <p>PM2是一个用于管理和保持Node.js应用状态的进程管理器。它可以用于部署和监控你的Node.js应用程序。本文将介绍如何使用PM2部署Node.js应用。</p>
 <h1 id="table-of-contents">Table of Contents</h1>
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#为什么要使用-pm2">为什么要使用 PM2</a></li>
-    <li><a href="#使用-pm2-部署-nodejs-应用">使用 PM2 部署 Node.js 应用</a></li>
-    <li><a href="#使用ecosystemconfigjs管理多个应用程序">使用<code>ecosystem.config.js</code>管理多个应用程序</a></li>
+    <li><a href="#为什么要使用pm2">为什么要使用PM2</a></li>
+    <li><a href="#使用pm2部署nodejs应用">使用PM2部署Node.js应用</a></li>
+    <li><a href="#使用ecosystemconfigjs管理应用程序">使用<code>ecosystem.config.js</code>管理应用程序</a></li>
     <li><a href="#pm2的进程执行模式">PM2的进程执行模式</a></li>
   </ul>
 </nav>
 
-<h2 id="为什么要使用-pm2">为什么要使用 PM2</h2>
-<p>使用 PM2 部署 Node.js 应用程序有几个好处:</p>
+<h2 id="为什么要使用pm2">为什么要使用PM2</h2>
+<p>使用PM2部署Node.js应用程序有几个好处:</p>
 <ol>
-<li>进程管理。PM2 可以启动、停止、重启和守护你的 Node.js 应用程序，它将应用程序作为进程守护在后台运行。</li>
-<li>持久化。PM2 可以在服务器重启后自动重启你的 Node.js 应用，这意味着你的应用将始终处于运行状态。</li>
-<li>负载均衡。PM2 可以轻松制作一个本地的负载均衡器来平衡你的 Node.js 应用的多个实例之间的传入请求。</li>
-<li>监控。PM2 提供一个简单的仪表板来监控你所有的 Node.js 应用程序(CPU、内存、进程数等)。</li>
-<li>日志管理。PM2 聚合了所有应用程序的日志,可以轻松管理和查询日志。</li>
+<li>进程管理。PM2可以启动、停止、重启和守护你的Node.js应用程序，它将应用程序作为进程守护在后台运行。</li>
+<li>持久化。PM2可以在服务器重启后自动重启你的Node.js应用，这意味着你的应用将始终处于运行状态。</li>
+<li>负载均衡。PM2可以轻松制作一个本地的负载均衡器来平衡你的Node.js应用的多个实例之间的传入请求。</li>
+<li>监控。PM2提供一个简单的仪表板来监控你所有的Node.js应用程序(CPU、内存、进程数等)。</li>
+<li>日志管理。PM2聚合了所有应用程序的日志,可以轻松管理和查询日志。</li>
 </ol>
-<h2 id="使用-pm2-部署-nodejs-应用">使用 PM2 部署 Node.js 应用</h2>
-<p>安装 PM2:</p>
+<h2 id="使用pm2部署nodejs应用">使用PM2部署Node.js应用</h2>
+<p>安装PM2:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install pm2@latest -g
 </span></span></code></pre></div><p>进入你的应用程序目录:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd your-app/
@@ -390,7 +390,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 list
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 或 pm2 ls</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 或 pm2 status</span>
-</span></span></code></pre></div><p>你将看到你的应用程序名称以及相关信息(进程 ID、内存使用情况、重启次数等)。</p>
+</span></span></code></pre></div><p>你将看到你的应用程序名称以及相关信息(进程 ID、内存使用情况、重启次数等)：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>┌────┬────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
 </span></span><span style="display:flex;"><span>│ id │ name       │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
 </span></span><span style="display:flex;"><span>├────┼────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
@@ -412,7 +412,8 @@ if (!doNotTrack) {
 <li>将这个启动脚本复制到系统服务目录中（例如，<code>/etc/systemd/system</code>目录），并设置服务启动时的用户、环境变量以及其他相关信息。</li>
 <li>最后，它会生成一条命令，要求用户以管理员权限运行该命令，并将其复制到终端中执行。这个命令将启用刚刚创建的系统服务，并在系统重启时自动启动 PM2 进程管理器和已经被管理的应用程序。这样，用户就不必手动启动这些进程，从而提高了系统的可靠性和稳定性。</li>
 </ul>
-<p>如果停用自动启动，运行命令：<code>pm2 unstartup</code>。以下是执行完命令<code>pm2 startup</code>的输出信息：</p>
+<p>如果停用自动启动，运行命令：<code>pm2 unstartup</code>。</p>
+<p>以下是执行完命令<code>pm2 startup</code>的输出信息：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>PM2<span style="color:#f92672">]</span> Init System found: systemd
 </span></span><span style="display:flex;"><span>Platform systemd
 </span></span><span style="display:flex;"><span>Template
@@ -459,9 +460,9 @@ if (!doNotTrack) {
 <p><code>systemd</code>的主要目标是提高系统启动速度和效率，统一系统管理，简化配置文件格式，提高可靠性和可维护性。它采用一种事件驱动的方式管理系统，所有的系统服务都以单独的进程运行，并由<code>systemd</code>统一管理。</p>
 </p>
 </div>
-<h2 id="使用ecosystemconfigjs管理多个应用程序">使用<code>ecosystem.config.js</code>管理多个应用程序</h2>
+<h2 id="使用ecosystemconfigjs管理应用程序">使用<code>ecosystem.config.js</code>管理应用程序</h2>
 <p>PM2可以使用<code>ecosystem.config.js</code>文件来管理多个应用程序，这比手动启动每个应用程序更加结构化和可维护。<code>ecosystem.config.js</code>是一个模块，它导出用于定义应用程序环境的配置。</p>
-<p>下面这个简单示例用来启动Nuxt应用程序的两个进程：<code>app1</code>和<code>app2</code>，分别应用端口<code>3000</code>和<code>3001</code>。同时在Nginx中配置了<code>upstream server</code>指向这两个端口做负载均衡，以方便应用升级的时候可以不影响后台服务。</p>
+<p>下面这个简单示例用来启动Nuxt应用程序的两个进程：<code>app1</code>和<code>app2</code>，分别使用端口<code>3000</code>和<code>3001</code>。同时在Nginx中配置了<code>upstream server</code>指向这两个端口做负载均衡，以方便应用升级的时候可以不影响后台服务。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">apps</span><span style="color:#f92672">:</span> [
 </span></span><span style="display:flex;"><span>      {
@@ -501,10 +502,10 @@ if (!doNotTrack) {
 </ol>
 <p>这两种模式的主要区别在于PM2使用Node.js的<code>child_process.fork api</code>或<code>cluster api</code>：</p>
 <ul>
-<li>在<code>fork</code>模式下，PM2为你的应用程序的每个实例创建一个单独的Node.js进程。每个进程独立运行，不与其他进程共享任何资源。这意味着，如果一个进程崩溃，它不会影响其他进程。在这个模式下，允许改变<code>exec_interpreter</code>（用来启动子进程的 &ldquo;命令&rdquo;），所以你可以用PM2运行一个PHP或<a href="https://pm2.io/blog/2018/09/19/Manage-Python-Processes">Python服务器</a> 。默认情况下，PM2会使用<code>node</code>，所以<code>pm2 start server.js</code>会做类似的事情：
+<li>在<code>fork</code>模式下，PM2为你的应用程序的每个实例创建一个单独的Node.js进程。每个进程独立运行，不与其他进程共享任何资源。这意味着，如果一个进程崩溃，它不会影响其他进程。在这个模式下，允许改变<code>exec_interpreter</code>（用来启动子进程的 &ldquo;命令&rdquo;），所以你可以用PM2运行一个PHP或<a href="https://pm2.io/blog/2018/09/19/Manage-Python-Processes">Python服务器</a> 。默认情况下，PM2会使用<code>node</code>，所以<code>pm2 start server.js</code>类似于：
 <pre tabindex="0"><code>require(&#39;child_process&#39;).spwn(&#39;node&#39;, [&#39;server.js&#39;])
 </code></pre>这种模式非常有用，因为它可以实现很多可能性。例如，你可以在预先确定的端口上启动多个服务器，然后由HAProxy或Nginx进行负载均衡。</li>
-<li><code>cluster</code>只在node作为执行解释器的情况下工作，<code>cluster</code>模式使用内置的Node.js <code>cluster</code>模块来创建一个进程集群，这些进程都共享同一个服务器端口。这使Node.js能够利用多个CPU核心，并使需要处理大量并发请求的应用程序具有更好的性能和可扩展性。在<code>cluster</code>模式下，PM2创建一个主进程和几个工作进程。主进程管理工作进程，并将传入的请求分配给它们。</li>
+<li><code>cluster</code>只在<code>node</code>作为执行解释器的情况下工作，<code>cluster</code>模式使用内置的Node.js <code>cluster</code>模块来创建一个进程集群，这些进程都共享同一个服务器端口。这使Node.js能够利用多个CPU核心，并使需要处理大量并发请求的应用程序具有更好的性能和可扩展性。在<code>cluster</code>模式下，PM2创建一个主进程和几个工作进程。主进程管理工作进程，并将传入的请求分配给它们。</li>
 <li>一般来说，<code>fork</code>模式适用于中低流量的简单应用，而<code>cluster</code>模式更适合于需要更好性能和可扩展性的高流量应用。然而，需要注意的是，<code>cluster</code>模式比<code>fork</code>模式需要更多的内存和CPU资源，所以它可能不适合所有的应用。</li>
 </ul>
 <p>要切换模式，在部署应用程序时使用<code>--exec-mode</code>参数：</p>
