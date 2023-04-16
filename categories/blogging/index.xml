@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blogging on aaron&#39;s notes</title>
+    <link>https://www.aaronnotes.com/categories/blogging/</link>
+    <description>Recent content in blogging on aaron&#39;s notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/categories/blogging/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github Pages Hugo博客主题更新踩坑小记</title>
+      <link>https://www.aaronnotes.com/2022/03/pitfalls-in-updating-hugo-blog-theme/</link>
+      <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2022/03/pitfalls-in-updating-hugo-blog-theme/</guid>
+      <description>&lt;p&gt;好久没用Github，这个博客也很长时间没有更新了，几乎已经被遗忘了。之前喜欢在工作之余利用Github来记一些笔记&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

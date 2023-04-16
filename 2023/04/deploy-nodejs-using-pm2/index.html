@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "如何使用 PM2 部署 Node.js 应用",
+  
+  "image": "//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/giuseppe-murabito-DhtXQxSH2Jk-unsplash.jpg",
+  
+  "datePublished": "2023-04-16T00:00:00Z",
+  "dateModified": "2023-04-16T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "aaron",
+    
+    "image": "https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/www.aaronnotes.com\/2023\/04\/deploy-nodejs-using-pm2\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "aaron's notes",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png"
+    }
+    
+  },
+  "description": "PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。\n",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="aaron">
+<meta name="keywords" content="">
+<meta name="description" content="PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。">
+
+
+<meta property="og:description" content="PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 PM2 部署 Node.js 应用">
+<meta name="twitter:title" content="如何使用 PM2 部署 Node.js 应用">
+<meta property="og:url" content="https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/">
+<meta property="twitter:url" content="https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/">
+<meta property="og:site_name" content="aaron&#39;s notes">
+<meta property="og:description" content="PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。">
+<meta name="twitter:description" content="PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2023-04-16T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2023-04-16T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="dev">
+    
+  
+  
+    
+      <meta property="article:tag" content="pm2">
+    
+      <meta property="article:tag" content="nodejs">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@jiaqingli">
+
+
+  <meta name="twitter:creator" content="@jiaqingli">
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+
+
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/giuseppe-murabito-DhtXQxSH2Jk-unsplash.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/giuseppe-murabito-DhtXQxSH2Jk-unsplash.jpg">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/giuseppe-murabito-DhtXQxSH2Jk-unsplash.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/giuseppe-murabito-DhtXQxSH2Jk-unsplash.jpg">
+
+
+    <title>如何使用 PM2 部署 Node.js 应用</title>
+
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/icons/light.jpg">
+    
+
+    
+
+    <link rel="canonical" href="https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://www.aaronnotes.com/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6F8KMZN49C"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6F8KMZN49C', { 'anonymize_ip': false });
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://www.aaronnotes.com/" aria-label="Go to homepage">aaron&#39;s notes</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://www.aaronnotes.com/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://www.aaronnotes.com/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">aaron</h4>
+        
+          <h5 class="sidebar-profile-bio">random notes</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/lijqhs" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/algorithms-notes" title="Algo Notes">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-leaf" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Algo Notes</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/deeplearning-notes" title="DL Notes">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-magic" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">DL Notes</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/data-science-notes" title="DS Notes">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-cube" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">DS Notes</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/leetcode" title="LeetCoding">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bug" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">LeetCoding</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/blog" title="aaron&#39;s blog">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-laptop" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">aaron&#39;s blog</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/giuseppe-murabito-DhtXQxSH2Jk-unsplash.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      如何使用 PM2 部署 Node.js 应用
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-04-16T00:00:00Z">
+        
+  April 16, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://www.aaronnotes.com/categories/dev">dev</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#为什么要使用-pm2">为什么要使用 PM2</a></li>
+    <li><a href="#使用-pm2-部署-nodejs-应用">使用 PM2 部署 Node.js 应用</a></li>
+    <li><a href="#使用ecosystemconfigjs管理多个应用程序">使用<code>ecosystem.config.js</code>管理多个应用程序</a></li>
+    <li><a href="#pm2的进程执行模式">PM2的进程执行模式</a></li>
+  </ul>
+</nav>
+
+<h2 id="为什么要使用-pm2">为什么要使用 PM2</h2>
+<p>使用 PM2 部署 Node.js 应用程序有几个好处:</p>
+<ol>
+<li>进程管理。PM2 可以启动、停止、重启和守护你的 Node.js 应用程序，它将应用程序作为进程守护在后台运行。</li>
+<li>持久化。PM2 可以在服务器重启后自动重启你的 Node.js 应用，这意味着你的应用将始终处于运行状态。</li>
+<li>负载均衡。PM2 可以轻松制作一个本地的负载均衡器来平衡你的 Node.js 应用的多个实例之间的传入请求。</li>
+<li>监控。PM2 提供一个简单的仪表板来监控你所有的 Node.js 应用程序(CPU、内存、进程数等)。</li>
+<li>日志管理。PM2 聚合了所有应用程序的日志,可以轻松管理和查询日志。</li>
+</ol>
+<h2 id="使用-pm2-部署-nodejs-应用">使用 PM2 部署 Node.js 应用</h2>
+<p>安装 PM2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install pm2@latest -g
+</span></span></code></pre></div><p>进入你的应用程序目录:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd your-app/
+</span></span></code></pre></div><p>启动应用程序:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 start npm --name <span style="color:#e6db74">&#34;your-app-name&#34;</span> -- run start 
+</span></span></code></pre></div><p>查看应用程序状态:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 list
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 或 pm2 ls</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 或 pm2 status</span>
+</span></span></code></pre></div><p>你将看到你的应用程序名称以及相关信息(进程 ID、内存使用情况、重启次数等)。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>┌────┬────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+</span></span><span style="display:flex;"><span>│ id │ name       │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+</span></span><span style="display:flex;"><span>├────┼────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+</span></span><span style="display:flex;"><span>│ <span style="color:#ae81ff">0</span>  │ app1       │ default     │ 2.16.3  │ cluster │ <span style="color:#ae81ff">18259</span>    │ 37s    │ <span style="color:#ae81ff">0</span>    │ online    │ 0%       │ 93.9mb   │ root     │ disabled │
+</span></span><span style="display:flex;"><span>│ <span style="color:#ae81ff">1</span>  │ app2       │ default     │ 2.16.3  │ cluster │ <span style="color:#ae81ff">18289</span>    │ 11s    │ <span style="color:#ae81ff">0</span>    │ online    │ 0%       │ 114.5mb  │ root     │ disabled │
+</span></span><span style="display:flex;"><span>└────┴────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+</span></span></code></pre></div><p>重启应用程序:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 restart your-app-name
+</span></span></code></pre></div><p>停止应用程序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 stop your-app-name
+</span></span></code></pre></div><p>PM2 也有一个简单的仪表板可以监控你的应用程序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 monit
+</span></span></code></pre></div><p>最后，你可以通过运行以下命令，在服务器重启后使 PM2 自动启动：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 startup
+</span></span></code></pre></div><p><code>pm2 startup</code>是PM2的一个命令，它的主要作用是创建一个系统服务，以便在系统重启时自动启动PM2进程管理器和已经被管理的应用程序。</p>
+<p>具体来说，<code>pm2 startup</code>执行以下操作：</p>
+<ul>
+<li>检测当前系统使用哪种初始化系统（例如，<code>systemd</code>、<code>upstart</code>、<code>SysV</code>等），并生成相应的启动脚本。</li>
+<li>将这个启动脚本复制到系统服务目录中（例如，<code>/etc/systemd/system</code>目录），并设置服务启动时的用户、环境变量以及其他相关信息。</li>
+<li>最后，它会生成一条命令，要求用户以管理员权限运行该命令，并将其复制到终端中执行。这个命令将启用刚刚创建的系统服务，并在系统重启时自动启动 PM2 进程管理器和已经被管理的应用程序。这样，用户就不必手动启动这些进程，从而提高了系统的可靠性和稳定性。</li>
+</ul>
+<p>如果停用自动启动，运行命令：<code>pm2 unstartup</code>。以下是执行完命令<code>pm2 startup</code>的输出信息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>PM2<span style="color:#f92672">]</span> Init System found: systemd
+</span></span><span style="display:flex;"><span>Platform systemd
+</span></span><span style="display:flex;"><span>Template
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Description<span style="color:#f92672">=</span>PM2 process manager
+</span></span><span style="display:flex;"><span>Documentation<span style="color:#f92672">=</span>https://pm2.keymetrics.io/
+</span></span><span style="display:flex;"><span>After<span style="color:#f92672">=</span>network.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Type<span style="color:#f92672">=</span>forking
+</span></span><span style="display:flex;"><span>User<span style="color:#f92672">=</span>root
+</span></span><span style="display:flex;"><span>LimitNOFILE<span style="color:#f92672">=</span>infinity
+</span></span><span style="display:flex;"><span>LimitNPROC<span style="color:#f92672">=</span>infinity
+</span></span><span style="display:flex;"><span>LimitCORE<span style="color:#f92672">=</span>infinity
+</span></span><span style="display:flex;"><span>Environment<span style="color:#f92672">=</span>PATH<span style="color:#f92672">=</span>/root/.nvm/versions/node/v18.15.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+</span></span><span style="display:flex;"><span>Environment<span style="color:#f92672">=</span>PM2_HOME<span style="color:#f92672">=</span>/root/.pm2
+</span></span><span style="display:flex;"><span>PIDFile<span style="color:#f92672">=</span>/root/.pm2/pm2.pid
+</span></span><span style="display:flex;"><span>Restart<span style="color:#f92672">=</span>on-failure
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ExecStart<span style="color:#f92672">=</span>/root/.nvm/versions/node/v18.15.0/lib/node_modules/pm2/bin/pm2 resurrect
+</span></span><span style="display:flex;"><span>ExecReload<span style="color:#f92672">=</span>/root/.nvm/versions/node/v18.15.0/lib/node_modules/pm2/bin/pm2 reload all
+</span></span><span style="display:flex;"><span>ExecStop<span style="color:#f92672">=</span>/root/.nvm/versions/node/v18.15.0/lib/node_modules/pm2/bin/pm2 kill
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>WantedBy<span style="color:#f92672">=</span>multi-user.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Target path
+</span></span><span style="display:flex;"><span>/etc/systemd/system/pm2-root.service
+</span></span><span style="display:flex;"><span>Command list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> <span style="color:#e6db74">&#39;systemctl enable pm2-root&#39;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>PM2<span style="color:#f92672">]</span> Writing init configuration in /etc/systemd/system/pm2-root.service
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>PM2<span style="color:#f92672">]</span> Making script booting at startup...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>PM2<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> Executing: systemctl enable pm2-root...
+</span></span><span style="display:flex;"><span>Created symlink /etc/systemd/system/multi-user.target.wants/pm2-root.service → /etc/systemd/system/pm2-root.service.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>PM2<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>v<span style="color:#f92672">]</span> Command successfully executed.
+</span></span><span style="display:flex;"><span>+---------------------------------------+
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>PM2<span style="color:#f92672">]</span> Freeze a process list on reboot via:
+</span></span><span style="display:flex;"><span>$ pm2 save
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>PM2<span style="color:#f92672">]</span> Remove init script via:
+</span></span><span style="display:flex;"><span>$ pm2 unstartup systemd
+</span></span></code></pre></div><div class="alert info ">
+  <p><p><a href="https://en.wikipedia.org/wiki/Systemd"><code>systemd</code></a>是一个Linux系统初始化系统和服务管理器，是目前主流Linux发行版（如Ubuntu、Debian、CentOS、Red Hat等）的默认初始化系统。它负责启动系统服务、管理进程、处理日志、控制系统休眠和唤醒等任务。</p>
+<p><code>systemd</code>的主要目标是提高系统启动速度和效率，统一系统管理，简化配置文件格式，提高可靠性和可维护性。它采用一种事件驱动的方式管理系统，所有的系统服务都以单独的进程运行，并由<code>systemd</code>统一管理。</p>
+</p>
+</div>
+<h2 id="使用ecosystemconfigjs管理多个应用程序">使用<code>ecosystem.config.js</code>管理多个应用程序</h2>
+<p>PM2可以使用<code>ecosystem.config.js</code>文件来管理多个应用程序，这比手动启动每个应用程序更加结构化和可维护。<code>ecosystem.config.js</code>是一个模块，它导出用于定义应用程序环境的配置。</p>
+<p>下面这个简单示例用来启动Nuxt应用程序的两个进程：<code>app1</code>和<code>app2</code>，分别应用端口<code>3000</code>和<code>3001</code>。同时在Nginx中配置了<code>upstream server</code>指向这两个端口做负载均衡，以方便应用升级的时候可以不影响后台服务。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">apps</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app1&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exec_mode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;cluster&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3000</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">instances</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;4&#39;</span>, <span style="color:#75715e">// Or a number of instances
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">script</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./node_modules/nuxt/bin/nuxt.js&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">args</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;start&#39;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app2&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exec_mode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;cluster&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3001</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">instances</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;4&#39;</span>, <span style="color:#75715e">// Or a number of instances
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">script</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./node_modules/nuxt/bin/nuxt.js&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">args</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;start&#39;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>要启动此配置，运行:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 start ecosystem.config.js 
+</span></span></code></pre></div><p>或者可以单独启动某一个应用进程：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 start app1
+</span></span></code></pre></div><p>如果我们需要升级更新该Nuxt应用，我们只需将代码更新到服务器中，依次运行下面的命令，即可做到在升级的时候后台服务不需间断。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm run build
+</span></span><span style="display:flex;"><span>pm2 stop app1
+</span></span><span style="display:flex;"><span>pm2 start app1
+</span></span><span style="display:flex;"><span>pm2 stop app2
+</span></span><span style="display:flex;"><span>pm2 start app2
+</span></span></code></pre></div><h2 id="pm2的进程执行模式">PM2的进程执行模式</h2>
+<p>在上面的示例中，我们看到一个配置<code>exec_mode: 'cluster'</code>，这表示PM2的进程执行模式选择<code>cluster</code>模式。</p>
+<p>PM2有两种进程执行模式：</p>
+<ol>
+<li><code>fork</code>模式是默认的执行模式，它使用单个主进程来管理所有的子进程。在这种模式下，每个应用程序都会被复制多次，以创建多个独立的子进程。每个子进程都可以独立地处理请求，但它们之间不会共享状态或内存。</li>
+<li><code>cluster</code>模式是一种高级模式，它使用多个主进程来管理所有的子进程。在这种模式下，每个应用程序只会被复制一次，并由多个子进程共享。这些子进程可以共享状态和内存，并且可以使用IPC通信来协调工作。</li>
+</ol>
+<p>这两种模式的主要区别在于PM2使用Node.js的<code>child_process.fork api</code>或<code>cluster api</code>：</p>
+<ul>
+<li>在<code>fork</code>模式下，PM2为你的应用程序的每个实例创建一个单独的Node.js进程。每个进程独立运行，不与其他进程共享任何资源。这意味着，如果一个进程崩溃，它不会影响其他进程。在这个模式下，允许改变<code>exec_interpreter</code>（用来启动子进程的 &ldquo;命令&rdquo;），所以你可以用PM2运行一个PHP或<a href="https://pm2.io/blog/2018/09/19/Manage-Python-Processes">Python服务器</a> 。默认情况下，PM2会使用<code>node</code>，所以<code>pm2 start server.js</code>会做类似的事情：
+<pre tabindex="0"><code>require(&#39;child_process&#39;).spwn(&#39;node&#39;, [&#39;server.js&#39;])
+</code></pre>这种模式非常有用，因为它可以实现很多可能性。例如，你可以在预先确定的端口上启动多个服务器，然后由HAProxy或Nginx进行负载均衡。</li>
+<li><code>cluster</code>只在node作为执行解释器的情况下工作，<code>cluster</code>模式使用内置的Node.js <code>cluster</code>模块来创建一个进程集群，这些进程都共享同一个服务器端口。这使Node.js能够利用多个CPU核心，并使需要处理大量并发请求的应用程序具有更好的性能和可扩展性。在<code>cluster</code>模式下，PM2创建一个主进程和几个工作进程。主进程管理工作进程，并将传入的请求分配给它们。</li>
+<li>一般来说，<code>fork</code>模式适用于中低流量的简单应用，而<code>cluster</code>模式更适合于需要更好性能和可扩展性的高流量应用。然而，需要注意的是，<code>cluster</code>模式比<code>fork</code>模式需要更多的内存和CPU资源，所以它可能不适合所有的应用。</li>
+</ul>
+<p>要切换模式，在部署应用程序时使用<code>--exec-mode</code>参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pm2 start app.js --exec-mode<span style="color:#f92672">=</span>cluster
+</span></span></code></pre></div><p>或在<code>ecosystem.config.js</code>文件中设置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">apps</span> <span style="color:#f92672">:</span> [{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exec_mode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cluster&#34;</span>
+</span></span><span style="display:flex;"><span>  }]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><a href="https://pm2.io/docs/plus/overview/">PM2 Documentation</a></li>
+<li><a href="https://pm2.keymetrics.io/docs/usage/application-declaration/">Ecosystem file</a></li>
+<li><a href="https://pm2.io/blog/2018/05/31/PM2-Setup-and-Deployment-with-Ecosystem-Configuration">PM2 Setup and Deployment with Ecosystem Configuration</a></li>
+<li><a href="https://pm2.io/blog">PM2 Blog</a></li>
+<li><a href="https://stackoverflow.com/questions/34682035/cluster-and-fork-mode-difference-in-pm2">Cluster and Fork mode difference in PM2</a></li>
+</ul>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://www.aaronnotes.com/tags/pm2/">pm2</a>
+
+  <a class="tag tag--primary tag--small" href="https://www.aaronnotes.com/tags/nodejs/">nodejs</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://www.aaronnotes.com/2023/04/redis-memory-overcommit/" data-tooltip="Docker启动Redis, Low Memory Warning处理方法" aria-label="PREVIOUS: Docker启动Redis, Low Memory Warning处理方法">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/www.aaronnotes.com\/2023\/04\/deploy-nodejs-using-pm2\/';
+        
+          this.page.identifier = '\/2023\/04\/deploy-nodejs-using-pm2\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'lijqhs';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2023 aaron. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://www.aaronnotes.com/2023/04/redis-memory-overcommit/" data-tooltip="Docker启动Redis, Low Memory Warning处理方法" aria-label="PREVIOUS: Docker启动Redis, Low Memory Warning处理方法">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.aaronnotes.com%2F2023%2F04%2Fdeploy-nodejs-using-pm2%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fwww.aaronnotes.com%2F2023%2F04%2Fdeploy-nodejs-using-pm2%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.aaronnotes.com%2F2023%2F04%2Fdeploy-nodejs-using-pm2%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.reddit.com/submit?url=https%3A%2F%2Fwww.aaronnotes.com%2F2023%2F04%2Fdeploy-nodejs-using-pm2%2F" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i><span>Share on Reddit</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">aaron</h4>
+    
+      <div id="about-card-bio">random notes</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        software engineer, FRM
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        canada
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://www.aaronnotes.com/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://www.aaronnotes.com/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
+
+
+
+    
+  </body>
+</html>
+

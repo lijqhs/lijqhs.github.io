@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pm2 on aaron&#39;s notes</title>
+    <link>https://www.aaronnotes.com/tags/pm2/</link>
+    <description>Recent content in pm2 on aaron&#39;s notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/pm2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何使用 PM2 部署 Node.js 应用</title>
+      <link>https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/</guid>
+      <description>&lt;p&gt;PM2 是一个用于管理和保持 Node.js 应用状态的进程管理器。它可以用于部署和监控你的 Node.js 应用程序。本文将介绍如何使用 PM2 部署 Node.js 应用。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
