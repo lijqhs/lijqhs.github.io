@@ -362,7 +362,12 @@ if (!doNotTrack) {
   <ul>
     <li><a href="#introduction">Introduction</a>
       <ul>
-        <li><a href="#two-types-of-large-language-models-llms">Two Types of large language models (LLMs)</a></li>
+        <li><a href="#two-types-of-large-language-models-llms">Two Types of large language models (LLMs)</a>
+          <ul>
+            <li><a href="#base-llm">Base LLM</a></li>
+            <li><a href="#instruction-tuned-llm">Instruction Tuned LLM</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#guidelines-for-prompting">Guidelines for Prompting</a>
@@ -451,36 +456,26 @@ if (!doNotTrack) {
 <p>If you want LLMs to write something about Alan Turing, it can be helpful to be clear about whether you want the text to focus on his scientific work or his personal life or his role in history or something else. And it is also better to specify what kind of tone it should take on, such as a professional report or a casual note.</p>
 <h2 id="introduction">Introduction</h2>
 <h3 id="two-types-of-large-language-models-llms">Two Types of large language models (LLMs)</h3>
-<ul>
-<li>
-<p><strong>Base LLM</strong>: Predicts next word, based on text training data</p>
-<blockquote>
-<p>input: Once upon a time, there was a unicorn<br>
-output: that lived in a magical forest with all her unicorn friends</p>
-</blockquote>
-<blockquote>
-<p>input: What is the capital of France?<br>
-output:<br>
-What is France’s largest city?<br>
-What is France’s population?<br>
-hat is the currency of France?</p>
-</blockquote>
-</li>
-<li>
-<p><strong>Instruction Tuned LLM</strong>: Tries to follow instructions</p>
+<h4 id="base-llm">Base LLM</h4>
+<p>Predicts next word, based on text training data</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>input: Once upon a time, there was a unicorn  
+</span></span><span style="display:flex;"><span>output: that lived in a magical forest with all her unicorn friends
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>input: What is the capital of France?  
+</span></span><span style="display:flex;"><span>output:  
+</span></span><span style="display:flex;"><span>What is France’s largest city?  
+</span></span><span style="display:flex;"><span>What is France’s population?  
+</span></span><span style="display:flex;"><span>hat is the currency of France?  
+</span></span></code></pre></div><h4 id="instruction-tuned-llm">Instruction Tuned LLM</h4>
+<p>Tries to follow instructions:</p>
 <ul>
 <li>start off with a base LLMs that’s been trained on a huge amount of text data</li>
 <li>Fine-tune on instructions and good attempts at following those instructions.</li>
-<li>further refine using a technique called <strong>RLHF</strong> (reinforcement learning from human feedback)</li>
+<li>further refine using a technique called <a href="https://huggingface.co/blog/rlhf">RLHF</a> (reinforcement learning from human feedback)</li>
 <li>helpful, honest, harmless, a lot of the practical usage scenarios have been shifting toward instruction tuned LLMs</li>
 </ul>
-<blockquote>
-<p>input: What is the capital of France?<br>
-output: The captial of France is Paris.</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="guidelines-for-prompting">Guidelines for Prompting</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>input: What is the capital of France?  
+</span></span><span style="display:flex;"><span>output: The captial of France is Paris.
+</span></span></code></pre></div><h2 id="guidelines-for-prompting">Guidelines for Prompting</h2>
 <p>Using <a href="https://platform.openai.com/docs/guides/chat">chat completions endpoint</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> openai
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
