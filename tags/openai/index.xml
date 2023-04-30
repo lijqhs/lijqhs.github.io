@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openai on aaron&#39;s notes</title>
+    <link>https://www.aaronnotes.com/tags/openai/</link>
+    <description>Recent content in openai on aaron&#39;s notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/openai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>吴恩达 ChatGPT Prompt 课程笔记</title>
+      <link>https://www.aaronnotes.com/2023/04/chatgpt-prompt-short-course-notes/</link>
+      <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2023/04/chatgpt-prompt-short-course-notes/</guid>
+      <description>&lt;p&gt;吴恩达老师的DeepLearning.AI新课程：面向开发者的ChatGPT Prompt短课程，&lt;a href=&#34;https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/&#34;&gt;ChatGPT Prompt Engineering for Developers - DeepLearning.AI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Prompt Engineering 可用于微调 LLM(Large Language Model, 例如ChatGPT) 的行为并提高其在特定领域，比如文本生成、问答、情感分析和语言翻译的性能。提示的使用为自然语言处理开辟了新的可能性，并预计将在未来的更先进的语言模型的发展中发挥重要作用。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

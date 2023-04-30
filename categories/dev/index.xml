@@ -6,7 +6,17 @@
     <description>Recent content in dev on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>吴恩达 ChatGPT Prompt 课程笔记</title>
+      <link>https://www.aaronnotes.com/2023/04/chatgpt-prompt-short-course-notes/</link>
+      <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2023/04/chatgpt-prompt-short-course-notes/</guid>
+      <description>&lt;p&gt;吴恩达老师的DeepLearning.AI新课程：面向开发者的ChatGPT Prompt短课程，&lt;a href=&#34;https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/&#34;&gt;ChatGPT Prompt Engineering for Developers - DeepLearning.AI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Prompt Engineering 可用于微调 LLM(Large Language Model, 例如ChatGPT) 的行为并提高其在特定领域，比如文本生成、问答、情感分析和语言翻译的性能。提示的使用为自然语言处理开辟了新的可能性，并预计将在未来的更先进的语言模型的发展中发挥重要作用。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>如何使用PM2部署Node.js应用</title>
       <link>https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/</link>
