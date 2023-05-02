@@ -19,7 +19,7 @@
     <item>
       <title>使用Docker Compose快速部署ElasticSearch</title>
       <link>https://www.aaronnotes.com/2023/03/docker-compose-quickstart/</link>
-      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://www.aaronnotes.com/2023/03/docker-compose-quickstart/</guid>
       <description>&lt;p&gt;有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。&lt;/p&gt;</description>

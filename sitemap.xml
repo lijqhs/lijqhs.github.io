@@ -30,28 +30,28 @@
     <lastmod>2023-04-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/2023/04/caching-in-python/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/caching/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/decorator/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/lru_cache/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/memoization/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/python/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/categories/python/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/redis/</loc>
-    <lastmod>2023-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/async/</loc>
     <lastmod>2023-04-22T00:00:00+00:00</lastmod>
@@ -84,7 +84,7 @@
     <lastmod>2023-04-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/2023/04/redis-memory-overcommit/</loc>
-    <lastmod>2023-04-05T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/context-manager/</loc>
     <lastmod>2023-04-02T00:00:00+00:00</lastmod>
@@ -93,10 +93,10 @@
     <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/zsh/</loc>
-    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.aaronnotes.com/2023/03/zsh-oh-my-zsh/</loc>
-    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+    <loc>https://www.aaronnotes.com/2023/04/zsh-oh-my-zsh/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/docker/</loc>
     <lastmod>2023-03-26T00:00:00+00:00</lastmod>
@@ -108,16 +108,16 @@
     <lastmod>2023-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/docker-compose/</loc>
-    <lastmod>2023-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/elasticsearch/</loc>
-    <lastmod>2023-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/kibana/</loc>
-    <lastmod>2023-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/2023/03/docker-compose-quickstart/</loc>
-    <lastmod>2023-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.aaronnotes.com/tags/ambassador-bridge/</loc>
     <lastmod>2022-05-15T00:00:00+00:00</lastmod>
