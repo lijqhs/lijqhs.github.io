@@ -17,6 +17,24 @@
     </item>
     
     <item>
+      <title>An Introduction to Caching in Python</title>
+      <link>https://www.aaronnotes.com/2023/04/caching-in-python/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2023/04/caching-in-python/</guid>
+      <description>&lt;p&gt;Caching is a technique used to improve the performance of software applications by storing frequently accessed data in memory, rather than repeatedly retrieving it from slower sources like disk or network.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Demystifying Yield in Python</title>
+      <link>https://www.aaronnotes.com/2023/04/demystifying-yield-in-python/</link>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2023/04/demystifying-yield-in-python/</guid>
+      <description>&lt;p&gt;Python&amp;rsquo;s &lt;code&gt;yield&lt;/code&gt; statement is a powerful tool that can be used in a variety of contexts, including generator functions, coroutines, and asynchronous programming.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>如何使用PM2部署Node.js应用</title>
       <link>https://www.aaronnotes.com/2023/04/deploy-nodejs-using-pm2/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
@@ -32,6 +50,15 @@
       
       <guid>https://www.aaronnotes.com/2023/04/redis-memory-overcommit/</guid>
       <description>&lt;p&gt;Redis是一种高性能的开源内存数据结构存储系统，可以用作数据库、缓存和消息代理。它支持很多数据结构，包括字符串、哈希、列表、集合、有序集合等。Redis在内存中存储数据，并且支持数据持久化，可以将数据存储在磁盘上，以便在重启时恢复数据。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>What are Context Managers in Python</title>
+      <link>https://www.aaronnotes.com/2023/04/context-managers-in-python/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2023/04/context-managers-in-python/</guid>
+      <description>&lt;p&gt;In Python, context managers are a powerful tool for managing resources such as files, sockets, and locks. While Python provides built-in context managers such as &lt;code&gt;with open() as f:&lt;/code&gt; for working with files, you can also define your own context managers using the &lt;code&gt;contextlib&lt;/code&gt; module. In this post, I&amp;rsquo;ll explore how to define your own context managers in Python.&lt;/p&gt;</description>
     </item>
     
     <item>

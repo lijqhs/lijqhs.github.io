@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "An Introduction to Caching in Python",
+  
+  "image": "//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/1/david-marcu-VfUN94cUy4o-unsplash.jpg",
+  
+  "datePublished": "2023-04-28T00:00:00Z",
+  "dateModified": "2023-04-28T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "aaron",
+    
+    "image": "https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/www.aaronnotes.com\/2023\/04\/caching-in-python\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "aaron's notes",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png"
+    }
+    
+  },
+  "description": "Caching is a technique used to improve the performance of software applications by storing frequently accessed data in memory, rather than repeatedly retrieving it from slower sources like disk or network.\n",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="aaron">
+<meta name="keywords" content="">
+<meta name="description" content="Caching is a technique used to improve the performance of software applications by storing frequently accessed data in memory, rather than repeatedly retrieving it from slower sources like disk or network.">
+
+
+<meta property="og:description" content="Caching is a technique used to improve the performance of software applications by storing frequently accessed data in memory, rather than repeatedly retrieving it from slower sources like disk or network.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An Introduction to Caching in Python">
+<meta name="twitter:title" content="An Introduction to Caching in Python">
+<meta property="og:url" content="https://www.aaronnotes.com/2023/04/caching-in-python/">
+<meta property="twitter:url" content="https://www.aaronnotes.com/2023/04/caching-in-python/">
+<meta property="og:site_name" content="aaron&#39;s notes">
+<meta property="og:description" content="Caching is a technique used to improve the performance of software applications by storing frequently accessed data in memory, rather than repeatedly retrieving it from slower sources like disk or network.">
+<meta name="twitter:description" content="Caching is a technique used to improve the performance of software applications by storing frequently accessed data in memory, rather than repeatedly retrieving it from slower sources like disk or network.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2023-04-28T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2023-04-28T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="dev">
+    
+  
+  
+    
+      <meta property="article:tag" content="python">
+    
+      <meta property="article:tag" content="caching">
+    
+      <meta property="article:tag" content="lru_cache">
+    
+      <meta property="article:tag" content="decorator">
+    
+      <meta property="article:tag" content="memoization">
+    
+      <meta property="article:tag" content="redis">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@jiaqingli">
+
+
+  <meta name="twitter:creator" content="@jiaqingli">
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+  <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png">
+
+
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/1/david-marcu-VfUN94cUy4o-unsplash.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/1/david-marcu-VfUN94cUy4o-unsplash.jpg">
+
+
+  <meta property="og:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/1/david-marcu-VfUN94cUy4o-unsplash.jpg">
+  <meta property="twitter:image" content="//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/1/david-marcu-VfUN94cUy4o-unsplash.jpg">
+
+
+    <title>An Introduction to Caching in Python</title>
+
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/icons/nugget.jpg">
+    
+
+    
+
+    <link rel="canonical" href="https://www.aaronnotes.com/2023/04/caching-in-python/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://www.aaronnotes.com/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6F8KMZN49C"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6F8KMZN49C', { 'anonymize_ip': false });
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://www.aaronnotes.com/" aria-label="Go to homepage">aaron&#39;s notes</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://www.aaronnotes.com/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://www.aaronnotes.com/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">aaron</h4>
+        
+          <h5 class="sidebar-profile-bio">random notes</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/lijqhs" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/algorithms-notes" title="Algo Notes">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-leaf" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Algo Notes</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/deeplearning-notes" title="DL Notes">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-magic" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">DL Notes</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/data-science-notes" title="DS Notes">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-cube" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">DS Notes</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rocket" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('//cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/gallery/u/1/david-marcu-VfUN94cUy4o-unsplash.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      An Introduction to Caching in Python
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-04-28T00:00:00Z">
+        
+  April 28, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://www.aaronnotes.com/categories/dev">dev</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>Caching is a technique used to improve the performance of software applications by storing frequently accessed data in memory, rather than repeatedly retrieving it from slower sources like disk or network.</p>
+<p>In Python, caching is a common strategy used to optimize the performance of applications that frequently access data from slow or remote sources.</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#how-does-caching-work-in-python">How does Caching work in Python?</a></li>
+      </ul>
+    </li>
+    <li><a href="#cache-strategies">Cache strategies</a>
+      <ul>
+        <li><a href="#lru-cache">LRU Cache</a></li>
+        <li><a href="#a-simple-implementation-of-lru-cache">A simple implementation of LRU Cache</a></li>
+        <li><a href="#use-lrucache-for-memoization">Use <code>LRUCache</code> for memoization</a></li>
+      </ul>
+    </li>
+    <li><a href="#benefits-of-caching-in-python">Benefits of Caching in Python</a></li>
+    <li><a href="#distributed-caching">Distributed caching</a></li>
+    <li><a href="#whats-the-benefits-of-redis">What&rsquo;s the benefits of Redis</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+<h2 id="introduction">Introduction</h2>
+<h3 id="how-does-caching-work-in-python">How does Caching work in Python?</h3>
+<p>Caching works by storing frequently accessed data in memory so that it can be quickly retrieved when needed. In Python, there are several ways to implement caching, including using dictionaries, lists, or specialized caching libraries.</p>
+<p>One common approach to caching in Python is to use a dictionary to store the results of function calls. When a function is called with the same arguments, the result is returned from the cache rather than recalculating the result. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_sum_slowly</span>(a, b):
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">2</span>)           <span style="color:#75715e"># to mimic expensive calculations</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(get_sum_slowly(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>))  <span style="color:#75715e"># cost 2 seconds to print 3</span>
+</span></span></code></pre></div><p>Whenever we call function <code>get_sum_slowly</code>, it will cost about 2 seconds to get the number <code>3</code>. But if we change a little bit, things will be different:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cache <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_sum_cached</span>(a, b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (a, b) <span style="color:#f92672">in</span> cache:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> cache[(a, b)]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> get_sum_slowly(a, b)    <span style="color:#75715e"># perform expensive calculation here</span>
+</span></span><span style="display:flex;"><span>    cache[(a, b)] <span style="color:#f92672">=</span> result
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(get_sum_cached(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>))  <span style="color:#75715e"># firstly cost 2 seconds to print 3</span>
+</span></span><span style="display:flex;"><span>print(get_sum_cached(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>))  <span style="color:#75715e"># print 3 immediately</span>
+</span></span></code></pre></div><p>In this example, the <code>get_sum_cached</code> checks the cache to see if the result for the given arguments has already been calculated. If it has, the cached result is returned. If not, the expensive calculation is performed and the result is stored in the cache for future use.</p>
+<p>Another approach to caching in Python is to use a memoization decorator. A memoization decorator is a function that takes another function as an argument and returns a new function that caches the results of the original function. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> functools
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@functools.cache</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_sum_cached2</span>(a, b):
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">2</span>)   <span style="color:#75715e"># to mimic expensive calculations</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(get_sum_cached2(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>))  <span style="color:#75715e"># firstly cost 2 seconds to print 3</span>
+</span></span><span style="display:flex;"><span>print(get_sum_cached2(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>))  <span style="color:#75715e"># print 3 immediately</span>
+</span></span></code></pre></div><p><code>functools.cache</code> is a decorator that was added in Python 3.9 as part of the functools module. It provides a simple way to cache the results of a function in memory, without having to write custom caching code. When you apply the <code>@functools.cache</code> decorator to a function, Python automatically caches the result of the function for a given set of arguments. The next time the function is called with the same arguments, Python returns the cached result instead of recomputing the result.</p>
+<h2 id="cache-strategies">Cache strategies</h2>
+<p>The above example demonstrates the efficiency of caching, but it also exposes a potential flaw of simple dictionary caching: infinite growth of dictionary content. Because we did not put any limit on the content of the dictionary, as the number of calls increases, the content of the dictionary will expand infinitely, which will eventually lead to a crash of the program. So we need caching strategies to prevent such a thing from happening.</p>
+<p>Since memory is always finite, we must decide that some of the content needs to be released from memory to make room for new content.</p>
+<p>There are a few main caching strategies:</p>
+<ol>
+<li><strong>LRU (Least Recently Used)</strong>: The least <em>recently</em> used items are evicted from the cache when the cache reaches its maximum size. This strategy ensures that the most recently used items are kept in the cache.</li>
+<li><strong>LFU (Least Frequently Used)</strong>: The least <em>frequently</em> used items are evicted from the cache when the cache reaches its maximum size. This strategy ensures that the most frequently used items are kept in the cache.</li>
+<li><strong>Random</strong>: In a random eviction strategy, items are evicted from the cache at random when the cache reaches its maximum size. This strategy is simple to implement, but may not be optimal for all use cases.</li>
+<li><strong>FIFO (First In, First Out)</strong>: The oldest items are evicted from the cache when the cache reaches its maximum size. This strategy ensures that items are evicted in the order in which they were added to the cache.</li>
+<li><strong>Size-based</strong>: Items are evicted from the cache based on their size when the cache reaches its maximum size. This strategy ensures that the cache does not exceed its maximum size, but may not take into account the popularity of items.</li>
+<li><strong>Time-based</strong>: Discards items based on an expiration time. Useful for caching ephemeral data.</li>
+</ol>
+<h3 id="lru-cache">LRU Cache</h3>
+<p>The LRU cache eviction strategy is popular one, which is based on the assumption that the items that have been accessed most recently are the items that are most likely to be accessed again in the near future.</p>
+<p>The algorithm behind LRU cache is based on maintaining a doubly linked list of items in the cache, with the most recently used item at the front of the list and the least recently used item at the back of the list. Each item in the list has a key-value pair, where the key is the item&rsquo;s identifier and the value is the item&rsquo;s data.</p>
+<p>When an item is accessed, it is moved to the front of the list. When a new item is added to the cache, it is added to the front of the list. When the cache reaches its maximum size, the least recently used item at the back of the list is evicted from the cache.</p>
+<p>Here&rsquo;s a more detailed description of the algorithm:</p>
+<ol>
+<li>Initialize an empty cache and a doubly linked list.</li>
+<li>When a new item is accessed or added to the cache, check if it is already in the cache.</li>
+<li>If the item is in the cache, remove it from its current position in the linked list and move it to the front of the list.</li>
+<li>If the item is not in the cache, add it to the front of the linked list and add it to the cache.</li>
+<li>If the cache size exceeds its maximum capacity, remove the least recently used item from the back of the linked list and from the cache.</li>
+</ol>
+<p>The LRU cache algorithm ensures that the most frequently accessed items are always at the front of the linked list and are therefore the least likely to be evicted from the cache. The least recently used items are always at the back of the linked list and are therefore the most likely to be evicted from the cache when the cache reaches its maximum capacity.</p>
+<p>In Python, the <code>functools</code> module provides a built-in LRU cache implementation through the <code>functools.lru_cache</code> decorator. In the previous example, <code>functools.cache</code> is actually the same as <code>functools.lru_cache(maxsize=None)</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># cache -- simplified access to the infinity cache</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cache</span>(user_function, <span style="color:#f92672">/</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Simple lightweight unbounded cache.  Sometimes called &#34;memoize&#34;.&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> lru_cache(maxsize<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)(user_function)
+</span></span></code></pre></div><h3 id="a-simple-implementation-of-lru-cache">A simple implementation of LRU Cache</h3>
+<p>Here&rsquo;s an example of how to implement an LRU cache in Python using a dictionary and a doubly linked list:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, key<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, value<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>key <span style="color:#f92672">=</span> key
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> value
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LRUCache</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, capacity):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>capacity <span style="color:#f92672">=</span> capacity
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cache <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> Node()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>tail <span style="color:#f92672">=</span> Node()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>head<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>tail
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>tail<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get</span>(self, key):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> key <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>cache:
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>cache[key]
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>_move_to_front(node)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> node<span style="color:#f92672">.</span>value
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">put</span>(self, key, value):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> key <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>cache:
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>cache[key]
+</span></span><span style="display:flex;"><span>            node<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> value
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>_move_to_front(node)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> len(self<span style="color:#f92672">.</span>cache) <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>capacity:
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>_evict()
+</span></span><span style="display:flex;"><span>            node <span style="color:#f92672">=</span> Node(key, value)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>cache[key] <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>_add_to_front(node)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_move_to_front</span>(self, node):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_remove_node(node)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_add_to_front(node)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_add_to_front</span>(self, node):
+</span></span><span style="display:flex;"><span>        node<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+</span></span><span style="display:flex;"><span>        node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head<span style="color:#f92672">.</span>next
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>head<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>head<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_remove_node</span>(self, node):
+</span></span><span style="display:flex;"><span>        node<span style="color:#f92672">.</span>prev<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>next
+</span></span><span style="display:flex;"><span>        node<span style="color:#f92672">.</span>next<span style="color:#f92672">.</span>prev <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>prev
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_evict</span>(self):
+</span></span><span style="display:flex;"><span>        node <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>tail<span style="color:#f92672">.</span>prev
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_remove_node(node)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">del</span> self<span style="color:#f92672">.</span>cache[node<span style="color:#f92672">.</span>key]
+</span></span></code></pre></div><ul>
+<li>
+<p>The <code>Node</code> class represents a node in the linked list. Each node has a <code>key</code> and a <code>value</code>, and pointers to the previous and next nodes in the list.</p>
+</li>
+<li>
+<p>The <code>get</code> method retrieves a value from the cache given a key. If the key is in the cache, the corresponding node is moved to the front of the list (since it was just accessed), and the value is returned. If the key is not in the cache, <code>None</code> is returned.</p>
+</li>
+<li>
+<p>The <code>put</code> method adds a new key-value pair to the cache. If the key is already in the cache, the corresponding node is updated with the new value and moved to the front of the list (since it was just accessed). If the key is not in the cache, a new node is created and added to the front of the list. If the cache is already at its maximum capacity, the least recently used item (at the end of the list) is evicted from the cache.</p>
+</li>
+<li>
+<p>The <code>_move_to_front</code>, <code>_add_to_front</code>, <code>_remove_node</code>, and <code>_evict</code> methods are internal helper methods that manipulate the linked list as needed.</p>
+</li>
+</ul>
+<p>We can test <code>LRUCache</code> with a simple example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cache <span style="color:#f92672">=</span> LRUCache(<span style="color:#ae81ff">2</span>)  <span style="color:#75715e"># Create an LRU cache with capacity 2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cache<span style="color:#f92672">.</span>put(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;hello&#39;</span>)
+</span></span><span style="display:flex;"><span>cache<span style="color:#f92672">.</span>put(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;world&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">1</span>))  <span style="color:#75715e"># Output: &#39;hello&#39;</span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">2</span>))  <span style="color:#75715e"># Output: &#39;world&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cache<span style="color:#f92672">.</span>put(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;foo&#39;</span>)  <span style="color:#75715e"># Evicts key 1 since it was the least recently used</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">1</span>))  <span style="color:#75715e"># Output: None</span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">2</span>))  <span style="color:#75715e"># Output: &#39;world&#39;</span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">3</span>))  <span style="color:#75715e"># Output: &#39;foo&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cache<span style="color:#f92672">.</span>put(<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;bar&#39;</span>)  <span style="color:#75715e"># Evicts key 2 since it was the least recently used</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">1</span>))  <span style="color:#75715e"># Output: None</span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">2</span>))  <span style="color:#75715e"># Output: None</span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">3</span>))  <span style="color:#75715e"># Output: &#39;foo&#39;</span>
+</span></span><span style="display:flex;"><span>print(cache<span style="color:#f92672">.</span>get(<span style="color:#ae81ff">4</span>))  <span style="color:#75715e"># Output: &#39;bar&#39;</span>
+</span></span></code></pre></div><h3 id="use-lrucache-for-memoization">Use <code>LRUCache</code> for memoization</h3>
+<p>We can use <code>LRUCache</code> to boost the implementation of a Fibonacci function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fib</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>: <span style="color:#66d9ef">return</span> n
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> fib(n<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> fib(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(fib(<span style="color:#ae81ff">36</span>))      
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 14930352, time cost: 5.440476059000503</span>
+</span></span></code></pre></div><p>Cached version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fibonacci</span>(n, cache):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>: <span style="color:#66d9ef">return</span> n
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> v<span style="color:#f92672">:=</span>cache<span style="color:#f92672">.</span>get(n): <span style="color:#66d9ef">return</span> v
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        v <span style="color:#f92672">=</span> fibonacci(n<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, cache) <span style="color:#f92672">+</span> fibonacci(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, cache)
+</span></span><span style="display:flex;"><span>        cache<span style="color:#f92672">.</span>put(n, v)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> v
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>cache <span style="color:#f92672">=</span> LRUCache(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>print(fibonacci(<span style="color:#ae81ff">36</span>, cache)) 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 14930352, time cost: 0.00013985300029162318</span>
+</span></span></code></pre></div><p>In this example, we create an <code>LRUCache</code> object with a maximum capacity of only <code>2</code>, and the time cost can prove the cached version of the Fibonacci function is much more efficient than the original recursive one.</p>
+<h2 id="benefits-of-caching-in-python">Benefits of Caching in Python</h2>
+<p>Caching in Python can provide several benefits, including:</p>
+<ol>
+<li>
+<p>Improved performance: By storing frequently accessed data in memory, caching can reduce the amount of time spent accessing slow or remote data sources.</p>
+</li>
+<li>
+<p>Reduced resource consumption: Caching can reduce the amount of resources required to execute a Python application, such as CPU time or network bandwidth.</p>
+</li>
+<li>
+<p>Consistent results: Caching can help ensure that a Python application consistently returns the same results for the same inputs, which can be important for applications that require accuracy and precision.</p>
+</li>
+</ol>
+<h2 id="distributed-caching">Distributed caching</h2>
+<p>Distributed caching is a technique used to improve the performance and scalability of applications by distributing cached data across multiple servers or nodes. In Python, there are several common use cases for distributed caching, including:</p>
+<ol>
+<li>
+<p>Web applications: Distributed caching can be used to store frequently accessed data, such as session data, user preferences, or frequently used database queries, in memory across multiple servers. This can significantly improve the performance and scalability of web applications, especially during periods of high traffic.</p>
+</li>
+<li>
+<p>Machine learning: Distributed caching can be used to store large datasets or trained machine learning models in memory across multiple nodes. This can improve the performance of machine learning algorithms by reducing the amount of time spent accessing data from slow or remote data sources.</p>
+</li>
+<li>
+<p>High-performance computing: Distributed caching can be used to store intermediate results or frequently accessed data in memory across multiple nodes in a high-performance computing cluster. This can reduce the amount of time spent transferring data between nodes and improve the overall performance of the system.</p>
+</li>
+<li>
+<p>Real-time analytics: Distributed caching can be used to store frequently accessed data, such as event streams or user behavior data, in memory across multiple nodes. This can improve the performance of real-time analytics systems by reducing the amount of time spent accessing and processing data.</p>
+</li>
+<li>
+<p>Content delivery networks (CDNs): Distributed caching can be used to store frequently accessed content, such as images, videos, or static assets, across multiple servers in a content delivery network. This can improve the performance and availability of content for users around the world.</p>
+</li>
+</ol>
+<p>Some popular distributed caching solutions for Python include <strong>Redis</strong>, <strong>Memcached</strong>, and <strong>Hazelcast</strong>. These solutions provide features such as replication, sharding, and automatic failover to ensure that cached data is always available and consistent across multiple nodes.</p>
+<h2 id="whats-the-benefits-of-redis">What&rsquo;s the benefits of Redis</h2>
+<p><strong>Redis</strong> is an in-memory key-value data store that can be used as a distributed caching solution. While Python&rsquo;s built-in caching tools, such as <code>dict</code> or <code>lru_cache</code>, provide a simple and effective way to implement caching in Python, Redis offers several benefits that make it a popular choice for distributed caching. Here are some of the benefits of Redis compared to built-in cache tools in Python:</p>
+<ol>
+<li>
+<p>Scalability: Redis is designed to be highly scalable and can be used to distribute cached data across multiple nodes. This allows Redis to handle large amounts of data and high levels of traffic, making it suitable for large-scale applications.</p>
+</li>
+<li>
+<p>Persistence: Redis can be configured to persist cached data to disk, which means that cached data will not be lost if the server is restarted or crashes. This is important for applications that require high availability or have strict data durability requirements.</p>
+</li>
+<li>
+<p>Advanced data structures: Redis provides advanced data structures, such as sets, sorted sets, and lists, that can be used to implement more complex caching strategies. For example, sorted sets can be used to implement time-based caching, where cached data is automatically expired after a certain period of time.</p>
+</li>
+<li>
+<p>Distributed locks: Redis provides distributed locking mechanisms that can be used to ensure that only one process or thread can access a particular resource at a time. This is important for applications that require concurrency control or have shared resources that need to be protected.</p>
+</li>
+<li>
+<p>Integration with other languages and platforms: Redis has libraries and clients available for many programming languages and platforms, making it easy to integrate with existing systems and applications.</p>
+</li>
+<li>
+<p>Performance: Redis is designed to be fast and efficient, with low latency and high throughput. This makes it suitable for high-performance applications that require low response times and high data throughput.</p>
+</li>
+</ol>
+<p>In summary, Redis provides several benefits compared to built-in cache tools in Python, including scalability, persistence, advanced data structures, distributed locks, integration with other languages and platforms, and high performance. These benefits make Redis a popular choice for distributed caching and a powerful tool for improving the performance and scalability of Python applications.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Caching is a powerful technique for improving the performance of Python applications. By storing frequently accessed data in memory, caching can reduce the amount of time spent accessing slow or remote data sources, which can lead to faster and more efficient Python applications. Whether you use a simple dictionary-based cache or a more sophisticated memoization decorator, caching is a technique worth considering for any Python application that requires frequent access to the same data.</p>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://www.aaronnotes.com/tags/python/">python</a>
+
+  <a class="tag tag--primary tag--small" href="https://www.aaronnotes.com/tags/caching/">caching</a>
+
+  <a class="tag tag--primary tag--small" href="https://www.aaronnotes.com/tags/lru_cache/">lru_cache</a>
+
+  <a class="tag tag--primary tag--small" href="https://www.aaronnotes.com/tags/decorator/">decorator</a>
+
+  <a class="tag tag--primary tag--small" href="https://www.aaronnotes.com/tags/memoization/">memoization</a>
+
+  <a class="tag tag--primary tag--small" href="https://www.aaronnotes.com/tags/redis/">redis</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://www.aaronnotes.com/2023/04/notes-on-chatgpt-prompt-engineering-course/" data-tooltip="Notes on ChatGPT Prompt Engineering Course" aria-label="NEXT: Notes on ChatGPT Prompt Engineering Course">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://www.aaronnotes.com/2023/04/demystifying-yield-in-python/" data-tooltip="Demystifying Yield in Python" aria-label="PREVIOUS: Demystifying Yield in Python">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://www.aaronnotes.com/2023/04/caching-in-python/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://www.aaronnotes.com/2023/04/caching-in-python/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.aaronnotes.com/2023/04/caching-in-python/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://www.aaronnotes.com/2023/04/caching-in-python/" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/www.aaronnotes.com\/2023\/04\/caching-in-python\/';
+        
+          this.page.identifier = '\/2023\/04\/caching-in-python\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'lijqhs';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2023 aaron. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://www.aaronnotes.com/2023/04/notes-on-chatgpt-prompt-engineering-course/" data-tooltip="Notes on ChatGPT Prompt Engineering Course" aria-label="NEXT: Notes on ChatGPT Prompt Engineering Course">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://www.aaronnotes.com/2023/04/demystifying-yield-in-python/" data-tooltip="Demystifying Yield in Python" aria-label="PREVIOUS: Demystifying Yield in Python">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://www.aaronnotes.com/2023/04/caching-in-python/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://www.aaronnotes.com/2023/04/caching-in-python/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.aaronnotes.com/2023/04/caching-in-python/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.reddit.com/submit?url=https://www.aaronnotes.com/2023/04/caching-in-python/" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.aaronnotes.com%2F2023%2F04%2Fcaching-in-python%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fwww.aaronnotes.com%2F2023%2F04%2Fcaching-in-python%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.aaronnotes.com%2F2023%2F04%2Fcaching-in-python%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.reddit.com/submit?url=https%3A%2F%2Fwww.aaronnotes.com%2F2023%2F04%2Fcaching-in-python%2F" aria-label="Share on Reddit">
+          <i class="fab fa-reddit" aria-hidden="true"></i><span>Share on Reddit</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.2/img/icons/plane-icon.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">aaron</h4>
+    
+      <div id="about-card-bio">random notes</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        software developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        canada
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://www.aaronnotes.com/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://www.aaronnotes.com/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
+
+
+
+    
+  </body>
+</html>
+

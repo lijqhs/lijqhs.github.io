@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>generator on aaron&#39;s notes</title>
+    <link>https://www.aaronnotes.com/tags/generator/</link>
+    <description>Recent content in generator on aaron&#39;s notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/generator/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Demystifying Yield in Python</title>
+      <link>https://www.aaronnotes.com/2023/04/demystifying-yield-in-python/</link>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2023/04/demystifying-yield-in-python/</guid>
+      <description>&lt;p&gt;Python&amp;rsquo;s &lt;code&gt;yield&lt;/code&gt; statement is a powerful tool that can be used in a variety of contexts, including generator functions, coroutines, and asynchronous programming.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>What are Context Managers in Python</title>
+      <link>https://www.aaronnotes.com/2023/04/context-managers-in-python/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/2023/04/context-managers-in-python/</guid>
+      <description>&lt;p&gt;In Python, context managers are a powerful tool for managing resources such as files, sockets, and locks. While Python provides built-in context managers such as &lt;code&gt;with open() as f:&lt;/code&gt; for working with files, you can also define your own context managers using the &lt;code&gt;contextlib&lt;/code&gt; module. In this post, I&amp;rsquo;ll explore how to define your own context managers in Python.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

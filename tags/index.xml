@@ -35,6 +35,114 @@
     </item>
     
     <item>
+      <title>caching</title>
+      <link>https://www.aaronnotes.com/tags/caching/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/caching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>decorator</title>
+      <link>https://www.aaronnotes.com/tags/decorator/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/decorator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lru_cache</title>
+      <link>https://www.aaronnotes.com/tags/lru_cache/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/lru_cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memoization</title>
+      <link>https://www.aaronnotes.com/tags/memoization/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/memoization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://www.aaronnotes.com/tags/python/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis</title>
+      <link>https://www.aaronnotes.com/tags/redis/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>async</title>
+      <link>https://www.aaronnotes.com/tags/async/</link>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/async/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>asynchronous programming</title>
+      <link>https://www.aaronnotes.com/tags/asynchronous-programming/</link>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/asynchronous-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>asyncio</title>
+      <link>https://www.aaronnotes.com/tags/asyncio/</link>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/asyncio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coroutine</title>
+      <link>https://www.aaronnotes.com/tags/coroutine/</link>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/coroutine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>generator</title>
+      <link>https://www.aaronnotes.com/tags/generator/</link>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/generator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yield</title>
+      <link>https://www.aaronnotes.com/tags/yield/</link>
+      <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.aaronnotes.com/tags/yield/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>nodejs</title>
       <link>https://www.aaronnotes.com/tags/nodejs/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
@@ -53,11 +161,11 @@
     </item>
     
     <item>
-      <title>redis</title>
-      <link>https://www.aaronnotes.com/tags/redis/</link>
-      <pubDate>Wed, 05 Apr 2023 00:00:00 +0000</pubDate>
+      <title>context manager</title>
+      <link>https://www.aaronnotes.com/tags/context-manager/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://www.aaronnotes.com/tags/redis/</guid>
+      <guid>https://www.aaronnotes.com/tags/context-manager/</guid>
       <description></description>
     </item>
     
@@ -229,15 +337,6 @@
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
       
       <guid>https://www.aaronnotes.com/tags/nlp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://www.aaronnotes.com/tags/python/</link>
-      <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
-      
-      <guid>https://www.aaronnotes.com/tags/python/</guid>
       <description></description>
     </item>
     
