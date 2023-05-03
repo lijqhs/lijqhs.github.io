@@ -66,6 +66,8 @@
     <title>nginx</title>
 
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/icons/nugget.jpg">
+    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/icons/nugget.jpg">
+    <link rel="safari_pinned_tab" href="https://cdn.jsdelivr.net/gh/lijqhs/cdn@1.5.2/img/icons/nugget.jpg">
     
       <link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.aaronnotes.com/tags/nginx/index.xml">
     
@@ -80,7 +82,7 @@
     
     
     
-    <link rel="stylesheet" href="https://www.aaronnotes.com/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    <link rel="stylesheet" href="https://www.aaronnotes.com/css/style-c15f9dbce95111ed96856c96cfde1fd911c88340e95211ed94146c96cfde1fd9.min.css" />
     
     
 
@@ -98,7 +100,73 @@ if (!doNotTrack) {
 </script>
 
     
+    <script>
+    function setTheme(themeName) {
+        if(themeName === 'dark') {
+            document.documentElement.classList.remove('theme--light');
+            document.documentElement.classList.add('theme--dark');
+        }
+        else {
+            document.documentElement.classList.remove('theme--dark');
+            document.documentElement.classList.add('theme--light');
+        }
+
+        localStorage.setItem('theme', themeName);
+        document.documentElement.setAttribute('data-theme', themeName);
+    }
+
+    var currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
     
+    if (currentTheme) {
+        if (currentTheme === 'dark') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    }
+    else {
+        
+        if (window.matchMedia("(prefers-color-scheme: dark)")){
+            setTheme('dark');
+        }
+        else if (window.matchMedia("(prefers-color-scheme: light)")){
+            setTheme('light');
+        }
+        else {
+            
+            setTheme('dark');
+        }
+    }
+
+    var mqDark = window.matchMedia('(prefers-color-scheme: dark)');
+    var mqLight = window.matchMedia('(prefers-color-scheme: light)');
+    
+    function checkTheme(event) {
+        if (event.matches) {
+            if (event.media.includes('dark')) {
+                setTheme('dark');
+                document.getElementById('slider').checked = false;
+            }
+            if (event.media.includes('light')) {
+                setTheme('light');
+                document.getElementById('slider').checked = true;
+            }
+        }
+    }
+    
+    try {
+      mqDark.addEventListener('change', checkTheme);
+      mqLight.addEventListener('change', checkTheme);
+    } catch (maybeSafari) {
+      try {
+        mqDark.addListener(checkTheme);
+        mqLight.addListener(checkTheme);
+      } catch (dontknow) {
+        
+      }
+    }
+</script>
   </head>
 
   <body>
@@ -133,6 +201,12 @@ if (!doNotTrack) {
         <h4 class="sidebar-profile-name">aaron</h4>
         
           <h5 class="sidebar-profile-bio">random notes</h5>
+        
+        
+          <label id="switch" class="switch">
+    <input type="checkbox" onchange="toggleTheme()" id="slider" aria-label="Switch between Dark and Light mode">
+    <span class="slider round"></span>
+</label>
         
       </div>
     
@@ -331,7 +405,7 @@ if (!doNotTrack) {
         
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2023 aaron. All Rights Reserved
+    &copy; 2023 All content licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 
   </span>
 </footer>
 
@@ -385,7 +459,8 @@ if (!doNotTrack) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://www.aaronnotes.com/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+<script src="https://www.aaronnotes.com/js/script-5b445f02e95311ed96856c96cfde1fd94e6226e8e95311ed94146c96cfde1fd9.min.js"></script>
 
 
   
@@ -442,14 +517,8 @@ $(document).ready(function() {
 </script>
 
 
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      CommonHTML: { linebreaks: { automatic: true } },
-      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
-      messageStyle: 'none'
-    });
-  </script>
+
+
 
 
 
