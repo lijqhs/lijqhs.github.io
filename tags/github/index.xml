@@ -6,42 +6,35 @@
     <description>Recent content in github on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.aaronnotes.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Pages Hugo博客主题更新踩坑小记</title>
       <link>https://www.aaronnotes.com/2022/03/pitfalls-in-updating-hugo-blog-theme/</link>
       <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/2022/03/pitfalls-in-updating-hugo-blog-theme/</guid>
       <description>&lt;p&gt;好久没用Github，这个博客也很长时间没有更新了，几乎已经被遗忘了。之前喜欢在工作之余利用Github来记一些笔记&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How To Change The Theme of A Hugo Blog</title>
       <link>https://www.aaronnotes.com/2020/11/how-to-change-the-theme-of-a-hugo-blog/</link>
       <pubDate>Sun, 15 Nov 2020 23:30:00 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/2020/11/how-to-change-the-theme-of-a-hugo-blog/</guid>
       <description>&lt;p&gt;A few days ago I &lt;a href=&#34;https://www.aaronnotes.com/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/&#34;&gt;migrated this blog&lt;/a&gt; to Hugo from Jekyll and employed a beautiful theme called &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34;&gt;Even&lt;/a&gt;, a concise and powerful hugo theme, which fascinated me so much until I came across another graceful and exquisite hugo theme called &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme&#34;&gt;Tranquilpeak&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How To Setup a Blog with Hugo and Github Pages on Mac</title>
       <link>https://www.aaronnotes.com/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</link>
       <pubDate>Fri, 06 Nov 2020 23:19:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/2020/11/how-to-setup-a-blog-with-hugo-and-github-pages-on-mac/</guid>
       <description>&lt;p&gt;GitHub is not only a cool community for developers who can create teams, share code, and even make friends, but it also provides free tools for people who like to toss around ideas.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Git快速指南</title>
       <link>https://www.aaronnotes.com/2019/03/git-quickstart/</link>
       <pubDate>Wed, 20 Mar 2019 18:45:00 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/2019/03/git-quickstart/</guid>
       <description>&lt;p&gt;很多公司内部使用GitLab来做版本管理，假设你已经按照公司wiki设置好了Git账户。那么如何快速开始使用Git进行代码版本管理，下面是一些常用流程步骤。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

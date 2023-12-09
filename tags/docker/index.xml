@@ -6,24 +6,21 @@
     <description>Recent content in docker on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.aaronnotes.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用Docker配置启动Nginx</title>
       <link>https://www.aaronnotes.com/2023/03/nginx-docker-guide/</link>
       <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/2023/03/nginx-docker-guide/</guid>
       <description>&lt;p&gt;Nginx（发音为 &amp;ldquo;engine x&amp;rdquo;）是一个高性能的Web服务器和反向代理服务器，也可以作为一个负载平衡器、HTTP缓存和邮件代理服务器。它被设计用来处理大量的并发连接，而内存使用量却很低，这使得它成为高流量网站的热门选择。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>使用Docker Compose快速部署ElasticSearch</title>
       <link>https://www.aaronnotes.com/2023/03/docker-compose-quickstart/</link>
       <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/2023/03/docker-compose-quickstart/</guid>
       <description>&lt;p&gt;有时需要在Windows上部署ElasticSearch，那么最方便的方法还是用docker-compose来安装部署。也可以将本文作为快速上手docker-compose的简单案例。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

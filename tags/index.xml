@@ -6,384 +6,301 @@
     <description>Recent content in Tags on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.aaronnotes.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chatgpt</title>
       <link>https://www.aaronnotes.com/tags/chatgpt/</link>
       <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/chatgpt/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>openai</title>
       <link>https://www.aaronnotes.com/tags/openai/</link>
       <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/openai/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>prompt engineering</title>
       <link>https://www.aaronnotes.com/tags/prompt-engineering/</link>
       <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/prompt-engineering/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>caching</title>
       <link>https://www.aaronnotes.com/tags/caching/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/caching/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>decorator</title>
       <link>https://www.aaronnotes.com/tags/decorator/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/decorator/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>lru_cache</title>
       <link>https://www.aaronnotes.com/tags/lru_cache/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/lru_cache/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>memoization</title>
       <link>https://www.aaronnotes.com/tags/memoization/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/memoization/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>python</title>
       <link>https://www.aaronnotes.com/tags/python/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/python/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>redis</title>
       <link>https://www.aaronnotes.com/tags/redis/</link>
       <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/redis/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>async</title>
       <link>https://www.aaronnotes.com/tags/async/</link>
       <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/async/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>asynchronous programming</title>
       <link>https://www.aaronnotes.com/tags/asynchronous-programming/</link>
       <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/asynchronous-programming/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>asyncio</title>
       <link>https://www.aaronnotes.com/tags/asyncio/</link>
       <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/asyncio/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>coroutine</title>
       <link>https://www.aaronnotes.com/tags/coroutine/</link>
       <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/coroutine/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>generator</title>
       <link>https://www.aaronnotes.com/tags/generator/</link>
       <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/generator/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>yield</title>
       <link>https://www.aaronnotes.com/tags/yield/</link>
       <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/yield/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>nodejs</title>
       <link>https://www.aaronnotes.com/tags/nodejs/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/nodejs/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>pm2</title>
       <link>https://www.aaronnotes.com/tags/pm2/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/pm2/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>context manager</title>
       <link>https://www.aaronnotes.com/tags/context-manager/</link>
       <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/context-manager/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>zsh</title>
       <link>https://www.aaronnotes.com/tags/zsh/</link>
       <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/zsh/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>docker</title>
       <link>https://www.aaronnotes.com/tags/docker/</link>
       <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/docker/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>nginx</title>
       <link>https://www.aaronnotes.com/tags/nginx/</link>
       <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/nginx/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>docker-compose</title>
       <link>https://www.aaronnotes.com/tags/docker-compose/</link>
       <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/docker-compose/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>elasticsearch</title>
       <link>https://www.aaronnotes.com/tags/elasticsearch/</link>
       <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/elasticsearch/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>kibana</title>
       <link>https://www.aaronnotes.com/tags/kibana/</link>
       <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/kibana/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Ambassador Bridge</title>
       <link>https://www.aaronnotes.com/tags/ambassador-bridge/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/ambassador-bridge/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Canada goose</title>
       <link>https://www.aaronnotes.com/tags/canada-goose/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/canada-goose/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Detroit River</title>
       <link>https://www.aaronnotes.com/tags/detroit-river/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/detroit-river/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Windsor Sculpture Park</title>
       <link>https://www.aaronnotes.com/tags/windsor-sculpture-park/</link>
       <pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/windsor-sculpture-park/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>git</title>
       <link>https://www.aaronnotes.com/tags/git/</link>
       <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/git/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>github</title>
       <link>https://www.aaronnotes.com/tags/github/</link>
       <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/github/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>hugo</title>
       <link>https://www.aaronnotes.com/tags/hugo/</link>
       <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/hugo/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>bias-variance</title>
       <link>https://www.aaronnotes.com/tags/bias-variance/</link>
       <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/bias-variance/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>machine learning</title>
       <link>https://www.aaronnotes.com/tags/machine-learning/</link>
       <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/machine-learning/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>deep learning</title>
       <link>https://www.aaronnotes.com/tags/deep-learning/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/deep-learning/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>embedding</title>
       <link>https://www.aaronnotes.com/tags/embedding/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/embedding/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>keras</title>
       <link>https://www.aaronnotes.com/tags/keras/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/keras/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>nlp</title>
       <link>https://www.aaronnotes.com/tags/nlp/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/nlp/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>text classification</title>
       <link>https://www.aaronnotes.com/tags/text-classification/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/text-classification/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>tf-idf</title>
       <link>https://www.aaronnotes.com/tags/tf-idf/</link>
       <pubDate>Wed, 29 May 2019 21:15:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/tf-idf/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>scikit-learn</title>
       <link>https://www.aaronnotes.com/tags/scikit-learn/</link>
       <pubDate>Wed, 22 May 2019 20:35:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/scikit-learn/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>mac</title>
       <link>https://www.aaronnotes.com/tags/mac/</link>
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/mac/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>matplotlib</title>
       <link>https://www.aaronnotes.com/tags/matplotlib/</link>
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/tags/matplotlib/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

@@ -5,6 +5,7 @@
     <link>https://www.aaronnotes.com/archives/</link>
     <description>Recent content in Archives on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://www.aaronnotes.com/archives/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://www.aaronnotes.com/archives/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

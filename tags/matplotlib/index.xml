@@ -6,15 +6,14 @@
     <description>Recent content in matplotlib on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Aug 2018 20:11:48 +0800</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Aug 2018 20:11:48 +0800</lastBuildDate>
+    <atom:link href="https://www.aaronnotes.com/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Create Virtual Environments by venv</title>
       <link>https://www.aaronnotes.com/2018/08/how-to-create-virtual-environments-by-venv/</link>
       <pubDate>Sat, 25 Aug 2018 20:11:48 +0800</pubDate>
-      
       <guid>https://www.aaronnotes.com/2018/08/how-to-create-virtual-environments-by-venv/</guid>
       <description>&lt;p&gt;When I tested examples of the book &lt;strong&gt;Deep learning from scratch&lt;/strong&gt;, a RuntimeError prompted told me matplotlib backend was not able to function correctly as my Python is not installed as a framework.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

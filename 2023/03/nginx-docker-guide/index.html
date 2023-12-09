@@ -42,7 +42,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="generator" content="Hugo 0.121.1 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="aaron">
 <meta name="keywords" content="">
 <meta name="description" content="Nginx（发音为 &ldquo;engine x&rdquo;）是一个高性能的Web服务器和反向代理服务器，也可以作为一个负载平衡器、HTTP缓存和邮件代理服务器。它被设计用来处理大量的并发连接，而内存使用量却很低，这使得它成为高流量网站的热门选择。">
@@ -349,11 +349,11 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://www.aaronnotes.com/til/" title="TIL">
+      <a class="sidebar-button-link " href="https://www.aaronnotes.com/blog/" title="Blog">
     
       <i class="sidebar-button-icon fas fa-lg fa-rocket" aria-hidden="true"></i>
       
-      <span class="sidebar-button-desc">TIL</span>
+      <span class="sidebar-button-desc">Blog</span>
     </a>
   </li>
 
@@ -510,8 +510,7 @@ if (!doNotTrack) {
 <li>最少连接(Least connections)： 在最少连接的负载平衡中，Nginx将传入的请求路由到活动连接最少的后端服务器。</li>
 <li>IP散列(IP hash)： 在IP哈希负载平衡中，Nginx根据客户的IP地址，将传入的请求路由到后端服务器。这确保来自同一个客户的后续请求总是被发送到同一个后端服务器。</li>
 <li>随机(Random)： 在随机负载平衡中，Nginx将传入的请求路由到一个随机选择的后端服务器。</li>
-</ul>
-</p>
+</ul></p>
 </div>
 <p>不同的负载平衡算法可能更适合于不同的用例，这取决于后端服务器的数量、工作负载的类型以及所需的容错和性能水平等因素。</p>
 <p>要配置Nginx的负载平衡，可以在nginx.conf文件中使用upstream指令。例如</p>

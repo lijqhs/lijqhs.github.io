@@ -6,15 +6,14 @@
     <description>Recent content in bias-variance on aaron&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronnotes.com/tags/bias-variance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.aaronnotes.com/tags/bias-variance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>机器学习中的偏差(Bias)与方差(Variance)</title>
       <link>https://www.aaronnotes.com/2020/10/bias-variance-tradeoff/</link>
       <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.aaronnotes.com/2020/10/bias-variance-tradeoff/</guid>
       <description>&lt;p&gt;一个机器学习方法的泛化性能与它对独立测试数据的预测能力有关。对泛化性能的评估在机器学习实践中极为重要&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
