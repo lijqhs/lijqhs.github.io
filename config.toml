@@ -194,12 +194,12 @@ canonifyurls = true
 #   url = "/index.xml"
 
 
-# [[menu.misc]]
-#   weight = 1
-#   identifier = "blog"
-#   name = "aaron's blog"
-#   pre = "<i class=\"sidebar-button-icon fas fa-lg fa-rocket\" aria-hidden=\"true\"></i>"
-#   url = "https://www.aaronnotes.com/blog"
+[[menu.misc]]
+  weight = 1
+  identifier = "Bonjour"
+  name = "Bonjour"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-fish\" aria-hidden=\"true\"></i>"
+  url = "https://www.aaronnotes.com/bonjour"
 
 # -------------
 # Customization
