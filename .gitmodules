@@ -1,0 +1,3 @@
+[submodule "themes/TranquilMod"]
+	path = themes/TranquilMod
+	url = https://github.com/lijqhs/hugo-tranquilpeak-theme.git
