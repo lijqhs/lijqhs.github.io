@@ -430,11 +430,11 @@ canonifyurls = true
    name = "Pocket"
    icon = "fab fa-get-pocket"
    url = "https://getpocket.com/edit?url=%s"
-#
-#  [[params.sharingOptions]]
-#    name = "Hacker News"
-#    icon = "fab fa-hacker-news"
-#    url = "https://news.ycombinator.com/submitlink?u=%s"
+
+ [[params.sharingOptions]]
+   name = "Hacker News"
+   icon = "fab fa-hacker-news"
+   url = "https://news.ycombinator.com/submitlink?u=%s"
 
   # -------------------
   # Integrated services
