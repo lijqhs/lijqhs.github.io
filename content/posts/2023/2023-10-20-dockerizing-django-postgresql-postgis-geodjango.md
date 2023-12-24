@@ -631,4 +631,4 @@ Distance: 8921 meters
 
 ## Conclusion
 
-In this example, we explore the powerful capabilities of GeoDjango and PostGIS for advanced location searches within Django applications. While this is a simple demonstration, we can enhance it further by optimizing queries using Google Maps API for address search and developing a RESTful API with Django REST Framework (DRF) to provide location search services. The code repository is available on GitHub.
+In this example, we explore the powerful capabilities of GeoDjango and PostGIS for advanced location searches within Django applications. While this is a simple demonstration, we can enhance it further by optimizing queries using Google Maps API for address search and developing a RESTful API with Django REST Framework (DRF) to provide location search services. The code repository is available on [GitHub](https://github.com/lijqhs/django-postgis-example).
