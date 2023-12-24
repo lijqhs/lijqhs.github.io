@@ -16,16 +16,16 @@ tags:
 ---
 
 
-If you have stored the longitude and latitude coordinates for the address in your Django model, you can leverage the spatial features of PostGIS and GeoDjango to perform advanced geo searches similar to Elasticsearch. 
+If you have stored the longitude and latitude coordinates for the address in your Django model, you can leverage the spatial features of PostGIS and GeoDjango to perform advanced geo searches similar to Elasticsearch.
 
 <!--more-->
 
 {{< toc >}}
 
 
-## Introduction
+## Create Django Project and Deploy with Docker
 
-
+We will develop a simple application for restaurant search to show how to create Django project, use PostgreSQL as backend and deploy them with Docker.
 
 ### Install Django
 
@@ -104,7 +104,7 @@ sudo docker run hello-world
 
 ### Run PostgreSQL and pgAdmin in Docker
 
-Run PostgreSQL and pgAdmin with Docker Compose. [^2]
+Run PostgreSQL and pgAdmin with Docker Compose, first add the following configuration to `compose.yml`. [^2]
 
 [^2]: [PostgreSQL and pgAdmin](https://github.com/docker/awesome-compose/tree/master/postgresql-pgadmin)
 
@@ -156,12 +156,13 @@ docker compose up
 
 You might need to run the Docker as a non-root user [^3], otherwise it is possible to get `permission denied` error. 
 
+
 [^3]: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
 
 While the docker is running, get access to pgAdmin on `http://localhost:5050`. To register the PostgreSQL run by Docker as above in pgAdmin, right click `Servers` and choose `Register` -> `Server` -> `Connection`, set `Host name/address` to `postgres` (Docker container name).
 
 
-### Replace database in Django to PostgreSQL
+### Replace Database in Django to PostgreSQL
 
 To connect PostgreSQL DB, it's better to make sure [psycopg](https://www.psycopg.org/install/) (3 or 2) has been installed, for this example, install psycopg 2:
 
@@ -203,7 +204,7 @@ pip install python-dotenv
 
 Now if run `python manage.py runserver`, the Django project should be run on PostgreSQL DB.
 
-### Create models and admin page
+### Create Models and Admin Page
 
 Add `djapp` to `djsite` project in `settings.py`:
 
@@ -285,7 +286,7 @@ Docker can make deployment easier, especially to install Geospatial libraries fo
 pip freeze > requirements.txt
 ```
 
-To better deploy the Django project, always follow the right steps and requirements. To check what might be missing for the deployment of your Django project, run `python manage.py check --deploy`. [^4] 
+To better deploy the Django project, always follow the right steps and requirements. To check what might be missing for the deployment of your Django project [^4] , run `python manage.py check --deploy`.
 
 [^4]: [Django Tutorial Part 11: Deploying Django to production](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment)
 
@@ -340,7 +341,7 @@ docker compose up
 
 ## Preparation for Location Search in Django
 
-To do location search in Django, we need GeoDjango and PostGIS. 
+In this section, we will equip PostgreSQL with geospatial feature and configure the required installation using dockerfile to make things easier. To do location search in Django, we need GeoDjango and PostGIS. 
 - [GeoDjango](https://docs.djangoproject.com/en/4.2/ref/contrib/gis/tutorial/) is a web framework for developing geographic applications using Django, which is a high-level Python web framework.
 - [PostGIS](https://postgis.net/), on the other hand, is an extension for the PostgreSQL database that adds support for spatial data types and spatial querying capabilities.
 
@@ -458,11 +459,10 @@ RUN python -m pip install --upgrade pip && \
 If you install all the Geospatial libraries in local environment and then run `python manage.py runserver` for development mode, you might get the error:
 
 
-{{< alert danger >}}
 
+```shell
 OSError: /home/aaron/miniconda3/envs/dj/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.30' not found (required by /lib/libgdal.so.30)
-
-{{< /alert >}}
+```
 
 This can be solved by
 
