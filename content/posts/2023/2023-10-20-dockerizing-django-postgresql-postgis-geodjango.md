@@ -397,7 +397,7 @@ select postgis_version();
 It should output like this:
 
 | postgis_version |
-| :---: |
+| --- |
 | 3.1 USE_GEOS=1 USE_PROJ=1 USE_STATS=1 |
 
 If not, run `CREATE EXTENSION postgis;` in Query Tool.
@@ -409,6 +409,8 @@ The last step is to modify database setting in Django, then the Django project i
 ```
 
 But it's not ready to run Django project, because GEOS, PROJ and GDAL should be installed prior to building PostGIS.[^8] Otherwise you will get error:
+
+[^8]: [Installing PostGIS](https://docs.djangoproject.com/en/5.0/ref/contrib/gis/install/postgis/)
 
 ```shell
 django.core.exceptions.ImproperlyConfigured: Could not find the GDAL library (tried "gdal", "GDAL", "gdal3.6.0", "gdal3.5.0", "gdal3.4.0", "gdal3.3.0", "gdal3.2.0", "gdal3.1.0", "gdal3.0.0", "gdal2.4.0", "gdal2.3.0", "gdal2.2.0"). Is GDAL installed? If it is, try setting GDAL_LIBRARY_PATH in your settings.
@@ -499,7 +501,11 @@ class Restaurant(models.Model):
         super().save(*args, **kwargs)
 ```
 
+{{< alert info >}}
+
 Note that the `srid=4326` parameter is necessary to specify the coordinate reference system (CRS) of the point. In this case, it corresponds to the WGS84 CRS commonly used for latitude and longitude coordinates.
+
+{{< /alert >}}
 
 Make sure to run the migrations to update your database schema after making this change.
 
