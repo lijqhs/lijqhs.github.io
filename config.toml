@@ -148,7 +148,7 @@ canonifyurls = true
   identifier = ""
   name = "Blog"
   pre = "<i class=\"sidebar-button-icon fas fa-lg fa-rocket\" aria-hidden=\"true\"></i>"
-  url = "https://www.aaronnotes.com/blog/"
+  url = "https://blog.aaronnotes.com/"
 # [[menu.links]]
 #   weight = 5
 #   identifier = "about"
@@ -199,7 +199,7 @@ canonifyurls = true
   identifier = "Bonjour"
   name = "Bonjour"
   pre = "<i class=\"sidebar-button-icon fas fa-lg fa-fish\" aria-hidden=\"true\"></i>"
-  url = "https://www.aaronnotes.com/bonjour"
+  url = "https://bonjour.aaronnotes.com/"
 
 # -------------
 # Customization
